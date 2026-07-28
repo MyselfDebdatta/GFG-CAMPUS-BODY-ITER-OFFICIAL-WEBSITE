@@ -60,9 +60,21 @@ function Alumni() {
           {RECRUITERS.map((r) => (
             <div
               key={r.name}
-              className="group flex items-center justify-center rounded-xl border border-hairline bg-surface-elevated px-4 py-6 text-sm font-semibold text-muted-foreground grayscale hover:grayscale-0 hover:text-foreground hover:border-brand/30 transition-all"
+              className="group flex items-center justify-center rounded-xl border border-hairline bg-surface-elevated px-4 py-6 text-sm font-semibold text-muted-foreground hover:text-foreground hover:border-brand/30 transition-all"
             >
-              <img src={`https://cdn.simpleicons.org/${r.slug}`} alt={r.name} className="h-6 object-contain mr-2" onError={(e) => e.currentTarget.style.display = 'none'} />
+              <img 
+                src={`https://logo.clearbit.com/${r.domain}`} 
+                alt={r.name} 
+                className="h-6 object-contain mr-2" 
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  if (img.src.includes('logo.clearbit.com')) {
+                    img.src = `https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`;
+                  } else {
+                    img.style.display = 'none';
+                  }
+                }} 
+              />
               {r.name}
             </div>
           ))}
