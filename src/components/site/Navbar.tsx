@@ -67,46 +67,42 @@ export function Navbar() {
           )}
           aria-label="Primary"
         >
-          <Link to="/" className="flex items-center pl-2 h-10">
-            <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-8 w-auto object-contain scale-[1.7] md:scale-[2] origin-left" />
-          </Link>
+          <div className="flex-1 flex items-center justify-start">
+            <Link to="/" className="flex items-center pl-2 h-10">
+              <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-8 w-auto object-contain scale-[1.7] md:scale-[2] origin-left" />
+            </Link>
+          </div>
 
-          <ul className="hidden lg:flex items-center gap-1">
-            {NAV.map((item) => {
-              const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
-              return (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    className={cn(
-                      "relative px-3 py-2 text-sm font-medium rounded-lg transition-colors",
-                      "text-muted-foreground hover:text-foreground",
-                      active && "text-foreground",
-                    )}
-                  >
-                    {item.label}
-                    {active && (
-                      <motion.span
-                        layoutId="nav-active"
-                        className="absolute inset-0 -z-10 rounded-lg bg-brand/10"
-                        transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="hidden lg:flex flex-1 items-center justify-center">
+            <ul className="flex items-center gap-1">
+              {NAV.map((item) => {
+                const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+                return (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      className={cn(
+                        "relative px-3 py-2 text-sm font-medium rounded-lg transition-colors",
+                        "text-muted-foreground hover:text-foreground",
+                        active && "text-foreground",
+                      )}
+                    >
+                      {item.label}
+                      {active && (
+                        <motion.span
+                          layoutId="nav-active"
+                          className="absolute inset-0 -z-10 rounded-lg bg-brand/10"
+                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
-          <div className="flex items-center gap-1.5 pr-1">
-            <button
-              onClick={toggle}
-              aria-label="Toggle theme"
-              className="grid h-9 w-9 place-items-center rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-            >
-              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
-
+          <div className="flex-1 flex items-center justify-end gap-1.5 pr-1">
             <Button asChild size="sm" className="hidden md:inline-flex bg-white text-black hover:bg-gray-200 rounded-full h-10 px-5 font-bold transition-transform hover:scale-105">
               <Link to="/community" className="flex items-center gap-1.5">
                 Join Network <Zap className="h-4 w-4 fill-current" />
