@@ -454,28 +454,47 @@ function Home() {
       </section>
 
       {/* ALUMNI / RECRUITERS */}
-      <section className="border-y border-hairline bg-surface py-20">
-        <div className="container-page">
-          <SectionHeader
-            align="center"
-            eyebrow="Alumni network"
-            title="Where our alumni build"
-            description="Members of GFG ITER go on to top tech companies, research labs, and grad schools."
-          />
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {RECRUITERS.map((r) => (
-              <div
-                key={r}
-                className="group flex items-center justify-center rounded-xl border border-hairline bg-surface-elevated px-4 py-6 text-sm font-semibold text-muted-foreground grayscale hover:grayscale-0 hover:text-foreground hover:border-brand/30 transition-all"
-              >
-                {r}
-              </div>
-            ))}
+      <section className="relative overflow-hidden bg-[#020b06] py-24 border-y border-[#00ff7f]/20">
+        <div className="absolute inset-0 opacity-40">
+          <CanvasBackground />
+        </div>
+        
+        <div className="container-page relative z-10 flex flex-col items-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
+            ALUMNI NETWORK
+          </span>
+          
+          <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(0,255,127,0.2)] text-center">
+            Where our alumni build
+          </h2>
+          
+          <p className="mt-4 max-w-2xl text-center text-lg text-[#00ff7f]/60 font-medium">
+            Members of GFG ITER go on to top tech companies, research labs, and grad schools.
+          </p>
+
+          <div className="mt-20 w-full relative">
+            {/* Gradient edge masks */}
+            <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-[#020b06] to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-[#020b06] to-transparent z-10 pointer-events-none" />
+            
+            <div
+              className="flex w-max animate-marquee gap-16 whitespace-nowrap items-center"
+              style={{ animationDuration: "60s" }}
+            >
+              {[...RECRUITERS, ...RECRUITERS].map((r, i) => (
+                <span key={i} className="text-3xl md:text-5xl font-black uppercase tracking-widest text-transparent opacity-80 transition-all hover:opacity-100 hover:drop-shadow-[0_0_20px_rgba(0,255,127,0.8)] cursor-default" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>
+                  {r}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="mt-8 text-center">
-            <Button asChild variant="ghost" className="text-brand hover:text-brand hover:bg-brand/5">
-              <Link to="/alumni">
-                Meet our alumni <ArrowUpRight className="ml-1 h-4 w-4" />
+
+          <div className="mt-20 text-center">
+            <Button asChild className="group relative rounded-full border border-[#00ff7f]/50 bg-[#00ff7f]/5 px-8 py-6 text-[#00ff7f] font-bold text-lg backdrop-blur-md transition-all hover:bg-[#00ff7f]/10 hover:shadow-[0_0_25px_rgba(0,255,127,0.25)]">
+              <Link to="/alumni" className="flex items-center gap-2">
+                Meet our alumni 
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </Button>
           </div>
