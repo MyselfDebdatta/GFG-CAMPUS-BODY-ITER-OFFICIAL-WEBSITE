@@ -53,15 +53,18 @@ function ParticleBackground() {
     const y = (Math.cos(i * 17.2) * 50 + 50).toFixed(2);
     // Increased size to ensure they render as round circles, not sub-pixel squares
     const size = (Math.sin(i * 23) * 3 + 5).toFixed(2); 
-    const opacity = (Math.sin(i * 31) * 0.4 + 0.4).toFixed(2);
-    const delay = (Math.sin(i * 37) * 3).toFixed(2);
-    return { x, y, size, opacity, delay, id: i };
+    const opacity = (Math.sin(i * 31) * 0.3 + 0.3).toFixed(2);
+    const duration = (Math.sin(i * 37) * 15 + 25).toFixed(2); // 10s to 40s
+    // Pseudo-random drift distances for space vibe
+    const xMove = (Math.sin(i * 41) * 120).toFixed(2); // -120px to 120px
+    const yMove = (Math.cos(i * 43) * 120).toFixed(2); // -120px to 120px
+    return { x, y, size, opacity, duration, xMove, yMove, id: i };
   });
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map((p) => (
-        <div
+        <motion.div
           key={p.id}
           className="absolute rounded-full bg-[#00ff66]"
           style={{
@@ -69,9 +72,17 @@ function ParticleBackground() {
             top: `${p.y}%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            opacity: p.opacity,
             boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,255,102,0.6)`,
-            animation: `pulse 3s infinite ${p.delay}s alternate`,
+          }}
+          animate={{
+            x: [0, parseFloat(p.xMove), 0],
+            y: [0, parseFloat(p.yMove), 0],
+            opacity: [parseFloat(p.opacity), parseFloat(p.opacity) * 1.5, parseFloat(p.opacity)],
+          }}
+          transition={{
+            duration: parseFloat(p.duration),
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
       ))}
@@ -153,7 +164,8 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-background -mt-24 pt-24">
+      <section className="relative overflow-hidden bg-[#010a05] -mt-24 pt-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,100,40,0.35),_transparent_75%)]" />
         <ParticleBackground />
         <FloatingIcons />
         <div className="container-page relative py-20 md:py-32">
