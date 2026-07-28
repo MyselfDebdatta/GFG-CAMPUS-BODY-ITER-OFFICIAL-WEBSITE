@@ -66,13 +66,13 @@ function ParticleBackground() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-[#00ff66]"
+          className="absolute rounded-full bg-[#00e676]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,255,102,0.6)`,
+            boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,230,118,0.6)`,
           }}
           animate={{
             x: [0, parseFloat(p.xMove), 0],
@@ -185,12 +185,12 @@ function Home() {
               <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain -ml-2 md:-ml-4" />
             </motion.div>
 
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff66]/30 bg-[#00ff66]/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-[#00ff66] backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5" /> Official SOA University Student Chapter
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-[#00e676]/30 bg-[#00e676]/10 px-5 py-2 text-sm font-semibold tracking-[0.1em] text-[#00e676] backdrop-blur-md">
+              <Sparkles className="h-4 w-4" /> Official SOA University Student Chapter
             </span>
 
             <div className="mt-6 mb-4">
-              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00ff66]">
+              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00e676]">
                 GeeksForGeeks
               </h2>
             </div>
