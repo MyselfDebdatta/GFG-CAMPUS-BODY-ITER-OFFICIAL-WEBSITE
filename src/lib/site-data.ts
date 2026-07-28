@@ -160,7 +160,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Dr. Nikhil Sen",
+    name: "Anubhab Samantary",
     role: "Coordinator",
     group: "Faculty",
     bio: "Associate Professor, Dept. of CSE. Mentor to the chapter.",
@@ -168,7 +168,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Dr. Anjali Das",
+    name: "Akansha Ajay",
     role: "Coordinator",
     group: "Faculty",
     bio: "Assistant Professor. Guiding students in research and open source.",
@@ -176,7 +176,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Rohan Kapoor",
+    name: "Ayush R. Pradhan",
     role: "Community Mentor",
     group: "Mentors",
     bio: "Alumni. Helping students transition from campus to industry.",
@@ -184,7 +184,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Kabir Sharma",
+    name: "Abhijit Dash",
     role: "Tech Lead",
     group: "Technical Team",
     bio: "Open source maintainer. Loves TypeScript, Rust, and systems.",
@@ -192,7 +192,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Isha Nanda",
+    name: "Sanyukt Kumar Rai",
     role: "Design Lead",
     group: "Design Team",
     bio: "Product designer. Runs the club's design system and brand.",
@@ -200,7 +200,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Meera Iyer",
+    name: "Aastha Singh",
     role: "PR & Media Lead",
     group: "Marketing",
     bio: "Brand storyteller. Grows the club community online and offline.",
@@ -208,7 +208,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Ayaan Roy",
+    name: "Subhakanta Das",
     role: "Operations Lead",
     group: "Event Management",
     bio: "Orchestrates hackathons, bootcamps, and campus-wide summits.",

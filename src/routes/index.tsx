@@ -398,15 +398,16 @@ function Home() {
 
             {/* Timeline: Past Events */}
             <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-8 pl-5">
                 <div className="h-2.5 w-2.5 rounded-full bg-white/60 shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
                 <h3 className="text-xl font-bold tracking-tight text-white">Past Events</h3>
               </div>
-              <div className="relative border-l-2 border-white/10 ml-1.5 space-y-8 pb-4 max-h-[600px] overflow-y-auto custom-scrollbar pr-2 sm:pr-4">
-                {EVENTS.filter((e) => e.status === "past").map((e, i) => (
-                  <Reveal key={e.id} delay={i * 0.1}>
-                    <div className="relative pl-8 sm:pl-12 group">
-                      <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-hover:border-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
+              <div className="max-h-[760px] overflow-y-auto custom-scrollbar pr-2 sm:pr-4 pl-6 -ml-6 py-2">
+                <div className="relative border-l-2 border-white/10 space-y-8 pb-4">
+                  {EVENTS.filter((e) => e.status === "past").map((e, i) => (
+                    <Reveal key={e.id} delay={i * 0.1}>
+                      <div className="relative pl-8 sm:pl-12 group">
+                        <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-hover:border-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
                         <EventIcon category={e.category} />
                       </div>
                       <Link to="/events" className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex">
@@ -433,6 +434,7 @@ function Home() {
                     </div>
                   </Reveal>
                 ))}
+                </div>
               </div>
             </div>
           </div>
