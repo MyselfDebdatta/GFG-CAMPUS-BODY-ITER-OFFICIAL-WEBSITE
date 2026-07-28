@@ -75,10 +75,10 @@
   --input: oklch(0.92 0.008 250);
   --ring: oklch(0.55 0.14 152);
 
-  /* GeeksforGeeks brand green #2F8D46 */
-  --brand: oklch(0.55 0.14 152);
-  --brand-foreground: oklch(0.99 0.003 250);
-  --brand-soft: oklch(0.96 0.04 152);
+  /* Minty Emerald Green #00E676 */
+  --brand: #00e676;
+  --brand-foreground: oklch(0.1 0.02 260);
+  --brand-soft: color-mix(in oklab, #00e676 20%, transparent);
 }
 
 .dark {
@@ -109,9 +109,9 @@
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.62 0.15 152);
 
-  --brand: oklch(0.62 0.15 152);
+  --brand: #00e676;
   --brand-foreground: oklch(0.1 0.02 260);
-  --brand-soft: oklch(0.28 0.06 152);
+  --brand-soft: color-mix(in oklab, #00e676 15%, transparent);
 }
 
 @layer base {
