@@ -80,34 +80,30 @@ function FloatingTechElements() {
       {elementsData.map((item, i) => (
         <motion.div
           key={i}
-          className="absolute flex items-center justify-center backdrop-blur-md rounded-2xl border border-white/10 bg-white/5"
+          className="absolute flex items-center justify-center"
           style={{
             top: item.top,
             left: item.left,
             right: item.right,
             color: item.color,
-            width: item.size * 1.8,
-            height: item.size * 1.8,
             opacity: 0.35,
-            filter: `drop-shadow(0 0 10px ${item.color})`,
-            boxShadow: `inset 0 0 15px rgba(255,255,255,0.05)`,
           }}
           animate={{
             y: [0, -20, 0],
-            rotate: [item.rot, item.rot + (i % 2 === 0 ? 360 : -360)],
+            rotateY: [item.rot, item.rot + (i % 2 === 0 ? 360 : -360)],
             scale: [0.95, 1.05, 0.95],
             x: mousePos.x * (i % 2 === 0 ? 1 : -1),
             marginTop: mousePos.y * (i % 2 === 0 ? 1 : -1),
           }}
           transition={{
             y: { duration: item.duration, repeat: Infinity, ease: "easeInOut", delay: item.delay },
-            rotate: { duration: item.duration * 2, repeat: Infinity, ease: "linear" },
+            rotateY: { duration: item.duration * 1.5, repeat: Infinity, ease: "linear" },
             scale: { duration: item.duration * 0.8, repeat: Infinity, ease: "easeInOut", delay: item.delay },
             x: { type: "spring", stiffness: 40, damping: 20 },
             marginTop: { type: "spring", stiffness: 40, damping: 20 }
           }}
         >
-          <item.Icon size={item.size} strokeWidth={1} />
+          <item.Icon size={item.size} strokeWidth={1.5} />
         </motion.div>
       ))}
     </div>
