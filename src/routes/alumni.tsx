@@ -56,13 +56,14 @@ function Alumni() {
       {/* Recruiters */}
       <section className="container-page py-20">
         <SectionHeader eyebrow="Top recruiters" title="Where our alumni build" align="center" />
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
           {RECRUITERS.map((r) => (
             <div
-              key={r}
-              className="group flex items-center justify-center rounded-xl border border-hairline bg-surface-elevated px-4 py-8 text-base font-bold tracking-tight text-muted-foreground grayscale hover:grayscale-0 hover:text-brand hover:border-brand/30 transition-all"
+              key={r.name}
+              className="group flex items-center justify-center rounded-xl border border-hairline bg-surface-elevated px-4 py-6 text-sm font-semibold text-muted-foreground grayscale hover:grayscale-0 hover:text-foreground hover:border-brand/30 transition-all"
             >
-              {r}
+              <img src={`https://logo.clearbit.com/${r.domain}`} alt={r.name} className="h-6 object-contain mr-2" onError={(e) => e.currentTarget.style.display = 'none'} />
+              {r.name}
             </div>
           ))}
         </div>

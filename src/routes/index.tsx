@@ -478,15 +478,32 @@ function Home() {
             <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-[#020b06] to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-[#020b06] to-transparent z-10 pointer-events-none" />
             
-            <div
-              className="flex w-max animate-marquee gap-16 whitespace-nowrap items-center"
-              style={{ animationDuration: "60s" }}
-            >
-              {[...RECRUITERS, ...RECRUITERS].map((r, i) => (
-                <span key={i} className="text-3xl md:text-5xl font-black uppercase tracking-widest text-transparent opacity-80 transition-all hover:opacity-100 hover:drop-shadow-[0_0_20px_rgba(0,255,127,0.8)] cursor-default" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>
-                  {r}
-                </span>
-              ))}
+            <div className="flex flex-col gap-16">
+              {/* Row 1: Left to Right */}
+              <div
+                className="flex w-max animate-marquee gap-24 whitespace-nowrap items-center"
+                style={{ animationDuration: "50s" }}
+              >
+                {[...RECRUITERS.slice(0, 14), ...RECRUITERS.slice(0, 14)].map((r, i) => (
+                  <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
+                    <img src={`https://logo.clearbit.com/${r.domain}`} alt={r.name} className="h-16 object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+                    <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Row 2: Right to Left */}
+              <div
+                className="flex w-max animate-marquee-reverse gap-24 whitespace-nowrap items-center"
+                style={{ animationDuration: "55s" }}
+              >
+                {[...RECRUITERS.slice(14), ...RECRUITERS.slice(14)].map((r, i) => (
+                  <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
+                    <img src={`https://logo.clearbit.com/${r.domain}`} alt={r.name} className="h-16 object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+                    <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
