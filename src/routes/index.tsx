@@ -300,7 +300,7 @@ function Home() {
                 { icon: Rocket, title: "Ship real projects", body: "From weekend hacks to campus-wide platforms." },
                 { icon: Trophy, title: "Compete & win", body: "Represent ITER at hackathons across India." },
               ].map((f) => (
-                <div key={f.title} className="group rounded-xl border border-[#00ff7f]/20 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/50 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)]">
+                <div key={f.title} className="group rounded-xl border border-[#00ff7f]/20 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:bg-white/10 hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
                   <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-hover:bg-[#00ff7f]/20 group-hover:scale-110">
                     <f.icon className="h-4 w-4" />
                   </div>
@@ -363,7 +363,7 @@ function Home() {
             <div className="grid gap-6 md:grid-cols-2">
               {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.1}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/60 hover:shadow-[0_0_40px_rgba(0,255,127,0.2)] relative group">
+                  <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group">
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
                       <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UPCOMING
                     </div>
@@ -373,7 +373,7 @@ function Home() {
               ))}
               {EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.2}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300 hover:border-[#3b82f6]/70 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] relative group">
+                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300 hover:border-[#3b82f6] hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group">
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                       <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                     </div>
@@ -394,7 +394,7 @@ function Home() {
                   <Reveal key={e.id} delay={i * 0.1}>
                     <div className="relative pl-8 sm:pl-12 group">
                       <div className="absolute left-[-5px] top-4 h-2 w-2 rounded-full bg-[#00ff7f]/50 ring-4 ring-[#020b06] transition-all group-hover:bg-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,1)]" />
-                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] sm:flex">
+                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] sm:flex">
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
                             src={e.image}
@@ -444,7 +444,7 @@ function Home() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {TEAM.slice(0, 9).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
-              <div className="group relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)]">
+              <div className="group relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
                     src={m.photo}
@@ -590,7 +590,7 @@ function Home() {
             style={{ animationDuration: "50s" }}
           >
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-              <figure key={i} className="relative w-[300px] sm:w-[380px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.2)] group cursor-default whitespace-normal flex flex-col justify-between">
+              <figure key={i} className="relative w-[300px] sm:w-[380px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] group cursor-default whitespace-normal flex flex-col justify-between">
                 <div className="absolute -right-4 -top-8 text-[140px] font-serif leading-none text-[#00ff7f]/5 group-hover:text-[#00ff7f]/10 transition-colors pointer-events-none select-none">"</div>
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00ff7f]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
