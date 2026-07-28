@@ -225,10 +225,10 @@ function Home() {
               <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0 relative">
                 {STATS.map((s, i) => (
                   <div key={s.label} className="relative text-center group">
-                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(0,255,127,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_25px_rgba(0,255,127,0.8)]">
+                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white transition-all duration-300 group-hover:scale-110 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]">
                       <Counter to={s.value} suffix={s.suffix} />
                     </div>
-                    <div className="mt-3 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#00ff7f]/70 group-hover:text-[#00ff7f] transition-colors">
+                    <div className="mt-3 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#00ff7f]/70 group-hover:text-[#32CD32] transition-colors">
                       {s.label}
                     </div>
 
