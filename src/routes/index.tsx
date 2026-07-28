@@ -616,18 +616,18 @@ function Home() {
 
       {/* NEWSLETTER CTA */}
       <section className="relative z-10 container-page pb-24">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#060D09] p-8 md:p-16">
+        <div className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#060D09] p-8 md:p-10 transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
           {/* Uniform Grid Background */}
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
           
-          <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/20 bg-[#00ff7f]/10 px-4 py-1.5 text-xs font-bold tracking-[0.1em] text-[#00ff7f] mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f]" />
                 STAY IN THE LOOP
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-4">
-                Event drops, project<br className="hidden sm:block" /> updates, opportunities.
+                Event drops, project updates, opportunities.
               </h2>
               <p className="text-lg text-white/60 font-medium">
                 One email a month. No spam. Ever.
