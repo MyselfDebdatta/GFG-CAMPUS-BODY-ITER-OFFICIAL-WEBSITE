@@ -56,20 +56,20 @@ export const EVENTS = [
       "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=70",
   },
   {
-    id: "dsa-bootcamp",
-    title: "DSA Winter Bootcamp",
-    category: "Bootcamp",
-    date: "Feb 05 – 20, 2026",
-    venue: "Online + Campus Labs",
+    id: "gfg-skill-exchange",
+    title: "GFG Skill Exchange Workshop",
+    category: "Workshop",
+    date: "July 01 – Aug 31, 2026",
+    venue: "ITER Central Labs",
     status: "ongoing",
     speakers: [
-      { name: "Sanjay Kar", role: "MS CS", photo: "https://i.pravatar.cc/150?img=68" },
-      { name: "Priya Mahapatra", role: "AI/ML Lead", photo: "https://i.pravatar.cc/150?img=32" }
+      { name: "Kabir Sharma", role: "Tech Lead", photo: "https://i.pravatar.cc/150?img=15" },
+      { name: "Isha Nanda", role: "Design Lead", photo: "https://i.pravatar.cc/150?img=45" }
     ],
     description:
-      "A structured two-week deep dive into data structures, algorithms, and problem-solving patterns.",
+      "A comprehensive two-month mentorship initiative where senior engineers lead hands-on sessions across diverse tech domains, accelerating your mastery of modern tech stacks.",
     image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=70",
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "cp-contest-9",
