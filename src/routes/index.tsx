@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
+import { CanvasBackground } from "@/components/site/CanvasBackground";
 import {
   STATS,
   MARQUEE,
@@ -47,48 +48,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-function ParticleBackground() {
-  const particles = Array.from({ length: 120 }).map((_, i) => {
-    const x = (Math.sin(i * 13.5) * 50 + 50).toFixed(2);
-    const y = (Math.cos(i * 17.2) * 50 + 50).toFixed(2);
-    // Increased size to ensure they render as round circles, not sub-pixel squares
-    const size = (Math.sin(i * 23) * 3 + 5).toFixed(2); 
-    const opacity = (Math.sin(i * 31) * 0.3 + 0.3).toFixed(2);
-    const duration = (Math.sin(i * 37) * 15 + 25).toFixed(2); // 10s to 40s
-    // Pseudo-random drift distances for space vibe
-    const xMove = (Math.sin(i * 41) * 120).toFixed(2); // -120px to 120px
-    const yMove = (Math.cos(i * 43) * 120).toFixed(2); // -120px to 120px
-    return { x, y, size, opacity, duration, xMove, yMove, id: i };
-  });
 
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full bg-[#00ff7f]"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,255,127,0.6)`,
-          }}
-          animate={{
-            x: [0, parseFloat(p.xMove), 0],
-            y: [0, parseFloat(p.yMove), 0],
-            opacity: [parseFloat(p.opacity), parseFloat(p.opacity) * 1.5, parseFloat(p.opacity)],
-          }}
-          transition={{
-            duration: parseFloat(p.duration),
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 function FloatingIcons() {
   return (
@@ -164,8 +124,8 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#031c0c] to-[#010a05] -mt-24 pt-24">
-        <ParticleBackground />
+      <section className="relative overflow-hidden bg-[#020b06] -mt-24 pt-24">
+        <CanvasBackground />
         <FloatingIcons />
         <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
           <motion.div
