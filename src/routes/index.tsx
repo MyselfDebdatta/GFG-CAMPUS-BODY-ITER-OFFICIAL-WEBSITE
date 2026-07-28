@@ -167,7 +167,7 @@ function Home() {
       <section className="relative overflow-hidden bg-gradient-to-b from-[#031c0c] to-[#010a05] -mt-24 pt-24">
         <ParticleBackground />
         <FloatingIcons />
-        <div className="container-page relative py-20 md:py-32">
+        <div className="container-page relative pt-12 pb-20 md:pt-16 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -178,11 +178,11 @@ function Home() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-6 md:gap-10 mb-10"
+              className="flex items-center gap-6 md:gap-8 mb-8"
             >
-              <img src="/SOA-PNG.webp" alt="SOA University" className="h-20 md:h-28 w-auto object-contain" />
-              <div className="h-16 md:h-20 w-px bg-white/20" />
-              <img src="/gfg-logo.png" alt="GFG Logo" className="h-28 md:h-40 w-auto object-contain" />
+              <img src="/SOA-PNG.webp" alt="SOA University" className="h-16 md:h-20 w-auto object-contain" />
+              <div className="h-12 md:h-16 w-px bg-white/20" />
+              <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain" />
             </motion.div>
 
             <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff66]/30 bg-[#00ff66]/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-[#00ff66] backdrop-blur-md">
