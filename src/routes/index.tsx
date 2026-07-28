@@ -206,18 +206,39 @@ function Home() {
           </motion.div>
 
           {/* Stats */}
-          <Reveal delay={0.15} className="mx-auto mt-16 max-w-5xl">
-            <div className="grid grid-cols-2 gap-4 rounded-2xl border border-hairline bg-surface-elevated p-6 md:grid-cols-4 md:gap-8 md:p-10 shadow-[0_10px_60px_-30px_rgba(15,23,42,0.2)]">
-              {STATS.map((s) => (
-                <div key={s.label} className="text-center">
-                  <div className="text-3xl font-bold tracking-tight md:text-4xl">
-                    <Counter to={s.value} suffix={s.suffix} />
+          <Reveal delay={0.15} className="mx-auto mt-20 max-w-5xl relative z-20">
+            <div className="relative rounded-3xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-xl p-8 md:p-12 shadow-[inset_0_0_20px_rgba(0,255,127,0.05),0_15px_40px_-10px_rgba(0,0,0,0.8)]">
+              
+              {/* ESTD 2025 Badge */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full border border-[#00ff7f]/50 bg-[#020b06] px-5 py-1.5 text-xs font-bold tracking-[0.2em] text-[#00ff7f] shadow-[0_0_15px_rgba(0,255,127,0.3)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
+                ESTD 2025
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
+              </div>
+
+              {/* Glowing Corner Accents */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#00ff7f]/40 rounded-tl-3xl" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#00ff7f]/40 rounded-tr-3xl" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#00ff7f]/40 rounded-bl-3xl" />
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#00ff7f]/40 rounded-br-3xl" />
+
+              <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0 relative">
+                {STATS.map((s, i) => (
+                  <div key={s.label} className="relative text-center group">
+                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(0,255,127,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_25px_rgba(0,255,127,0.8)]">
+                      <Counter to={s.value} suffix={s.suffix} />
+                    </div>
+                    <div className="mt-3 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#00ff7f]/70 group-hover:text-[#00ff7f] transition-colors">
+                      {s.label}
+                    </div>
+
+                    {/* Faint Divider lines for Desktop */}
+                    {i !== STATS.length - 1 && (
+                      <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#00ff7f]/30 to-transparent" />
+                    )}
                   </div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

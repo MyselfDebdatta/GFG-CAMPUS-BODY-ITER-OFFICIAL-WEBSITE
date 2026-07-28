@@ -17,9 +17,9 @@ export const CLUB = {
 };
 
 export const STATS = [
-  { value: 500, suffix: "+", label: "Active Members" },
-  { value: 20, suffix: "+", label: "Projects Shipped" },
-  { value: 15, suffix: "+", label: "Events Hosted" },
+  { value: 100, suffix: "+", label: "Active Members" },
+  { value: 10, suffix: "+", label: "Projects Shipped" },
+  { value: 10, suffix: "+", label: "Events Hosted" },
   { value: 10, suffix: "+", label: "Alumni at Top MNCs" },
 ];
 
