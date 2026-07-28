@@ -386,15 +386,15 @@ function Home() {
             {/* Timeline: Past Events */}
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-8">
-                <div className="h-2.5 w-2.5 rounded-full bg-[#00ff7f] shadow-[0_0_10px_rgba(0,255,127,0.8)]" />
+                <div className="h-2.5 w-2.5 rounded-full bg-white/60 shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
                 <h3 className="text-xl font-bold tracking-tight text-white">Past Events</h3>
               </div>
-              <div className="relative border-l-2 border-[#00ff7f]/20 ml-1.5 space-y-8 pb-4">
+              <div className="relative border-l-2 border-white/10 ml-1.5 space-y-8 pb-4">
                 {EVENTS.filter((e) => e.status === "past").map((e, i) => (
                   <Reveal key={e.id} delay={i * 0.1}>
                     <div className="relative pl-8 sm:pl-12 group">
-                      <div className="absolute left-[-5px] top-4 h-2 w-2 rounded-full bg-[#00ff7f]/50 ring-4 ring-[#020b06] transition-all group-hover:bg-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,1)]" />
-                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] sm:flex">
+                      <div className="absolute left-[-5px] top-4 h-2 w-2 rounded-full bg-white/30 ring-4 ring-[#020b06] transition-all group-hover:bg-white/80 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex">
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
                             src={e.image}
@@ -408,11 +408,11 @@ function Home() {
                         </div>
                         <div className="p-5 sm:w-2/3 flex flex-col justify-center">
                           <div className="flex items-center gap-3 text-xs font-medium">
-                            <span className="rounded-full bg-[#00ff7f]/10 border border-[#00ff7f]/20 px-2.5 py-0.5 text-[#00ff7f]">{e.category}</span>
+                            <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 text-white/70">{e.category}</span>
                             <span className="text-white/60">{e.date}</span>
                           </div>
                           <h4 className="mt-3 text-lg font-bold">{e.title}</h4>
-                          <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{e.description}</p>
+                          <p className="mt-2 text-sm text-muted-foreground">{e.description}</p>
                         </div>
                       </Link>
                     </div>
@@ -675,7 +675,7 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
       <div className="flex flex-col flex-1 p-6 md:p-8">
         <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
         <h3 className="mt-2 text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all">{event.title}</h3>
-        <p className="mt-3 text-base text-white/60 line-clamp-2 flex-1">{event.description}</p>
+        <p className="mt-3 text-base text-white/60 flex-1">{event.description}</p>
         <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors" style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}>
           Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </div>
