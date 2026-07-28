@@ -91,23 +91,7 @@ export function CanvasBackground() {
       ctx.fillStyle = bgGradient;
       ctx.fillRect(0, 0, width, height);
 
-      // 2. Faint Grid Overlay
-      ctx.strokeStyle = "rgba(0, 255, 127, 0.03)";
-      ctx.lineWidth = 1;
-      
-      const gridOffsetX = targetX * 30;
-      const gridOffsetY = targetY * 30;
-      
-      ctx.beginPath();
-      for (let x = (gridOffsetX % gridSize) - gridSize; x < width + gridSize; x += gridSize) {
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-      }
-      for (let y = (gridOffsetY % gridSize) - gridSize; y < height + gridSize; y += gridSize) {
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-      }
-      ctx.stroke();
+      // 2. Grid Overlay Removed as per user request
 
       // 3. Floating Pixel Squares with bloom
       pixels.forEach(px => {
