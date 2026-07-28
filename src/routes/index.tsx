@@ -180,9 +180,9 @@ function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center gap-6 md:gap-10 mb-10"
             >
-              <img src="/SOA-PNG.webp" alt="SOA University" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+              <img src="/SOA-PNG.webp" alt="SOA University" className="h-20 md:h-28 w-auto object-contain" />
               <div className="h-16 md:h-20 w-px bg-white/20" />
-              <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_20px_rgba(0,255,102,0.3)]" />
+              <img src="/gfg-logo.png" alt="GFG Logo" className="h-28 md:h-40 w-auto object-contain" />
             </motion.div>
 
             <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff66]/30 bg-[#00ff66]/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-[#00ff66] backdrop-blur-md">
