@@ -48,11 +48,11 @@ export const Route = createFileRoute("/")({
 });
 
 function ParticleBackground() {
-  const particles = Array.from({ length: 80 }).map((_, i) => {
+  const particles = Array.from({ length: 150 }).map((_, i) => {
     const x = (Math.sin(i * 13.5) * 50 + 50).toFixed(2);
     const y = (Math.cos(i * 17.2) * 50 + 50).toFixed(2);
-    const size = (Math.sin(i * 23) * 2 + 2.5).toFixed(2);
-    const opacity = (Math.sin(i * 31) * 0.5 + 0.5).toFixed(2);
+    const size = (Math.sin(i * 23) * 1.5 + 1.5).toFixed(2);
+    const opacity = (Math.sin(i * 31) * 0.4 + 0.4).toFixed(2);
     const delay = (Math.sin(i * 37) * 3).toFixed(2);
     return { x, y, size, opacity, delay, id: i };
   });
@@ -152,7 +152,6 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-background -mt-24 pt-24">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,255,102,0.15),_transparent_70%)]" />
         <ParticleBackground />
         <FloatingIcons />
         <div className="container-page relative py-20 md:py-32">
@@ -176,7 +175,7 @@ function Home() {
             />
 
             <div className="mt-6 mb-4">
-              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00ff66] drop-shadow-[0_0_40px_rgba(0,255,102,0.5)]">
+              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00ff66]">
                 GeeksForGeeks
               </h2>
             </div>
