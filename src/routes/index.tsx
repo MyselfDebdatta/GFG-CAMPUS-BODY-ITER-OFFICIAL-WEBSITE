@@ -201,14 +201,14 @@ function Home() {
               Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
             <div className="mt-14 flex justify-center">
-              <Link to="/about" className="relative group block">
+              <Link to="/about" className="relative group block transition-transform duration-300 hover:-translate-y-1.5">
                 {/* Main Button */}
-                <div className="relative border-2 border-[#00e676] rounded-xl bg-transparent px-10 py-4 text-[#00e676] font-bold text-lg sm:text-xl transition-all duration-300 hover:bg-[#00e676]/10 hover:shadow-[0_0_30px_rgba(0,230,118,0.3)]">
+                <div className="relative border-2 border-[#00e676] rounded-xl bg-transparent px-10 py-4 text-[#00e676] font-bold text-lg sm:text-xl transition-all duration-300 group-hover:bg-[#00e676]/5 group-hover:shadow-[0_0_15px_rgba(0,230,118,0.2)]">
                   Join the Community
                 </div>
                 {/* Overlapping Pill */}
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00e676] bg-[#010a05] flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00e676] mt-1 animate-pulse" />
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00e676] bg-[#010a05] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_10px_rgba(0,230,118,0.2)]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00e676] mt-2 transition-all duration-300 group-hover:animate-dot-bounce" />
                 </div>
               </Link>
             </div>

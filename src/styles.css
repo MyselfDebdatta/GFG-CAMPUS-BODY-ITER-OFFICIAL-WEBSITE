@@ -188,3 +188,12 @@
 @utility animate-marquee {
   animation: marquee 40s linear infinite;
 }
+
+@keyframes dot-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@utility animate-dot-bounce {
+  animation: dot-bounce 1s ease-in-out infinite;
+}
