@@ -164,8 +164,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#010a05] -mt-24 pt-24">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,100,40,0.35),_transparent_75%)]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#031c0c] to-[#010a05] -mt-24 pt-24">
         <ParticleBackground />
         <FloatingIcons />
         <div className="container-page relative py-20 md:py-32">
