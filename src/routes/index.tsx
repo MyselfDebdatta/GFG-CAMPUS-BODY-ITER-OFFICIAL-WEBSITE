@@ -14,7 +14,10 @@ import {
   Braces,
   Binary,
   Terminal,
-  CirclePlay
+  CirclePlay,
+  Hexagon,
+  CircuitBoard,
+  Box
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,7 +53,48 @@ export const Route = createFileRoute("/")({
 
 
 
+function FloatingTechElements() {
+  const elementsData = [
+    { Icon: CircuitBoard, color: "#00ff7f", top: "15%", left: "10%", size: 48, delay: 0, duration: 12, rot: 5 },
+    { Icon: Code2, color: "#00ff7f", top: "65%", left: "12%", size: 42, delay: 2, duration: 15, rot: -8 },
+    { Icon: Hexagon, color: "#32cd32", top: "25%", right: "8%", size: 54, delay: 1, duration: 18, rot: 8 },
+    { Icon: Braces, color: "#00fa9a", top: "70%", right: "12%", size: 46, delay: 3, duration: 14, rot: -5 },
+    { Icon: Cpu, color: "#3cb371", top: "45%", left: "6%", size: 40, delay: 4, duration: 16, rot: 4 },
+  ];
 
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+      {elementsData.map((item, i) => (
+        <motion.div
+          key={i}
+          className="absolute flex items-center justify-center rounded-xl border border-[#00ff7f]/10"
+          style={{
+            top: item.top,
+            left: item.left,
+            right: item.right,
+            color: item.color,
+            width: item.size * 1.5,
+            height: item.size * 1.5,
+            opacity: 0.25,
+            filter: `drop-shadow(0 0 6px ${item.color})`,
+          }}
+          animate={{
+            y: [0, -15, 0],
+            rotate: [item.rot, item.rot + (i % 2 === 0 ? 8 : -8), item.rot],
+            scale: [0.98, 1.03, 0.98],
+          }}
+          transition={{
+            y: { duration: item.duration, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            rotate: { duration: item.duration * 1.2, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            scale: { duration: item.duration * 0.8, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+          }}
+        >
+          <item.Icon size={item.size} strokeWidth={1} />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 const TYPES = ["Geeks", "Programmers", "Developers", "Coders", "Creators", "Designers", "Enthusiasts"];
 
@@ -93,6 +137,7 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#020b06] -mt-24 pt-24">
         <CanvasBackground />
+        <FloatingTechElements />
         <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
