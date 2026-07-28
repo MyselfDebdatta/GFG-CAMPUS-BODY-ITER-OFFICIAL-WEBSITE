@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { CLUB } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
@@ -68,7 +68,7 @@ export function Navbar() {
           aria-label="Primary"
         >
           <Link to="/" className="flex items-center pl-2">
-            <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-10 w-auto object-contain" />
+            <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-14 md:h-16 w-auto object-contain" />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
@@ -107,8 +107,10 @@ export function Navbar() {
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
 
-            <Button asChild size="sm" className="hidden md:inline-flex bg-brand text-brand-foreground hover:bg-brand/90 rounded-lg h-9 px-4 font-semibold">
-              <Link to="/community">Join the Club</Link>
+            <Button asChild size="sm" className="hidden md:inline-flex bg-white text-black hover:bg-gray-200 rounded-full h-10 px-5 font-bold transition-transform hover:scale-105">
+              <Link to="/community" className="flex items-center gap-1.5">
+                Join Network <Zap className="h-4 w-4 fill-current" />
+              </Link>
             </Button>
 
             <button
@@ -142,9 +144,11 @@ export function Navbar() {
                     </Link>
                   </li>
                 ))}
-                <li className="p-2">
-                  <Button asChild className="w-full bg-brand text-brand-foreground hover:bg-brand/90">
-                    <Link to="/community">Join the Club</Link>
+                <li className="p-2 mt-2">
+                  <Button asChild className="w-full bg-white text-black hover:bg-gray-200 rounded-full font-bold h-11">
+                    <Link to="/community" className="flex items-center justify-center gap-1.5">
+                      Join Network <Zap className="h-4 w-4 fill-current" />
+                    </Link>
                   </Button>
                 </li>
               </ul>
