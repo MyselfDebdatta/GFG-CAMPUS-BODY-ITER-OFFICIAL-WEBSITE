@@ -190,6 +190,15 @@
   animation: marquee 40s linear infinite;
 }
 
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@utility animate-marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+}
+
 @keyframes dot-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }

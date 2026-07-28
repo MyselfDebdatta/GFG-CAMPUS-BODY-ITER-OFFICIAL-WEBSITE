@@ -245,17 +245,38 @@ function Home() {
       </section>
 
       {/* MARQUEE */}
-      <section className="border-y border-hairline bg-surface py-6 overflow-hidden">
-        <div
-          className="flex w-max animate-marquee gap-10 whitespace-nowrap"
-          style={{ animationDuration: "40s" }}
-        >
-          {[...MARQUEE, ...MARQUEE].map((m, i) => (
-            <span key={i} className="flex items-center gap-3 text-sm font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand/60" />
-              {m}
-            </span>
-          ))}
+      <section className="relative border-y border-[#00ff7f]/20 bg-[#020b06] py-12 overflow-hidden">
+        {/* Gradient edge masks for smooth fade out */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020b06] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020b06] to-transparent z-10 pointer-events-none" />
+        
+        {/* Slanted Container */}
+        <div className="flex flex-col gap-6 transform -rotate-2 scale-105">
+          {/* Row 1: Left to Right (Outline Text) */}
+          <div
+            className="flex w-max animate-marquee gap-8 whitespace-nowrap"
+            style={{ animationDuration: "50s" }}
+          >
+            {[...MARQUEE, ...MARQUEE].map((m, i) => (
+              <span key={i} className="flex items-center gap-8 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-widest text-transparent" style={{ WebkitTextStroke: "1.5px rgba(0, 255, 127, 0.6)" }}>
+                {m}
+                <Sparkles className="w-10 h-10 text-[#00ff7f]/60" />
+              </span>
+            ))}
+          </div>
+
+          {/* Row 2: Right to Left (Solid Neon Text) */}
+          <div
+            className="flex w-max animate-marquee-reverse gap-8 whitespace-nowrap"
+            style={{ animationDuration: "45s" }}
+          >
+            {[...MARQUEE, ...MARQUEE].reverse().map((m, i) => (
+              <span key={i} className="flex items-center gap-8 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ textShadow: "0 0 25px rgba(0,255,127,0.4)" }}>
+                {m}
+                <Sparkles className="w-10 h-10 text-[#00ff7f]/60" />
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
