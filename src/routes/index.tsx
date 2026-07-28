@@ -14,7 +14,15 @@ import {
   Braces,
   Binary,
   Terminal,
-  CirclePlay
+  CirclePlay,
+  Box,
+  Cloud,
+  Network,
+  GitBranch,
+  Zap,
+  Database,
+  Hexagon,
+  Square
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,37 +58,68 @@ export const Route = createFileRoute("/")({
 
 
 
-function FloatingIcons() {
+function FloatingBackgroundElements() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 40,
+        y: (e.clientY / window.innerHeight - 0.5) * 40,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const elementsData = [
+    { Icon: Box, color: "#00ff7f", top: "10%", left: "5%", size: 48, delay: 0, duration: 12, rot: 15 },
+    { Icon: Code2, color: "#00ffff", top: "70%", left: "10%", size: 40, delay: 2, duration: 15, rot: -10 },
+    { Icon: Hexagon, color: "#a020f0", top: "20%", right: "8%", size: 56, delay: 1, duration: 18, rot: 20 },
+    { Icon: Terminal, color: "#ffff00", top: "80%", right: "12%", size: 44, delay: 3, duration: 14, rot: -15 },
+    { Icon: Database, color: "#ffa500", top: "40%", left: "8%", size: 50, delay: 4, duration: 16, rot: 10 },
+    { Icon: Network, color: "#7df9ff", top: "50%", right: "5%", size: 48, delay: 0.5, duration: 17, rot: -5 },
+    { Icon: GitBranch, color: "#00ff7f", top: "15%", left: "25%", size: 36, delay: 5, duration: 13, rot: 8 },
+    { Icon: Cloud, color: "#00ffff", top: "85%", left: "30%", size: 52, delay: 1.5, duration: 19, rot: -8 },
+    { Icon: Zap, color: "#ffff00", top: "10%", right: "30%", size: 40, delay: 2.5, duration: 11, rot: 12 },
+    { Icon: Braces, color: "#a020f0", top: "75%", right: "25%", size: 46, delay: 3.5, duration: 15, rot: -12 },
+    { Icon: Square, color: "#ffa500", top: "35%", right: "15%", size: 38, delay: 6, duration: 20, rot: 25 },
+    { Icon: Cpu, color: "#7df9ff", top: "60%", left: "15%", size: 42, delay: 4.5, duration: 16, rot: -20 },
+  ];
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <motion.div
-        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[20%] left-[15%] text-brand/30"
-      >
-        <Cpu className="w-12 h-12" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 30, 0], rotate: [0, -15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[40%] right-[15%] text-brand/20"
-      >
-        <Braces className="w-16 h-16" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, -15, 0], rotate: [0, 20, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[20%] left-[25%] text-brand/25"
-      >
-        <Binary className="w-10 h-10" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 25, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[15%] right-[30%] text-brand/30"
-      >
-        <Terminal className="w-8 h-8" />
-      </motion.div>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+      {elementsData.map((item, i) => (
+        <motion.div
+          key={i}
+          className="absolute flex items-center justify-center backdrop-blur-md rounded-2xl border border-white/10 bg-white/5"
+          style={{
+            top: item.top,
+            left: item.left,
+            right: item.right,
+            color: item.color,
+            width: item.size * 1.8,
+            height: item.size * 1.8,
+            opacity: 0.35,
+            filter: `drop-shadow(0 0 10px ${item.color})`,
+            boxShadow: `inset 0 0 20px rgba(255,255,255,0.05)`,
+          }}
+          animate={{
+            y: [0, -25, 0],
+            rotate: [item.rot, item.rot + (i % 2 === 0 ? 12 : -12), item.rot],
+            scale: [0.95, 1.05, 0.95],
+            x: mousePos.x * (i % 2 === 0 ? 1.5 : -1.5),
+          }}
+          transition={{
+            y: { duration: item.duration, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            rotate: { duration: item.duration * 1.2, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            scale: { duration: item.duration * 0.8, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            x: { type: "spring", stiffness: 40, damping: 25 }
+          }}
+        >
+          <item.Icon size={item.size} strokeWidth={1} />
+        </motion.div>
+      ))}
     </div>
   );
 }
@@ -126,7 +165,7 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#020b06] -mt-24 pt-24">
         <CanvasBackground />
-        <FloatingIcons />
+        <FloatingBackgroundElements />
         <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
