@@ -174,18 +174,20 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-5xl text-center flex flex-col items-center"
           >
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex items-center gap-6 md:gap-10 mb-10"
+            >
+              <img src="/soa-logo.png" alt="SOA University" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+              <div className="h-16 md:h-20 w-px bg-white/20" />
+              <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_20px_rgba(0,255,102,0.3)]" />
+            </motion.div>
+
             <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff66]/30 bg-[#00ff66]/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-[#00ff66] backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5" /> Official SOA University Student Chapter
             </span>
-            
-            <motion.img 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
-              src="/gfg-logo.png" 
-              alt="GFG Logo" 
-              className="mt-12 h-32 md:h-48 w-auto object-contain drop-shadow-[0_0_25px_rgba(0,255,102,0.4)]" 
-            />
 
             <div className="mt-6 mb-4">
               <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00ff66]">
