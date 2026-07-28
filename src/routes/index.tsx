@@ -190,7 +190,7 @@ function Home() {
             </span>
 
             <div className="mt-6 mb-4">
-              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00e676]">
+              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-normal text-[#00e676]">
                 GeeksForGeeks
               </h2>
             </div>
@@ -200,15 +200,17 @@ function Home() {
             <p className="mx-auto mt-8 max-w-3xl text-base text-muted-foreground sm:text-xl leading-relaxed">
               Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90 h-12 px-8 font-bold text-base shadow-[0_0_20px_rgba(47,141,70,0.4)]">
-                <Link to="/events/$eventId" params={{ eventId: "hack-iter-26" }}>
-                  Register for HackITER 2026 <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="h-12 px-8 font-bold text-base border-foreground/20 backdrop-blur-sm bg-background/50">
-                <Link to="/about">Learn More</Link>
-              </Button>
+            <div className="mt-14 flex justify-center">
+              <Link to="/about" className="relative group block">
+                {/* Main Button */}
+                <div className="relative border-2 border-[#00e676] rounded-xl bg-transparent px-10 py-4 text-[#00e676] font-bold text-lg sm:text-xl transition-all duration-300 hover:bg-[#00e676]/10 hover:shadow-[0_0_30px_rgba(0,230,118,0.3)]">
+                  Join the Community
+                </div>
+                {/* Overlapping Pill */}
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00e676] bg-[#010a05] flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00e676] mt-1 animate-pulse" />
+                </div>
+              </Link>
             </div>
           </motion.div>
 
