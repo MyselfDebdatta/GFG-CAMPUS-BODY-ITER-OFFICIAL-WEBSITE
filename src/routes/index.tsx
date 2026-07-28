@@ -329,7 +329,7 @@ function Home() {
             </Button>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent shadow-[0_0_40px_rgba(0,255,127,0.1)] group transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent group transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70"
                 alt="GFG ITER community at a workshop"
@@ -386,7 +386,7 @@ function Home() {
               ))}
               {EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.2}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300 hover:border-[#3b82f6] hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group">
+                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#3b82f6] hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group">
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                       <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                     </div>
