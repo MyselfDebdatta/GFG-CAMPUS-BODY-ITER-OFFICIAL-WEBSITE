@@ -60,7 +60,7 @@ export const EVENTS = [
     title: "GFG Skill Exchange Workshop",
     category: "Workshop",
     date: "July 01 – Aug 31, 2026",
-    venue: "ITER Central Labs",
+    venue: "Online",
     status: "ongoing",
     speakers: [
       { name: "Kabir Sharma", role: "Tech Lead", photo: "https://i.pravatar.cc/150?img=15" },

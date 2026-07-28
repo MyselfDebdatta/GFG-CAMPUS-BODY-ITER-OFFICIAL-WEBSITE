@@ -402,8 +402,8 @@ function Home() {
                             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                             loading="lazy"
                           />
-                          <span className="absolute right-3 top-3 rounded-full bg-background/90 px-2 py-1 text-[10px] font-semibold text-muted-foreground backdrop-blur">
-                            Offline
+                          <span className="absolute right-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground backdrop-blur shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                            {e.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
                           </span>
                         </div>
                         <div className="p-5 sm:w-2/3 flex flex-col justify-center">
@@ -671,6 +671,9 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <span className="absolute right-4 top-4 rounded-full bg-[#020b06]/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 z-10">
+          {event.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
+        </span>
       </div>
       <div className="flex flex-col flex-1 p-6 md:p-8">
         <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
