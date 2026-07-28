@@ -165,7 +165,17 @@ function Home() {
             <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff66]/30 bg-[#00ff66]/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-[#00ff66] backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5" /> Official SOA University Student Chapter
             </span>
-            <div className="mt-8 mb-4">
+            
+            <motion.img 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+              src="/gfg-logo.png" 
+              alt="GFG Logo" 
+              className="mt-12 h-24 md:h-32 w-auto object-contain drop-shadow-[0_0_25px_rgba(0,255,102,0.4)]" 
+            />
+
+            <div className="mt-6 mb-4">
               <h2 className="text-6xl sm:text-8xl md:text-[9rem] leading-none font-black tracking-tighter text-[#00ff66] drop-shadow-[0_0_40px_rgba(0,255,102,0.5)]">
                 GeeksForGeeks
               </h2>
