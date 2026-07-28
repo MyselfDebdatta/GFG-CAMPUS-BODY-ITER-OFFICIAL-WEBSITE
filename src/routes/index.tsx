@@ -94,14 +94,14 @@ function FloatingTechElements() {
           }}
           animate={{
             y: [0, -20, 0],
-            rotate: [item.rot - 10, item.rot + 10, item.rot - 10],
+            rotate: [item.rot, item.rot + (i % 2 === 0 ? 360 : -360)],
             scale: [0.95, 1.05, 0.95],
             x: mousePos.x * (i % 2 === 0 ? 1 : -1),
             marginTop: mousePos.y * (i % 2 === 0 ? 1 : -1),
           }}
           transition={{
             y: { duration: item.duration, repeat: Infinity, ease: "easeInOut", delay: item.delay },
-            rotate: { duration: item.duration * 1.2, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            rotate: { duration: item.duration * 2, repeat: Infinity, ease: "linear" },
             scale: { duration: item.duration * 0.8, repeat: Infinity, ease: "easeInOut", delay: item.delay },
             x: { type: "spring", stiffness: 40, damping: 20 },
             marginTop: { type: "spring", stiffness: 40, damping: 20 }
