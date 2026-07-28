@@ -190,7 +190,7 @@ function Home() {
             </span>
 
             <div className="mt-6 mb-4">
-              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-normal text-[#00e676]">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none font-black tracking-normal text-[#00e676]">
                 GeeksForGeeks
               </h2>
             </div>
