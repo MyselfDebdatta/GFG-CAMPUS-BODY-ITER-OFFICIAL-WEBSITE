@@ -147,10 +147,13 @@ function Typewriter() {
 
 function Home() {
   return (
-    <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-[#020b06] -mt-24 pt-24">
+    <div className="relative min-h-screen bg-[#020b06] selection:bg-[#00ff7f]/30">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <CanvasBackground />
+      </div>
+      
+      {/* HERO */}
+      <section className="relative z-10 overflow-hidden -mt-24 pt-24">
         <FloatingTechElements />
         <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
           <motion.div
@@ -281,7 +284,7 @@ function Home() {
       </section>
 
       {/* ABOUT PREVIEW */}
-      <section className="container-page py-24">
+      <section className="relative z-10 container-page py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <SectionHeader
@@ -296,12 +299,12 @@ function Home() {
                 { icon: Rocket, title: "Ship real projects", body: "From weekend hacks to campus-wide platforms." },
                 { icon: Trophy, title: "Compete & win", body: "Represent ITER at hackathons across India." },
               ].map((f) => (
-                <div key={f.title} className="rounded-xl border border-hairline bg-surface-elevated p-4">
-                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-brand/10 text-brand">
+                <div key={f.title} className="group rounded-xl border border-[#00ff7f]/20 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/50 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)]">
+                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-hover:bg-[#00ff7f]/20 group-hover:scale-110">
                     <f.icon className="h-4 w-4" />
                   </div>
-                  <div className="mt-3 font-semibold">{f.title}</div>
-                  <p className="mt-1 text-sm text-muted-foreground">{f.body}</p>
+                  <div className="mt-3 font-semibold text-white group-hover:text-[#00ff7f] transition-colors">{f.title}</div>
+                  <p className="mt-1 text-sm text-white/60">{f.body}</p>
                 </div>
               ))}
             </div>
@@ -312,16 +315,16 @@ function Home() {
             </Button>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-hairline bg-gradient-to-br from-brand/15 via-transparent to-transparent">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent shadow-[0_0_40px_rgba(0,255,127,0.1)]">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70"
                 alt="GFG ITER community at a workshop"
                 className="h-full w-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-x-4 bottom-4 rounded-2xl glass-panel p-4">
+              <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-[#00ff7f]/20 bg-black/40 backdrop-blur-xl p-4 shadow-[0_0_20px_rgba(0,255,127,0.1)]">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand text-brand-foreground font-bold">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#00ff7f] text-[#020b06] font-bold">
                     G
                   </div>
                   <div>
@@ -335,8 +338,11 @@ function Home() {
         </div>
       </section>
 
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
       {/* EVENTS PREVIEW */}
-      <section className="border-y border-hairline bg-surface py-24">
+      <section className="relative z-10 py-24">
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeader
@@ -356,9 +362,9 @@ function Home() {
             <div className="grid gap-6 md:grid-cols-2">
               {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.1}>
-                  <div className="flex flex-col h-full rounded-3xl border border-hairline bg-surface-elevated overflow-hidden shadow-lg relative">
-                    <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full bg-brand/90 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-foreground backdrop-blur-md shadow-sm">
-                      <span className="h-2 w-2 rounded-full bg-brand-foreground animate-pulse" /> UPCOMING
+                  <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/60 hover:shadow-[0_0_40px_rgba(0,255,127,0.2)] relative group">
+                    <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
+                      <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UPCOMING
                     </div>
                     <EventCardContent event={e} />
                   </div>
@@ -366,9 +372,9 @@ function Home() {
               ))}
               {EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.2}>
-                  <div className="flex flex-col h-full rounded-3xl border border-brand/30 bg-surface-elevated overflow-hidden shadow-[0_0_30px_rgba(47,141,70,0.15)] relative">
-                    <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full bg-blue-500/90 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-sm">
-                      <CirclePlay className="h-3.5 w-3.5 animate-pulse" /> ONGOING
+                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300 hover:border-[#3b82f6]/70 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] relative group">
+                    <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                      <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                     </div>
                     <EventCardContent event={e} />
                   </div>
@@ -379,15 +385,15 @@ function Home() {
             {/* Timeline: Past Events */}
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-8">
-                <div className="h-2.5 w-2.5 rounded-full bg-brand" />
-                <h3 className="text-xl font-bold tracking-tight">Past Events</h3>
+                <div className="h-2.5 w-2.5 rounded-full bg-[#00ff7f] shadow-[0_0_10px_rgba(0,255,127,0.8)]" />
+                <h3 className="text-xl font-bold tracking-tight text-white">Past Events</h3>
               </div>
-              <div className="relative border-l-2 border-hairline ml-1.5 space-y-8 pb-4">
+              <div className="relative border-l-2 border-[#00ff7f]/20 ml-1.5 space-y-8 pb-4">
                 {EVENTS.filter((e) => e.status === "past").map((e, i) => (
                   <Reveal key={e.id} delay={i * 0.1}>
                     <div className="relative pl-8 sm:pl-12 group">
-                      <div className="absolute left-[-5px] top-4 h-2 w-2 rounded-full bg-muted-foreground ring-4 ring-background group-hover:bg-brand transition-colors" />
-                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-lg sm:flex">
+                      <div className="absolute left-[-5px] top-4 h-2 w-2 rounded-full bg-[#00ff7f]/50 ring-4 ring-[#020b06] transition-all group-hover:bg-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,1)]" />
+                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] sm:flex">
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
                             src={e.image}
@@ -401,8 +407,8 @@ function Home() {
                         </div>
                         <div className="p-5 sm:w-2/3 flex flex-col justify-center">
                           <div className="flex items-center gap-3 text-xs font-medium">
-                            <span className="rounded-full bg-brand/10 px-2.5 py-0.5 text-brand">{e.category}</span>
-                            <span className="text-muted-foreground">{e.date}</span>
+                            <span className="rounded-full bg-[#00ff7f]/10 border border-[#00ff7f]/20 px-2.5 py-0.5 text-[#00ff7f]">{e.category}</span>
+                            <span className="text-white/60">{e.date}</span>
                           </div>
                           <h4 className="mt-3 text-lg font-bold">{e.title}</h4>
                           <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{e.description}</p>
@@ -417,8 +423,11 @@ function Home() {
         </div>
       </section>
 
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
       {/* TEAM PREVIEW */}
-      <section className="container-page py-24">
+      <section className="relative z-10 container-page py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             eyebrow="Leadership"
@@ -434,7 +443,7 @@ function Home() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {TEAM.slice(0, 4).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
-              <div className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated">
+              <div className="group relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)]">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={m.photo}
@@ -454,12 +463,9 @@ function Home() {
       </section>
 
       {/* ALUMNI / RECRUITERS */}
-      <section className="relative overflow-hidden bg-[#020b06] py-24 border-y border-[#00ff7f]/20">
-        <div className="absolute inset-0 opacity-40">
-          <CanvasBackground />
-        </div>
+      <section className="relative z-10 overflow-hidden py-24 border-y border-[#00ff7f]/20 bg-black/20 backdrop-blur-sm">
         
-        <div className="container-page relative z-10 flex flex-col items-center">
+        <div className="container-page flex flex-col items-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
             ALUMNI NETWORK
@@ -546,8 +552,11 @@ function Home() {
         </div>
       </section>
 
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
       {/* TESTIMONIALS */}
-      <section className="container-page py-24">
+      <section className="relative z-10 container-page py-24">
         <SectionHeader
           eyebrow="Community"
           title="What members say"
@@ -556,17 +565,17 @@ function Home() {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.05}>
-              <figure className="h-full rounded-2xl border border-hairline bg-surface-elevated p-6">
-                <blockquote className="text-base leading-relaxed">
+              <figure className="h-full rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md p-6 transition-all duration-300 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] group">
+                <blockquote className="text-base leading-relaxed text-white/90">
                   "<span>{t.quote}</span>"
                 </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-hairline pt-4">
-                  <div className="grid h-9 w-9 place-items-center rounded-full bg-brand/10 text-brand font-semibold text-sm">
+                <figcaption className="mt-6 flex items-center gap-3 border-t border-[#00ff7f]/20 pt-4">
+                  <div className="grid h-9 w-9 place-items-center rounded-full bg-[#00ff7f]/10 text-[#00ff7f] font-semibold text-sm transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#00ff7f]/20">
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                    <div className="text-sm font-semibold text-white group-hover:text-[#00ff7f] transition-colors">{t.name}</div>
+                    <div className="text-xs text-white/60">{t.role}</div>
                   </div>
                 </figcaption>
               </figure>
@@ -576,9 +585,9 @@ function Home() {
       </section>
 
       {/* NEWSLETTER CTA */}
-      <section className="container-page pb-24">
-        <div className="relative overflow-hidden rounded-3xl border border-hairline bg-gradient-to-br from-brand/10 via-transparent to-brand/5 p-8 md:p-14">
-          <div aria-hidden className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
+      <section className="relative z-10 container-page pb-24">
+        <div className="relative overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-black/40 backdrop-blur-xl shadow-[inset_0_0_20px_rgba(0,255,127,0.1),0_0_40px_rgba(0,255,127,0.1)] p-8 md:p-14 transition-all duration-500 hover:border-[#00ff7f]/60 hover:shadow-[inset_0_0_30px_rgba(0,255,127,0.2),0_0_50px_rgba(0,255,127,0.2)] group">
+          <div aria-hidden className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
           <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
               <SectionHeader
@@ -588,15 +597,15 @@ function Home() {
               />
             </div>
             <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-              <Input type="email" required placeholder="you@iter.ac.in" className="h-12 bg-background" />
-              <Button type="submit" className="h-12 px-6 bg-brand text-brand-foreground hover:bg-brand/90 font-semibold">
-                Subscribe <Calendar className="ml-1 h-4 w-4" />
+              <Input type="email" required placeholder="you@iter.ac.in" className="h-12 bg-white/5 border-[#00ff7f]/20 text-white placeholder:text-white/40 focus:border-[#00ff7f]/50 transition-colors" />
+              <Button type="submit" className="h-12 px-6 bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 hover:shadow-[0_0_15px_rgba(0,255,127,0.4)] font-bold transition-all">
+                Subscribe <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </form>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
@@ -617,10 +626,10 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
       <div className="flex flex-col flex-1 p-6 md:p-8">
-        <div className="text-sm font-semibold text-brand tracking-wide">{event.date}</div>
-        <h3 className="mt-2 text-2xl font-bold tracking-tight">{event.title}</h3>
-        <p className="mt-3 text-base text-muted-foreground line-clamp-2 flex-1">{event.description}</p>
-        <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-foreground/80 group-hover:text-brand transition-colors">
+        <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
+        <h3 className="mt-2 text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all">{event.title}</h3>
+        <p className="mt-3 text-base text-white/60 line-clamp-2 flex-1">{event.description}</p>
+        <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors" style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}>
           Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </div>
       </div>
