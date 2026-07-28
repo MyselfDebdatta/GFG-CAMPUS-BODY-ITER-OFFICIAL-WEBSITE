@@ -66,13 +66,13 @@ function ParticleBackground() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-[#00e676]"
+          className="absolute rounded-full bg-[#00ff7f]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,230,118,0.6)`,
+            boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,255,127,0.6)`,
           }}
           animate={{
             x: [0, parseFloat(p.xMove), 0],
@@ -185,12 +185,12 @@ function Home() {
               <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain -ml-2 md:-ml-4" />
             </motion.div>
 
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-[#00e676]/30 bg-[#00e676]/10 px-5 py-2 text-sm font-semibold tracking-[0.1em] text-[#00e676] backdrop-blur-md">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-sm font-semibold tracking-[0.1em] text-[#00ff7f] backdrop-blur-md">
               <Sparkles className="h-4 w-4" /> Official SOA University Student Chapter
             </span>
 
             <div className="mt-6 mb-4">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none font-black tracking-normal text-[#00e676]">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none font-bold tracking-normal text-[#00ff7f]">
                 GeeksForGeeks
               </h2>
             </div>
@@ -203,12 +203,12 @@ function Home() {
             <div className="mt-14 flex justify-center">
               <Link to="/about" className="relative group block transition-transform duration-300 hover:scale-105">
                 {/* Main Button */}
-                <div className="relative border-2 border-[#00e676] rounded-xl bg-transparent px-10 py-4 text-[#00e676] font-bold text-lg sm:text-xl transition-all duration-300 group-hover:bg-[#00e676]/5 group-hover:shadow-[0_0_15px_rgba(0,230,118,0.2)]">
+                <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-hover:bg-[#00ff7f]/5 group-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)]">
                   Join the Community
                 </div>
                 {/* Overlapping Pill */}
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00e676] bg-[#010a05] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_10px_rgba(0,230,118,0.2)]">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00e676] mt-2 animate-dot-bounce" />
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00ff7f] bg-[#010a05] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_10px_rgba(0,255,127,0.2)]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] mt-2 animate-dot-bounce" />
                 </div>
               </Link>
             </div>
