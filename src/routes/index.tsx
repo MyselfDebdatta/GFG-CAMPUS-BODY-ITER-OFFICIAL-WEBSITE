@@ -17,7 +17,8 @@ import {
   CirclePlay,
   Hexagon,
   CircuitBoard,
-  Box
+  Box,
+  Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -440,17 +441,28 @@ function Home() {
             </Link>
           </Button>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {TEAM.slice(0, 9).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
               <div className="group relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)]">
-                <div className="aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   <img
                     src={m.photo}
                     alt={m.name}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
+                  {m.linkedin && (
+                    <a
+                      href={m.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute top-4 right-4 grid h-10 w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 hover:scale-110 z-10"
+                      aria-label={`${m.name}'s LinkedIn`}
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                  )}
                 </div>
                 <div className="p-4">
                   <div className="text-xs font-medium uppercase tracking-wider text-brand">{m.role}</div>
