@@ -462,6 +462,9 @@ function Home() {
         </div>
       </section>
 
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
       {/* ALUMNI / RECRUITERS */}
       <section className="relative z-10 overflow-hidden py-24">
         
@@ -559,11 +562,11 @@ function Home() {
       <section className="relative z-10 container-page py-24">
         <SectionHeader
           eyebrow="Community"
-          title="Student testimonials"
+          title="Voices of the builders"
           align="center"
         />
         
-        <div className="relative mt-16 w-full overflow-hidden pb-10">
+        <div className="relative mt-10 w-full overflow-hidden pt-6 pb-10">
           <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#020b06] to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#020b06] to-transparent z-10 pointer-events-none" />
 
