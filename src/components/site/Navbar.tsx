@@ -67,14 +67,12 @@ export function Navbar() {
           )}
           aria-label="Primary"
         >
-          <div className="flex-1 flex items-center justify-start">
-            <Link to="/" className="flex items-center pl-2 h-10">
-              <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-8 w-auto object-contain scale-[1.7] md:scale-[2] origin-left" />
-            </Link>
-          </div>
+          <Link to="/" className="flex items-center pl-2 h-10 z-10">
+            <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-8 w-auto object-contain scale-[1.7] md:scale-[2] origin-left" />
+          </Link>
 
-          <div className="hidden lg:flex flex-1 items-center justify-center">
-            <ul className="flex items-center gap-1">
+          <div className="absolute inset-x-0 hidden lg:flex items-center justify-center pointer-events-none">
+            <ul className="flex items-center gap-1 pointer-events-auto">
               {NAV.map((item) => {
                 const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
                 return (
@@ -82,7 +80,7 @@ export function Navbar() {
                     <Link
                       to={item.to}
                       className={cn(
-                        "relative px-3 py-2 text-sm font-medium rounded-lg transition-colors",
+                        "relative block px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                         "text-muted-foreground hover:text-foreground",
                         active && "text-foreground",
                       )}
@@ -102,7 +100,7 @@ export function Navbar() {
             </ul>
           </div>
 
-          <div className="flex-1 flex items-center justify-end gap-1.5 pr-1">
+          <div className="flex items-center justify-end gap-1.5 pr-1 z-10">
             <Button asChild size="sm" className="hidden md:inline-flex bg-white text-black hover:bg-gray-200 rounded-full h-10 px-5 font-bold transition-transform hover:scale-105">
               <Link to="/community" className="flex items-center gap-1.5">
                 Join Network <Zap className="h-4 w-4 fill-current" />
