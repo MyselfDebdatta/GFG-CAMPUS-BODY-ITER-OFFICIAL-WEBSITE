@@ -116,6 +116,21 @@ export const EVENTS = [
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=70",
   },
+  {
+    id: "chai-links-session",
+    title: "Chai Links: Community Session",
+    category: "Community",
+    date: "Dec 03, 2025, 4:30 PM",
+    venue: "ITER Campus",
+    status: "past",
+    speakers: [
+      { name: "GFG Team & Faculty", role: "Mentors", photo: "https://i.pravatar.cc/150?img=60" }
+    ],
+    description:
+      "A casual community session where students discuss tech problems, clear doubts, and dive into modern tech topics alongside expert faculty and the GFG team.",
+    image:
+      "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=1400&q=70",
+  },
 ];
 
 export const EVENT_CATEGORIES = [
