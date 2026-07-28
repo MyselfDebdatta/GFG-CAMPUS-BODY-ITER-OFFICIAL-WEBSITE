@@ -40,20 +40,20 @@ export const MARQUEE = [
 
 export const EVENTS = [
   {
-    id: "hack-iter-26",
-    title: "HackITER 2026",
-    category: "Hackathon",
-    date: "Mar 14 – 15, 2026",
-    venue: "ITER Auditorium, SOA",
+    id: "gfg-carnival",
+    title: "GFG Annual Club Carnival",
+    category: "Orientation",
+    date: "Date to be announced",
+    venue: "ITER Main Campus",
     status: "upcoming",
     speakers: [
-      { name: "Ananya Rao", role: "Software Engineer", photo: "https://i.pravatar.cc/150?img=44" },
-      { name: "Rohit Menon", role: "SDE II", photo: "https://i.pravatar.cc/150?img=11" }
+      { name: "Aarav Patnaik", role: "President", photo: "https://i.pravatar.cc/150?img=12" },
+      { name: "Sneha Mohanty", role: "Vice President", photo: "https://i.pravatar.cc/150?img=47" }
     ],
     description:
-      "A 30-hour flagship hackathon bringing together 300+ builders across AI, Web, and Systems tracks.",
+      "Welcome, freshmen! Join our grand orientation carnival to discover everything about GFG ITER—our vision, our projects, and how you can become part of the ultimate builder community on campus.",
     image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=70",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "gfg-skill-exchange",
