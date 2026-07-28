@@ -190,7 +190,10 @@ function Home() {
             </span>
 
             <div className="mt-6 mb-4">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none font-bold tracking-normal text-[#00ff7f]">
+              <h2 
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none tracking-normal text-[#00ff7f]"
+                style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: 800 }}
+              >
                 GeeksForGeeks
               </h2>
             </div>
