@@ -102,20 +102,19 @@ export const EVENTS = [
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
   },
   {
-    id: "open-source-day",
-    title: "Open Source Day",
-    category: "Workshop",
-    date: "Sep 30, 2025",
-    venue: "ITER Central Lab",
+    id: "founders-unplugged",
+    title: "Founders Unplugged: Stories and Insights",
+    category: "Seminar",
+    date: "Dec 23, 2025, 4:30 PM",
+    venue: "ITER Auditorium",
     status: "past",
     speakers: [
-      { name: "Kabir Sharma", role: "Tech Lead", photo: "https://i.pravatar.cc/150?img=15" },
-      { name: "Ayaan Roy", role: "Events Lead", photo: "https://i.pravatar.cc/150?img=8" }
+      { name: "Guest Speakers", role: "Founders & CEOs", photo: "https://i.pravatar.cc/150?img=33" }
     ],
     description:
-      "Your first pull request — an intro to Git, GitHub, and contributing to real open source projects.",
+      "A power-packed session where startup founders, CEOs, and CMOs share real-world insights on building companies, crafting strategy, and staying motivated through the startup journey.",
     image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=70",
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=70",
   },
 ];
 
