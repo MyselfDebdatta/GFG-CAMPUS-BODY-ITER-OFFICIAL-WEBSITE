@@ -125,7 +125,7 @@ function FloatingIcons() {
   );
 }
 
-const TYPES = ["Developers", "Designers", "Innovators", "Problem Solvers", "Future Engineers"];
+const TYPES = ["Geeks", "Programmers", "Developers", "Coders", "Creators", "Designers"];
 
 function Typewriter() {
   const [i, setI] = useState(0);
@@ -153,9 +153,9 @@ function Typewriter() {
   }, [text, phase, i]);
 
   return (
-    <span className="text-gradient-brand">
+    <span className="bg-gradient-to-r from-[#32CD32] via-[#e2da24] to-[#32CD32] bg-clip-text text-transparent font-bold">
       {text}
-      <span className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[2px] bg-brand animate-pulse" />
+      <span className="ml-0.5 inline-block h-[0.9em] w-[3px] translate-y-[2px] bg-[#32CD32] animate-pulse" />
     </span>
   );
 }
@@ -200,6 +200,9 @@ function Home() {
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground mt-0">
               Campus Body ITER
             </h1>
+            <div className="mt-6 text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white/90">
+              for <Typewriter />
+            </div>
             <p className="mx-auto mt-8 max-w-3xl text-base text-muted-foreground sm:text-xl leading-relaxed">
               Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
