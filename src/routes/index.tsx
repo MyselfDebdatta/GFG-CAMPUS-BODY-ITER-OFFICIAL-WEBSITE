@@ -474,11 +474,13 @@ function Home() {
           </p>
 
           <div className="mt-20 w-full relative">
-            {/* Gradient edge masks */}
-            <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-[#020b06] to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-[#020b06] to-transparent z-10 pointer-events-none" />
-            
-            <div className="flex flex-col gap-16">
+            <div 
+              className="flex flex-col gap-16"
+              style={{
+                maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+                WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
+              }}
+            >
               {/* Row 1: Left to Right */}
               <div
                 className="flex w-max animate-marquee gap-24 whitespace-nowrap items-center"
@@ -486,7 +488,12 @@ function Home() {
               >
                 {[...RECRUITERS.slice(0, 14), ...RECRUITERS.slice(0, 14)].map((r, i) => (
                   <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
-                    <img src={`https://logo.clearbit.com/${r.domain}`} alt={r.name} className="h-16 object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+                    <img 
+                      src={`https://cdn.simpleicons.org/${r.slug}`} 
+                      alt={r.name} 
+                      className="h-16 object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
+                      onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} 
+                    />
                     <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
                   </div>
                 ))}
@@ -499,7 +506,12 @@ function Home() {
               >
                 {[...RECRUITERS.slice(14), ...RECRUITERS.slice(14)].map((r, i) => (
                   <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
-                    <img src={`https://logo.clearbit.com/${r.domain}`} alt={r.name} className="h-16 object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />
+                    <img 
+                      src={`https://cdn.simpleicons.org/${r.slug}`} 
+                      alt={r.name} 
+                      className="h-16 object-contain grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
+                      onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }} 
+                    />
                     <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
                   </div>
                 ))}
