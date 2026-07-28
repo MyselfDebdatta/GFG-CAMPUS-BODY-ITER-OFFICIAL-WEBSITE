@@ -613,22 +613,39 @@ function Home() {
 
       {/* NEWSLETTER CTA */}
       <section className="relative z-10 container-page pb-24">
-        <div className="relative overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-black/40 backdrop-blur-xl shadow-[inset_0_0_20px_rgba(0,255,127,0.1),0_0_40px_rgba(0,255,127,0.1)] p-8 md:p-14 transition-all duration-500 hover:border-[#00ff7f]/60 hover:shadow-[inset_0_0_30px_rgba(0,255,127,0.2),0_0_50px_rgba(0,255,127,0.2)] group">
-          <div aria-hidden className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-          <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#060D09] p-8 md:p-16">
+          {/* Uniform Grid Background */}
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          
+          <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <SectionHeader
-                eyebrow="Stay in the loop"
-                title="Event drops, project updates, opportunities."
-                description="One email a month. No spam. Ever."
-              />
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/20 bg-[#00ff7f]/10 px-4 py-1.5 text-xs font-bold tracking-[0.1em] text-[#00ff7f] mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f]" />
+                STAY IN THE LOOP
+              </div>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-4">
+                Event drops, project<br className="hidden sm:block" /> updates, opportunities.
+              </h2>
+              <p className="text-lg text-white/60 font-medium">
+                One email a month. No spam. Ever.
+              </p>
             </div>
-            <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-              <Input type="email" required placeholder="you@iter.ac.in" className="h-12 bg-white/5 border-[#00ff7f]/20 text-white placeholder:text-white/40 focus:border-[#00ff7f]/50 transition-colors" />
-              <Button type="submit" className="h-12 px-6 bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 hover:shadow-[0_0_15px_rgba(0,255,127,0.4)] font-bold transition-all">
-                Subscribe <Calendar className="ml-2 h-4 w-4" />
-              </Button>
-            </form>
+            <div className="flex lg:justify-end w-full">
+              <form onSubmit={(e) => e.preventDefault()} className="flex w-full max-w-lg flex-col sm:flex-row gap-3">
+                <Input 
+                  type="email" 
+                  required 
+                  placeholder="you@iter.ac.in" 
+                  className="h-14 bg-transparent border-white/10 text-white placeholder:text-white/40 focus:border-[#00ff7f]/50 transition-colors rounded-xl text-base px-5 flex-1" 
+                />
+                <Button 
+                  type="submit" 
+                  className="h-14 px-8 rounded-xl bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 font-bold text-base transition-all shrink-0"
+                >
+                  Subscribe <Calendar className="ml-2 h-5 w-5" />
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
