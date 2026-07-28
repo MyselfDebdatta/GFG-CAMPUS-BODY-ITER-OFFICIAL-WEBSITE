@@ -68,11 +68,11 @@ function FloatingTechElements() {
   }, []);
 
   const elementsData = [
-    { Icon: CircuitBoard, color: "#00ffff", top: "15%", left: "10%", size: 48, delay: 0, duration: 12, rot: 5 }, // Cyan
-    { Icon: Code2, color: "#ffff00", top: "65%", left: "12%", size: 42, delay: 2, duration: 15, rot: -8 }, // Yellow
-    { Icon: Hexagon, color: "#7df9ff", top: "25%", right: "8%", size: 54, delay: 1, duration: 18, rot: 8 }, // Electric Blue
-    { Icon: Braces, color: "#a020f0", top: "70%", right: "12%", size: 46, delay: 3, duration: 14, rot: -5 }, // Purple
-    { Icon: Cpu, color: "#ffa500", top: "45%", left: "6%", size: 40, delay: 4, duration: 16, rot: 4 }, // Orange
+    { Icon: CircuitBoard, color: "#00ffff", top: "15%", left: "10%", size: 64, delay: 0, duration: 12, rot: 5 }, // Cyan
+    { Icon: Code2, color: "#ffff00", top: "65%", left: "12%", size: 56, delay: 2, duration: 15, rot: -8 }, // Yellow
+    { Icon: Hexagon, color: "#7df9ff", top: "25%", right: "8%", size: 72, delay: 1, duration: 18, rot: 8 }, // Electric Blue
+    { Icon: Braces, color: "#a020f0", top: "70%", right: "12%", size: 60, delay: 3, duration: 14, rot: -5 }, // Purple
+    { Icon: Cpu, color: "#ffa500", top: "45%", left: "6%", size: 52, delay: 4, duration: 16, rot: 4 }, // Orange
   ];
 
   return (
