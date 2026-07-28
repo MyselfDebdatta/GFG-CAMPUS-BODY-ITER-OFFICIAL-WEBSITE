@@ -172,11 +172,11 @@ function Home() {
               transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
               src="/gfg-logo.png" 
               alt="GFG Logo" 
-              className="mt-12 h-24 md:h-32 w-auto object-contain drop-shadow-[0_0_25px_rgba(0,255,102,0.4)]" 
+              className="mt-12 h-32 md:h-48 w-auto object-contain drop-shadow-[0_0_25px_rgba(0,255,102,0.4)]" 
             />
 
             <div className="mt-6 mb-4">
-              <h2 className="text-6xl sm:text-8xl md:text-[9rem] leading-none font-black tracking-tighter text-[#00ff66] drop-shadow-[0_0_40px_rgba(0,255,102,0.5)]">
+              <h2 className="text-6xl sm:text-7xl md:text-[7.5rem] lg:text-[8rem] leading-none font-black tracking-tighter text-[#00ff66] drop-shadow-[0_0_40px_rgba(0,255,102,0.5)]">
                 GeeksForGeeks
               </h2>
             </div>

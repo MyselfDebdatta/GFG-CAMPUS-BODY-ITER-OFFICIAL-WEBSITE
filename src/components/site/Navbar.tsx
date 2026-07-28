@@ -67,14 +67,8 @@ export function Navbar() {
           )}
           aria-label="Primary"
         >
-          <Link to="/" className="flex items-center gap-2 pl-2">
-            <BrandMark />
-            <span className="hidden sm:flex flex-col leading-tight">
-              <span className="text-sm font-semibold tracking-tight">GeeksforGeeks</span>
-              <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                ITER · SOA
-              </span>
-            </span>
+          <Link to="/" className="flex items-center pl-2">
+            <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-10 w-auto object-contain" />
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
