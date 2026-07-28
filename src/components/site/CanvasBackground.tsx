@@ -76,18 +76,10 @@ export function CanvasBackground() {
       targetX += (mouseX - targetX) * 0.05;
       targetY += (mouseY - targetY) * 0.05;
 
-      // Clear & Draw Deep Black Background (#020b06)
-      ctx.fillStyle = "#020b06";
-      ctx.fillRect(0, 0, width, height);
-
-      // 1. Radial Center Emerald Glow
-      const bgGradient = ctx.createRadialGradient(
-        width / 2, height / 2, 0,
-        width / 2, height / 2, Math.max(width, height) * 0.6
-      );
-      bgGradient.addColorStop(0, "rgba(0, 255, 127, 0.06)");
-      bgGradient.addColorStop(0.5, "rgba(0, 255, 127, 0.01)");
-      bgGradient.addColorStop(1, "transparent");
+      // 1. Full coverage smooth linear gradient background
+      const bgGradient = ctx.createLinearGradient(0, 0, 0, height);
+      bgGradient.addColorStop(0, "#03160a"); // Subtle dark emerald tint at the top
+      bgGradient.addColorStop(1, "#010603"); // Deep void black at the bottom
       ctx.fillStyle = bgGradient;
       ctx.fillRect(0, 0, width, height);
 
@@ -175,13 +167,13 @@ export function CanvasBackground() {
       
       ctx.globalAlpha = 1.0;
 
-      // 6. Dark Vignette Over Edges
+      // 6. Very soft Dark Vignette Over Edges
       const vignette = ctx.createRadialGradient(
-        width / 2, height / 2, Math.max(width, height) * 0.35,
-        width / 2, height / 2, Math.max(width, height) * 0.85
+        width / 2, height / 2, Math.max(width, height) * 0.5,
+        width / 2, height / 2, Math.max(width, height) * 1.0
       );
-      vignette.addColorStop(0, "rgba(2, 11, 6, 0)");
-      vignette.addColorStop(1, "rgba(2, 11, 6, 1)");
+      vignette.addColorStop(0, "rgba(1, 6, 3, 0)");
+      vignette.addColorStop(1, "rgba(1, 6, 3, 0.6)");
       ctx.fillStyle = vignette;
       ctx.fillRect(0, 0, width, height);
 
