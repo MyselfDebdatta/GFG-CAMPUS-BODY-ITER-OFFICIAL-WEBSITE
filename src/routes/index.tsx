@@ -329,11 +329,11 @@ function Home() {
             </Button>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent shadow-[0_0_40px_rgba(0,255,127,0.1)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent shadow-[0_0_40px_rgba(0,255,127,0.1)] group transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70"
                 alt="GFG ITER community at a workshop"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-[#00ff7f]/20 bg-black/40 backdrop-blur-xl p-4 shadow-[0_0_20px_rgba(0,255,127,0.1)]">
@@ -342,7 +342,7 @@ function Home() {
                     G
                   </div>
                   <div>
-                    <div className="text-sm font-semibold">Est. 2022 · ITER, SOA</div>
+                    <div className="text-sm font-semibold">Est. 2025 · ITER, SOA</div>
                     <div className="text-xs text-muted-foreground">A university-recognized student chapter</div>
                   </div>
                 </div>
