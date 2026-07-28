@@ -259,22 +259,54 @@ export const RECRUITERS = [
 
 export const TESTIMONIALS = [
   {
-    quote:
-      "Joining GFG ITER was the single best decision of my first year. I found mentors, teammates, and a place to build.",
+    quote: "Joining GFG ITER was the single best decision of my first year. I found mentors, teammates, and a place to build.",
     name: "Ritika S.",
     role: "3rd year, CSE",
   },
   {
-    quote:
-      "The bootcamps are ruthless in the best way. I went from tutorial hell to shipping real projects.",
+    quote: "The bootcamps are ruthless in the best way. I went from tutorial hell to shipping real projects.",
     name: "Harsh V.",
     role: "2nd year, IT",
   },
   {
-    quote:
-      "It doesn't feel like a club. It feels like a small, ambitious engineering org inside the campus.",
+    quote: "It doesn't feel like a club. It feels like a small, ambitious engineering org inside the campus.",
     name: "Prerna D.",
     role: "4th year, ECE",
+  },
+  {
+    quote: "Before this, I was intimidated by open source. Now I'm actively maintaining two tools used by hundreds.",
+    name: "Aman K.",
+    role: "3rd year, CSIT",
+  },
+  {
+    quote: "The weekly DSA sprints fundamentally changed how I approach technical interviews. Secured my dream internship here.",
+    name: "Shruti P.",
+    role: "4th year, CSE",
+  },
+  {
+    quote: "I found my co-founders at a weekend hackathon hosted by GFG. The builder culture here is unmatched.",
+    name: "Dev M.",
+    role: "Alumni '24",
+  },
+  {
+    quote: "We don't just learn theory; we build scalable applications. The hands-on system design workshops are gold.",
+    name: "Kabir T.",
+    role: "3rd year, CSE",
+  },
+  {
+    quote: "The design systems sessions bridged the gap between UI concepts and code for me perfectly.",
+    name: "Isha N.",
+    role: "2nd year, CSIT",
+  },
+  {
+    quote: "Winning HackITER gave me the confidence to compete at a national level. The competitive spirit is contagious.",
+    name: "Ananya R.",
+    role: "3rd year, CSE",
+  },
+  {
+    quote: "From late-night debugging sessions to mock interviews, the community support is something I'll always cherish.",
+    name: "Rohit M.",
+    role: "Alumni '25",
   },
 ];
 

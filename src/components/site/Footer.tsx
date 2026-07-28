@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-[#0B0F19] text-slate-300">
+    <footer className="relative z-10 mt-24 bg-[#0B0F19] text-slate-300">
       <div className="container-page py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
