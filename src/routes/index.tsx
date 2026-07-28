@@ -18,7 +18,11 @@ import {
   Hexagon,
   CircuitBoard,
   Box,
-  Linkedin
+  Linkedin,
+  Coffee,
+  Award,
+  Mic,
+  Lightbulb
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -53,6 +57,15 @@ export const Route = createFileRoute("/")({
 });
 
 
+
+function EventIcon({ category }: { category: string }) {
+  const cat = category.toLowerCase();
+  if (cat.includes("community")) return <Coffee className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
+  if (cat.includes("competition") || cat.includes("contest")) return <Award className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
+  if (cat.includes("seminar")) return <Mic className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
+  if (cat.includes("flagship")) return <Sparkles className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
+  return <Users className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
+}
 
 function FloatingTechElements() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -389,11 +402,13 @@ function Home() {
                 <div className="h-2.5 w-2.5 rounded-full bg-white/60 shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
                 <h3 className="text-xl font-bold tracking-tight text-white">Past Events</h3>
               </div>
-              <div className="relative border-l-2 border-white/10 ml-1.5 space-y-8 pb-4">
+              <div className="relative border-l-2 border-white/10 ml-1.5 space-y-8 pb-4 max-h-[600px] overflow-y-auto custom-scrollbar pr-2 sm:pr-4">
                 {EVENTS.filter((e) => e.status === "past").map((e, i) => (
                   <Reveal key={e.id} delay={i * 0.1}>
                     <div className="relative pl-8 sm:pl-12 group">
-                      <div className="absolute left-[-5px] top-4 h-2 w-2 rounded-full bg-white/30 ring-4 ring-[#020b06] transition-all group-hover:bg-white/80 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+                      <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-hover:border-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
+                        <EventIcon category={e.category} />
+                      </div>
                       <Link to="/events" className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex">
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
