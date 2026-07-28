@@ -180,7 +180,7 @@ function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center gap-6 md:gap-10 mb-10"
             >
-              <img src="/soa-logo.png" alt="SOA University" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+              <img src="/SOA-PNG.webp" alt="SOA University" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
               <div className="h-16 md:h-20 w-px bg-white/20" />
               <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_0_20px_rgba(0,255,102,0.3)]" />
             </motion.div>
