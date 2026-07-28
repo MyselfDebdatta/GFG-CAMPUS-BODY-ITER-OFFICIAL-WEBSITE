@@ -167,7 +167,7 @@ function Home() {
       <section className="relative overflow-hidden bg-gradient-to-b from-[#031c0c] to-[#010a05] -mt-24 pt-24">
         <ParticleBackground />
         <FloatingIcons />
-        <div className="container-page relative pt-6 pb-20 md:pt-10 md:pb-32">
+        <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -189,7 +189,7 @@ function Home() {
               <Sparkles className="h-4 w-4" /> Official SOA University Student Chapter
             </span>
 
-            <div className="mt-6 mb-4">
+            <div className="mt-6 mb-0">
               <h2 
                 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-none tracking-normal text-[#00ff7f]"
                 style={{ fontFamily: "'Urbanist', sans-serif", fontWeight: 800 }}
@@ -197,7 +197,7 @@ function Home() {
                 GeeksForGeeks
               </h2>
             </div>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground mt-2">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground mt-0">
               Campus Body ITER
             </h1>
             <p className="mx-auto mt-8 max-w-3xl text-base text-muted-foreground sm:text-xl leading-relaxed">
