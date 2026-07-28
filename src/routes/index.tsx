@@ -151,7 +151,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-background">
+      <section className="relative overflow-hidden bg-background -mt-24 pt-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,255,102,0.15),_transparent_70%)]" />
         <ParticleBackground />
         <FloatingIcons />
