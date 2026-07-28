@@ -50,40 +50,7 @@ export const Route = createFileRoute("/")({
 
 
 
-function FloatingIcons() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <motion.div
-        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[20%] left-[15%] text-brand/30"
-      >
-        <Cpu className="w-12 h-12" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 30, 0], rotate: [0, -15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[40%] right-[15%] text-brand/20"
-      >
-        <Braces className="w-16 h-16" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, -15, 0], rotate: [0, 20, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[20%] left-[25%] text-brand/25"
-      >
-        <Binary className="w-10 h-10" />
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 25, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[15%] right-[30%] text-brand/30"
-      >
-        <Terminal className="w-8 h-8" />
-      </motion.div>
-    </div>
-  );
-}
+
 
 const TYPES = ["Geeks", "Programmers", "Developers", "Coders", "Creators", "Designers", "Enthusiasts"];
 
@@ -126,7 +93,6 @@ function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#020b06] -mt-24 pt-24">
         <CanvasBackground />
-        <FloatingIcons />
         <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
