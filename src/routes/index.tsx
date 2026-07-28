@@ -54,12 +54,25 @@ export const Route = createFileRoute("/")({
 
 
 function FloatingTechElements() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 30, // subtle horizontal parallax
+        y: (e.clientY / window.innerHeight - 0.5) * 30, // subtle vertical parallax
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const elementsData = [
-    { Icon: CircuitBoard, color: "#00ff7f", top: "15%", left: "10%", size: 48, delay: 0, duration: 12, rot: 5 },
-    { Icon: Code2, color: "#00ff7f", top: "65%", left: "12%", size: 42, delay: 2, duration: 15, rot: -8 },
-    { Icon: Hexagon, color: "#32cd32", top: "25%", right: "8%", size: 54, delay: 1, duration: 18, rot: 8 },
-    { Icon: Braces, color: "#00fa9a", top: "70%", right: "12%", size: 46, delay: 3, duration: 14, rot: -5 },
-    { Icon: Cpu, color: "#3cb371", top: "45%", left: "6%", size: 40, delay: 4, duration: 16, rot: 4 },
+    { Icon: CircuitBoard, color: "#00ffff", top: "15%", left: "10%", size: 48, delay: 0, duration: 12, rot: 5 }, // Cyan
+    { Icon: Code2, color: "#ffff00", top: "65%", left: "12%", size: 42, delay: 2, duration: 15, rot: -8 }, // Yellow
+    { Icon: Hexagon, color: "#7df9ff", top: "25%", right: "8%", size: 54, delay: 1, duration: 18, rot: 8 }, // Electric Blue
+    { Icon: Braces, color: "#a020f0", top: "70%", right: "12%", size: 46, delay: 3, duration: 14, rot: -5 }, // Purple
+    { Icon: Cpu, color: "#ffa500", top: "45%", left: "6%", size: 40, delay: 4, duration: 16, rot: 4 }, // Orange
   ];
 
   return (
@@ -67,26 +80,31 @@ function FloatingTechElements() {
       {elementsData.map((item, i) => (
         <motion.div
           key={i}
-          className="absolute flex items-center justify-center rounded-xl border border-[#00ff7f]/10"
+          className="absolute flex items-center justify-center backdrop-blur-md rounded-2xl border border-white/10 bg-white/5"
           style={{
             top: item.top,
             left: item.left,
             right: item.right,
             color: item.color,
-            width: item.size * 1.5,
-            height: item.size * 1.5,
-            opacity: 0.25,
-            filter: `drop-shadow(0 0 6px ${item.color})`,
+            width: item.size * 1.8,
+            height: item.size * 1.8,
+            opacity: 0.35,
+            filter: `drop-shadow(0 0 10px ${item.color})`,
+            boxShadow: `inset 0 0 15px rgba(255,255,255,0.05)`,
           }}
           animate={{
-            y: [0, -15, 0],
-            rotate: [item.rot, item.rot + (i % 2 === 0 ? 8 : -8), item.rot],
-            scale: [0.98, 1.03, 0.98],
+            y: [0, -20, 0],
+            rotate: [item.rot - 10, item.rot + 10, item.rot - 10],
+            scale: [0.95, 1.05, 0.95],
+            x: mousePos.x * (i % 2 === 0 ? 1 : -1),
+            marginTop: mousePos.y * (i % 2 === 0 ? 1 : -1),
           }}
           transition={{
             y: { duration: item.duration, repeat: Infinity, ease: "easeInOut", delay: item.delay },
             rotate: { duration: item.duration * 1.2, repeat: Infinity, ease: "easeInOut", delay: item.delay },
             scale: { duration: item.duration * 0.8, repeat: Infinity, ease: "easeInOut", delay: item.delay },
+            x: { type: "spring", stiffness: 40, damping: 20 },
+            marginTop: { type: "spring", stiffness: 40, damping: 20 }
           }}
         >
           <item.Icon size={item.size} strokeWidth={1} />
