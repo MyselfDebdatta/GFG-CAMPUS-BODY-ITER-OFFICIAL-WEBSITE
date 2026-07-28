@@ -440,8 +440,8 @@ function Home() {
             </Link>
           </Button>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM.slice(0, 4).map((m, i) => (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          {TEAM.slice(0, 9).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
               <div className="group relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)]">
                 <div className="aspect-[4/5] overflow-hidden">
