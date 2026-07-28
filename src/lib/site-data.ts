@@ -72,17 +72,17 @@ export const EVENTS = [
       "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=70",
   },
   {
-    id: "cp-contest-9",
-    title: "Code Sprint Vol. 9",
-    category: "Contest",
-    date: "Nov 22, 2025",
-    venue: "ITER Lab Block C",
+    id: "zerone-event",
+    title: "Zer0ne",
+    category: "Flagship",
+    date: "Apr 03, 2026, 8:00 AM",
+    venue: "C-004 AND C-005",
     status: "past",
     speakers: [
       { name: "GFG ITER Team", role: "Organizers", photo: "https://i.pravatar.cc/150?img=50" }
     ],
     description:
-      "Our monthly competitive programming showdown. 180 participants, 6 problems, 3 hours.",
+      "Zer0ne is the flagship creativity-driven event of GFG Chapter ITER, focused on product thinking, design, and innovation. Participants will dive deep into problem-solving.",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
   },
