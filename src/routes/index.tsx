@@ -125,7 +125,7 @@ function FloatingIcons() {
   );
 }
 
-const TYPES = ["Geeks", "Programmers", "Developers", "Coders", "Creators", "Designers"];
+const TYPES = ["Geeks", "Programmers", "Developers", "Coders", "Creators", "Designers", "Enthusiasts"];
 
 function Typewriter() {
   const [i, setI] = useState(0);
