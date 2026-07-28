@@ -578,10 +578,13 @@ function Home() {
           align="center"
         />
         
-        <div className="relative mt-10 w-full overflow-hidden pt-6 pb-10">
-          <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#020b06] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#020b06] to-transparent z-10 pointer-events-none" />
-
+        <div 
+          className="relative mt-10 w-full overflow-hidden pt-6 pb-10"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+          }}
+        >
           <div
             className="flex w-max animate-marquee gap-6 sm:gap-8 whitespace-nowrap"
             style={{ animationDuration: "50s" }}
