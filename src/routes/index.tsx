@@ -48,10 +48,11 @@ export const Route = createFileRoute("/")({
 });
 
 function ParticleBackground() {
-  const particles = Array.from({ length: 150 }).map((_, i) => {
+  const particles = Array.from({ length: 120 }).map((_, i) => {
     const x = (Math.sin(i * 13.5) * 50 + 50).toFixed(2);
     const y = (Math.cos(i * 17.2) * 50 + 50).toFixed(2);
-    const size = (Math.sin(i * 23) * 1.5 + 1.5).toFixed(2);
+    // Increased size to ensure they render as round circles, not sub-pixel squares
+    const size = (Math.sin(i * 23) * 3 + 5).toFixed(2); 
     const opacity = (Math.sin(i * 31) * 0.4 + 0.4).toFixed(2);
     const delay = (Math.sin(i * 37) * 3).toFixed(2);
     return { x, y, size, opacity, delay, id: i };
@@ -62,13 +63,14 @@ function ParticleBackground() {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-[#00ff66] shadow-[0_0_12px_2px_rgba(0,255,102,0.8)]"
+          className="absolute rounded-full bg-[#00ff66]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
             opacity: p.opacity,
+            boxShadow: `0 0 ${parseFloat(p.size) * 2}px rgba(0,255,102,0.6)`,
             animation: `pulse 3s infinite ${p.delay}s alternate`,
           }}
         />
