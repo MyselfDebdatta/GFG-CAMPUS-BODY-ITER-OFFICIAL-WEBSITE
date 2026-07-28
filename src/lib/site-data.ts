@@ -72,6 +72,21 @@ export const EVENTS = [
       "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=70",
   },
   {
+    id: "rachitva-event",
+    title: "Rachitva",
+    category: "Competition",
+    date: "Apr 05, 2026, 8:00 AM",
+    venue: "ITER Campus",
+    status: "past",
+    speakers: [
+      { name: "Design Team", role: "Organizers", photo: "https://i.pravatar.cc/150?img=45" }
+    ],
+    description:
+      "Rachitva is an impromptu design and communication skills competition tailored for those who can think on their feet. In this fast-paced event, participants are challenged to craft and present innovative solutions.",
+    image:
+      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
     id: "zerone-event",
     title: "Zer0ne",
     category: "Flagship",
@@ -85,21 +100,6 @@ export const EVENTS = [
       "Zer0ne is the flagship creativity-driven event of GFG Chapter ITER, focused on product thinking, design, and innovation. Participants will dive deep into problem-solving.",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
-  },
-  {
-    id: "ui-ux-workshop",
-    title: "Design Systems Workshop",
-    category: "Workshop",
-    date: "Oct 08, 2025",
-    venue: "SOA Design Studio",
-    status: "past",
-    speakers: [
-      { name: "Isha Nanda", role: "Design Lead", photo: "https://i.pravatar.cc/150?img=45" }
-    ],
-    description:
-      "A hands-on session on building scalable, token-driven design systems in Figma and code.",
-    image:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "open-source-day",
