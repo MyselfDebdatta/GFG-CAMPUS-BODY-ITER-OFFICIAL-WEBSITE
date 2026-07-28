@@ -47,6 +47,36 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+function ParticleBackground() {
+  const particles = Array.from({ length: 80 }).map((_, i) => {
+    const x = (Math.sin(i * 13.5) * 50 + 50).toFixed(2);
+    const y = (Math.cos(i * 17.2) * 50 + 50).toFixed(2);
+    const size = (Math.sin(i * 23) * 2 + 2.5).toFixed(2);
+    const opacity = (Math.sin(i * 31) * 0.5 + 0.5).toFixed(2);
+    const delay = (Math.sin(i * 37) * 3).toFixed(2);
+    return { x, y, size, opacity, delay, id: i };
+  });
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute rounded-full bg-[#00ff66] shadow-[0_0_12px_2px_rgba(0,255,102,0.8)]"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            opacity: p.opacity,
+            animation: `pulse 3s infinite ${p.delay}s alternate`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 function FloatingIcons() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -122,29 +152,29 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-background">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand/20 via-background to-background" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,255,102,0.15),_transparent_70%)]" />
+        <ParticleBackground />
         <FloatingIcons />
         <div className="container-page relative py-20 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mx-auto max-w-4xl text-center flex flex-col items-center"
+            className="mx-auto max-w-5xl text-center flex flex-col items-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-brand backdrop-blur-md">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff66]/30 bg-[#00ff66]/10 px-4 py-1.5 text-xs font-semibold tracking-[0.1em] text-[#00ff66] backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5" /> Official SOA University Student Chapter
             </span>
-            <div className="mt-8 mb-2">
-              <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight text-brand drop-shadow-[0_0_25px_rgba(47,141,70,0.5)]">
+            <div className="mt-8 mb-4">
+              <h2 className="text-6xl sm:text-8xl md:text-[9rem] leading-none font-black tracking-tighter text-[#00ff66] drop-shadow-[0_0_40px_rgba(0,255,102,0.5)]">
                 GeeksForGeeks
               </h2>
             </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl text-foreground mt-2">
               Campus Body ITER
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              One of the largest technical communities at ITER to learn, build, and grow together.
+            <p className="mx-auto mt-8 max-w-3xl text-base text-muted-foreground sm:text-xl leading-relaxed">
+              Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90 h-12 px-8 font-bold text-base shadow-[0_0_20px_rgba(47,141,70,0.4)]">
