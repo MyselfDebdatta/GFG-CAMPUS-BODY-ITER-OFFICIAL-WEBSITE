@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Building2, GraduationCap, Quote } from "lucide-react";
+import { Award, Building2, GraduationCap, Quote, Github, Linkedin } from "lucide-react";
 import { ALUMNI, RECRUITERS } from "@/lib/site-data";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 
@@ -21,6 +21,12 @@ const HIGHLIGHTS = [
   { icon: Building2, label: "Placed at top MNCs", value: 10, suffix: "+" },
   { icon: GraduationCap, label: "Higher studies abroad", value: 6, suffix: "+" },
   { icon: Award, label: "Hackathon podiums", value: 12, suffix: "+" },
+];
+
+const NOTABLE_ALUMNI = [
+  { name: "Ankit Rajan", role: "Alumni", github: "#", linkedin: "#" },
+  { name: "Mukesh Kumar Padhi", role: "Alumni", github: "#", linkedin: "#" },
+  { name: "Rathikant Behera", role: "Alumni", github: "#", linkedin: "#" },
 ];
 
 function Alumni() {
@@ -56,6 +62,47 @@ function Alumni() {
                 </div>
                 <div className="mt-1 text-sm text-muted-foreground">{h.label}</div>
               </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Notable Profiles */}
+      <section className="container-page py-20">
+        <SectionHeader eyebrow="Our Pride" title="Notable Alumni" align="center" />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {NOTABLE_ALUMNI.map((m, i) => (
+            <Reveal key={m.name} delay={i * 0.05}>
+              <article className="group relative overflow-hidden rounded-[24px] border border-brand/50 bg-[#111] transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,127,0.2)] flex flex-col h-full">
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <img
+                    src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
+                    alt={m.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <a
+                      href={m.github}
+                      aria-label={`${m.name} GitHub`}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 text-black"
+                    >
+                      <Github className="h-5 w-5" />
+                    </a>
+                    <a
+                      href={m.linkedin}
+                      aria-label={`${m.name} LinkedIn`}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 text-[#0A66C2]"
+                    >
+                      <Linkedin className="h-5 w-5 fill-current" />
+                    </a>
+                  </div>
+                </div>
+                <div className="p-5 mt-auto bg-[#111]">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand">{m.role}</div>
+                  <div className="mt-1 text-xl font-bold tracking-tight text-white/90">{m.name}</div>
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>
