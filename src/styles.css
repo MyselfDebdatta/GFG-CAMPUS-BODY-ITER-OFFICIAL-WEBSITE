@@ -256,7 +256,8 @@
 .dark .bg-surface-elevated:hover h2,
 .dark .bg-surface-elevated:hover h3,
 .dark .bg-surface-elevated:hover h4,
-.dark .bg-surface-elevated:hover .font-bold:not(.text-xs):not(.text-sm) {
+.dark .bg-surface-elevated:hover .font-bold:not(.text-xs):not(.text-sm),
+.dark .bg-surface-elevated:hover .font-semibold:not(.text-\[10px\]):not(.text-xs):not(.text-sm) {
   color: transparent !important;
   background-clip: text !important;
   -webkit-background-clip: text !important;

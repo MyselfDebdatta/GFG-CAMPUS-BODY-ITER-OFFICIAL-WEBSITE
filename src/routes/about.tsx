@@ -113,9 +113,9 @@ function About() {
               </p>
               
               <div className="grid gap-4 sm:grid-cols-2">
-                <Fact k="Founded" v="2022" />
+                <Fact k="Founded" v="2025" />
                 <Fact k="Chapter type" v="Official GFG Campus Body" />
-                <Fact k="Members" v="500+ students" />
+                <Fact k="Members" v="100+ students" />
                 <Fact k="Faculty coordinator" v="Dept. of CSE, ITER" />
               </div>
             </div>
