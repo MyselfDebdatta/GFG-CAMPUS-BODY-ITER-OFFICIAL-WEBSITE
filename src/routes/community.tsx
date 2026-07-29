@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, Bell, Briefcase, Users, ShieldCheck, QrCode } from "lucide-react";
+import { MessageCircle, Bell, Briefcase, Users, ShieldCheck, QrCode, Instagram, Linkedin } from "lucide-react";
 import { CLUB } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
 import { Button } from "@/components/ui/button";
@@ -61,23 +61,68 @@ function Community() {
             </div>
           </div>
 
-          {/* QR Card */}
-          <Reveal delay={0.1} className="mx-auto mt-16 max-w-4xl">
-            <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 md:grid-cols-[auto_1fr] md:items-center md:p-10">
-              <div className="mx-auto grid aspect-square w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90">
-                <div className="grid h-24 w-24 place-items-center rounded-xl bg-background text-brand">
-                  <QrCode className="h-12 w-12" />
+          {/* Social Cards */}
+          <div className="mx-auto mt-16 flex max-w-4xl flex-col gap-6">
+            {/* WhatsApp */}
+            <Reveal delay={0.1}>
+              <a href={CLUB.social.whatsapp} target="_blank" rel="noreferrer" className="group block">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#25D366]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
+                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#25D366]">
+                      <MessageCircle className="h-8 w-8 md:h-12 md:w-12" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#25D366]">Join Community</div>
+                    <h3 className="mt-2 text-2xl font-bold tracking-tight">Tap the link. You're in.</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">
+                      Only current ITER students. We verify new members weekly to keep the group high-signal.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">Scan to join</div>
-                <h3 className="mt-2 text-2xl font-bold tracking-tight">Point your camera. Tap the link. You're in.</h3>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  Only current ITER students. We verify new members weekly to keep the group high-signal.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+              </a>
+            </Reveal>
+
+            {/* Instagram */}
+            <Reveal delay={0.2}>
+              <a href={CLUB.social.instagram} target="_blank" rel="noreferrer" className="group block">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#C13584]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
+                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#C13584]">
+                      <Instagram className="h-8 w-8 md:h-12 md:w-12" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#C13584]">Follow our journey</div>
+                    <h3 className="mt-2 text-2xl font-bold tracking-tight">Event highlights & behind the scenes.</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">
+                      See what we're up to. Get real-time updates on our latest workshops, hackathons, and tech talks.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+
+            {/* LinkedIn */}
+            <Reveal delay={0.3}>
+              <a href={CLUB.social.linkedin} target="_blank" rel="noreferrer" className="group block">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#0A66C2]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
+                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#0A66C2]">
+                      <Linkedin className="h-8 w-8 md:h-12 md:w-12" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0A66C2]">Build your network</div>
+                    <h3 className="mt-2 text-2xl font-bold tracking-tight">Connect professionally.</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">
+                      Follow our official page for announcements, placement highlights, and alumni networking opportunities.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          </div>
         </div>
       </section>
 

@@ -50,38 +50,31 @@ function Team() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {members.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.05}>
-                  <article className="group relative overflow-hidden rounded-[24px] border border-brand/50 bg-[#111] transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,127,0.2)] flex flex-col h-full">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+                  <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
+                    <div className="aspect-[4/5] overflow-hidden">
                       <img
                         src={m.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
                         alt={m.name}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
-                      <div className="absolute top-4 right-4 flex gap-2">
-                        {m.github && (
-                          <a
-                            href={m.github}
-                            aria-label={`${m.name} GitHub`}
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 text-black"
-                          >
-                            <Github className="h-5 w-5" />
-                          </a>
-                        )}
-                        {m.linkedin && (
-                          <a
-                            href={m.linkedin}
-                            aria-label={`${m.name} LinkedIn`}
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110 text-[#0A66C2]"
-                          >
-                            <Linkedin className="h-5 w-5 fill-current" />
-                          </a>
-                        )}
-                      </div>
                     </div>
-                    <div className="p-5 mt-auto bg-[#111]">
-                      <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand">{m.role}</div>
-                      <div className="mt-1 text-xl font-bold tracking-tight text-white/90">{m.name}</div>
+                    <div className="p-5">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
+                      <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
+                      <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{m.bio}</p>
+                      <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
+                        {[Linkedin, Github, Mail].map((Icon, idx) => (
+                          <a
+                            key={idx}
+                            href="#"
+                            aria-label={`${m.name} social link`}
+                            className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+                          >
+                            <Icon className="h-4 w-4" />
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </article>
                 </Reveal>
