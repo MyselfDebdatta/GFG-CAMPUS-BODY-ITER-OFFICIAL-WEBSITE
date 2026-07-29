@@ -13,6 +13,7 @@ export const CLUB = {
     github: "https://github.com",
     instagram: "https://instagram.com",
     whatsapp: "https://chat.whatsapp.com/",
+    youtube: "https://youtube.com",
   },
 };
 
