@@ -549,17 +549,13 @@ function Home() {
                 {[...RECRUITERS.slice(0, 14), ...RECRUITERS.slice(0, 14)].map((r, i) => (
                   <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
                     <img 
-                      src={`https://logo.clearbit.com/${r.domain}`} 
+                      src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
                       alt={r.name} 
-                      className="h-16 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
+                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
                       onError={(e) => {
                         const img = e.currentTarget;
-                        if (img.src.includes('logo.clearbit.com')) {
-                          img.src = `https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`;
-                        } else if (img.src.includes('google.com/s2/favicons')) {
-                          img.style.display = 'none';
-                          img.nextElementSibling?.classList.remove('hidden');
-                        }
+                        img.style.display = 'none';
+                        img.nextElementSibling?.classList.remove('hidden');
                       }} 
                     />
                     <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
@@ -575,17 +571,13 @@ function Home() {
                 {[...RECRUITERS.slice(14), ...RECRUITERS.slice(14)].map((r, i) => (
                   <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
                     <img 
-                      src={`https://logo.clearbit.com/${r.domain}`} 
+                      src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
                       alt={r.name} 
-                      className="h-16 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
+                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
                       onError={(e) => {
                         const img = e.currentTarget;
-                        if (img.src.includes('logo.clearbit.com')) {
-                          img.src = `https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`;
-                        } else if (img.src.includes('google.com/s2/favicons')) {
-                          img.style.display = 'none';
-                          img.nextElementSibling?.classList.remove('hidden');
-                        }
+                        img.style.display = 'none';
+                        img.nextElementSibling?.classList.remove('hidden');
                       }} 
                     />
                     <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>

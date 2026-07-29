@@ -63,16 +63,11 @@ function Alumni() {
               className="group flex items-center justify-center rounded-xl border border-hairline bg-surface-elevated px-4 py-6 text-sm font-semibold text-muted-foreground hover:text-foreground hover:border-brand/30 transition-all"
             >
               <img 
-                src={`https://logo.clearbit.com/${r.domain}`} 
+                src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
                 alt={r.name} 
-                className="h-6 object-contain mr-2" 
+                className="h-5 w-5 rounded-sm object-contain mr-2" 
                 onError={(e) => {
-                  const img = e.currentTarget;
-                  if (img.src.includes('logo.clearbit.com')) {
-                    img.src = `https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`;
-                  } else {
-                    img.style.display = 'none';
-                  }
+                  e.currentTarget.style.display = 'none';
                 }} 
               />
               {r.name}
