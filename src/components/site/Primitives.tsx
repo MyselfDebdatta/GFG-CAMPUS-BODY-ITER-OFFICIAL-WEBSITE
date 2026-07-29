@@ -1,4 +1,4 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useInView, useMotionValue, animate, useTransform } from "motion/react";
 import { useEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -77,12 +77,13 @@ export function Counter({
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const mv = useMotionValue(0);
-  const sp = useSpring(mv, { stiffness: 60, damping: 20, duration: duration * 1000 });
-  const rounded = useTransform(sp, (v) => Math.floor(v).toLocaleString());
+  const rounded = useTransform(mv, (v) => Math.round(v).toLocaleString());
 
   useEffect(() => {
-    if (inView) mv.set(to);
-  }, [inView, mv, to]);
+    if (inView) {
+      animate(mv, to, { duration, ease: "easeOut" });
+    }
+  }, [inView, mv, to, duration]);
 
   return (
     <span ref={ref} className="tabular-nums">
