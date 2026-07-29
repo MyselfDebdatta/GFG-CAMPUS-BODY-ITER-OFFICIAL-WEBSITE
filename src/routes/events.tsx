@@ -134,9 +134,9 @@ function Events() {
                           Register
                         </Button>
                       ) : (
-                        <Button size="sm" variant="outline" className="border-foreground/15 font-semibold">
+                        <span className="inline-flex h-9 items-center justify-center rounded-md border border-hairline bg-transparent px-3 text-sm font-semibold text-foreground">
                           Recap
-                        </Button>
+                        </span>
                       )}
                       <Button asChild size="sm" variant="ghost" className="text-muted-foreground hover:text-foreground">
                         <Link to="/events/$eventId" params={{ eventId: e.id }}>Read more</Link>
