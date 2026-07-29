@@ -428,7 +428,10 @@ function Home() {
                             <span className="text-white/60">{e.date}</span>
                           </div>
                           <h4 className="mt-3 text-lg font-bold">{e.title}</h4>
-                          <p className="mt-2 text-sm text-muted-foreground">{e.description}</p>
+                          <p className="mt-2 text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">{e.description}</p>
+                          <div className="mt-4 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-hover:text-[#00ff7f]">
+                            Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                          </div>
                         </div>
                       </Link>
                     </div>

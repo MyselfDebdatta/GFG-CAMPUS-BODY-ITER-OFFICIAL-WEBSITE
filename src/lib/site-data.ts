@@ -144,7 +144,7 @@ export const EVENT_CATEGORIES = [
 
 export const TEAM = [
   {
-    name: "Aarav Patnaik",
+    name: "Vivek Ranjan Sahoo",
     role: "President",
     group: "Executive Board",
     bio: "Final-year CSE. Full-stack engineer, ex-intern at a YC startup.",
@@ -152,7 +152,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com"
   },
   {
-    name: "Sneha Mohanty",
+    name: "Snehansu Sekhar Das",
     role: "Vice President",
     group: "Executive Board",
     bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
