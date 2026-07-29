@@ -237,32 +237,25 @@ export const TEAM_GROUPS = [
 
 export const ALUMNI = [
   {
-    name: "Rohit Menon",
+    name: "Ankit Rajan",
     role: "Will be updated shortly",
     year: "'23",
     photo: "https://i.pravatar.cc/300?img=11",
     quote: "GFG ITER is where I first shipped code that other people actually used.",
   },
   {
-    name: "Ananya Rao",
+    name: "Mukesh Kumar Padhi",
     role: "Will be updated shortly",
     year: "'23",
     photo: "https://i.pravatar.cc/300?img=44",
     quote: "The community pushed me to interview harder and think bigger.",
   },
   {
-    name: "Sanjay Kar",
+    name: "Rathikant Behera",
     role: "Will be updated shortly",
     year: "'23",
     photo: "https://i.pravatar.cc/300?img=68",
     quote: "From my first workshop to a Carnegie Mellon offer — this club was pivotal.",
-  },
-  {
-    name: "Trisha Panda",
-    role: "Will be updated shortly",
-    year: "'23",
-    photo: "https://i.pravatar.cc/300?img=49",
-    quote: "I learned to lead, mentor, and ship — long before my first job.",
   },
 ];
 
