@@ -384,10 +384,9 @@ function Home() {
                 <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 1</h3>
                 <p className="text-sm text-brand font-medium mb-8">Associate Professor, Department of CSE</p>
                 
-                <div className="relative">
-                  <Quote className="absolute -top-4 -left-3 w-12 h-12 text-white/5 rotate-180" />
-                  <p className="relative z-10 italic text-white/70 text-base leading-relaxed pl-5 border-l-2 border-brand/40 py-2">
-                    "Empowering students to push the boundaries of technology. At GFG ITER, we believe in building a foundation of strong technical skills, continuous learning, and collaborative innovation that prepares you for the challenges of tomorrow."
+                <div className="relative border-l-2 border-brand/40 pl-5 py-2">
+                  <p className="text-white/70 text-base leading-relaxed">
+                    Empowering students to push the boundaries of technology. At GFG ITER, we believe in building a foundation of strong technical skills, continuous learning, and collaborative innovation that prepares you for the challenges of tomorrow.
                   </p>
                 </div>
 
@@ -416,21 +415,20 @@ function Home() {
               </div>
               
               {/* Content side */}
-              <div className="w-full md:w-2/3 flex flex-col justify-center md:items-end md:text-right">
+              <div className="w-full md:w-2/3 flex flex-col justify-center">
                 <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
                   Faculty Coordinator | GFG Campus Body ITER
                 </div>
                 <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 2</h3>
                 <p className="text-sm text-brand font-medium mb-8">Assistant Professor, Department of CSE</p>
                 
-                <div className="relative w-full">
-                  <Quote className="absolute -bottom-4 -right-2 w-12 h-12 text-white/5" />
-                  <p className="relative z-10 italic text-white/70 text-base leading-relaxed md:pr-5 md:border-r-2 md:border-l-0 pl-5 border-l-2 border-brand/40 py-2">
-                    "Innovation starts with a curious mindset and a supportive community. Our goal at GFG ITER is to provide students with the platform and resources they need to experiment, fail, learn, and ultimately build products that matter."
+                <div className="relative border-l-2 border-brand/40 pl-5 py-2">
+                  <p className="text-white/70 text-base leading-relaxed">
+                    Innovation starts with a curious mindset and a supportive community. Our goal at GFG ITER is to provide students with the platform and resources they need to experiment, fail, learn, and ultimately build products that matter.
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-hairline w-full flex md:justify-end">
+                <div className="mt-8 pt-6 border-t border-hairline">
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
