@@ -17,7 +17,7 @@ function TerminalLog() {
               <span className="text-[#00ff7f]">npm install community</span>
             </div>
             <div className="text-slate-400 pl-4">
-              [success] Added 500+ members...
+              [success] Added 100+ members...
             </div>
           </div>
           <div className="flex flex-col gap-1">
