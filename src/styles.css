@@ -222,6 +222,8 @@
   .custom-scrollbar:hover::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
   }
+}
+
 /* Premium Card Styles (Operating System Aesthetic) */
 .dark .bg-surface-elevated {
   background: linear-gradient(180deg, #0D1410 0%, #0A100D 100%) !important;
