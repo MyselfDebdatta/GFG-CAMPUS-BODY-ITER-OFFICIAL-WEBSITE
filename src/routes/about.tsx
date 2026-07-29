@@ -32,10 +32,10 @@ function About() {
         <div className="container-page relative py-16 md:py-24">
           <div className="max-w-4xl">
             <Reveal>
-              <h1 className="mb-6 text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 About <span className="text-gradient-brand">Us.</span>
               </h1>
-              <h2 className="mb-6 text-lg font-bold tracking-tight text-foreground sm:text-xl md:text-2xl leading-tight">
+              <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl leading-tight">
                 A student chapter built on craft and community.
               </h2>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">

@@ -49,10 +49,10 @@ function Events() {
         <div className="container-page relative py-16 md:py-20">
           <div className="max-w-4xl">
             <Reveal>
-              <h1 className="mb-6 text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 Where learning gets <span className="text-gradient-brand">loud.</span>
               </h1>
-              <h2 className="mb-6 text-lg font-bold tracking-tight text-foreground sm:text-xl md:text-2xl leading-tight">
+              <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl leading-tight">
                 Hackathons, bootcamps, workshops, and speaker sessions — hosted year-round on campus and online.
               </h2>
             </Reveal>
