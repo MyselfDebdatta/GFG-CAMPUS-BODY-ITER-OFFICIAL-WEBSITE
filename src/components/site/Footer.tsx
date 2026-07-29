@@ -39,17 +39,34 @@ export function Footer() {
   return (
     <footer className="relative z-10 mt-24 bg-[#060D09] text-slate-300 border-t border-[#00ff7f]/10 overflow-hidden">
       {/* Heartbeat Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.08] flex items-center">
-        <svg className="w-[200%] h-32 md:h-64" style={{ animation: 'marquee 15s linear infinite' }} preserveAspectRatio="none" viewBox="0 0 2000 100">
-          <path
-            d="M 0 50 L 350 50 L 370 20 L 390 90 L 410 10 L 430 60 L 450 50 L 850 50 L 870 20 L 890 90 L 910 10 L 930 60 L 950 50 L 1350 50 L 1370 20 L 1390 90 L 1410 10 L 1430 60 L 1450 50 L 1850 50 L 1870 20 L 1890 90 L 1910 10 L 1930 60 L 1950 50 L 2000 50"
-            stroke="#00ff7f"
-            strokeWidth="3"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ filter: "drop-shadow(0 0 6px #00ff7f)" }}
-          />
+      <div className="absolute inset-0 pointer-events-none opacity-20 flex items-center">
+        <svg className="w-full h-32 md:h-64 animate-[dot-bounce_4s_ease-in-out_infinite]">
+          <defs>
+            <linearGradient id="ecgGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#32CD32">
+                <animate attributeName="stop-color" values="#32CD32;#e2da24;#00ff7f;#32CD32" dur="4s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="50%" stopColor="#e2da24">
+                <animate attributeName="stop-color" values="#e2da24;#00ff7f;#32CD32;#e2da24" dur="4s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stopColor="#00ff7f">
+                <animate attributeName="stop-color" values="#00ff7f;#32CD32;#e2da24;#00ff7f" dur="4s" repeatCount="indefinite" />
+              </stop>
+            </linearGradient>
+            <pattern id="ecgPattern" x="0" y="0" width="500" height="100" patternUnits="userSpaceOnUse">
+              <path
+                d="M 0 50 L 350 50 L 370 20 L 390 90 L 410 10 L 430 60 L 450 50 L 500 50"
+                stroke="url(#ecgGradient)"
+                strokeWidth="2.5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ filter: "drop-shadow(0 0 4px rgba(0,255,127,0.5))" }}
+              />
+              <animate attributeName="x" from="0" to="-500" dur="6s" repeatCount="indefinite" />
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#ecgPattern)" />
         </svg>
       </div>
       <div className="container-page py-16 relative">
@@ -73,11 +90,13 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-base font-semibold text-white mb-6">Quick Links</h4>
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {[
                 { to: "/about", label: "About" },
                 { to: "/events", label: "Events" },
                 { to: "/team", label: "Team" },
+                { to: "/alumni", label: "Alumni" },
+                { to: "/community", label: "Community" },
                 { to: "/contact", label: "Connect" },
               ].map(link => (
                 <Link key={link.label} to={link.to} className="text-sm text-slate-400 hover:text-[#00ff7f] hover:translate-x-1 transition-all">
