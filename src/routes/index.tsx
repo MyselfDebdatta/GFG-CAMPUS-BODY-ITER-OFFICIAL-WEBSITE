@@ -394,9 +394,9 @@ function Home() {
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-brand transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   >
-                    <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                    <Linkedin className="h-5 w-5 text-[#0A66C2]" strokeWidth={2.5} />
                   </a>
                 </div>
               </div>
@@ -432,9 +432,9 @@ function Home() {
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-brand transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   >
-                    <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                    <Linkedin className="h-5 w-5 text-[#0A66C2]" strokeWidth={2.5} />
                   </a>
                 </div>
               </div>
