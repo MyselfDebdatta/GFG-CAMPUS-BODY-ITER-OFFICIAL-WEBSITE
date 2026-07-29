@@ -14,9 +14,9 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EventsRouteImport } from './routes/events'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -44,11 +44,6 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -59,10 +54,15 @@ const TeamRoute = TeamRouteImport.update({
   path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsEventIdRoute = EventsEventIdRouteImport.update({
-  id: '/$eventId',
-  path: '/$eventId',
-  getParentRoute: () => EventsRoute,
+  id: '/events/$eventId',
+  path: '/events/$eventId',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -71,10 +71,10 @@ export interface FileRoutesByFullPath {
   '/alumni': typeof AlumniRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/events': typeof EventsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/events/': typeof EventsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -82,10 +82,10 @@ export interface FileRoutesByTo {
   '/alumni': typeof AlumniRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/events': typeof EventsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/events': typeof EventsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -94,10 +94,10 @@ export interface FileRoutesById {
   '/alumni': typeof AlumniRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/events': typeof EventsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/events/$eventId': typeof EventsEventIdRoute
+  '/events/': typeof EventsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -107,10 +107,10 @@ export interface FileRouteTypes {
     | '/alumni'
     | '/community'
     | '/contact'
-    | '/events'
     | '/sitemap.xml'
     | '/team'
     | '/events/$eventId'
+    | '/events/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -118,10 +118,10 @@ export interface FileRouteTypes {
     | '/alumni'
     | '/community'
     | '/contact'
-    | '/events'
     | '/sitemap.xml'
     | '/team'
     | '/events/$eventId'
+    | '/events'
   id:
     | '__root__'
     | '/'
@@ -129,10 +129,10 @@ export interface FileRouteTypes {
     | '/alumni'
     | '/community'
     | '/contact'
-    | '/events'
     | '/sitemap.xml'
     | '/team'
     | '/events/$eventId'
+    | '/events/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -141,9 +141,10 @@ export interface RootRouteChildren {
   AlumniRoute: typeof AlumniRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
-  EventsRoute: typeof EventsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
+  EventsEventIdRoute: typeof EventsEventIdRoute
+  EventsIndexRoute: typeof EventsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -183,13 +184,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -204,26 +198,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/events/': {
+      id: '/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events/$eventId': {
       id: '/events/$eventId'
-      path: '/$eventId'
+      path: '/events/$eventId'
       fullPath: '/events/$eventId'
       preLoaderRoute: typeof EventsEventIdRouteImport
-      parentRoute: typeof EventsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface EventsRouteChildren {
-  EventsEventIdRoute: typeof EventsEventIdRoute
-}
-
-const EventsRouteChildren: EventsRouteChildren = {
-  EventsEventIdRoute: EventsEventIdRoute,
-}
-
-const EventsRouteWithChildren =
-  EventsRoute._addFileChildren(EventsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -231,9 +221,10 @@ const rootRouteChildren: RootRouteChildren = {
   AlumniRoute: AlumniRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
-  EventsRoute: EventsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
+  EventsEventIdRoute: EventsEventIdRoute,
+  EventsIndexRoute: EventsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
