@@ -361,34 +361,41 @@ function Home() {
         <SectionHeader
           eyebrow="Leadership"
           title={<>Our Faculty Coordinators</>}
-          description="Guiding the next generation of engineers at GFG ITER Campus Body."
+          description="Guiding the next generation of engineers at GFG Campus Body ITER."
         />
         
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
+        <div className="mt-16 flex flex-col gap-10 max-w-5xl mx-auto">
           {/* Card 1 */}
           <Reveal delay={0.1}>
-            <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(0,255,127,0.15)] flex flex-col h-full">
-              <div className="aspect-[4/5] overflow-hidden bg-black/40 flex items-center justify-center border-b border-hairline relative">
-                <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+            <article className="flex flex-col md:flex-row items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 hover:border-brand/40 hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
+              {/* Image side */}
+              <div className="w-full md:w-1/3 shrink-0">
+                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
+                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                </div>
               </div>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">Faculty Sponsor | GFG ITER Campus Body</div>
-                <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">Random Name 1</h3>
-                <p className="mt-1 text-sm text-brand font-medium">Associate Professor, Department of CSE</p>
+              
+              {/* Content side */}
+              <div className="w-full md:w-2/3 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
+                  Faculty Coordinator | GFG Campus Body ITER
+                </div>
+                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 1</h3>
+                <p className="text-sm text-brand font-medium mb-8">Associate Professor, Department of CSE</p>
                 
-                <div className="mt-6 flex-grow relative rounded-xl bg-black/40 p-5 border border-hairline">
-                  <Quote className="absolute top-3 right-3 w-8 h-8 text-white/5" />
-                  <p className="relative z-10 italic text-white/70 text-sm leading-relaxed">
+                <div className="relative">
+                  <Quote className="absolute -top-4 -left-3 w-12 h-12 text-white/5 rotate-180" />
+                  <p className="relative z-10 italic text-white/70 text-base leading-relaxed pl-5 border-l-2 border-brand/40 py-2">
                     "Empowering students to push the boundaries of technology. At GFG ITER, we believe in building a foundation of strong technical skills, continuous learning, and collaborative innovation that prepares you for the challenges of tomorrow."
                   </p>
                 </div>
 
-                <div className="mt-6 flex items-center gap-1 border-t border-hairline pt-6">
+                <div className="mt-8 pt-6 border-t border-hairline">
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
-                    className="flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-brand/10 hover:text-brand px-3 py-2 transition-colors -ml-3"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-brand transition-colors"
                   >
                     <Linkedin className="h-4 w-4" /> Connect on LinkedIn
                   </a>
@@ -399,28 +406,35 @@ function Home() {
 
           {/* Card 2 */}
           <Reveal delay={0.2}>
-            <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(0,255,127,0.15)] flex flex-col h-full">
-              <div className="aspect-[4/5] overflow-hidden bg-black/40 flex items-center justify-center border-b border-hairline relative">
-                <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+            <article className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 hover:border-brand/40 hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
+              {/* Image side */}
+              <div className="w-full md:w-1/3 shrink-0">
+                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
+                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                </div>
               </div>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">Faculty Co-sponsor | GFG ITER Campus Body</div>
-                <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">Random Name 2</h3>
-                <p className="mt-1 text-sm text-brand font-medium">Assistant Professor, Department of CSE</p>
+              
+              {/* Content side */}
+              <div className="w-full md:w-2/3 flex flex-col justify-center md:items-end md:text-right">
+                <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
+                  Faculty Coordinator | GFG Campus Body ITER
+                </div>
+                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 2</h3>
+                <p className="text-sm text-brand font-medium mb-8">Assistant Professor, Department of CSE</p>
                 
-                <div className="mt-6 flex-grow relative rounded-xl bg-black/40 p-5 border border-hairline">
-                  <Quote className="absolute top-3 right-3 w-8 h-8 text-white/5" />
-                  <p className="relative z-10 italic text-white/70 text-sm leading-relaxed">
+                <div className="relative w-full">
+                  <Quote className="absolute -bottom-4 -right-2 w-12 h-12 text-white/5" />
+                  <p className="relative z-10 italic text-white/70 text-base leading-relaxed md:pr-5 md:border-r-2 md:border-l-0 pl-5 border-l-2 border-brand/40 py-2">
                     "Innovation starts with a curious mindset and a supportive community. Our goal at GFG ITER is to provide students with the platform and resources they need to experiment, fail, learn, and ultimately build products that matter."
                   </p>
                 </div>
 
-                <div className="mt-6 flex items-center gap-1 border-t border-hairline pt-6">
+                <div className="mt-8 pt-6 border-t border-hairline w-full flex md:justify-end">
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
-                    className="flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-brand/10 hover:text-brand px-3 py-2 transition-colors -ml-3"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-brand transition-colors"
                   >
                     <Linkedin className="h-4 w-4" /> Connect on LinkedIn
                   </a>
