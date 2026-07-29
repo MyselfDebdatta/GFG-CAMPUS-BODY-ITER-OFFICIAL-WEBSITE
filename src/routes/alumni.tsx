@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Building2, GraduationCap, Quote, Github, Linkedin } from "lucide-react";
+import { Award, Building2, Users, Quote, Github, Linkedin, Mail } from "lucide-react";
 import { ALUMNI, RECRUITERS } from "@/lib/site-data";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 
@@ -19,14 +19,14 @@ export const Route = createFileRoute("/alumni")({
 
 const HIGHLIGHTS = [
   { icon: Building2, label: "Placed at top MNCs", value: 10, suffix: "+" },
-  { icon: GraduationCap, label: "Higher studies abroad", value: 6, suffix: "+" },
+  { icon: Users, label: "Open Source Contributors", value: 20, suffix: "+" },
   { icon: Award, label: "Hackathon podiums", value: 12, suffix: "+" },
 ];
 
 const NOTABLE_ALUMNI = [
-  { name: "Ankit Rajan", role: "Alumni", github: "#", linkedin: "#" },
-  { name: "Mukesh Kumar Padhi", role: "Alumni", github: "#", linkedin: "#" },
-  { name: "Rathikant Behera", role: "Alumni", github: "#", linkedin: "#" },
+  { name: "Ankit Rajan", role: "Alumni", github: "#", linkedin: "#", mail: "#" },
+  { name: "Mukesh Kumar Padhi", role: "Alumni", github: "#", linkedin: "#", mail: "#" },
+  { name: "Rathikant Behera", role: "Alumni", github: "#", linkedin: "#", mail: "#" },
 ];
 
 function Alumni() {
@@ -70,10 +70,11 @@ function Alumni() {
       {/* Notable Profiles */}
       <section className="container-page py-20">
         <SectionHeader eyebrow="Our Pride" title="Notable Alumni" align="center" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
           {NOTABLE_ALUMNI.map((m, i) => (
-            <Reveal key={m.name} delay={i * 0.05}>
-              <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
+            <div key={m.name} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
+              <Reveal delay={i * 0.05}>
+                <article className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
@@ -105,10 +106,20 @@ function Alumni() {
                         <Github className="h-4 w-4" />
                       </a>
                     )}
+                    {(m as any).mail && (
+                      <a
+                        href={(m as any).mail}
+                        aria-label={`${m.name} Mail`}
+                        className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+                      >
+                        <Mail className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
       </section>
@@ -145,7 +156,7 @@ function Alumni() {
               <Reveal key={a.name} delay={i * 0.05}>
                 <article className="flex h-full gap-5 rounded-2xl border border-hairline bg-surface-elevated p-6">
                   <img
-                    src={a.photo}
+                    src={`https://ui-avatars.com/api/?name=${encodeURIComponent(a.name)}&background=00ff7f&color=020b06&size=512`}
                     alt={a.name}
                     className="h-20 w-20 shrink-0 rounded-2xl object-cover"
                     loading="lazy"
