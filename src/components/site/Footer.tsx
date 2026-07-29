@@ -37,38 +37,7 @@ function TerminalLog() {
 
 export function Footer() {
   return (
-    <footer className="relative z-10 mt-24 bg-[#060D09] text-slate-300 border-t border-[#00ff7f]/10 overflow-hidden">
-      {/* Heartbeat Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 flex items-center">
-        <svg className="w-full h-32 md:h-64 animate-[dot-bounce_4s_ease-in-out_infinite]">
-          <defs>
-            <linearGradient id="ecgGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#32CD32">
-                <animate attributeName="stop-color" values="#32CD32;#e2da24;#00ff7f;#32CD32" dur="4s" repeatCount="indefinite" />
-              </stop>
-              <stop offset="50%" stopColor="#e2da24">
-                <animate attributeName="stop-color" values="#e2da24;#00ff7f;#32CD32;#e2da24" dur="4s" repeatCount="indefinite" />
-              </stop>
-              <stop offset="100%" stopColor="#00ff7f">
-                <animate attributeName="stop-color" values="#00ff7f;#32CD32;#e2da24;#00ff7f" dur="4s" repeatCount="indefinite" />
-              </stop>
-            </linearGradient>
-            <pattern id="ecgPattern" x="0" y="0" width="500" height="100" patternUnits="userSpaceOnUse">
-              <path
-                d="M 0 50 L 350 50 L 370 20 L 390 90 L 410 10 L 430 60 L 450 50 L 500 50"
-                stroke="url(#ecgGradient)"
-                strokeWidth="2.5"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ filter: "drop-shadow(0 0 4px rgba(0,255,127,0.5))" }}
-              />
-              <animate attributeName="x" from="0" to="-500" dur="6s" repeatCount="indefinite" />
-            </pattern>
-          </defs>
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#ecgPattern)" />
-        </svg>
-      </div>
+    <footer className="relative z-10 mt-24 bg-[#060D09] text-slate-300 border-t border-[#00ff7f]/10">
       <div className="container-page py-16 relative">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1.8fr_0.8fr_1.2fr]">
           {/* Brand/About Column */}
@@ -128,7 +97,40 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-[#00ff7f]/10 pt-8 text-xs text-slate-500">
+        {/* ECG Separator */}
+        <div className="relative w-full h-[80px] mt-12 -mb-6 opacity-80 pointer-events-none">
+          <svg className="absolute inset-0 w-full h-full">
+            <defs>
+              <linearGradient id="ecgGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#32CD32">
+                  <animate attributeName="stop-color" values="#32CD32;#e2da24;#00ff7f;#32CD32" dur="4s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="50%" stopColor="#e2da24">
+                  <animate attributeName="stop-color" values="#e2da24;#00ff7f;#32CD32;#e2da24" dur="4s" repeatCount="indefinite" />
+                </stop>
+                <stop offset="100%" stopColor="#00ff7f">
+                  <animate attributeName="stop-color" values="#00ff7f;#32CD32;#e2da24;#00ff7f" dur="4s" repeatCount="indefinite" />
+                </stop>
+              </linearGradient>
+              <pattern id="ecgPattern" x="0" y="0" width="800" height="80" patternUnits="userSpaceOnUse">
+                {/* Authentic ECG Path: Flat -> P wave -> Flat -> QRS complex -> Flat -> T wave -> Flat */}
+                <path
+                  d="M 0 40 L 150 40 L 170 25 L 190 40 L 220 40 L 230 55 L 250 5 L 270 75 L 290 40 L 320 40 L 340 20 L 370 20 L 390 40 L 800 40"
+                  stroke="url(#ecgGradient)"
+                  strokeWidth="2.5"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ filter: "drop-shadow(0 0 5px rgba(0,255,127,0.6))" }}
+                />
+                <animate attributeName="x" from="0" to="-800" dur="4s" repeatCount="indefinite" />
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#ecgPattern)" />
+          </svg>
+        </div>
+
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-[#00ff7f]/10 pt-8 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} GFG ITER Student Chapter. All rights reserved.</p>
           <div className="flex gap-4 items-center flex-wrap">
             <div className="flex items-center gap-1">Powered by <span className="text-[#00ff7f] font-semibold">GFG ITER</span></div>
