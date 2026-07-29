@@ -19,25 +19,6 @@ export function InnerPageBackground() {
         }}
       />
 
-      {/* 2. Floating 3D Geometric Wireframes */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-30">
-        <motion.div
-          animate={{ rotateZ: 360, rotateX: 360, rotateY: 180 }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute -left-[10%] top-[20%] w-[40vw] h-[40vw] opacity-[0.05]"
-        >
-          <svg viewBox="0 0 200 200" className="w-full h-full" fill="none" stroke="#00FF66" strokeWidth="0.2">
-            <polygon points="100,10 190,55 190,145 100,190 10,145 10,55" />
-            <line x1="100" y1="10" x2="100" y2="100" />
-            <line x1="190" y1="55" x2="100" y2="100" />
-            <line x1="190" y1="145" x2="100" y2="100" />
-            <line x1="100" y1="190" x2="100" y2="100" />
-            <line x1="10" y1="145" x2="100" y2="100" />
-            <line x1="10" y1="55" x2="100" y2="100" />
-          </svg>
-        </motion.div>
-      </div>
-
       {/* 3. Bright Glitter / Twinkling Stars Effect */}
       {isClient && (
         <div className="absolute inset-0">
@@ -71,6 +52,8 @@ export function InnerPageBackground() {
         </div>
       )}
 
+      {/* 4. Edge Vignette for Depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#020b06_100%)] opacity-80" />
     </div>
   );
 }
