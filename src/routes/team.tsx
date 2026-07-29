@@ -20,12 +20,15 @@ export const Route = createFileRoute("/team")({
 function Team() {
   return (
     <>
-      <section className="container-page py-16 md:py-20">
-        <SectionHeader
-          eyebrow="The team"
-          title={<>The people building <span className="text-gradient-brand">GFG ITER</span>.</>}
-          description="A student-run team of engineers, designers, organizers, and marketers — with faculty support."
-        />
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" />
+        <div className="container-page relative py-16 md:py-20">
+          <SectionHeader
+            eyebrow="The team"
+            title={<>The people building <span className="text-gradient-brand">GFG ITER</span>.</>}
+            description="A student-run team of engineers, designers, organizers, and marketers — with faculty support."
+          />
+        </div>
       </section>
 
       {TEAM_GROUPS.map((group) => {

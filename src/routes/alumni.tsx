@@ -26,12 +26,15 @@ const HIGHLIGHTS = [
 function Alumni() {
   return (
     <>
-      <section className="container-page py-16 md:py-20">
-        <SectionHeader
-          eyebrow="Wall of fame"
-          title={<>Alumni who <span className="text-gradient-brand">shipped</span> — and kept shipping.</>}
-          description="From first-year builders to engineers at some of the best tech companies in the world."
-        />
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" />
+        <div className="container-page relative py-16 md:py-20">
+          <SectionHeader
+            eyebrow="Wall of fame"
+            title={<>Alumni who <span className="text-gradient-brand">shipped</span> — and kept shipping.</>}
+            description="From first-year builders to engineers at some of the best tech companies in the world."
+          />
+        </div>
       </section>
 
       {/* Highlights */}

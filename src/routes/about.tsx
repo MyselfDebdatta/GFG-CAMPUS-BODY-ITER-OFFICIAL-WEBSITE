@@ -28,19 +28,22 @@ const VALUES = [
 function About() {
   return (
     <>
-      <section className="container-page py-16 md:py-24">
-        <div className="max-w-4xl">
-          <Reveal>
-            <h1 className="mb-6 text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
-              About <span className="text-gradient-brand">Us.</span>
-            </h1>
-            <h2 className="mb-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
-              A student chapter built on craft and community.
-            </h2>
-            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              We are the official Geeks for Geeks student chapter at ITER, SOA University — an ambitious community of engineers, designers, and builders pushing the boundaries of what students can achieve.
-            </p>
-          </Reveal>
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" />
+        <div className="container-page relative py-16 md:py-24">
+          <div className="max-w-4xl">
+            <Reveal>
+              <h1 className="mb-6 text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+                About <span className="text-gradient-brand">Us.</span>
+              </h1>
+              <h2 className="mb-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
+                A student chapter built on craft and community.
+              </h2>
+              <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                We are the official Geeks for Geeks student chapter at ITER, SOA University — an ambitious community of engineers, designers, and builders pushing the boundaries of what students can achieve.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

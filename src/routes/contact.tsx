@@ -62,12 +62,15 @@ function Contact() {
 
   return (
     <>
-      <section className="container-page py-16 md:py-20">
-        <SectionHeader
-          eyebrow="Contact"
-          title={<>Say hi to <span className="text-gradient-brand">GFG ITER</span>.</>}
-          description="Collaborations, sponsorships, speaker invites, or student inquiries — we read every message."
-        />
+      <section className="relative overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" />
+        <div className="container-page relative py-16 md:py-20">
+          <SectionHeader
+            eyebrow="Contact"
+            title={<>Say hi to <span className="text-gradient-brand">GFG ITER</span>.</>}
+            description="Collaborations, sponsorships, speaker invites, or student inquiries — we read every message."
+          />
+        </div>
       </section>
 
       <section className="container-page pb-20">
