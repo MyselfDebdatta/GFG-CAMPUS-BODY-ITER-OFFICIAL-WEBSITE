@@ -20,7 +20,7 @@ export const Route = createFileRoute("/community")({
 
 const BENEFITS = [
   { icon: Bell, title: "Instant updates", body: "Event drops, deadlines, and announcements the moment they happen." },
-  { icon: MessageCircle, title: "Coding discussions", body: "Ask questions, share solutions, debate approaches — with 500+ students." },
+  { icon: MessageCircle, title: "Coding discussions", body: "Ask questions, share solutions, debate approaches — with 100+ students." },
   { icon: Briefcase, title: "Internship & placement", body: "Curated openings, referrals, and prep resources from alumni." },
   { icon: Users, title: "Networking", body: "Meet seniors, juniors, and alumni across batches and branches." },
 ];
@@ -74,7 +74,7 @@ function Community() {
                   </div>
                   <div>
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#25D366]">Join Community</div>
-                    <h3 className="mt-2 text-2xl font-bold tracking-tight">Tap the link. You're in.</h3>
+                    <h3 className="mt-2 text-2xl font-bold tracking-tight">Scan the QR. You're in.</h3>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Only current ITER students. We verify new members weekly to keep the group high-signal.
                     </p>
@@ -128,7 +128,7 @@ function Community() {
 
       {/* Benefits */}
       <section className="container-page py-20">
-        <SectionHeader eyebrow="What you get" title="Why 500+ students stay in the group" align="center" />
+        <SectionHeader eyebrow="What you get" title="Why 100+ students stay in the group" align="center" />
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {BENEFITS.map((b, i) => (
             <Reveal key={b.title} delay={i * 0.05}>
