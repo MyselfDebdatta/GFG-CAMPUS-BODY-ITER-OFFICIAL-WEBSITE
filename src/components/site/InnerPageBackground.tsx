@@ -38,10 +38,39 @@ export function InnerPageBackground() {
         </motion.div>
       </div>
 
+      {/* 3. Bright Glitter / Twinkling Stars Effect */}
+      {isClient && (
+        <div className="absolute inset-0">
+          {Array.from({ length: 60 }).map((_, i) => {
+            // Pseudo-random deterministic values for initial render to avoid hydration mismatch,
+            // though isClient already prevents SSR mismatch.
+            const size = Math.random() * 2 + 1;
+            return (
+              <motion.div
+                key={i}
+                className="absolute bg-white rounded-full mix-blend-screen shadow-[0_0_8px_rgba(0,255,102,0.8)]"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  width: size,
+                  height: size,
+                }}
+                animate={{
+                  opacity: [0, 0.8, 0],
+                  scale: [0, 1.2, 0],
+                }}
+                transition={{
+                  duration: Math.random() * 3 + 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 5,
+                  ease: "easeInOut",
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
 
-
-      {/* 4. Edge Vignette for Depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#020b06_100%)] opacity-80" />
     </div>
   );
 }
