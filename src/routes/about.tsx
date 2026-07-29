@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Target, Compass, HeartHandshake, GraduationCap, Sparkles, Users2 } from "lucide-react";
+import { Target, Compass, HeartHandshake, GraduationCap, Sparkles, Users2, Code2, Rocket } from "lucide-react";
 import soaLogo from "@/assets/soa-logo.asset.json";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
 import { Button } from "@/components/ui/button";
@@ -44,25 +44,48 @@ function About() {
         </div>
       </section>
 
-      {/* Vision / Mission */}
+      {/* Vision / Mission / Approach Bento Grid */}
       <section className="container-page pb-16">
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-12">
           {[
             {
               icon: Compass,
               tag: "Our Vision",
               title: "Make ITER a launchpad for world-class engineers.",
               body: "A campus where every curious student can find mentors, teammates, and a stage to ship real work — from their first line of code to their first paycheck.",
+              className: "md:col-span-7",
             },
             {
               icon: Target,
               tag: "Our Mission",
               title: "Learn in public. Build in the open. Ship together.",
               body: "Run high-signal workshops, host thoughtful events, and back student projects that go beyond the classroom. Bridge students to opportunities, alumni, and industry.",
+              className: "md:col-span-5",
             },
-          ].map((c) => (
-            <Reveal key={c.tag}>
-              <div className="h-full rounded-3xl border border-hairline bg-surface-elevated p-8">
+            {
+              icon: Code2,
+              tag: "Our Approach",
+              title: "Project-driven engineering.",
+              body: "We move beyond theoretical concepts by building real-world applications, actively contributing to open source, and competing in high-stakes hackathons.",
+              className: "md:col-span-4",
+            },
+            {
+              icon: Sparkles,
+              tag: "Our Culture",
+              title: "Radical curiosity.",
+              body: "We prioritize knowledge sharing and peer mentorship. We foster a supportive environment where asking the naïve question is encouraged and failure is iteration.",
+              className: "md:col-span-4",
+            },
+            {
+              icon: Rocket,
+              tag: "Our Impact",
+              title: "Bridging academia & industry.",
+              body: "We accelerate careers. We connect students with top-tier internships, powerful alumni networks, and opportunities that transform potential into proven capability.",
+              className: "md:col-span-4",
+            }
+          ].map((c, i) => (
+            <Reveal key={c.tag} delay={i * 0.05} className={c.className}>
+              <div className="h-full rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-brand/30">
                 <div className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand">
                   <c.icon className="h-3 w-3" /> {c.tag}
                 </div>
