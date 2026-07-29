@@ -124,11 +124,14 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { InnerPageBackground } from "@/components/site/InnerPageBackground";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div id="top" className="flex min-h-dvh flex-col bg-background">
+      <div id="top" className="flex min-h-dvh flex-col bg-transparent">
+        <InnerPageBackground />
         <Navbar />
         <main className="flex-1 pt-24">
           <Outlet />
