@@ -136,21 +136,21 @@
   }
 }
 
-@utility container-page {
+.container-page {
   width: 100%;
   margin-inline: auto;
   padding-inline: 1.25rem;
   max-width: 80rem;
 }
 
-@utility glass-panel {
+.glass-panel {
   background: color-mix(in oklab, var(--background) 70%, transparent);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
 }
 
-@utility text-gradient-brand {
+.text-gradient-brand {
   background: linear-gradient(
     135deg,
     var(--brand) 0%,
@@ -161,7 +161,7 @@
   color: transparent;
 }
 
-@utility bg-radial-brand {
+.bg-radial-brand {
   background-image:
     radial-gradient(
       600px circle at 20% 10%,
@@ -175,7 +175,7 @@
     );
 }
 
-@utility grid-bg {
+.grid-bg {
   background-image:
     linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
@@ -188,7 +188,7 @@
   to { transform: translateX(-50%); }
 }
 
-@utility animate-marquee {
+.animate-marquee {
   animation: marquee 40s linear infinite;
 }
 
@@ -197,7 +197,7 @@
   to { transform: translateX(0); }
 }
 
-@utility animate-marquee-reverse {
+.animate-marquee-reverse {
   animation: marquee-reverse 40s linear infinite;
 }
 
@@ -206,7 +206,7 @@
   50% { transform: translateY(-8px); }
 }
 
-@utility animate-dot-bounce {
+.animate-dot-bounce {
   animation: dot-bounce 1s ease-in-out infinite;
 }
 
@@ -271,3 +271,14 @@
 @keyframes shine-text {
   to { background-position: 200% center; }
 }
+
+/* Explicit utilities for production build fallback */
+.bg-brand { background-color: var(--brand) !important; }
+.text-brand { color: var(--brand) !important; }
+.text-brand-foreground { color: var(--brand-foreground) !important; }
+.border-brand { border-color: var(--brand) !important; }
+.bg-brand\/5 { background-color: color-mix(in oklab, var(--brand) 5%, transparent) !important; }
+.bg-brand\/10 { background-color: color-mix(in oklab, var(--brand) 10%, transparent) !important; }
+.bg-brand\/20 { background-color: color-mix(in oklab, var(--brand) 20%, transparent) !important; }
+.bg-brand\/90 { background-color: color-mix(in oklab, var(--brand) 90%, transparent) !important; }
+
