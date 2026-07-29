@@ -361,74 +361,72 @@ function Home() {
         <SectionHeader
           eyebrow="Leadership"
           title={<>Our Faculty Coordinators</>}
-          description="Guiding the next generation of engineers."
+          description="Guiding the next generation of engineers at GFG ITER Campus Body."
         />
         
-        <div className="mt-16 flex flex-col gap-12 max-w-5xl mx-auto">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto">
           {/* Card 1 */}
           <Reveal delay={0.1}>
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 rounded-3xl border border-[#00ff7f]/20 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/40 hover:shadow-[0_0_15px_rgba(0,255,127,0.1)]">
-              {/* Image side */}
-              <div className="w-full md:w-1/3 shrink-0">
-                <div className="relative aspect-[4/5] group w-full max-w-[280px] mx-auto md:mx-0">
-                   {/* Background offset shadow */}
-                   <div className="absolute inset-0 bg-[#00ff7f]/20 translate-x-4 translate-y-4 rounded-2xl transition-transform group-hover:translate-x-5 group-hover:translate-y-5" />
-                   {/* Main Image Container */}
-                   <div className="absolute inset-0 bg-[#020b06] border border-[#00ff7f]/30 rounded-2xl overflow-hidden flex items-center justify-center relative z-10">
-                     <User className="w-24 h-24 text-[#00ff7f]/30" />
-                   </div>
-                </div>
+            <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(0,255,127,0.15)] flex flex-col h-full">
+              <div className="aspect-[4/5] overflow-hidden bg-black/40 flex items-center justify-center border-b border-hairline relative">
+                <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               </div>
-              {/* Content side */}
-              <div className="w-full md:w-2/3 flex flex-col gap-4">
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-2">Random Name 1</h3>
-                  <p className="text-[#00ff7f] font-medium mb-1">Associate Professor, Department of CSE | SOADU</p>
-                  <p className="text-muted-foreground text-sm">Faculty Sponsor | SOA ACM Students Chapter</p>
-                </div>
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">Faculty Sponsor | GFG ITER Campus Body</div>
+                <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">Random Name 1</h3>
+                <p className="mt-1 text-sm text-brand font-medium">Associate Professor, Department of CSE</p>
                 
-                <div className="mt-4 relative rounded-2xl border border-hairline bg-black/40 p-6 pl-10 overflow-hidden">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff7f]" />
-                  <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5" />
-                  <p className="relative z-10 italic text-white/80 leading-relaxed">
-                    "Research is not reserved for a chosen few; it begins the moment a student learns to ask meaningful questions. As engineering undergraduates, you already stand at the edge of discovery. I encourage each of you to explore, experiment, and contribute because today's curiosity becomes tomorrow's innovation."
+                <div className="mt-6 flex-grow relative rounded-xl bg-black/40 p-5 border border-hairline">
+                  <Quote className="absolute top-3 right-3 w-8 h-8 text-white/5" />
+                  <p className="relative z-10 italic text-white/70 text-sm leading-relaxed">
+                    "Empowering students to push the boundaries of technology. At GFG ITER, we believe in building a foundation of strong technical skills, continuous learning, and collaborative innovation that prepares you for the challenges of tomorrow."
                   </p>
                 </div>
+
+                <div className="mt-6 flex items-center gap-1 border-t border-hairline pt-6">
+                  <a
+                    href="#"
+                    aria-label="LinkedIn Profile"
+                    className="flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-brand/10 hover:text-brand px-3 py-2 transition-colors -ml-3"
+                  >
+                    <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
           </Reveal>
 
           {/* Card 2 */}
           <Reveal delay={0.2}>
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 rounded-3xl border border-[#00ff7f]/20 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/40 hover:shadow-[0_0_15px_rgba(0,255,127,0.1)]">
-              {/* Image side */}
-              <div className="w-full md:w-1/3 shrink-0">
-                <div className="relative aspect-[4/5] group w-full max-w-[280px] mx-auto md:mx-0">
-                   {/* Background offset shadow */}
-                   <div className="absolute inset-0 bg-[#00ff7f]/20 -translate-x-4 translate-y-4 rounded-2xl transition-transform group-hover:-translate-x-5 group-hover:translate-y-5" />
-                   {/* Main Image Container */}
-                   <div className="absolute inset-0 bg-[#020b06] border border-[#00ff7f]/30 rounded-2xl overflow-hidden flex items-center justify-center relative z-10">
-                     <User className="w-24 h-24 text-[#00ff7f]/30" />
-                   </div>
-                </div>
+            <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(0,255,127,0.15)] flex flex-col h-full">
+              <div className="aspect-[4/5] overflow-hidden bg-black/40 flex items-center justify-center border-b border-hairline relative">
+                <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               </div>
-              {/* Content side */}
-              <div className="w-full md:w-2/3 flex flex-col gap-4">
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-2">Random Name 2</h3>
-                  <p className="text-[#00ff7f] font-medium mb-1">Assistant Professor, Department of CSE | SOADU</p>
-                  <p className="text-muted-foreground text-sm">Faculty Co-sponsor | SOA ACM Students Chapter</p>
-                </div>
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">Faculty Co-sponsor | GFG ITER Campus Body</div>
+                <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">Random Name 2</h3>
+                <p className="mt-1 text-sm text-brand font-medium">Assistant Professor, Department of CSE</p>
                 
-                <div className="mt-4 relative rounded-2xl border border-hairline bg-black/40 p-6 pl-10 overflow-hidden">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff7f]" />
-                  <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5" />
-                  <p className="relative z-10 italic text-white/80 leading-relaxed">
-                    "Research does not begin in laboratories, it begins in curious minds. The moment you start questioning how and why things work, you step into the world of discovery. As engineering students, your ideas today can become tomorrow's breakthroughs."
+                <div className="mt-6 flex-grow relative rounded-xl bg-black/40 p-5 border border-hairline">
+                  <Quote className="absolute top-3 right-3 w-8 h-8 text-white/5" />
+                  <p className="relative z-10 italic text-white/70 text-sm leading-relaxed">
+                    "Innovation starts with a curious mindset and a supportive community. Our goal at GFG ITER is to provide students with the platform and resources they need to experiment, fail, learn, and ultimately build products that matter."
                   </p>
                 </div>
+
+                <div className="mt-6 flex items-center gap-1 border-t border-hairline pt-6">
+                  <a
+                    href="#"
+                    aria-label="LinkedIn Profile"
+                    className="flex items-center justify-center gap-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-brand/10 hover:text-brand px-3 py-2 transition-colors -ml-3"
+                  >
+                    <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
           </Reveal>
         </div>
       </section>
