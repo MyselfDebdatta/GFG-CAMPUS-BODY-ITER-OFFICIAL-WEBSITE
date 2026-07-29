@@ -61,9 +61,7 @@ export function Navbar() {
       <div className="container-page">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-2xl px-3 py-2 transition-all",
-            "glass-panel",
-            scrolled ? "shadow-[0_10px_40px_-20px_rgba(15,23,42,0.2)]" : "shadow-none",
+            "flex items-center justify-between rounded-2xl px-3 py-2 transition-all glass-panel"
           )}
           aria-label="Primary"
         >

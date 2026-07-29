@@ -36,7 +36,7 @@ const GUIDELINES = [
 function Community() {
   return (
     <>
-      <section className="relative overflow-hidden">
+      <section className="relative">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" />
         <div className="container-page relative py-16 md:py-24">
           <div className="mx-auto max-w-3xl text-center">

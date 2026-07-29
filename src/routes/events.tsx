@@ -31,7 +31,7 @@ function Events() {
 
   return (
     <>
-      <section className="relative overflow-hidden">
+      <section className="relative">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" />
         <div className="container-page relative py-16 md:py-20">
           <SectionHeader
