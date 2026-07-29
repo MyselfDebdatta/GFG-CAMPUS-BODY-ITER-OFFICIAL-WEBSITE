@@ -76,23 +76,31 @@ function About() {
 
       {/* University affiliation */}
       <section className="border-y border-hairline bg-surface py-20">
-        <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-center">
-          <Reveal>
-            <div className="relative aspect-square max-w-sm rounded-3xl border border-hairline bg-surface-elevated p-10">
-              <img src={soaLogo.url} alt="Siksha 'O' Anusandhan University" className="h-full w-full object-contain" />
+        <div className="container-page grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <Reveal delay={0.1}>
+            <div className="max-w-2xl">
+              <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-brand md:text-5xl">
+                University Affiliation
+              </h2>
+              <h3 className="mb-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                Officially recognized at ITER, SOA University.
+              </h3>
+              <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
+                We operate under the Institute of Technical Education and Research (ITER), Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar. All our events and programs are backed by faculty coordination and university support.
+              </p>
+              
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Fact k="Founded" v="2022" />
+                <Fact k="Chapter type" v="Official GFG Campus Body" />
+                <Fact k="Members" v="500+ students" />
+                <Fact k="Faculty coordinator" v="Dept. of CSE, ITER" />
+              </div>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
-            <SectionHeader
-              eyebrow="University affiliation"
-              title="Officially recognized at ITER, SOA University."
-              description="We operate under the Institute of Technical Education and Research (ITER), Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar. All our events and programs are backed by faculty coordination and university support."
-            />
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <Fact k="Founded" v="2022" />
-              <Fact k="Chapter type" v="Official GFG Campus Body" />
-              <Fact k="Members" v="500+ students" />
-              <Fact k="Faculty coordinator" v="Dept. of CSE, ITER" />
+
+          <Reveal>
+            <div className="relative mx-auto aspect-square w-full max-w-sm rounded-3xl border border-hairline bg-surface-elevated p-10 lg:mx-0 lg:ml-auto">
+              <img src={soaLogo.url} alt="Siksha 'O' Anusandhan University" className="h-full w-full object-contain" />
             </div>
           </Reveal>
         </div>
