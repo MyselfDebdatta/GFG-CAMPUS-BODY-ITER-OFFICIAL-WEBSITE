@@ -800,7 +800,7 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
       </div>
       <div className="flex flex-col flex-1 p-6 md:p-8">
         <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
-        <h3 className="mt-2 text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all">{event.title}</h3>
+        <h3 className="mt-2 text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32] transition-all">{event.title}</h3>
         <p className="mt-3 text-base text-white/60 flex-1">{event.description}</p>
         <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors" style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}>
           Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
