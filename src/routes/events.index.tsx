@@ -31,11 +31,11 @@ function Events() {
   const navigate = useNavigate({ from: Route.id });
 
   const setTab = (newTab: "upcoming" | "past") => {
-    navigate({ search: (prev) => ({ ...prev, tab: newTab }) });
+    navigate({ search: (prev) => ({ ...prev, tab: newTab }), resetScroll: false });
   };
 
   const setCategory = (newCat: string) => {
-    navigate({ search: (prev) => ({ ...prev, category: newCat }) });
+    navigate({ search: (prev) => ({ ...prev, category: newCat }), resetScroll: false });
   };
 
   const filtered = EVENTS.filter(
