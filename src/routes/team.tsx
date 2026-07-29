@@ -62,7 +62,6 @@ function Team() {
                     <div className="p-5">
                       <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
                       <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
-                      <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{m.bio}</p>
                       <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
                         {[Linkedin, Github, Mail].map((Icon, idx) => (
                           <a
