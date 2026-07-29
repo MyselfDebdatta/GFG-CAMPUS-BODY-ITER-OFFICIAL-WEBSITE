@@ -23,7 +23,9 @@ import {
   Award,
   Mic,
   Lightbulb,
-  Github
+  Github,
+  Quote,
+  User
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -347,6 +349,83 @@ function Home() {
                     <div className="text-sm font-semibold">Est. 2025 · ITER, SOA</div>
                     <div className="text-xs text-muted-foreground">A university-recognized student chapter</div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FACULTY COORDINATORS */}
+      <section className="relative z-10 container-page py-24">
+        <SectionHeader
+          eyebrow="Leadership"
+          title={<>Our Faculty Coordinators</>}
+          description="Guiding the next generation of engineers."
+        />
+        
+        <div className="mt-16 flex flex-col gap-12 max-w-5xl mx-auto">
+          {/* Card 1 */}
+          <Reveal delay={0.1}>
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 rounded-3xl border border-[#00ff7f]/20 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/40 hover:shadow-[0_0_15px_rgba(0,255,127,0.1)]">
+              {/* Image side */}
+              <div className="w-full md:w-1/3 shrink-0">
+                <div className="relative aspect-[4/5] group w-full max-w-[280px] mx-auto md:mx-0">
+                   {/* Background offset shadow */}
+                   <div className="absolute inset-0 bg-[#00ff7f]/20 translate-x-4 translate-y-4 rounded-2xl transition-transform group-hover:translate-x-5 group-hover:translate-y-5" />
+                   {/* Main Image Container */}
+                   <div className="absolute inset-0 bg-[#020b06] border border-[#00ff7f]/30 rounded-2xl overflow-hidden flex items-center justify-center relative z-10">
+                     <User className="w-24 h-24 text-[#00ff7f]/30" />
+                   </div>
+                </div>
+              </div>
+              {/* Content side */}
+              <div className="w-full md:w-2/3 flex flex-col gap-4">
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-2">Random Name 1</h3>
+                  <p className="text-[#00ff7f] font-medium mb-1">Associate Professor, Department of CSE | SOADU</p>
+                  <p className="text-muted-foreground text-sm">Faculty Sponsor | SOA ACM Students Chapter</p>
+                </div>
+                
+                <div className="mt-4 relative rounded-2xl border border-hairline bg-black/40 p-6 pl-10 overflow-hidden">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff7f]" />
+                  <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5" />
+                  <p className="relative z-10 italic text-white/80 leading-relaxed">
+                    "Research is not reserved for a chosen few; it begins the moment a student learns to ask meaningful questions. As engineering undergraduates, you already stand at the edge of discovery. I encourage each of you to explore, experiment, and contribute because today's curiosity becomes tomorrow's innovation."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Card 2 */}
+          <Reveal delay={0.2}>
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 rounded-3xl border border-[#00ff7f]/20 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f]/40 hover:shadow-[0_0_15px_rgba(0,255,127,0.1)]">
+              {/* Image side */}
+              <div className="w-full md:w-1/3 shrink-0">
+                <div className="relative aspect-[4/5] group w-full max-w-[280px] mx-auto md:mx-0">
+                   {/* Background offset shadow */}
+                   <div className="absolute inset-0 bg-[#00ff7f]/20 -translate-x-4 translate-y-4 rounded-2xl transition-transform group-hover:-translate-x-5 group-hover:translate-y-5" />
+                   {/* Main Image Container */}
+                   <div className="absolute inset-0 bg-[#020b06] border border-[#00ff7f]/30 rounded-2xl overflow-hidden flex items-center justify-center relative z-10">
+                     <User className="w-24 h-24 text-[#00ff7f]/30" />
+                   </div>
+                </div>
+              </div>
+              {/* Content side */}
+              <div className="w-full md:w-2/3 flex flex-col gap-4">
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-2">Random Name 2</h3>
+                  <p className="text-[#00ff7f] font-medium mb-1">Assistant Professor, Department of CSE | SOADU</p>
+                  <p className="text-muted-foreground text-sm">Faculty Co-sponsor | SOA ACM Students Chapter</p>
+                </div>
+                
+                <div className="mt-4 relative rounded-2xl border border-hairline bg-black/40 p-6 pl-10 overflow-hidden">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00ff7f]" />
+                  <Quote className="absolute top-4 right-4 w-12 h-12 text-white/5" />
+                  <p className="relative z-10 italic text-white/80 leading-relaxed">
+                    "Research does not begin in laboratories, it begins in curious minds. The moment you start questioning how and why things work, you step into the world of discovery. As engineering students, your ideas today can become tomorrow's breakthroughs."
+                  </p>
                 </div>
               </div>
             </div>
