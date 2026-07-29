@@ -37,8 +37,21 @@ function TerminalLog() {
 
 export function Footer() {
   return (
-    <footer className="relative z-10 mt-24 bg-[#060D09] text-slate-300 border-t border-[#00ff7f]/10">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00ff7f05_1px,transparent_1px),linear-gradient(to_bottom,#00ff7f05_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
+    <footer className="relative z-10 mt-24 bg-[#060D09] text-slate-300 border-t border-[#00ff7f]/10 overflow-hidden">
+      {/* Heartbeat Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.08] flex items-center">
+        <svg className="w-[200%] h-32 md:h-64" style={{ animation: 'marquee 15s linear infinite' }} preserveAspectRatio="none" viewBox="0 0 2000 100">
+          <path
+            d="M 0 50 L 350 50 L 370 20 L 390 90 L 410 10 L 430 60 L 450 50 L 850 50 L 870 20 L 890 90 L 910 10 L 930 60 L 950 50 L 1350 50 L 1370 20 L 1390 90 L 1410 10 L 1430 60 L 1450 50 L 1850 50 L 1870 20 L 1890 90 L 1910 10 L 1930 60 L 1950 50 L 2000 50"
+            stroke="#00ff7f"
+            strokeWidth="3"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ filter: "drop-shadow(0 0 6px #00ff7f)" }}
+          />
+        </svg>
+      </div>
       <div className="container-page py-16 relative">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1.8fr_0.8fr_1.2fr]">
           {/* Brand/About Column */}
@@ -77,16 +90,16 @@ export function Footer() {
           {/* Follow Us */}
           <div>
             <h4 className="text-base font-semibold text-white mb-6">Follow Us</h4>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 relative z-10">
               {[
-                { icon: Linkedin, href: CLUB.social.linkedin, label: "LinkedIn" },
-                { icon: Instagram, href: CLUB.social.instagram, label: "Instagram" },
-                { icon: MessageCircle, href: CLUB.social.whatsapp, label: "WhatsApp" },
-                { icon: Youtube, href: (CLUB.social as any).youtube || "https://youtube.com", label: "YouTube" },
-                { icon: Github, href: CLUB.social.github, label: "GitHub" },
-              ].map(({ icon: Icon, href, label }) => (
+                { icon: Linkedin, href: CLUB.social.linkedin, label: "LinkedIn", hover: "group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30 group-hover:text-[#0A66C2]" },
+                { icon: Instagram, href: CLUB.social.instagram, label: "Instagram", hover: "group-hover:bg-[#E1306C]/10 group-hover:border-[#E1306C]/30 group-hover:text-[#E1306C]" },
+                { icon: MessageCircle, href: CLUB.social.whatsapp, label: "WhatsApp", hover: "group-hover:bg-[#25D366]/10 group-hover:border-[#25D366]/30 group-hover:text-[#25D366]" },
+                { icon: Youtube, href: (CLUB.social as any).youtube || "https://youtube.com", label: "YouTube", hover: "group-hover:bg-[#FF0000]/10 group-hover:border-[#FF0000]/30 group-hover:text-[#FF0000]" },
+                { icon: Github, href: CLUB.social.github, label: "GitHub", hover: "group-hover:bg-white/10 group-hover:border-white/30 group-hover:text-white" },
+              ].map(({ icon: Icon, href, label, hover }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-white transition-colors group">
-                  <div className="grid h-8 w-8 shrink-0 place-items-center rounded bg-white/5 border border-white/10 group-hover:bg-[#00ff7f]/10 group-hover:border-[#00ff7f]/30 group-hover:text-[#00ff7f] transition-all">
+                  <div className={`grid h-8 w-8 shrink-0 place-items-center rounded bg-white/5 border border-white/10 transition-all ${hover}`}>
                     <Icon className="h-4 w-4" />
                   </div>
                   <span className="truncate">{label}</span>
