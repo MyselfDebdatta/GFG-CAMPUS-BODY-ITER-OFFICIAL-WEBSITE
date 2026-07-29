@@ -29,14 +29,14 @@ function About() {
   return (
     <>
       <section className="relative -mt-24 pt-24">
-        <div aria-hidden className="pointer-events-none absolute left-0 right-0 top-0 h-[800px] bg-radial-brand opacity-70" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-radial-brand opacity-70" style={{ maskImage: 'linear-gradient(to bottom, black 30%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 30%, transparent 100%)' }} />
         <div className="container-page relative py-16 md:py-24">
           <div className="max-w-4xl">
             <Reveal>
-              <h1 className="mb-6 text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+              <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 About <span className="text-gradient-brand">Us.</span>
               </h1>
-              <h2 className="mb-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
+              <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl leading-tight">
                 A student chapter built on craft and community.
               </h2>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -184,6 +184,15 @@ function About() {
                 "Open Source Workflow",
                 "Git & Collaboration",
                 "Interview Skills",
+                "TypeScript",
+                "Python & Go",
+                "Web3 & Blockchain",
+                "Mobile App Dev",
+                "Cyber Security",
+                "UI/UX Engineering",
+                "Database Architecture",
+                "AR/VR",
+                "and many more to explore..."
               ].map((s) => (
                 <span key={s} className="rounded-full border border-hairline bg-surface-elevated px-3 py-1.5 text-xs font-medium">
                   {s}
