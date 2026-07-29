@@ -1,5 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Calendar, MapPin, Users } from "lucide-react";
 import { EVENTS, EVENT_CATEGORIES } from "@/lib/site-data";
@@ -18,12 +17,26 @@ export const Route = createFileRoute("/events/")({
     ],
     links: [{ rel: "canonical", href: "/events" }],
   }),
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      tab: (search.tab === "past" ? "past" : "upcoming") as "upcoming" | "past",
+      category: (search.category as string) || "All",
+    };
+  },
   component: Events,
 });
 
 function Events() {
-  const [category, setCategory] = useState<string>("All");
-  const [tab, setTab] = useState<"upcoming" | "past">("upcoming");
+  const { tab, category } = Route.useSearch();
+  const navigate = useNavigate({ from: Route.id });
+
+  const setTab = (newTab: "upcoming" | "past") => {
+    navigate({ search: (prev) => ({ ...prev, tab: newTab }) });
+  };
+
+  const setCategory = (newCat: string) => {
+    navigate({ search: (prev) => ({ ...prev, category: newCat }) });
+  };
 
   const filtered = EVENTS.filter(
     (e) => e.status === tab && (category === "All" || e.category === category),
@@ -139,7 +152,7 @@ function Events() {
                         </span>
                       )}
                       <Button asChild size="sm" variant="ghost" className="text-muted-foreground hover:text-foreground">
-                        <Link to="/events/$eventId" params={{ eventId: e.id }}>Read more</Link>
+                        <Link to="/events/$eventId" params={{ eventId: e.id }} search={{ tab: e.status }}>Read more</Link>
                       </Button>
                     </div>
                   </div>

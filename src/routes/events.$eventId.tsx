@@ -41,7 +41,7 @@ function EventDetails() {
   return (
     <div className="pb-24 pt-10">
       <div className="container-page">
-        <Link to="/events" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground mb-6 transition-colors">
+        <Link to="/events" search={{ tab: event.status }} className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground mb-6 transition-colors">
           <ArrowLeft className="h-4 w-4" /> Back to Events
         </Link>
 
@@ -191,6 +191,30 @@ function EventDetails() {
                 <p className="mt-4 text-muted-foreground text-base leading-relaxed max-w-3xl">
                   Speaker details are currently being finalized. Check back soon for more information on the industry experts and professionals leading this session.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Event Gallery Section */}
+        <div className="mt-6 flex flex-col gap-6">
+          <div className="rounded-2xl border border-hairline bg-surface-elevated p-8 md:p-10">
+            <h2 className="text-2xl font-bold mb-6">Event Gallery</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px] md:h-[500px]">
+              <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden border border-hairline relative group">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80" alt="Gallery 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-hairline relative group">
+                <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=600&q=80" alt="Gallery 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-hairline relative group">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Gallery 3" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-hairline relative group">
+                <img src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&w=600&q=80" alt="Gallery 4" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-hairline relative group">
+                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80" alt="Gallery 5" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
           </div>
