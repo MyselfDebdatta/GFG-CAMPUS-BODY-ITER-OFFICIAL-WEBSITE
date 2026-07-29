@@ -65,8 +65,10 @@ export function FAQSection() {
                   className="flex w-full items-center justify-between p-6 text-left"
                 >
                   <span className={cn(
-                    "text-lg font-semibold transition-colors duration-300",
-                    isOpen ? "text-[#00ff7f]" : "text-white group-hover:text-white/80"
+                    "text-lg font-semibold transition-all duration-300",
+                    isOpen 
+                      ? "text-transparent bg-clip-text bg-gradient-to-r from-[#32CD32] via-[#e2da24] to-[#32CD32]" 
+                      : "text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]"
                   )}>
                     {faq.question}
                   </span>
