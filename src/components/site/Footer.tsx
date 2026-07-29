@@ -112,10 +112,10 @@ export function Footer() {
                   <animate attributeName="stop-color" values="#00ff7f;#32CD32;#e2da24;#00ff7f" dur="4s" repeatCount="indefinite" />
                 </stop>
               </linearGradient>
-              <pattern id="ecgPattern" x="0" y="0" width="800" height="80" patternUnits="userSpaceOnUse">
-                {/* Authentic ECG Path: Flat -> P wave -> Flat -> QRS complex -> Flat -> T wave -> Flat */}
+              <pattern id="ecgPattern" x="0" y="0" width="500" height="80" patternUnits="userSpaceOnUse">
+                {/* Multiple zig-zags (up/down) followed by straight line */}
                 <path
-                  d="M 0 40 L 150 40 L 170 25 L 190 40 L 220 40 L 230 55 L 250 5 L 270 75 L 290 40 L 320 40 L 340 20 L 370 20 L 390 40 L 800 40"
+                  d="M 0 40 L 50 40 L 65 10 L 80 70 L 95 10 L 110 70 L 125 40 L 250 40 L 265 10 L 280 70 L 295 10 L 310 70 L 325 40 L 500 40"
                   stroke="url(#ecgGradient)"
                   strokeWidth="2.5"
                   fill="none"
@@ -123,7 +123,7 @@ export function Footer() {
                   strokeLinejoin="round"
                   style={{ filter: "drop-shadow(0 0 5px rgba(0,255,127,0.6))" }}
                 />
-                <animate attributeName="x" from="0" to="-800" dur="4s" repeatCount="indefinite" />
+                <animate attributeName="x" from="0" to="-500" dur="3s" repeatCount="indefinite" />
               </pattern>
             </defs>
             <rect x="0" y="0" width="100%" height="100%" fill="url(#ecgPattern)" />
