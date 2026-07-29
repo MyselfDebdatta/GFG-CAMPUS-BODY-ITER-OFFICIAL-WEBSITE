@@ -22,7 +22,8 @@ import {
   Coffee,
   Award,
   Mic,
-  Lightbulb
+  Lightbulb,
+  Github
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -317,7 +318,7 @@ function Home() {
                   <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-hover:bg-[#00ff7f]/20 group-hover:scale-110">
                     <f.icon className="h-4 w-4" />
                   </div>
-                  <div className="mt-3 font-semibold text-white group-hover:text-[#00ff7f] transition-colors">{f.title}</div>
+                  <div className="mt-3 font-semibold text-white transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]">{f.title}</div>
                   <p className="mt-1 text-sm text-white/60">{f.body}</p>
                 </div>
               ))}
@@ -473,20 +474,33 @@ function Home() {
                     loading="lazy"
                   />
                   {m.linkedin && (
-                    <a
-                      href={m.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="absolute top-4 right-4 grid h-10 w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 hover:scale-110 z-10"
-                      aria-label={`${m.name}'s LinkedIn`}
-                    >
-                      <Linkedin className="h-5 w-5" />
-                    </a>
+                    <div className="absolute top-4 right-4 flex gap-2 z-10">
+                      {(m as any).github && (
+                        <a
+                          href={(m as any).github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#333] shadow-lg transition-transform duration-300 hover:scale-110"
+                          aria-label={`${m.name}'s GitHub`}
+                        >
+                          <Github className="h-5 w-5" />
+                        </a>
+                      )}
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 hover:scale-110"
+                        aria-label={`${m.name}'s LinkedIn`}
+                      >
+                        <Linkedin className="h-5 w-5" />
+                      </a>
+                    </div>
                   )}
                 </div>
                 <div className="p-4">
                   <div className="text-xs font-medium uppercase tracking-wider text-brand">{m.role}</div>
-                  <div className="mt-1 font-semibold">{m.name}</div>
+                  <div className="mt-1 font-semibold transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]">{m.name}</div>
                 </div>
               </div>
             </Reveal>
@@ -646,7 +660,7 @@ function Home() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f]" />
                 STAY IN THE LOOP
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-4">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-4 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]">
                 Event drops, project updates, opportunities.
               </h2>
               <p className="text-lg text-white/60 font-medium">

@@ -149,7 +149,8 @@ export const TEAM = [
     group: "Executive Board",
     bio: "Final-year CSE. Full-stack engineer, ex-intern at a YC startup.",
     photo: "https://i.pravatar.cc/400?img=12",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Snehansu Sekhar Das",
@@ -157,7 +158,8 @@ export const TEAM = [
     group: "Executive Board",
     bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
     photo: "https://i.pravatar.cc/400?img=47",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Anubhab Samantary",
@@ -165,7 +167,8 @@ export const TEAM = [
     group: "Faculty",
     bio: "Associate Professor, Dept. of CSE. Mentor to the chapter.",
     photo: "https://i.pravatar.cc/400?img=52",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Akansha Ajay",
@@ -173,7 +176,8 @@ export const TEAM = [
     group: "Faculty",
     bio: "Assistant Professor. Guiding students in research and open source.",
     photo: "https://i.pravatar.cc/400?img=40",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Ayush R. Pradhan",
@@ -181,7 +185,8 @@ export const TEAM = [
     group: "Mentors",
     bio: "Alumni. Helping students transition from campus to industry.",
     photo: "https://i.pravatar.cc/400?img=33",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Abhijit Dash",
@@ -189,7 +194,8 @@ export const TEAM = [
     group: "Technical Team",
     bio: "Open source maintainer. Loves TypeScript, Rust, and systems.",
     photo: "https://i.pravatar.cc/400?img=15",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Sanyukt Kumar Rai",
@@ -197,7 +203,8 @@ export const TEAM = [
     group: "Design Team",
     bio: "Product designer. Runs the club's design system and brand.",
     photo: "https://i.pravatar.cc/400?img=45",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Aastha Singh",
@@ -205,7 +212,8 @@ export const TEAM = [
     group: "Marketing",
     bio: "Brand storyteller. Grows the club community online and offline.",
     photo: "https://i.pravatar.cc/400?img=25",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
   {
     name: "Subhakanta Das",
@@ -213,7 +221,8 @@ export const TEAM = [
     group: "Event Management",
     bio: "Orchestrates hackathons, bootcamps, and campus-wide summits.",
     photo: "https://i.pravatar.cc/400?img=8",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
   },
 ];
 
