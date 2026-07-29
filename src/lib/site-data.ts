@@ -60,7 +60,7 @@ export const EVENTS = [
     title: "GFG Skill Exchange Workshop",
     category: "Workshop",
     date: "July 01 – Aug 31, 2026",
-    venue: "Online",
+    venue: "ITER Main Campus",
     status: "ongoing",
     speakers: [
       { name: "Kabir Sharma", role: "Tech Lead", photo: "https://i.pravatar.cc/150?img=15" },
@@ -76,7 +76,7 @@ export const EVENTS = [
     title: "Rachitva",
     category: "Competition",
     date: "Apr 05, 2026, 8:00 AM",
-    venue: "ITER Campus",
+    venue: "ITER Main Campus",
     status: "past",
     speakers: [
       { name: "Design Team", role: "Organizers", photo: "https://i.pravatar.cc/150?img=45" }
@@ -91,7 +91,7 @@ export const EVENTS = [
     title: "Zer0ne",
     category: "Flagship",
     date: "Apr 03, 2026, 8:00 AM",
-    venue: "C-004 AND C-005",
+    venue: "ITER Main Campus",
     status: "past",
     speakers: [
       { name: "GFG ITER Team", role: "Organizers", photo: "https://i.pravatar.cc/150?img=50" }
@@ -106,7 +106,7 @@ export const EVENTS = [
     title: "Founders Unplugged: Stories and Insights",
     category: "Seminar",
     date: "Dec 23, 2025, 4:30 PM",
-    venue: "ITER Auditorium",
+    venue: "ITER Main Campus",
     status: "past",
     speakers: [
       { name: "Guest Speakers", role: "Founders & CEOs", photo: "https://i.pravatar.cc/150?img=33" }
@@ -121,7 +121,7 @@ export const EVENTS = [
     title: "Chai Links: Community Session",
     category: "Community",
     date: "Dec 03, 2025, 4:30 PM",
-    venue: "ITER Campus",
+    venue: "ITER Main Campus",
     status: "past",
     speakers: [
       { name: "GFG Team & Faculty", role: "Mentors", photo: "https://i.pravatar.cc/150?img=60" }

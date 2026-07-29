@@ -127,15 +127,7 @@ function Events() {
                     </div>
                     <h3 className="mt-3 text-lg font-semibold tracking-tight">{e.title}</h3>
                     <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{e.description}</p>
-                    <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1.5"><Users className="h-3 w-3" /> Speakers:</div>
-                      {e.speakers.map((s, idx) => (
-                        <span key={idx} className="flex items-center gap-1.5 rounded-full bg-surface px-2 py-0.5 border border-hairline">
-                          <img src={s.photo} alt={s.name} className="h-4 w-4 rounded-full" />
-                          {s.name}
-                        </span>
-                      ))}
-                    </div>
+
                     <div className="mt-5 flex gap-2 pt-4 border-t border-hairline">
                       {e.status === "upcoming" ? (
                         <Button size="sm" className="bg-brand text-brand-foreground hover:bg-brand/90 font-semibold">
