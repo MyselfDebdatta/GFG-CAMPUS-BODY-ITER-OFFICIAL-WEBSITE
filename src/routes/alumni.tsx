@@ -70,7 +70,7 @@ function Alumni() {
       {/* Notable Profiles */}
       <section className="container-page py-20">
         <SectionHeader eyebrow="Our Pride" title="Notable Alumni" align="center" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {NOTABLE_ALUMNI.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
               <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
@@ -85,6 +85,7 @@ function Alumni() {
                 <div className="p-5">
                   <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
                   <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">Will be updated shortly.</p>
                   <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
                     {m.linkedin && (
                       <a
