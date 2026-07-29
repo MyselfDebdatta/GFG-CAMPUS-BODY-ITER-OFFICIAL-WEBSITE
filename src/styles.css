@@ -83,11 +83,11 @@
 }
 
 .dark {
-  --background: oklch(0.15 0.02 260);
+  --background: rgba(2, 11, 6, 0.4); /* Translucent so fixed background shows through */
   --foreground: oklch(0.98 0.003 250);
-  --surface: #0D1612;
-  --surface-elevated: #0D1612;
-  --hairline: #1D3A2D;
+  --surface: transparent; /* Remove solid blackish gray behind cards */
+  --surface-elevated: transparent;
+  --hairline: rgba(0, 255, 102, 0.08); /* Subtle green lines instead of opaque */
 
   --card: oklch(0.19 0.02 260);
   --card-foreground: oklch(0.98 0.003 250);
@@ -226,22 +226,25 @@
 
 /* Premium Card Styles (Operating System Aesthetic) */
 .dark .bg-surface-elevated {
-  background: linear-gradient(180deg, #051A0E 0%, #031209 100%) !important;
-  border-color: #123321 !important;
+  background: rgba(0, 255, 102, 0.03) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-color: rgba(0, 255, 102, 0.15) !important;
   box-shadow: 
-    0 0 0 1px rgba(0, 0, 0, 0.5), /* Outer layer of dual border */
-    inset 0 1px 0 rgba(0, 255, 102, 0.08), /* Soft top edge highlight */
-    inset 0 0 0 1px rgba(255, 255, 255, 0.01) !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease !important;
+    0 4px 24px -2px rgba(0, 0, 0, 0.4), /* Deep shadow to separate from background */
+    inset 0 1px 0 rgba(0, 255, 102, 0.2), /* Vibrant top edge highlight */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
 }
 
 .dark .bg-surface-elevated:hover {
   transform: translateY(-2px) !important;
-  border-color: #1D4F32 !important; /* Slightly brighten border */
-  filter: brightness(1.1) !important; /* Lighten surface by 10% */
+  background: rgba(0, 255, 102, 0.08) !important; /* Brighter glass on hover */
+  border-color: rgba(0, 255, 102, 0.4) !important; 
+  filter: brightness(1.15) !important; 
   box-shadow: 
-    0 0 0 1px rgba(0, 0, 0, 0.6), 
-    inset 0 1px 0 rgba(0, 255, 102, 0.15), 
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    0 4px 12px -2px rgba(0, 0, 0, 0.3) !important; /* Extremely subtle depth */
+    0 8px 32px -4px rgba(0, 255, 102, 0.15), 
+    inset 0 1px 0 rgba(0, 255, 102, 0.4), 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.3) !important; 
 }
