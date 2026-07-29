@@ -25,10 +25,10 @@ function Team() {
         <div className="container-page relative py-16 md:py-20">
           <div className="max-w-4xl">
             <Reveal>
-              <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="mb-6 text-3xl font-black tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                 The people building <span className="text-gradient-brand">GFG ITER.</span>
               </h1>
-              <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl leading-tight">
+              <h2 className="mb-6 text-lg font-bold tracking-tight text-foreground sm:text-xl md:text-2xl leading-tight">
                 A student-run team of engineers, designers, organizers, and marketers — with faculty support.
               </h2>
             </Reveal>
