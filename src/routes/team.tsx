@@ -23,11 +23,16 @@ function Team() {
       <section className="relative -mt-24 pt-24">
         <div aria-hidden className="pointer-events-none absolute left-0 right-0 top-0 h-[800px] bg-radial-brand opacity-70" />
         <div className="container-page relative py-16 md:py-20">
-          <SectionHeader
-            eyebrow="The team"
-            title={<>The people building <span className="text-gradient-brand">GFG ITER</span>.</>}
-            description="A student-run team of engineers, designers, organizers, and marketers — with faculty support."
-          />
+          <div className="max-w-4xl">
+            <Reveal>
+              <h1 className="mb-6 text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+                The people building <span className="text-gradient-brand">GFG ITER.</span>
+              </h1>
+              <h2 className="mb-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl leading-tight">
+                A student-run team of engineers, designers, organizers, and marketers — with faculty support.
+              </h2>
+            </Reveal>
+          </div>
         </div>
       </section>
 

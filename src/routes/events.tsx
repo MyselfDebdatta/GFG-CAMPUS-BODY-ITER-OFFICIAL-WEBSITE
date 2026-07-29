@@ -34,11 +34,16 @@ function Events() {
       <section className="relative -mt-24 pt-24">
         <div aria-hidden className="pointer-events-none absolute left-0 right-0 top-0 h-[800px] bg-radial-brand opacity-70" />
         <div className="container-page relative py-16 md:py-20">
-          <SectionHeader
-            eyebrow="Events"
-            title={<>Where learning gets <span className="text-gradient-brand">loud</span>.</>}
-            description="Hackathons, bootcamps, workshops, and speaker sessions — hosted year-round on campus and online."
-          />
+          <div className="max-w-4xl">
+            <Reveal>
+              <h1 className="mb-6 text-5xl font-black tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+                Where learning gets <span className="text-gradient-brand">loud.</span>
+              </h1>
+              <h2 className="mb-6 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl leading-tight">
+                Hackathons, bootcamps, workshops, and speaker sessions — hosted year-round on campus and online.
+              </h2>
+            </Reveal>
+          </div>
         </div>
       </section>
 
