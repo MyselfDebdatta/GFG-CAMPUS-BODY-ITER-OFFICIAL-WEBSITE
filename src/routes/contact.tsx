@@ -63,6 +63,7 @@ function Contact() {
   return (
     <>
       <section className="relative">
+        <div aria-hidden className="pointer-events-none absolute left-0 right-0 top-0 h-[800px] bg-radial-brand opacity-70" />
         <div className="container-page relative py-16 md:py-20">
           <SectionHeader
             eyebrow="Contact"

@@ -10,9 +10,6 @@ export function InnerPageBackground() {
 
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-[linear-gradient(to_bottom,#072213,#020b06)]">
-      {/* Global Header Lighting Glow */}
-      <div className="absolute inset-0 bg-radial-brand opacity-60 mix-blend-screen pointer-events-none" />
-
       {/* 1. Global Cyberpunk Grid Pattern (Full Coverage) */}
       <div
         className="absolute inset-0 opacity-[0.2] mix-blend-screen"
