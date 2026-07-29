@@ -35,6 +35,8 @@ function TerminalLog() {
   );
 }
 
+import { ECGFooterWave } from "./ECGFooterWave";
+
 export function Footer() {
   return (
     <footer className="relative z-10 mt-24 bg-[#060D09] text-slate-300 border-t border-[#00ff7f]/10">
@@ -96,41 +98,13 @@ export function Footer() {
             </div>
           </div>
         </div>
+        
+      </div>
+      {/* Dynamic ECG Heartbeat Separator */}
+      <ECGFooterWave />
 
-        {/* ECG Separator */}
-        <div className="relative w-full h-[80px] mt-12 -mb-6 opacity-80 pointer-events-none">
-          <svg className="absolute inset-0 w-full h-full">
-            <defs>
-              <linearGradient id="ecgGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#32CD32">
-                  <animate attributeName="stop-color" values="#32CD32;#e2da24;#00ff7f;#32CD32" dur="4s" repeatCount="indefinite" />
-                </stop>
-                <stop offset="50%" stopColor="#e2da24">
-                  <animate attributeName="stop-color" values="#e2da24;#00ff7f;#32CD32;#e2da24" dur="4s" repeatCount="indefinite" />
-                </stop>
-                <stop offset="100%" stopColor="#00ff7f">
-                  <animate attributeName="stop-color" values="#00ff7f;#32CD32;#e2da24;#00ff7f" dur="4s" repeatCount="indefinite" />
-                </stop>
-              </linearGradient>
-              <pattern id="ecgPattern" x="0" y="0" width="500" height="80" patternUnits="userSpaceOnUse">
-                {/* Multiple zig-zags (up/down) followed by straight line */}
-                <path
-                  d="M 0 40 L 50 40 L 65 10 L 80 70 L 95 10 L 110 70 L 125 40 L 250 40 L 265 10 L 280 70 L 295 10 L 310 70 L 325 40 L 500 40"
-                  stroke="url(#ecgGradient)"
-                  strokeWidth="2.5"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ filter: "drop-shadow(0 0 5px rgba(0,255,127,0.6))" }}
-                />
-                <animate attributeName="x" from="0" to="-500" dur="3s" repeatCount="indefinite" />
-              </pattern>
-            </defs>
-            <rect x="0" y="0" width="100%" height="100%" fill="url(#ecgPattern)" />
-          </svg>
-        </div>
-
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-[#00ff7f]/10 pt-8 text-xs text-slate-500">
+      <div className="container-page">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-8 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} GFG ITER Student Chapter. All rights reserved.</p>
           <div className="flex gap-4 items-center flex-wrap">
             <div className="flex items-center gap-1">Powered by <span className="text-[#00ff7f] font-semibold">GFG ITER</span></div>
