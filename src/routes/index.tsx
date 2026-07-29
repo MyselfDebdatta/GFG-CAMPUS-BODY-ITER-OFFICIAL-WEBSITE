@@ -28,6 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
+import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
 import {
   STATS,
@@ -361,7 +362,7 @@ function Home() {
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeader
-              eyebrow="Upcoming"
+              eyebrow="What's Next"
               title="Events & workshops"
               description="Hackathons, bootcamps, and speaker sessions — happening this semester."
             />
@@ -379,7 +380,7 @@ function Home() {
                 <Reveal key={e.id} delay={0.1}>
                   <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group">
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
-                      <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UPCOMING
+                      <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
                     </div>
                     <EventCardContent event={e} />
                   </div>
@@ -398,10 +399,14 @@ function Home() {
             </div>
 
             {/* Timeline: Past Events */}
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-8 pl-5">
-                <div className="h-2.5 w-2.5 rounded-full bg-white/60 shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
-                <h3 className="text-xl font-bold tracking-tight text-white">Past Events</h3>
+            <div className="max-w-4xl mt-12 md:mt-24">
+              <div className="flex items-center gap-4 mb-10 pl-5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                  <div className="h-2.5 w-2.5 rounded-full bg-white animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+                  Past Events
+                </h3>
               </div>
               <div className="max-h-[760px] overflow-y-auto custom-scrollbar pr-2 sm:pr-4 pl-6 -ml-6 py-2">
                 <div className="relative border-l-2 border-white/10 space-y-8 pb-4">
@@ -647,6 +652,9 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ SECTION */}
+      <FAQSection />
 
       {/* NEWSLETTER CTA */}
       <section className="relative z-10 container-page pb-24">

@@ -1,111 +1,71 @@
 import { Link } from "@tanstack/react-router";
-import { Github, Linkedin, Instagram, Send, ArrowUpRight } from "lucide-react";
+import { Linkedin, Instagram, Mail, MessageCircle, Youtube, Github } from "lucide-react";
 import { CLUB } from "@/lib/site-data";
-import { BrandMark } from "./Navbar";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
-    <footer className="relative z-10 mt-24 bg-[#0B0F19] text-slate-300">
-      <div className="container-page py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          <div>
-            <div className="flex items-center gap-2">
-              <BrandMark />
-              <div className="leading-tight">
-                <div className="text-sm font-semibold text-white">GeeksforGeeks</div>
-                <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400">ITER · SOA</div>
-              </div>
-            </div>
-            <p className="mt-4 max-w-sm text-sm text-slate-400">
-              The official Geeks for Geeks student chapter at ITER, SOA University. Learn, build,
-              and ship alongside a community of student engineers.
+    <footer className="relative z-10 mt-24 bg-[#0B0F19] text-slate-300 border-t border-white/5">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none" />
+      <div className="container-page py-16 relative">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
+          {/* Brand/About Column */}
+          <div className="max-w-xs">
+            <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight">GFG <span className="text-[#00ff7f]">ITER</span></h3>
+            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+              The premier student computing organization at SOA University. Building the next generation of technology leaders.
             </p>
-            <div className="mt-6 flex items-center gap-2">
+            <a href={`mailto:${CLUB.email}`} className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-[#00ff7f] transition-colors">
+              <Mail className="h-4 w-4" /> {CLUB.email}
+            </a>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-base font-semibold text-white mb-6">Quick Links</h4>
+            <div className="flex flex-col gap-4">
               {[
-                { icon: Linkedin, href: CLUB.social.linkedin, label: "LinkedIn" },
-                { icon: Github, href: CLUB.social.github, label: "GitHub" },
-                { icon: Instagram, href: CLUB.social.instagram, label: "Instagram" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-slate-300 hover:bg-white/5 hover:text-white transition-colors"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
+                { to: "/about", label: "About" },
+                { to: "/events", label: "Events" },
+                { to: "/team", label: "Team" },
+                { to: "/contact", label: "Connect" },
+              ].map(link => (
+                <Link key={link.label} to={link.to} className="text-sm text-slate-400 hover:text-white hover:translate-x-1 transition-all">
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>
 
-          <FooterCol title="Explore" links={[
-            { to: "/about", label: "About" },
-            { to: "/events", label: "Events" },
-            { to: "/team", label: "Team" },
-            { to: "/alumni", label: "Alumni" },
-          ]} />
-
-          <FooterCol title="Community" links={[
-            { to: "/community", label: "WhatsApp" },
-            { to: "/contact", label: "Contact" },
-            { to: "/events", label: "Hackathons" },
-            { to: "/about", label: "Get Involved" },
-          ]} />
-
+          {/* Follow Us */}
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Newsletter</h4>
-            <p className="mt-3 text-sm text-slate-400">
-              Get event drops, project updates, and opportunities in your inbox.
-            </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-4 flex gap-2"
-            >
-              <Input
-                type="email"
-                placeholder="you@iter.ac.in"
-                className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-brand"
-              />
-              <Button type="submit" size="icon" className="bg-brand text-brand-foreground hover:bg-brand/90 shrink-0">
-                <Send className="h-4 w-4" />
-              </Button>
-            </form>
+            <h4 className="text-base font-semibold text-white mb-6">Follow Us</h4>
+            <div className="flex flex-col gap-4">
+              {[
+                { icon: Linkedin, href: CLUB.social.linkedin, label: "LinkedIn" },
+                { icon: Instagram, href: CLUB.social.instagram, label: "Instagram" },
+                { icon: MessageCircle, href: CLUB.social.whatsapp, label: "WhatsApp" },
+                { icon: Youtube, href: (CLUB.social as any).youtube || "https://youtube.com", label: "YouTube" },
+                { icon: Github, href: CLUB.social.github, label: "GitHub" },
+              ].map(({ icon: Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors group">
+                  <div className="grid h-8 w-8 place-items-center rounded bg-white/5 border border-white/10 group-hover:bg-[#00ff7f]/10 group-hover:border-[#00ff7f]/30 group-hover:text-[#00ff7f] transition-all">
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  {label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} Official Geeks for Geeks ITER Student Chapter. Designed with ❤ for the student developer community.
-          </p>
-          <div className="flex items-center gap-4 text-xs text-slate-400">
-            <span>{CLUB.email}</span>
-            <a href="#top" className="inline-flex items-center gap-1 hover:text-white">
-              Back to top <ArrowUpRight className="h-3 w-3" />
-            </a>
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-slate-500">
+          <p>© {new Date().getFullYear()} GFG ITER Student Chapter. All rights reserved.</p>
+          <div className="flex gap-4 items-center flex-wrap">
+            <div className="flex items-center gap-1">Powered by <span className="text-[#00ff7f] font-semibold">GFG ITER</span></div>
+            <div className="flex items-center gap-1">Design & Developed by <span className="text-[#00ff7f] font-semibold">GFG Team</span></div>
           </div>
         </div>
       </div>
     </footer>
-  );
-}
-
-function FooterCol({ title, links }: { title: string; links: { to: string; label: string }[] }) {
-  return (
-    <div>
-      <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{title}</h4>
-      <ul className="mt-3 space-y-2">
-        {links.map((l) => (
-          <li key={l.to}>
-            <Link to={l.to} className="text-sm text-slate-300 hover:text-white transition-colors">
-              {l.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
