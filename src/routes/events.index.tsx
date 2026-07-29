@@ -138,7 +138,7 @@ function Events() {
                       <span className="inline-flex items-center gap-1"><Calendar className="h-3 w-3" /> {e.date}</span>
                       <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" /> {e.venue}</span>
                     </div>
-                    <h3 className="mt-3 text-lg font-semibold tracking-tight">{e.title}</h3>
+                    <h3 className="mt-3 text-lg font-semibold tracking-tight group-hover:text-brand transition-colors">{e.title}</h3>
                     <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{e.description}</p>
 
                     <div className="mt-5 flex gap-2 pt-4 border-t border-hairline">
