@@ -213,7 +213,7 @@ function Home() {
               Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
             <div className="mt-14 flex justify-center">
-              <Link to="/about" className="relative group block transition-transform duration-300 hover:scale-105">
+              <Link to="/community" className="relative group block transition-transform duration-300 hover:scale-105">
                 {/* Main Button */}
                 <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-hover:bg-[#00ff7f]/5 group-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)]">
                   Join the Community
