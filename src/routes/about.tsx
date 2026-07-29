@@ -125,7 +125,7 @@ function About() {
 
           <Reveal>
             <div className="relative mx-auto aspect-square w-full max-w-sm rounded-3xl border border-hairline bg-surface-elevated p-10 lg:mx-0 lg:ml-auto">
-              <img src="https://upload.wikimedia.org/wikipedia/en/7/75/Siksha_%27O%27_Anusandhan_logo.png" alt="Siksha 'O' Anusandhan University" className="h-full w-full object-contain" />
+              <img src="/SOA-PNG.webp" alt="Siksha 'O' Anusandhan University" className="h-full w-full object-contain" />
             </div>
           </Reveal>
         </div>
