@@ -136,21 +136,21 @@
   }
 }
 
-.container-page {
+@utility container-page {
   width: 100%;
   margin-inline: auto;
   padding-inline: 1.25rem;
   max-width: 80rem;
 }
 
-.glass-panel {
+@utility glass-panel {
   background: color-mix(in oklab, var(--background) 70%, transparent);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
 }
 
-.text-gradient-brand {
+@utility text-gradient-brand {
   background: linear-gradient(
     135deg,
     var(--brand) 0%,
@@ -161,7 +161,7 @@
   color: transparent;
 }
 
-.bg-radial-brand {
+@utility bg-radial-brand {
   background-image:
     radial-gradient(
       600px circle at 20% 10%,
@@ -175,7 +175,7 @@
     );
 }
 
-.grid-bg {
+@utility grid-bg {
   background-image:
     linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
@@ -188,7 +188,7 @@
   to { transform: translateX(-50%); }
 }
 
-.animate-marquee {
+@utility animate-marquee {
   animation: marquee 40s linear infinite;
 }
 
@@ -197,7 +197,7 @@
   to { transform: translateX(0); }
 }
 
-.animate-marquee-reverse {
+@utility animate-marquee-reverse {
   animation: marquee-reverse 40s linear infinite;
 }
 
@@ -206,7 +206,7 @@
   50% { transform: translateY(-8px); }
 }
 
-.animate-dot-bounce {
+@utility animate-dot-bounce {
   animation: dot-bounce 1s ease-in-out infinite;
 }
 
@@ -228,13 +228,13 @@
 
 /* Premium Card Styles (Operating System Aesthetic) */
 .dark .bg-surface {
-  background: rgba(3, 18, 9, 0.65) !important;
+  background: rgba(3, 18, 9, 0.85) !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
 }
 
 .dark .bg-surface-elevated {
-  background: rgba(0, 255, 102, 0.03) !important;
+  background: rgba(4, 28, 16, 0.75) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border-color: rgba(0, 255, 102, 0.15) !important;
@@ -247,7 +247,7 @@
 
 .dark .bg-surface-elevated:hover {
   transform: translateY(-4px) !important;
-  background: rgba(0, 255, 102, 0.05) !important; 
+  background: rgba(4, 38, 20, 0.85) !important; 
   border-color: #00ff7f !important; 
   box-shadow: 
     0 0 15px rgba(0, 255, 127, 0.4), 
@@ -271,14 +271,4 @@
 @keyframes shine-text {
   to { background-position: 200% center; }
 }
-
-/* Explicit utilities for production build fallback */
-.bg-brand { background-color: var(--brand) !important; }
-.text-brand { color: var(--brand) !important; }
-.text-brand-foreground { color: var(--brand-foreground) !important; }
-.border-brand { border-color: var(--brand) !important; }
-.bg-brand\/5 { background-color: color-mix(in oklab, var(--brand) 5%, transparent) !important; }
-.bg-brand\/10 { background-color: color-mix(in oklab, var(--brand) 10%, transparent) !important; }
-.bg-brand\/20 { background-color: color-mix(in oklab, var(--brand) 20%, transparent) !important; }
-.bg-brand\/90 { background-color: color-mix(in oklab, var(--brand) 90%, transparent) !important; }
 
