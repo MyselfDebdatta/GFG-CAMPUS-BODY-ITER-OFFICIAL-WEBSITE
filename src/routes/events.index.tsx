@@ -72,15 +72,8 @@ function Events() {
                   "relative px-4 py-1.5 text-sm font-medium capitalize rounded-full transition-colors",
                   tab === t ? "text-brand-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
+                style={tab === t ? { backgroundColor: '#00ff7f' } : undefined}
               >
-                {tab === t && (
-                  <motion.span
-                    layoutId="tab-pill"
-                    className="absolute inset-0 -z-10 rounded-full"
-                    style={{ backgroundColor: '#00ff7f' }}
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
                 {t}
               </button>
             ))}

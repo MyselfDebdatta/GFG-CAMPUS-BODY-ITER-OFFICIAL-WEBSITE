@@ -61,8 +61,14 @@ export function Navbar() {
       <div className="container-page">
         <nav
           className={cn(
-            "flex items-center justify-between rounded-2xl px-3 py-2 transition-all glass-panel"
+            "flex items-center justify-between rounded-2xl px-3 py-2 transition-all"
           )}
+          style={{
+            background: 'rgba(6, 31, 18, 0.92)',
+            backdropFilter: 'saturate(180%) blur(20px)',
+            WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+            border: '1px solid rgba(0, 255, 102, 0.12)',
+          }}
           aria-label="Primary"
         >
           <Link to="/" className="flex items-center pl-2 h-10 z-10">
@@ -124,7 +130,13 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18 }}
-              className="lg:hidden mt-2 rounded-2xl glass-panel p-2"
+              className="lg:hidden mt-2 rounded-2xl p-2"
+              style={{
+                background: 'rgba(6, 31, 18, 0.95)',
+                backdropFilter: 'saturate(180%) blur(20px)',
+                WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+                border: '1px solid rgba(0, 255, 102, 0.12)',
+              }}
             >
               <ul className="flex flex-col">
                 {NAV.map((item) => (
