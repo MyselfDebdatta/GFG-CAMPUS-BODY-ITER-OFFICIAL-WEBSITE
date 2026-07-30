@@ -505,7 +505,7 @@ function Home() {
                         <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-hover:border-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
                         <EventIcon category={e.category} />
                       </div>
-                      <Link to="/events" className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex">
+                      <div onClick={undefined} className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer">
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
                             src={e.image}
@@ -524,11 +524,11 @@ function Home() {
                           </div>
                           <h4 className="mt-3 text-lg font-bold transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]">{e.title}</h4>
                           <p className="mt-2 text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">{e.description}</p>
-                          <div className="mt-4 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-hover:text-[#00ff7f]">
+                          <Link to="/events" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-hover:text-[#00ff7f]">
                             Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                          </div>
+                          </Link>
                         </div>
-                      </Link>
+                      </div>
                     </div>
                   </Reveal>
                 ))}
@@ -781,10 +781,9 @@ function Home() {
 
 function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
   return (
-    <Link
-      to="/events/$eventId"
-      params={{ eventId: event.id }}
-      className="group flex flex-col h-full"
+    <div
+      onClick={undefined}
+      className="group flex flex-col h-full cursor-pointer"
     >
       <div className="relative aspect-[16/9] overflow-hidden">
         <img
@@ -802,10 +801,15 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
         <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
         <h3 className="mt-2 text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32] transition-all">{event.title}</h3>
         <p className="mt-3 text-base text-white/60 flex-1">{event.description}</p>
-        <div className="mt-6 flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors" style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}>
+        <Link 
+          to="/events/$eventId"
+          params={{ eventId: event.id }}
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors hover:text-white" 
+          style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}
+        >
           Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-        </div>
+        </Link>
       </div>
-    </Link>
+    </div>
   );
 }

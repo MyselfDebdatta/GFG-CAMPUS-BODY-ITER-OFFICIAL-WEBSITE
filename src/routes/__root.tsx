@@ -128,6 +128,14 @@ import { InnerPageBackground } from "@/components/site/InnerPageBackground";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  
+  // Enable hover/active states on iOS Safari for all elements
+  useEffect(() => {
+    const noop = () => {};
+    document.addEventListener("touchstart", noop, { passive: true });
+    return () => document.removeEventListener("touchstart", noop);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <div id="top" className="flex min-h-dvh flex-col bg-transparent">
