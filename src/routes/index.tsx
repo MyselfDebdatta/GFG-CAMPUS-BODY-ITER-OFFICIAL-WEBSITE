@@ -188,7 +188,7 @@ function Home() {
             >
               <img src="/SOA-PNG.webp" alt="SOA University" className="h-16 md:h-20 w-auto object-contain" />
               <div className="h-12 md:h-16 w-px bg-white/20" />
-              <img src="/gfg-logo.png" alt="GFG Logo" className="h-20 md:h-28 w-auto object-contain -ml-2 md:-ml-4" />
+              <img src="/Concised_Light.svg" alt="GFG Logo" className="h-16 md:h-20 w-auto object-contain" />
             </motion.div>
 
             <span className="inline-flex items-center gap-2.5 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-sm font-semibold tracking-[0.1em] text-[#00ff7f] backdrop-blur-md">
