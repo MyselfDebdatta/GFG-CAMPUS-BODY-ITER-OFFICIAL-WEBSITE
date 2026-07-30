@@ -710,7 +710,7 @@ function Home() {
             style={{ animationDuration: "50s" }}
           >
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-              <figure key={i} className="relative w-[300px] sm:w-[380px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] group cursor-default whitespace-normal flex flex-col justify-between">
+              <figure key={i} className="relative w-[300px] sm:w-[380px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-[#060D09] p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] group cursor-default whitespace-normal flex flex-col justify-between">
                 <div className="absolute -right-4 -top-8 text-[140px] font-serif leading-none text-[#00ff7f]/5 group-hover:text-[#00ff7f]/10 transition-colors pointer-events-none select-none">"</div>
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00ff7f]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
