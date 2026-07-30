@@ -254,12 +254,12 @@
     inset 0 1px 0 rgba(0, 255, 102, 0.4) !important; 
 }
 
-/* Dark mode navbar glass - fully opaque so it never disappears */
+/* Dark mode navbar glass - slightly bright with strong blur */
 .dark .glass-panel {
-  background: rgba(2, 11, 6, 0.92) !important;
-  backdrop-filter: saturate(160%) blur(14px) !important;
-  -webkit-backdrop-filter: saturate(160%) blur(14px) !important;
-  border: 1px solid rgba(0, 255, 102, 0.08) !important;
+  background: rgba(6, 31, 18, 0.88) !important;
+  backdrop-filter: saturate(180%) blur(20px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+  border: 1px solid rgba(0, 255, 102, 0.12) !important;
 }
 
 /* Hover Typography Transformation for Inner Page Cards */

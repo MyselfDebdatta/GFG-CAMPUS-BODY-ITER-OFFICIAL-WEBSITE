@@ -76,7 +76,8 @@ function Events() {
                 {tab === t && (
                   <motion.span
                     layoutId="tab-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-brand"
+                    className="absolute inset-0 -z-10 rounded-full"
+                    style={{ backgroundColor: '#00ff7f' }}
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
