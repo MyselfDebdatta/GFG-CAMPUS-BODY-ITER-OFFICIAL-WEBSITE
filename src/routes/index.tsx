@@ -64,11 +64,11 @@ export const Route = createFileRoute("/")({
 
 function EventIcon({ category }: { category: string }) {
   const cat = category.toLowerCase();
-  if (cat.includes("community")) return <Coffee className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
-  if (cat.includes("competition") || cat.includes("contest")) return <Award className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
-  if (cat.includes("seminar")) return <Mic className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
-  if (cat.includes("flagship")) return <Sparkles className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
-  return <Users className="h-4 w-4 text-white/70 group-hover:text-[#00ff7f]" />;
+  if (cat.includes("community")) return <Coffee className="h-4 w-4 text-white/70 group-raw-hover:text-[#00ff7f]" />;
+  if (cat.includes("competition") || cat.includes("contest")) return <Award className="h-4 w-4 text-white/70 group-raw-hover:text-[#00ff7f]" />;
+  if (cat.includes("seminar")) return <Mic className="h-4 w-4 text-white/70 group-raw-hover:text-[#00ff7f]" />;
+  if (cat.includes("flagship")) return <Sparkles className="h-4 w-4 text-white/70 group-raw-hover:text-[#00ff7f]" />;
+  return <Users className="h-4 w-4 text-white/70 group-raw-hover:text-[#00ff7f]" />;
 }
 
 function FloatingTechElements() {
@@ -213,13 +213,13 @@ function Home() {
               Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
             <div className="mt-14 flex justify-center">
-              <Link to="/community" className="relative group block transition-transform duration-300 hover:scale-105">
+              <Link to="/community" className="relative group block transition-transform duration-300 raw-hover:scale-105">
                 {/* Main Button */}
-                <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-hover:bg-[#00ff7f]/5 group-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)]">
+                <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-raw-hover:bg-[#00ff7f]/5 group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)]">
                   Join the Community
                 </div>
                 {/* Overlapping Pill */}
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00ff7f] bg-[#010a05] flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_10px_rgba(0,255,127,0.2)]">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00ff7f] bg-[#010a05] flex items-center justify-center transition-all duration-300 group-raw-hover:shadow-[0_0_10px_rgba(0,255,127,0.2)]">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] mt-2 animate-dot-bounce" />
                 </div>
               </Link>
@@ -246,10 +246,10 @@ function Home() {
               <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0 relative">
                 {STATS.map((s, i) => (
                   <div key={s.label} className="relative text-center group cursor-pointer">
-                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight transition-all duration-300 group-hover:scale-110 text-white hover-gradient-text">
+                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight transition-all duration-300 group-raw-hover:scale-110 text-white hover-gradient-text">
                       <Counter to={s.value} suffix={s.suffix} />
                     </div>
-                    <div className="mt-3 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#00ff7f]/70 group-hover:text-[#32CD32] transition-colors">
+                    <div className="mt-3 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#00ff7f]/70 group-raw-hover:text-[#32CD32] transition-colors">
                       {s.label}
                     </div>
 
@@ -317,8 +317,8 @@ function Home() {
                 { icon: Rocket, title: "Ship real projects", body: "From weekend hacks to campus-wide platforms." },
                 { icon: Trophy, title: "Compete & win", body: "Represent ITER at hackathons across India." },
               ].map((f) => (
-                <div key={f.title} className="group cursor-pointer rounded-xl border border-[#00ff7f]/20 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:bg-white/10 hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
-                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-hover:bg-[#00ff7f]/20 group-hover:scale-110">
+                <div key={f.title} className="group cursor-pointer rounded-xl border border-[#00ff7f]/20 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:bg-white/10 raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
+                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-raw-hover:bg-[#00ff7f]/20 group-raw-hover:scale-110">
                     <f.icon className="h-4 w-4" />
                   </div>
                   <div className="mt-3 font-semibold text-white transition-all duration-300 hover-gradient-text">{f.title}</div>
@@ -326,18 +326,18 @@ function Home() {
                 </div>
               ))}
             </div>
-            <Button asChild variant="ghost" className="mt-8 -ml-3 text-brand hover:text-brand hover:bg-brand/5">
+            <Button asChild variant="ghost" className="mt-8 -ml-3 text-brand raw-hover:text-brand raw-hover:bg-brand/5">
               <Link to="/about">
                 Read our story <ArrowUpRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent group transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent group transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70"
                 alt="GFG ITER community at a workshop"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-[#00ff7f]/20 bg-black/40 backdrop-blur-xl p-4 shadow-[0_0_20px_rgba(0,255,127,0.1)]">
@@ -367,11 +367,11 @@ function Home() {
         <div className="mt-16 flex flex-col gap-10 max-w-5xl mx-auto">
           {/* Card 1 */}
           <Reveal delay={0.1}>
-            <article className="flex flex-col md:flex-row items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 hover:border-brand/40 hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
+            <article className="flex flex-col md:flex-row items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 raw-hover:border-brand/40 raw-hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
               {/* Image side */}
               <div className="w-full md:w-1/3 shrink-0">
-                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
-                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
+                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-raw-hover:scale-[1.02]">
+                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-raw-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 </div>
               </div>
@@ -394,7 +394,7 @@ function Home() {
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform raw-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   >
                     <Linkedin className="h-5 w-5 text-[#0A66C2]" strokeWidth={2.5} />
                   </a>
@@ -405,11 +405,11 @@ function Home() {
 
           {/* Card 2 */}
           <Reveal delay={0.2}>
-            <article className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 hover:border-brand/40 hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
+            <article className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 raw-hover:border-brand/40 raw-hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
               {/* Image side */}
               <div className="w-full md:w-1/3 shrink-0">
-                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.02]">
-                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-hover:scale-110" />
+                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-raw-hover:scale-[1.02]">
+                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-raw-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                 </div>
               </div>
@@ -432,7 +432,7 @@ function Home() {
                   <a
                     href="#"
                     aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform raw-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   >
                     <Linkedin className="h-5 w-5 text-[#0A66C2]" strokeWidth={2.5} />
                   </a>
@@ -467,7 +467,7 @@ function Home() {
             <div className="grid gap-6 md:grid-cols-2">
               {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.1}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
+                  <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
                       <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
                     </div>
@@ -477,7 +477,7 @@ function Home() {
               ))}
               {EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.2}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 hover:border-[#3b82f6] hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
+                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#3b82f6] raw-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                       <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                     </div>
@@ -502,15 +502,15 @@ function Home() {
                   {EVENTS.filter((e) => e.status === "past").map((e, i) => (
                     <Reveal key={e.id} delay={i * 0.1}>
                       <div className="relative pl-8 sm:pl-12 group">
-                        <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-hover:border-[#00ff7f] group-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
+                        <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-raw-hover:border-[#00ff7f] group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
                         <EventIcon category={e.category} />
                       </div>
-                      <div onClick={undefined} className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer">
+                      <div onClick={undefined} className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:-translate-y-1 raw-hover:border-white/50 raw-hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer">
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
                             src={e.image}
                             alt={e.title}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
                             loading="lazy"
                           />
                           <span className="absolute right-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground backdrop-blur shadow-[0_0_10px_rgba(0,0,0,0.3)]">
@@ -524,8 +524,8 @@ function Home() {
                           </div>
                           <h4 className="mt-3 text-lg font-bold transition-all duration-300 text-white hover-gradient-text">{e.title}</h4>
                           <p className="mt-2 text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">{e.description}</p>
-                          <Link to="/events" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-hover:text-[#00ff7f]">
-                            Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                          <Link to="/events" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-raw-hover:text-[#00ff7f]">
+                            Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-raw-hover:translate-x-1" />
                           </Link>
                         </div>
                       </div>
@@ -559,12 +559,12 @@ function Home() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {TEAM.slice(0, 9).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
-              <div className="group cursor-pointer relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
+              <div className="group cursor-pointer relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
                     src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
                     alt={m.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
                     loading="lazy"
                   />
                   {m.linkedin && (
@@ -574,7 +574,7 @@ function Home() {
                           href={(m as any).github}
                           target="_blank"
                           rel="noreferrer"
-                          className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#333] shadow-lg transition-transform duration-300 hover:scale-110"
+                          className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#333] shadow-lg transition-transform duration-300 raw-hover:scale-110"
                           aria-label={`${m.name}'s GitHub`}
                         >
                           <Github className="h-5 w-5" />
@@ -584,7 +584,7 @@ function Home() {
                         href={m.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 hover:scale-110"
+                        className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 raw-hover:scale-110"
                         aria-label={`${m.name}'s LinkedIn`}
                       >
                         <Linkedin className="h-5 w-5" />
@@ -640,7 +640,7 @@ function Home() {
                     <img 
                       src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
                       alt={r.name} 
-                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
+                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-raw-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
                       onError={(e) => {
                         const img = e.currentTarget;
                         img.style.display = 'none';
@@ -662,7 +662,7 @@ function Home() {
                     <img 
                       src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
                       alt={r.name} 
-                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
+                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-raw-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
                       onError={(e) => {
                         const img = e.currentTarget;
                         img.style.display = 'none';
@@ -677,10 +677,10 @@ function Home() {
           </div>
 
           <div className="mt-20 text-center">
-            <Button asChild className="group relative rounded-full border border-[#00ff7f]/50 bg-[#00ff7f]/5 px-8 py-6 text-[#00ff7f] font-bold text-lg backdrop-blur-md transition-all hover:bg-[#00ff7f]/10 hover:shadow-[0_0_25px_rgba(0,255,127,0.25)]">
+            <Button asChild className="group relative rounded-full border border-[#00ff7f]/50 bg-[#00ff7f]/5 px-8 py-6 text-[#00ff7f] font-bold text-lg backdrop-blur-md transition-all raw-hover:bg-[#00ff7f]/10 raw-hover:shadow-[0_0_25px_rgba(0,255,127,0.25)]">
               <Link to="/alumni" className="flex items-center gap-2">
                 Meet our alumni 
-                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="h-5 w-5 transition-transform group-raw-hover:translate-x-1 group-raw-hover:-translate-y-1" />
               </Link>
             </Button>
           </div>
@@ -710,21 +710,21 @@ function Home() {
             style={{ animationDuration: "50s" }}
           >
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-              <figure key={i} className="relative w-[300px] sm:w-[380px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-[#060D09] p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] group cursor-default whitespace-normal flex flex-col justify-between">
-                <div className="absolute -right-4 -top-8 text-[140px] font-serif leading-none text-[#00ff7f]/5 group-hover:text-[#00ff7f]/10 transition-colors pointer-events-none select-none">"</div>
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00ff7f]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <figure key={i} className="relative w-[300px] sm:w-[380px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-[#060D09] p-6 sm:p-8 transition-all duration-500 raw-hover:-translate-y-2 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] group cursor-default whitespace-normal flex flex-col justify-between">
+                <div className="absolute -right-4 -top-8 text-[140px] font-serif leading-none text-[#00ff7f]/5 group-raw-hover:text-[#00ff7f]/10 transition-colors pointer-events-none select-none">"</div>
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#00ff7f]/50 to-transparent opacity-0 group-raw-hover:opacity-100 transition-opacity duration-500" />
                 
                 <blockquote className="relative z-10 text-sm sm:text-base leading-relaxed text-white/90 font-medium">
                   "{t.quote}"
                 </blockquote>
                 
-                <figcaption className="relative z-10 mt-8 flex items-center gap-4 border-t border-white/10 pt-5 group-hover:border-[#00ff7f]/30 transition-colors">
-                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#00ff7f]/20 to-[#00ff7f]/5 border border-[#00ff7f]/30 text-[#00ff7f] font-bold text-xl overflow-hidden group-hover:scale-110 transition-transform duration-500">
-                    <div className="absolute inset-0 bg-[#00ff7f] opacity-0 group-hover:opacity-20 animate-pulse" />
+                <figcaption className="relative z-10 mt-8 flex items-center gap-4 border-t border-white/10 pt-5 group-raw-hover:border-[#00ff7f]/30 transition-colors">
+                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#00ff7f]/20 to-[#00ff7f]/5 border border-[#00ff7f]/30 text-[#00ff7f] font-bold text-xl overflow-hidden group-raw-hover:scale-110 transition-transform duration-500">
+                    <div className="absolute inset-0 bg-[#00ff7f] opacity-0 group-raw-hover:opacity-20 animate-pulse" />
                     {t.name.charAt(0)}
                   </div>
                   <div className="overflow-hidden">
-                    <div className="text-sm sm:text-base font-bold text-white tracking-wide truncate group-hover:text-[#00ff7f] transition-colors">{t.name}</div>
+                    <div className="text-sm sm:text-base font-bold text-white tracking-wide truncate group-raw-hover:text-[#00ff7f] transition-colors">{t.name}</div>
                     <div className="text-[11px] sm:text-xs uppercase tracking-wider text-[#00ff7f]/70 font-semibold truncate">{t.role}</div>
                   </div>
                 </figcaption>
@@ -739,7 +739,7 @@ function Home() {
 
       {/* NEWSLETTER CTA */}
       <section className="relative z-10 container-page pb-24">
-        <div className="group cursor-pointer relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#060D09] p-8 md:p-10 transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
+        <div className="group cursor-pointer relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#060D09] p-8 md:p-10 transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
           {/* Uniform Grid Background */}
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
           
@@ -766,7 +766,7 @@ function Home() {
                 />
                 <Button 
                   type="submit" 
-                  className="h-14 px-8 rounded-xl bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 font-bold text-base transition-all shrink-0"
+                  className="h-14 px-8 rounded-xl bg-[#00ff7f] text-[#020b06] raw-hover:bg-[#00ff7f]/90 font-bold text-base transition-all shrink-0"
                 >
                   Subscribe <Calendar className="ml-2 h-5 w-5" />
                 </Button>
@@ -789,10 +789,10 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
         <img
           src={event.image}
           alt={event.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-700 group-raw-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-raw-hover:opacity-100" />
         <span className="absolute right-4 top-4 rounded-full bg-[#020b06]/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 z-10">
           {event.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
         </span>
@@ -804,10 +804,10 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
         <Link 
           to="/events/$eventId"
           params={{ eventId: event.id }}
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors hover:text-white" 
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors raw-hover:text-white" 
           style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}
         >
-          Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-raw-hover:translate-x-1 group-raw-hover:-translate-y-1" />
         </Link>
       </div>
     </div>
