@@ -72,7 +72,7 @@ export function Navbar() {
           aria-label="Primary"
         >
           <Link to="/" className="flex items-center pl-2 h-10 z-10">
-            <img src="/navbar-logo.png" alt="GFG Campus Body ITER" className="h-8 w-auto object-contain scale-[1.7] md:scale-[2] origin-left" />
+            <img src="/Logo_light1.svg" alt="GFG Campus Body ITER" className="h-8 md:h-10 w-auto object-contain" />
           </Link>
 
           <div className="absolute inset-x-0 hidden lg:flex items-center justify-center pointer-events-none">
