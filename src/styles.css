@@ -4,6 +4,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant raw-hover (&:hover);
+@custom-variant group-raw-hover (:merge(.group):hover &);
 
 @theme {
   --radius: 0.875rem;
