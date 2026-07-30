@@ -173,7 +173,7 @@ function Home() {
       {/* HERO */}
       <section className="relative z-10 overflow-hidden -mt-24 pt-24">
         <FloatingTechElements />
-        <div className="container-page relative pt-2 pb-20 md:pt-4 md:pb-32">
+        <div className="container-page relative pt-10 pb-20 md:pt-16 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
