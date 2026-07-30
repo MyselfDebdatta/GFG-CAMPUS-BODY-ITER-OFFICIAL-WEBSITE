@@ -186,9 +186,9 @@ function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center justify-center gap-8 md:gap-12 mb-8"
             >
-              <img src="/SOA-PNG.webp" alt="SOA University" className="h-20 md:h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
-              <div className="h-16 md:h-20 w-px bg-white/20" />
-              <img src="/Concised_Light.svg" alt="GFG Logo" className="h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(0,255,127,0.2)]" />
+              <img src="/SOA-PNG.webp" alt="SOA University" className="h-16 md:h-20 w-auto object-contain" />
+              <div className="h-12 md:h-16 w-px bg-white/20" />
+              <img src="/Concised_Light.svg" alt="GFG Logo" className="h-14 md:h-16 w-auto object-contain" />
             </motion.div>
 
             <span className="inline-flex items-center gap-2.5 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-sm font-semibold tracking-[0.1em] text-[#00ff7f] backdrop-blur-md">
