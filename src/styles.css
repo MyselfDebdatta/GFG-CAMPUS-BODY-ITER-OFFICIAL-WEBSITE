@@ -85,10 +85,10 @@
 }
 
 .dark {
-  --background: rgba(2, 11, 6, 0.4);
+  --background: #020b06;
   --foreground: oklch(0.98 0.003 250);
-  --surface: rgba(4, 28, 16, 0.4); /* Subtle emerald glass tint */
-  --surface-elevated: rgba(4, 28, 16, 0.6);
+  --surface: #041c10; /* Solid emerald dark */
+  --surface-elevated: #061f12;
   --hairline: rgba(0, 255, 102, 0.08);
 
   --card: oklch(0.19 0.02 260);
@@ -228,13 +228,13 @@
 
 /* Premium Card Styles (Operating System Aesthetic) */
 .dark .bg-surface {
-  background: rgba(3, 18, 9, 0.85) !important;
+  background: #031209 !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
 }
 
 .dark .bg-surface-elevated {
-  background: rgba(4, 28, 16, 0.75) !important;
+  background: #061f12 !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border-color: rgba(0, 255, 102, 0.15) !important;
@@ -247,11 +247,19 @@
 
 .dark .bg-surface-elevated:hover {
   transform: translateY(-4px) !important;
-  background: rgba(4, 38, 20, 0.85) !important; 
+  background: #0a2e18 !important; 
   border-color: #00ff7f !important; 
   box-shadow: 
     0 0 15px rgba(0, 255, 127, 0.4), 
     inset 0 1px 0 rgba(0, 255, 102, 0.4) !important; 
+}
+
+/* Dark mode navbar glass - fully opaque so it never disappears */
+.dark .glass-panel {
+  background: rgba(2, 11, 6, 0.92) !important;
+  backdrop-filter: saturate(160%) blur(14px) !important;
+  -webkit-backdrop-filter: saturate(160%) blur(14px) !important;
+  border: 1px solid rgba(0, 255, 102, 0.08) !important;
 }
 
 /* Hover Typography Transformation for Inner Page Cards */
