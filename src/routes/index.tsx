@@ -246,7 +246,7 @@ function Home() {
               <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-y-0 relative">
                 {STATS.map((s, i) => (
                   <div key={s.label} className="relative text-center group">
-                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white transition-all duration-300 group-raw-hover:scale-110 group-raw-hover:text-transparent group-raw-hover:bg-clip-text group-raw-hover:bg-gradient-to-r group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">
+                    <div className="text-4xl sm:text-5xl font-extrabold tracking-tight transition-all duration-300 group-raw-hover:scale-110 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">
                       <Counter to={s.value} suffix={s.suffix} />
                     </div>
                     <div className="mt-3 text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-[#00ff7f]/70 group-raw-hover:text-[#32CD32] transition-colors">
@@ -321,7 +321,7 @@ function Home() {
                   <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-raw-hover:bg-[#00ff7f]/20 group-raw-hover:scale-110">
                     <f.icon className="h-4 w-4" />
                   </div>
-                  <div className="mt-3 font-semibold text-white transition-all duration-300 group-raw-hover:text-transparent group-raw-hover:bg-clip-text group-raw-hover:bg-gradient-to-r group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{f.title}</div>
+                  <div className="mt-3 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white transition-all duration-300 group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{f.title}</div>
                   <p className="mt-1 text-sm text-white/60">{f.body}</p>
                 </div>
               ))}
@@ -522,7 +522,7 @@ function Home() {
                             <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 text-white/70">{e.category}</span>
                             <span className="text-white/60">{e.date}</span>
                           </div>
-                          <h4 className="mt-3 text-lg font-bold transition-all duration-300 group-raw-hover:text-transparent group-raw-hover:bg-clip-text group-raw-hover:bg-gradient-to-r group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{e.title}</h4>
+                          <h4 className="mt-3 text-lg font-bold transition-all duration-300 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{e.title}</h4>
                           <p className="mt-2 text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">{e.description}</p>
                           <Link to="/events" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-raw-hover:text-[#00ff7f]">
                             Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-raw-hover:translate-x-1" />
@@ -594,7 +594,7 @@ function Home() {
                 </div>
                 <div className="p-4">
                   <div className="text-xs font-medium uppercase tracking-wider text-brand">{m.role}</div>
-                  <div className="mt-1 font-semibold transition-all duration-300 group-raw-hover:text-transparent group-raw-hover:bg-clip-text group-raw-hover:bg-gradient-to-r group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{m.name}</div>
+                  <div className="mt-1 font-semibold transition-all duration-300 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{m.name}</div>
                 </div>
               </div>
             </Reveal>
@@ -749,7 +749,7 @@ function Home() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f]" />
                 STAY IN THE LOOP
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-4 transition-all duration-300 group-raw-hover:text-transparent group-raw-hover:bg-clip-text group-raw-hover:bg-gradient-to-r group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-4 transition-all duration-300 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">
                 Event drops, project updates, opportunities.
               </h2>
               <p className="text-lg text-white/60 font-medium">
@@ -799,7 +799,7 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
       </div>
       <div className="flex flex-col flex-1 p-6 md:p-8">
         <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
-        <h3 className="mt-2 text-2xl font-bold tracking-tight text-white group-raw-hover:text-transparent group-raw-hover:bg-clip-text group-raw-hover:bg-gradient-to-r group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32] transition-all">{event.title}</h3>
+        <h3 className="mt-2 text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white transition-all duration-300 group-raw-hover:from-[#32CD32] group-raw-hover:via-[#e2da24] group-raw-hover:to-[#32CD32]">{event.title}</h3>
         <p className="mt-3 text-base text-white/60 flex-1">{event.description}</p>
         <Link 
           to="/events/$eventId"
