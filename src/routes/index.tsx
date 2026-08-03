@@ -620,15 +620,15 @@ function Home() {
         <div className="container-page flex flex-col items-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
-            ALUMNI NETWORK
+            CAREER VISION
           </span>
           
           <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(0,255,127,0.2)] text-center">
-            Where our alumni build
+            Where we aim to build
           </h2>
           
           <p className="mt-4 max-w-2xl text-center text-lg text-[#00ff7f]/60 font-medium">
-            Members of GFG ITER go on to top tech companies, research labs, and grad schools.
+            We prepare our members with the engineering skills and mindset required to excel at top tech companies.
           </p>
 
           <div className="mt-20 w-full relative">

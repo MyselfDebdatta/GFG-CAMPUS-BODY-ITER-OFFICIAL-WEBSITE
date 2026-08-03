@@ -126,7 +126,7 @@ function Alumni() {
 
       {/* Recruiters */}
       <section className="container-page py-20">
-        <SectionHeader eyebrow="Top recruiters" title="Where our alumni build" align="center" />
+        <SectionHeader eyebrow="Target destinations" title="Where we aim to build" align="center" />
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
           {RECRUITERS.map((r) => (
             <div
