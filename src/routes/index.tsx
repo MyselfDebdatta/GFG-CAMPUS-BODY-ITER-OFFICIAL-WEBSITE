@@ -468,6 +468,9 @@ function Home() {
               {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.1}>
                   <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
+                    <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
+                      <span className="sr-only">View {e.title}</span>
+                    </Link>
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
                       <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
                     </div>
@@ -478,6 +481,9 @@ function Home() {
               {EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e, i) => (
                 <Reveal key={e.id} delay={0.2}>
                   <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#3b82f6] raw-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
+                    <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
+                      <span className="sr-only">View {e.title}</span>
+                    </Link>
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                       <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                     </div>
@@ -505,7 +511,10 @@ function Home() {
                         <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-raw-hover:border-[#00ff7f] group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
                         <EventIcon category={e.category} />
                       </div>
-                      <div onClick={undefined} className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:-translate-y-1 raw-hover:border-white/50 raw-hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer">
+                      <div className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:-translate-y-1 raw-hover:border-white/50 raw-hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer relative">
+                        <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
+                          <span className="sr-only">View {e.title}</span>
+                        </Link>
                         <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
                           <img
                             src={e.image}
