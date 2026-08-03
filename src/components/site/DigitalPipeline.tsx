@@ -259,9 +259,9 @@ export function DigitalPipeline() {
               }
             }
 
-            // Pipeline flash at last node
+            // Subtle pipeline flash at last node
             if (ni === NODE_COUNT - 1) {
-              state.pipelineGlow = 1;
+              state.pipelineGlow = 0.4;
             }
           }
         }
@@ -311,8 +311,8 @@ export function DigitalPipeline() {
         }
       }
 
-      // Decay pipeline glow
-      state.pipelineGlow = clamp01(state.pipelineGlow - dt * 0.0008);
+      // Decay pipeline glow (fast)
+      state.pipelineGlow = clamp01(state.pipelineGlow - dt * 0.002);
 
       // ══════════════════════════════════════════════════════════════════
       //  RENDER
@@ -320,35 +320,17 @@ export function DigitalPipeline() {
 
       ctx.clearRect(0, 0, W, H);
 
-      // Background
+      // Background (solid dark)
       ctx.fillStyle = "#040705";
       ctx.fillRect(0, 0, W, H);
 
-      // Ambient glow
-      const ag = ctx.createRadialGradient(W / 2, CY, 0, W / 2, CY, W * 0.5);
-      ag.addColorStop(0, `rgba(0,230,118,${0.035 + state.pipelineGlow * 0.07})`);
-      ag.addColorStop(1, "transparent");
-      ctx.fillStyle = ag;
-      ctx.fillRect(0, 0, W, H);
-
-      // ── Main pipeline line ──────────────────────────────────────────
-      // Base line (always visible)
-      ctx.strokeStyle = `rgba(0,230,118,${0.2 + state.pipelineGlow * 0.5})`;
-      ctx.lineWidth = 1.5;
+      // ── Main pipeline line (very subtle, thin) ──────────────────────
+      ctx.strokeStyle = `rgba(0,230,118,${0.12 + state.pipelineGlow * 0.15})`;
+      ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, CY);
       ctx.lineTo(W, CY);
       ctx.stroke();
-
-      // Glow line
-      if (state.pipelineGlow > 0.01) {
-        ctx.strokeStyle = `rgba(0,255,153,${state.pipelineGlow * 0.35})`;
-        ctx.lineWidth = 5;
-        ctx.beginPath();
-        ctx.moveTo(0, CY);
-        ctx.lineTo(W, CY);
-        ctx.stroke();
-      }
 
       // ── Branch paths ────────────────────────────────────────────────
       for (let bi = 0; bi < state.branches.length; bi++) {
@@ -356,30 +338,25 @@ export function DigitalPipeline() {
         if (br.opacity < 0.01) continue;
 
         // Branch line
-        ctx.strokeStyle = `rgba(0,230,118,${0.4 * br.opacity})`;
-        ctx.lineWidth = 1.5;
-        drawBranch(ctx, bi, br.drawProgress, W, H);
-
-        // Branch glow
-        ctx.strokeStyle = `rgba(0,255,153,${0.15 * br.opacity})`;
-        ctx.lineWidth = 4;
+        ctx.strokeStyle = `rgba(0,230,118,${0.25 * br.opacity})`;
+        ctx.lineWidth = 1;
         drawBranch(ctx, bi, br.drawProgress, W, H);
 
         // Branch packet
         if (br.packetT >= 0 && br.packetT <= 1) {
           const bp = branchPoint(bi, br.packetT, W, H);
-          // Glow
-          const bg = ctx.createRadialGradient(bp.x, bp.y, 0, bp.x, bp.y, 16);
-          bg.addColorStop(0, `rgba(0,255,153,${0.5 * br.opacity})`);
+          // Subtle glow
+          const bg = ctx.createRadialGradient(bp.x, bp.y, 0, bp.x, bp.y, 10);
+          bg.addColorStop(0, `rgba(0,255,153,${0.35 * br.opacity})`);
           bg.addColorStop(1, "transparent");
           ctx.fillStyle = bg;
           ctx.beginPath();
-          ctx.arc(bp.x, bp.y, 16, 0, Math.PI * 2);
+          ctx.arc(bp.x, bp.y, 10, 0, Math.PI * 2);
           ctx.fill();
           // Core
-          ctx.fillStyle = `rgba(255,255,255,${0.85 * br.opacity})`;
+          ctx.fillStyle = `rgba(255,255,255,${0.8 * br.opacity})`;
           ctx.beginPath();
-          ctx.arc(bp.x, bp.y, 2, 0, Math.PI * 2);
+          ctx.arc(bp.x, bp.y, 1.5, 0, Math.PI * 2);
           ctx.fill();
         }
       }
@@ -390,33 +367,33 @@ export function DigitalPipeline() {
         const x = nodePositions[ni] * W;
         const r = NODE_R + node.glow * 3;
 
-        // Node halo
-        if (node.glow > 0.02) {
-          const ng = ctx.createRadialGradient(x, CY, 0, x, CY, 22);
-          ng.addColorStop(0, `rgba(0,255,153,${node.glow * 0.45})`);
+        // Node halo (very subtle)
+        if (node.glow > 0.05) {
+          const ng = ctx.createRadialGradient(x, CY, 0, x, CY, 14);
+          ng.addColorStop(0, `rgba(0,255,153,${node.glow * 0.25})`);
           ng.addColorStop(1, "transparent");
           ctx.fillStyle = ng;
           ctx.beginPath();
-          ctx.arc(x, CY, 22, 0, Math.PI * 2);
+          ctx.arc(x, CY, 14, 0, Math.PI * 2);
           ctx.fill();
         }
 
         // Circle
         ctx.beginPath();
         ctx.arc(x, CY, r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0,230,118,${0.05 + node.glow * 0.7})`;
+        ctx.fillStyle = `rgba(0,230,118,${node.glow * 0.5})`;
         ctx.fill();
-        ctx.strokeStyle = `rgba(0,230,118,${0.35 + node.glow * 0.65})`;
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = `rgba(0,230,118,${0.2 + node.glow * 0.6})`;
+        ctx.lineWidth = 1;
         ctx.stroke();
 
         // Diamond marker below
-        const dY = CY + NODE_R + 8;
+        const dY = CY + NODE_R + 7;
         ctx.save();
         ctx.translate(x, dY);
         ctx.rotate(Math.PI / 4);
-        const ds = 3.5 + node.glow;
-        ctx.fillStyle = `rgba(0,230,118,${0.25 + node.glow * 0.6})`;
+        const ds = 3 + node.glow * 0.5;
+        ctx.fillStyle = `rgba(0,230,118,${0.15 + node.glow * 0.5})`;
         ctx.fillRect(-ds / 2, -ds / 2, ds, ds);
         ctx.restore();
 
@@ -428,8 +405,8 @@ export function DigitalPipeline() {
           ctx.fillStyle = "#00FF99";
           ctx.textAlign = "center";
           ctx.textBaseline = "bottom";
-          ctx.shadowColor = "rgba(0,255,153,0.7)";
-          ctx.shadowBlur = 6;
+          ctx.shadowColor = "rgba(0,255,153,0.4)";
+          ctx.shadowBlur = 4;
           ctx.fillText(node.label, x, CY - NODE_R - 10);
           ctx.shadowBlur = 0;
           ctx.restore();
@@ -441,34 +418,34 @@ export function DigitalPipeline() {
         if (pkt.nx < -0.04 || pkt.nx > 1.12) continue;
         const px = pkt.nx * W;
 
-        // Trail
-        const trailLen = 70;
+        // Short trailing glow
+        const trailLen = 50;
         const tg = ctx.createLinearGradient(px - trailLen, CY, px, CY);
         tg.addColorStop(0, "transparent");
-        tg.addColorStop(0.4, "rgba(0,230,118,0.1)");
-        tg.addColorStop(0.85, "rgba(0,255,153,0.45)");
-        tg.addColorStop(1, "rgba(255,255,255,0.85)");
+        tg.addColorStop(0.6, "rgba(0,230,118,0.08)");
+        tg.addColorStop(0.9, "rgba(0,255,153,0.3)");
+        tg.addColorStop(1, "rgba(110,255,181,0.7)");
         ctx.strokeStyle = tg;
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(Math.max(0, px - trailLen), CY);
         ctx.lineTo(px, CY);
         ctx.stroke();
 
-        // Head glow
-        const hg = ctx.createRadialGradient(px, CY, 0, px, CY, 22);
-        hg.addColorStop(0, "rgba(0,255,153,0.55)");
-        hg.addColorStop(0.4, "rgba(0,230,118,0.12)");
+        // Compact head glow
+        const hg = ctx.createRadialGradient(px, CY, 0, px, CY, 12);
+        hg.addColorStop(0, "rgba(0,255,153,0.4)");
+        hg.addColorStop(0.5, "rgba(0,230,118,0.08)");
         hg.addColorStop(1, "transparent");
         ctx.fillStyle = hg;
         ctx.beginPath();
-        ctx.arc(px, CY, 22, 0, Math.PI * 2);
+        ctx.arc(px, CY, 12, 0, Math.PI * 2);
         ctx.fill();
 
-        // Bright core
-        ctx.fillStyle = "#ffffff";
+        // Bright core (small)
+        ctx.fillStyle = "rgba(255,255,255,0.9)";
         ctx.beginPath();
-        ctx.arc(px, CY, 2.5, 0, Math.PI * 2);
+        ctx.arc(px, CY, 2, 0, Math.PI * 2);
         ctx.fill();
       }
 
