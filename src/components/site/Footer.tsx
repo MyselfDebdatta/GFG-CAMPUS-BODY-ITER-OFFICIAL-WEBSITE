@@ -35,7 +35,7 @@ function TerminalLog() {
   );
 }
 
-import { CodeFooterStream } from "./CodeFooterStream";
+import { DigitalPipeline } from "./DigitalPipeline";
 
 export function Footer() {
   return (
@@ -100,8 +100,8 @@ export function Footer() {
         </div>
         
       </div>
-      {/* Dynamic Code Ticker Separator */}
-      <CodeFooterStream />
+      {/* Dynamic Digital Pipeline Separator */}
+      <DigitalPipeline />
 
       <div className="container-page">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-8 text-xs text-slate-500">
