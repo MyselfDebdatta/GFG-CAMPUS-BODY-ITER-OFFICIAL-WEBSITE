@@ -271,8 +271,6 @@ export const RECRUITERS = [
   { name: "JP Morgan Chase", domain: "jpmorganchase.com", slug: "jpmorganchase" },
   { name: "Goldman Sachs", domain: "goldmansachs.com", slug: "goldmansachs" },
   { name: "Morgan Stanley", domain: "morganstanley.com", slug: "morganstanley" },
-  { name: "BNY Mellon", domain: "bnymellon.com", slug: "bnymellon" },
-  { name: "Optum", domain: "optum.com", slug: "optum" },
   { name: "Dell", domain: "dell.com", slug: "dell" },
   { name: "Adobe", domain: "adobe.com", slug: "adobe" },
   { name: "Oracle", domain: "oracle.com", slug: "oracle" },
