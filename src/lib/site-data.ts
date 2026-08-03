@@ -48,8 +48,7 @@ export const EVENTS = [
     venue: "ITER Main Campus",
     status: "upcoming",
     speakers: [
-      { name: "Aarav Patnaik", role: "President", photo: "https://i.pravatar.cc/150?img=12" },
-      { name: "Sneha Mohanty", role: "Vice President", photo: "https://i.pravatar.cc/150?img=47" }
+      { name: "Vivek Ranjan Sahoo", role: "President", photo: "https://i.pravatar.cc/150?img=12" }
     ],
     description:
       "Welcome, freshmen! Join our grand orientation carnival to discover everything about GFG ITER—our vision, our projects, and how you can become part of the ultimate builder community on campus.",
