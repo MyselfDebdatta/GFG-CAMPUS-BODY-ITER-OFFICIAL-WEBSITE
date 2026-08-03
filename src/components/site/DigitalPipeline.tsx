@@ -324,6 +324,18 @@ export function DigitalPipeline() {
       ctx.fillStyle = "#040705";
       ctx.fillRect(0, 0, W, H);
 
+      // ── Moving dot grid background ────────────────────────────────────
+      ctx.fillStyle = "rgba(0, 230, 118, 0.04)"; 
+      const spacing = 20;
+      const offsetX = (now * 0.015) % spacing;
+      for (let x = -spacing; x < W + spacing; x += spacing) {
+        for (let y = (CY % spacing) - spacing; y < H + spacing; y += spacing) {
+          ctx.beginPath();
+          ctx.arc(x - offsetX, y, 0.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
       // ── Main pipeline line (very subtle, thin) ──────────────────────
       ctx.strokeStyle = `rgba(0,230,118,${0.12 + state.pipelineGlow * 0.15})`;
       ctx.lineWidth = 1;
