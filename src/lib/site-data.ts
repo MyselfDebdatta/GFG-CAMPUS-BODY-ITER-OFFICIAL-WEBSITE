@@ -145,24 +145,6 @@ export const EVENT_CATEGORIES = [
 
 export const TEAM = [
   {
-    name: "Vivek Ranjan Sahoo",
-    role: "President",
-    group: "Executive Board",
-    bio: "Final-year CSE. Full-stack engineer, ex-intern at a YC startup.",
-    photo: "https://i.pravatar.cc/400?img=12",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  },
-  {
-    name: "Snehansu Sekhar Das",
-    role: "Vice President",
-    group: "Executive Board",
-    bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
-    photo: "https://i.pravatar.cc/400?img=47",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  },
-  {
     name: "Anubhab Samantary",
     role: "Coordinator",
     group: "Faculty",
@@ -190,6 +172,24 @@ export const TEAM = [
     github: "https://github.com"
   },
   {
+    name: "Vivek Ranjan Sahoo",
+    role: "President",
+    group: "Executive Board",
+    bio: "Final-year CSE. Full-stack engineer, ex-intern at a YC startup.",
+    photo: "https://i.pravatar.cc/400?img=12",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  },
+  {
+    name: "Snehansu Sekhar Das",
+    role: "Vice President",
+    group: "Executive Board",
+    bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
+    photo: "https://i.pravatar.cc/400?img=47",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  },
+  {
     name: "Abhijit Dash",
     role: "Tech Lead",
     group: "Technical Team",
@@ -199,20 +199,20 @@ export const TEAM = [
     github: "https://github.com"
   },
   {
-    name: "Sanyukt Kumar Rai",
-    role: "Design Lead",
-    group: "Design Team",
-    bio: "Product designer. Runs the club's design system and brand.",
-    photo: "https://i.pravatar.cc/400?img=45",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  },
-  {
     name: "Aastha Singh",
     role: "PR & Media Lead",
     group: "Marketing",
     bio: "Brand storyteller. Grows the club community online and offline.",
     photo: "https://i.pravatar.cc/400?img=25",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  },
+  {
+    name: "Sanyukt Kumar Rai",
+    role: "Design Lead",
+    group: "Design Team",
+    bio: "Product designer. Runs the club's design system and brand.",
+    photo: "https://i.pravatar.cc/400?img=45",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
@@ -228,12 +228,13 @@ export const TEAM = [
 ];
 
 export const TEAM_GROUPS = [
+  "Faculty",
+  "Mentors",
   "Executive Board",
   "Technical Team",
+  "Marketing",
   "Design Team",
   "Event Management",
-  "Marketing",
-  "Faculty Coordinator",
 ];
 
 export const ALUMNI = [
