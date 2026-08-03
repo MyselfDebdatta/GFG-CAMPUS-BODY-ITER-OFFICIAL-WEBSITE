@@ -147,7 +147,7 @@ export const TEAM = [
   {
     name: "Anubhab Samantary",
     role: "Coordinator",
-    group: "Faculty",
+    group: "Coordinator",
     bio: "Associate Professor, Dept. of CSE. Mentor to the chapter.",
     photo: "https://i.pravatar.cc/400?img=52",
     linkedin: "https://linkedin.com",
@@ -156,7 +156,7 @@ export const TEAM = [
   {
     name: "Akansha Ajay",
     role: "Coordinator",
-    group: "Faculty",
+    group: "Coordinator",
     bio: "Assistant Professor. Guiding students in research and open source.",
     photo: "https://i.pravatar.cc/400?img=40",
     linkedin: "https://linkedin.com",
@@ -201,7 +201,7 @@ export const TEAM = [
   {
     name: "Aastha Singh",
     role: "PR & Media Lead",
-    group: "Marketing",
+    group: "Marketing Team",
     bio: "Brand storyteller. Grows the club community online and offline.",
     photo: "https://i.pravatar.cc/400?img=25",
     linkedin: "https://linkedin.com",
@@ -219,7 +219,7 @@ export const TEAM = [
   {
     name: "Subhakanta Das",
     role: "Operations Lead",
-    group: "Event Management",
+    group: "Event Management Team",
     bio: "Orchestrates hackathons, bootcamps, and campus-wide summits.",
     photo: "https://i.pravatar.cc/400?img=8",
     linkedin: "https://linkedin.com",
@@ -228,13 +228,13 @@ export const TEAM = [
 ];
 
 export const TEAM_GROUPS = [
-  "Faculty",
+  "Coordinator",
   "Mentors",
   "Executive Board",
   "Technical Team",
-  "Marketing",
+  "Marketing Team",
   "Design Team",
-  "Event Management",
+  "Event Management Team",
 ];
 
 export const ALUMNI = [
