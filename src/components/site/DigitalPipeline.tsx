@@ -1,96 +1,56 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const PROGRAMMING_SYMBOLS = ["</>", "{ }", "( )", "[ ]", "< />", "=>", "const", "function", "class"];
+const SYMBOLS = ["</>", "{}", "[]", "()", "const", "function", "class", "=>", "import", "export"];
+const NODES = [250, 550, 850, 1150, 1450, 1750];
 
 export function DigitalPipeline() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [activeSymbols, setActiveSymbols] = useState<{ id: string; symbol: string; x: number; y: number }[]>([]);
-
-  // Spawn random programming symbols occasionally
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-
-    const spawnSymbol = () => {
-      const id = Math.random().toString(36).substr(2, 9);
-      const symbol = PROGRAMMING_SYMBOLS[Math.floor(Math.random() * PROGRAMMING_SYMBOLS.length)];
-      
-      // Random position (x: 5% to 95%, y: above or below the line)
-      const x = 5 + Math.random() * 90;
-      const isAbove = Math.random() > 0.5;
-      const y = isAbove ? 10 + Math.random() * 15 : 60 + Math.random() * 15;
-
-      setActiveSymbols(prev => {
-        // Keep max 2 symbols
-        const newSymbols = [...prev, { id, symbol, x, y }];
-        if (newSymbols.length > 2) {
-          return newSymbols.slice(newSymbols.length - 2);
-        }
-        return newSymbols;
-      });
-
-      // Remove after 3-5 seconds
-      setTimeout(() => {
-        setActiveSymbols(prev => prev.filter(s => s.id !== id));
-      }, 3000 + Math.random() * 2000);
-
-      // Schedule next spawn (faster if hovered)
-      const nextSpawnDelay = isHovered ? 800 + Math.random() * 1000 : 2000 + Math.random() * 3000;
-      timeoutId = setTimeout(spawnSymbol, nextSpawnDelay);
-    };
-
-    timeoutId = setTimeout(spawnSymbol, 1000);
-    return () => clearTimeout(timeoutId);
-  }, [isHovered]);
-
   const [pulseKey, setPulseKey] = useState(0);
+  const [activeSymbol, setActiveSymbol] = useState<{ id: number, text: string, x: number } | null>(null);
 
-  // Trigger occasional compile pulse
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
-    const triggerPulse = () => {
+    // Pulse every 6-8 seconds as requested
+    const interval = setInterval(() => {
       setPulseKey(prev => prev + 1);
-      const nextDelay = isHovered ? 3000 : 8000 + Math.random() * 5000;
-      timeoutId = setTimeout(triggerPulse, nextDelay);
-    };
+      
+      // Spawn a symbol at a random node during the compile pulse
+      const randomNode = NODES[Math.floor(Math.random() * NODES.length)];
+      const text = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+      
+      setActiveSymbol({ id: Date.now(), text, x: randomNode });
+      
+      // Symbol fades out after 1 second
+      setTimeout(() => {
+        setActiveSymbol(null);
+      }, 1000);
+    }, 7000); 
 
-    timeoutId = setTimeout(triggerPulse, 5000);
-    return () => clearTimeout(timeoutId);
-  }, [isHovered]);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div 
-      className="relative w-full h-[80px] bg-[#040705] overflow-hidden flex items-center border-t border-[#00E676]/10 cursor-default"
-      onMouseEnter={() => {
-        setIsHovered(true);
-        setPulseKey(prev => prev + 1); // Immediate pulse on hover
-      }}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Background bloom */}
-      <div className="absolute inset-0 bg-[#00E676]/[0.02] blur-3xl pointer-events-none" />
-
-      {/* Fade edges */}
+    <div className="relative w-full h-[80px] bg-[#040705] overflow-hidden flex items-center border-t border-[#00E676]/10 cursor-default">
+      
+      {/* Fade edges to blend smoothly */}
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#040705] to-transparent z-20 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#040705] to-transparent z-20 pointer-events-none" />
 
-      {/* Floating Symbols */}
-      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+      {/* Floating Symbol - exactly one at a time */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
         <AnimatePresence>
-          {activeSymbols.map((sym) => (
+          {activeSymbol && (
             <motion.div
-              key={sym.id}
-              initial={{ opacity: 0, y: sym.y + 10 }}
-              animate={{ opacity: isHovered ? 0.8 : 0.4, y: sym.y }}
-              exit={{ opacity: 0, y: sym.y - 10 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              style={{ left: `${sym.x}%`, top: 0 }}
-              className="absolute font-mono text-xs md:text-sm font-bold text-[#6EFFB5] tracking-widest whitespace-nowrap"
+              key={activeSymbol.id}
+              initial={{ opacity: 0, y: 35, scale: 0.9 }}
+              animate={{ opacity: 1, y: 15, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              style={{ left: `calc((100% / 2000) * ${activeSymbol.x})`, top: 0, position: "absolute", transform: "translateX(-50%)" }}
+              className="font-mono text-xs md:text-sm font-bold text-[#6EFFB5] tracking-widest whitespace-nowrap drop-shadow-[0_0_8px_rgba(110,255,181,0.5)]"
             >
-              {sym.symbol}
+              {activeSymbol.text}
             </motion.div>
-          ))}
+          )}
         </AnimatePresence>
       </div>
 
@@ -100,18 +60,27 @@ export function DigitalPipeline() {
         preserveAspectRatio="none"
       >
         <defs>
-          <linearGradient id="packet-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="packet-slow" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="80%" stopColor="#00FF99" />
+            <stop offset="50%" stopColor="#00E676" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#00FF99" />
+          </linearGradient>
+          
+          <linearGradient id="packet-fast" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="transparent" />
+            <stop offset="80%" stopColor="#00E676" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#ffffff" />
           </linearGradient>
+
           <linearGradient id="pulse-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="50%" stopColor="#6EFFB5" />
-            <stop offset="100%" stopColor="transparent" />
+            <stop offset="20%" stopColor="#00FF99" />
+            <stop offset="80%" stopColor="#6EFFB5" />
+            <stop offset="100%" stopColor="#ffffff" />
           </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+
+          <filter id="glow-heavy">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
             <feMerge>
               <feMergeNode in="coloredBlur"/>
               <feMergeNode in="SourceGraphic"/>
@@ -119,108 +88,106 @@ export function DigitalPipeline() {
           </filter>
         </defs>
 
-        {/* Main Base Lines */}
-        <g stroke="#00E676" strokeWidth="1" opacity="0.15" fill="none" vectorEffect="non-scaling-stroke">
-          <path d="M 0 40 L 2000 40" />
-          
-          {/* Git Branches / PCB Traces */}
-          <path d="M 300 40 L 320 25 L 450 25 L 470 40" />
-          <path d="M 800 40 L 830 55 L 950 55 L 980 40" />
-          <path d="M 1400 40 L 1420 20 L 1500 20 L 1520 40" />
-          <path d="M 1700 40 L 1730 60 L 1800 60 L 1830 40" />
-        </g>
+        {/* Main Static Line (very dim) */}
+        <path d="M 0 40 L 2000 40" stroke="#00E676" strokeWidth="2" opacity="0.15" fill="none" vectorEffect="non-scaling-stroke" />
 
-        {/* Nodes */}
-        <g fill="rgba(0,255,140,0.35)" stroke="#00E676" strokeWidth="1" vectorEffect="non-scaling-stroke">
-          {[300, 320, 450, 470, 800, 830, 950, 980, 1400, 1420, 1500, 1520, 1700, 1730, 1800, 1830].map((x, i) => {
-            const isBranchNode = [320, 450, 1420, 1500].includes(x);
-            const isBottomNode = [830, 950, 1730, 1800].includes(x);
-            const cy = isBranchNode ? 25 : isBottomNode ? 60 : 40;
+        {/* Git Workflow Branches (Hidden by default, animate on pulse) */}
+        <g stroke="#00E676" strokeWidth="2" fill="none" opacity="0.6" vectorEffect="non-scaling-stroke">
+          {NODES.map((x, i) => {
+            // Alternate branches above and below
+            const isAbove = i % 2 === 0;
+            const yOffset = isAbove ? -15 : 15;
+            // Subtle branch path that grows and merges
+            const d = `M ${x - 60} 40 C ${x - 30} 40, ${x - 40} ${40 + yOffset}, ${x} ${40 + yOffset} C ${x + 40} ${40 + yOffset}, ${x + 30} 40, ${x + 60} 40`;
+            
             return (
-              <motion.circle
-                key={`node-${i}`}
-                cx={x}
-                cy={cy}
-                r="3"
-                animate={{
-                  opacity: [0.3, isHovered ? 0.9 : 0.6, 0.3],
-                  scale: [1, isHovered ? 1.3 : 1.1, 1],
+              <motion.path
+                key={`branch-${i}-${pulseKey}`}
+                d={d}
+                pathLength="1"
+                strokeDasharray="1"
+                initial={{ strokeDashoffset: 1, opacity: 0 }}
+                animate={{ 
+                  strokeDashoffset: [-1, 0, 1], // draw out, pause briefly, erase
+                  opacity: [0, 0.8, 0.8, 0] 
                 }}
-                transition={{
-                  duration: 2 + Math.random() * 2,
-                  repeat: Infinity,
+                transition={{ 
+                  duration: 2.5, 
+                  times: [0, 0.4, 0.6, 1],
                   ease: "easeInOut",
-                  delay: Math.random() * 2,
+                  delay: (x / 2000) * 1.5 // Cascading left to right
                 }}
               />
             );
           })}
         </g>
 
+        {/* Static Nodes Frame */}
+        <g fill="#040705" stroke="#00E676" strokeWidth="2" vectorEffect="non-scaling-stroke">
+          {NODES.map((x, i) => (
+            <circle key={`node-bg-${i}`} cx={x} cy={40} r="3" opacity="0.2" />
+          ))}
+        </g>
+
+        {/* Node Pulses triggered randomly/simulating packet hits */}
+        {NODES.map((x, i) => {
+          // Sync with the packets crossing the 2000px line
+          const delay1 = (x / 2000) * 6; // Packet 1 (6s total)
+          const delay2 = (x / 2000) * 4 + 1; // Packet 2 (4s total, 1s offset)
+          
+          return (
+            <g key={`node-pulse-${i}`}>
+              {/* Pulse for slow packet */}
+              <motion.circle
+                cx={x}
+                cy={40}
+                r="3"
+                fill="rgba(0,255,140,0.8)"
+                stroke="#6EFFB5"
+                strokeWidth="2"
+                vectorEffect="non-scaling-stroke"
+                animate={{ opacity: [0, 1, 0], scale: [1, 1.4, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, delay: delay1, ease: "easeOut" }}
+              />
+              {/* Pulse for fast packet */}
+              <motion.circle
+                cx={x}
+                cy={40}
+                r="3"
+                fill="#ffffff"
+                stroke="#00FF99"
+                strokeWidth="2"
+                vectorEffect="non-scaling-stroke"
+                animate={{ opacity: [0, 1, 0], scale: [1, 1.4, 1] }}
+                transition={{ duration: 1, repeat: Infinity, delay: delay2, ease: "easeOut" }}
+              />
+            </g>
+          );
+        })}
+
         {/* Animated Data Packets */}
-        <g fill="none" stroke="url(#packet-gradient)" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke">
-          {/* Main line packets */}
+        <g fill="none" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke">
+          {/* Slow Background Packet */}
           <motion.path
             d="M 0 40 L 2000 40"
+            stroke="url(#packet-slow)"
+            strokeDasharray="200 2000"
+            animate={{ strokeDashoffset: [2200, -200] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
+          />
+          {/* Faster Foreground Packet */}
+          <motion.path
+            d="M 0 40 L 2000 40"
+            stroke="url(#packet-fast)"
             strokeDasharray="100 2500"
             animate={{ strokeDashoffset: [2600, -100] }}
-            transition={{
-              repeat: Infinity,
-              duration: isHovered ? 3 : 5,
-              ease: "linear",
-            }}
-          />
-          <motion.path
-            d="M 0 40 L 2000 40"
-            strokeDasharray="50 3000"
-            animate={{ strokeDashoffset: [3100, -100] }}
-            transition={{
-              repeat: Infinity,
-              duration: isHovered ? 4 : 7,
-              ease: "linear",
-              delay: 1.5,
-            }}
-          />
-          
-          {/* Branch packets */}
-          <motion.path
-            d="M 300 40 L 320 25 L 450 25 L 470 40"
-            strokeDasharray="40 1000"
-            animate={{ strokeDashoffset: [1040, -40] }}
-            transition={{
-              repeat: Infinity,
-              duration: isHovered ? 2.5 : 4,
-              ease: "linear",
-              delay: 0.5,
-            }}
-          />
-          <motion.path
-            d="M 800 40 L 830 55 L 950 55 L 980 40"
-            strokeDasharray="30 800"
-            animate={{ strokeDashoffset: [830, -30] }}
-            transition={{
-              repeat: Infinity,
-              duration: isHovered ? 2 : 3,
-              ease: "linear",
-              delay: 2,
-            }}
-          />
-          <motion.path
-            d="M 1400 40 L 1420 20 L 1500 20 L 1520 40"
-            strokeDasharray="40 1200"
-            animate={{ strokeDashoffset: [1240, -40] }}
-            transition={{
-              repeat: Infinity,
-              duration: isHovered ? 3 : 4.5,
-              ease: "linear",
-              delay: 1,
-            }}
+            transition={{ repeat: Infinity, duration: 4, ease: "linear", delay: 1 }}
           />
         </g>
 
-        {/* Compile Pulse Effect */}
+        {/* Strong Compile Pulse Effect */}
         <motion.path
-          key={pulseKey}
+          key={`compile-${pulseKey}`}
           d="M 0 40 L 2000 40"
           fill="none"
           stroke="url(#pulse-gradient)"
@@ -228,13 +195,12 @@ export function DigitalPipeline() {
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
           strokeDasharray="400 3000"
-          initial={{ strokeDashoffset: 3400, opacity: 0 }}
-          animate={{ strokeDashoffset: -400, opacity: [0, 1, 1, 0] }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          style={{ filter: "url(#glow)" }}
+          initial={{ strokeDashoffset: 2400, opacity: 0 }}
+          animate={{ strokeDashoffset: [-400], opacity: [0, 1, 1, 0] }}
+          transition={{ duration: 1.5, ease: "linear" }}
+          style={{ filter: "url(#glow-heavy)" }}
         />
       </svg>
     </div>
   );
 }
-
