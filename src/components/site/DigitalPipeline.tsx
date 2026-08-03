@@ -325,13 +325,13 @@ export function DigitalPipeline() {
       ctx.fillRect(0, 0, W, H);
 
       // ── Moving dot grid background ────────────────────────────────────
-      ctx.fillStyle = "rgba(0, 230, 118, 0.04)"; 
-      const spacing = 20;
-      const offsetX = (now * 0.015) % spacing;
+      ctx.fillStyle = "rgba(0, 230, 118, 0.09)"; // Increased opacity for better visibility
+      const spacing = 24;
+      const offsetX = (now * 0.02) % spacing; // Slightly faster panning
       for (let x = -spacing; x < W + spacing; x += spacing) {
         for (let y = (CY % spacing) - spacing; y < H + spacing; y += spacing) {
           ctx.beginPath();
-          ctx.arc(x - offsetX, y, 0.8, 0, Math.PI * 2);
+          ctx.arc(x - offsetX, y, 1.2, 0, Math.PI * 2); // Larger dots
           ctx.fill();
         }
       }
