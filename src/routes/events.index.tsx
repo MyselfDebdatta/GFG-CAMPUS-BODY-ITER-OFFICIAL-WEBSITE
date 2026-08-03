@@ -115,7 +115,10 @@ function Events() {
             )}
             {filtered.map((e, i) => (
               <Reveal key={e.id} delay={i * 0.04}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)] cursor-pointer">
+                  <Link to="/events/$eventId" params={{ eventId: e.id }} search={{ tab: e.status }} className="absolute inset-0 z-20">
+                    <span className="sr-only">View {e.title}</span>
+                  </Link>
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={e.image}
