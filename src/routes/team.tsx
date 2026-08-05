@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, ChevronRight } from "lucide-react";
 import { TEAM, TEAM_GROUPS } from "@/lib/site-data";
-import { Reveal, SectionHeader } from "@/components/site/Primitives";
+import { Reveal } from "@/components/site/Primitives";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -16,6 +17,145 @@ export const Route = createFileRoute("/team")({
   }),
   component: Team,
 });
+
+function MemberCard({ m, isLead = false }: { m: any; isLead?: boolean }) {
+  return (
+    <article
+      className={cn(
+        "group relative flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300",
+        isLead
+          ? "border-brand/40 bg-surface-elevated shadow-[0_0_30px_rgba(0,255,127,0.12)] hover:border-brand"
+          : "border-hairline bg-surface-elevated hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]"
+      )}
+    >
+      <div className="aspect-[4/5] overflow-hidden bg-muted relative">
+        <img
+          src={m.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
+          alt={m.name}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        {isLead && (
+          <span className="absolute top-3 right-3 rounded-full border border-brand/40 bg-brand px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-brand-foreground shadow-md backdrop-blur-md">
+            Team Lead
+          </span>
+        )}
+      </div>
+      <div className="flex flex-1 flex-col p-4">
+        <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
+          {m.role}
+        </div>
+        <div className="mt-1 text-base font-bold tracking-tight text-white line-clamp-1">
+          {m.name}
+        </div>
+        {m.bio && (
+          <p className="mt-1 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+            {m.bio}
+          </p>
+        )}
+        <div className="mt-auto pt-3 flex items-center gap-1 border-t border-hairline mt-3">
+          {m.linkedin && (
+            <a
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${m.name} LinkedIn`}
+              className="grid h-7 w-7 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+            >
+              <Linkedin className="h-3.5 w-3.5" />
+            </a>
+          )}
+          {m.github && (
+            <a
+              href={m.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${m.name} GitHub`}
+              className="grid h-7 w-7 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+            >
+              <Github className="h-3.5 w-3.5" />
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function TeamGroupSection({ group, members }: { group: string; members: any[] }) {
+  const lead = members.find((m) => m.role.toLowerCase().includes("lead")) || members[0];
+  const regularMembers = members.filter((m) => m !== lead);
+
+  const isScrollableGroup = regularMembers.length > 4;
+
+  if (!isScrollableGroup) {
+    return (
+      <section className="container-page py-10">
+        <div className="mb-8 flex items-end justify-between border-b border-hairline pb-4">
+          <h2 className="text-2xl font-bold tracking-tight">{group}</h2>
+          <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            {members.length} {members.length === 1 ? "member" : "members"}
+          </span>
+        </div>
+        <div className="grid gap-4 sm:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {members.map((m, i) => (
+            <Reveal key={m.name} delay={i * 0.05}>
+              <MemberCard m={m} isLead={m === lead && group !== "Coordinator" && group !== "Mentors"} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="container-page py-10 overflow-hidden">
+      <div className="mb-8 flex items-end justify-between border-b border-hairline pb-4">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight">{group}</h2>
+          <p className="text-xs text-muted-foreground mt-1 hidden md:flex items-center gap-1">
+            Scroll members to the left <ChevronRight className="h-3 w-3" />
+          </p>
+        </div>
+        <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+          {members.length} members
+        </span>
+      </div>
+
+      {/* Desktop View: Static Sticky Lead on Left + Single Row Horizontal Scroll for Members */}
+      <div className="hidden md:flex relative items-stretch gap-5 pb-4 pt-1">
+        {/* Static Sticky Lead Card */}
+        <div className="sticky left-0 z-20 shrink-0 w-[240px] lg:w-[260px] bg-[#020b06]/95 backdrop-blur-md rounded-2xl pr-3 shadow-[20px_0_35px_-5px_rgba(2,11,6,0.95)]">
+          <MemberCard m={lead} isLead={true} />
+        </div>
+
+        {/* Scrollable Member Cards Track */}
+        <div className="flex-1 flex gap-4 overflow-x-auto scrollbar-thin py-1 pr-6 z-10 scroll-smooth">
+          {regularMembers.map((m) => (
+            <div key={m.name} className="w-[210px] lg:w-[230px] shrink-0">
+              <MemberCard m={m} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile View: Featured Lead + 2-Column Grid for Members */}
+      <div className="md:hidden flex flex-col gap-5">
+        {/* Featured Lead Card */}
+        <div className="w-full">
+          <MemberCard m={lead} isLead={true} />
+        </div>
+
+        {/* 2-Column Grid for Members */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          {regularMembers.map((m) => (
+            <MemberCard key={m.name} m={m} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Team() {
   return (
@@ -39,48 +179,7 @@ function Team() {
       {TEAM_GROUPS.map((group) => {
         const members = TEAM.filter((m) => m.group === group);
         if (!members.length) return null;
-        return (
-          <section key={group} className="container-page py-10">
-            <div className="mb-8 flex items-end justify-between border-b border-hairline pb-4">
-              <h2 className="text-2xl font-bold tracking-tight">{group}</h2>
-              <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                {members.length} {members.length === 1 ? "member" : "members"}
-              </span>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {members.map((m, i) => (
-                <Reveal key={m.name} delay={i * 0.05}>
-                  <article className="group relative overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
-                    <div className="aspect-[4/5] overflow-hidden">
-                      <img
-                        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
-                        alt={m.name}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
-                      <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
-                      <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
-                        {[Linkedin, Github, Mail].map((Icon, idx) => (
-                          <a
-                            key={idx}
-                            href="#"
-                            aria-label={`${m.name} social link`}
-                            className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
-                          >
-                            <Icon className="h-4 w-4" />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </section>
-        );
+        return <TeamGroupSection key={group} group={group} members={members} />;
       })}
     </>
   );

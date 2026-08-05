@@ -142,6 +142,18 @@ export const EVENT_CATEGORIES = [
   "Seminar",
 ];
 
+const createTeamMembers = (groupName: string, prefix: string, count: number = 25) => {
+  return Array.from({ length: count }).map((_, i) => ({
+    name: `${prefix} Member ${i + 1}`,
+    role: `${groupName.replace(" Team", "")} Core Member`,
+    group: groupName,
+    bio: `Active contributor to ${groupName} initiatives and events.`,
+    photo: `https://ui-avatars.com/api/?name=${encodeURIComponent(prefix)}+${i + 1}&background=00ff7f&color=020b06&size=512`,
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  }));
+};
+
 export const TEAM = [
   {
     name: "Anubhab Samantary",
@@ -179,15 +191,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
-  {
-    name: "Snehansu Sekhar Das",
-    role: "Vice President",
-    group: "Executive Board",
-    bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
-    photo: "https://i.pravatar.cc/400?img=47",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  },
+  // Technical Team: Lead + 25 members
   {
     name: "Abhijit Dash",
     role: "Tech Lead",
@@ -197,6 +201,9 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  ...createTeamMembers("Technical Team", "Tech", 25),
+  
+  // Marketing Team: Lead + 25 members
   {
     name: "Aastha Singh",
     role: "PR & Media Lead",
@@ -206,6 +213,9 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  ...createTeamMembers("Marketing Team", "Marketing", 25),
+  
+  // Design Team: Lead + 25 members
   {
     name: "Sanyukt Kumar Rai",
     role: "Design Lead",
@@ -215,6 +225,9 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  ...createTeamMembers("Design Team", "Design", 25),
+
+  // Event Management Team: Lead + 25 members
   {
     name: "Subhakanta Das",
     role: "Operations Lead",
@@ -224,6 +237,7 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  ...createTeamMembers("Event Management Team", "Operations", 25),
 ];
 
 export const TEAM_GROUPS = [
