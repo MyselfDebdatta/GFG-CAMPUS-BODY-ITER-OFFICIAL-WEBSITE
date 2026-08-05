@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CONTRIBUTORS } from "@/lib/site-data";
@@ -6,34 +6,55 @@ import { cn } from "@/lib/utils";
 
 export function ContributorsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Auto-play cycle every 2 seconds when not paused
   useEffect(() => {
-    if (isHovered) return;
+    if (isPaused) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CONTRIBUTORS.length);
-    }, 2000); // cycle every 2 seconds
+    }, 2000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isPaused]);
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + CONTRIBUTORS.length) % CONTRIBUTORS.length);
+  // When user manually clicks controls, pause and auto-resume after 2.5s
+  const resetInteractionTimer = () => {
+    setIsPaused(true);
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    timerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 2500);
   };
 
-  const handleNext = () => {
+  const handlePrev = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setActiveIndex((prev) => (prev - 1 + CONTRIBUTORS.length) % CONTRIBUTORS.length);
+    resetInteractionTimer();
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setActiveIndex((prev) => (prev + 1) % CONTRIBUTORS.length);
+    resetInteractionTimer();
   };
 
   return (
     <div 
       className="relative w-full max-w-6xl mx-auto h-[500px] flex items-center justify-center overflow-hidden"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => {
+        if (timerRef.current) {
+          clearTimeout(timerRef.current);
+        }
+        setIsPaused(false);
+      }}
     >
       <AnimatePresence mode="popLayout">
         {CONTRIBUTORS.map((contributor, index) => {
           // Calculate offset relative to active index
-          // We want it to wrap around to create an infinite effect
           let offset = index - activeIndex;
           
           // Handle wrapping for infinite carousel illusion
@@ -42,13 +63,10 @@ export function ContributorsCarousel() {
           if (offset < -half) offset += CONTRIBUTORS.length;
           
           const isActive = offset === 0;
-          // Show 2 items on the left and 2 on the right
           const isVisible = Math.abs(offset) <= 2; 
 
           if (!isVisible) return null;
 
-          // Compute horizontal position dynamically
-          // Use percentage so it's responsive (card width + gap)
           const xPos = `calc(${offset * 100}% + ${offset * 24}px)`;
 
           return (
@@ -104,11 +122,11 @@ export function ContributorsCarousel() {
         })}
       </AnimatePresence>
 
-      {/* Navigation Buttons - Placed below cards to prevent overlap */}
+      {/* Navigation Buttons */}
       <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-6 z-50">
         <button 
           onClick={handlePrev}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)] active:scale-95"
           aria-label="Previous contributor"
         >
           <ChevronLeft className="h-6 w-6" />
@@ -116,7 +134,7 @@ export function ContributorsCarousel() {
 
         <button 
           onClick={handleNext}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)] active:scale-95"
           aria-label="Next contributor"
         >
           <ChevronRight className="h-6 w-6" />
