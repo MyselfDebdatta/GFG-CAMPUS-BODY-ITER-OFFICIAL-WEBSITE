@@ -18,16 +18,9 @@ export const Route = createFileRoute("/team")({
   component: Team,
 });
 
-function MemberCard({ m, isLead = false }: { m: any; isLead?: boolean }) {
+function MemberCard({ m }: { m: any }) {
   return (
-    <article
-      className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300",
-        isLead
-          ? "border-brand/40 bg-surface-elevated shadow-[0_0_30px_rgba(0,255,127,0.12)] hover:border-brand"
-          : "border-hairline bg-surface-elevated hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]"
-      )}
-    >
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
       <div className="aspect-[4/5] overflow-hidden bg-muted relative">
         <img
           src={m.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
@@ -35,11 +28,6 @@ function MemberCard({ m, isLead = false }: { m: any; isLead?: boolean }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        {isLead && (
-          <span className="absolute top-3 right-3 rounded-full border border-brand/40 bg-brand px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-brand-foreground shadow-md backdrop-blur-md">
-            Team Lead
-          </span>
-        )}
       </div>
       <div className="flex flex-1 flex-col p-4">
         <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
@@ -100,7 +88,7 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
         <div className="grid gap-4 sm:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {members.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
-              <MemberCard m={m} isLead={m === lead && group !== "Coordinator" && group !== "Mentors"} />
+              <MemberCard m={m} />
             </Reveal>
           ))}
         </div>
@@ -126,7 +114,7 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
       <div className="hidden md:flex relative items-stretch gap-5 pb-4 pt-1">
         {/* Static Sticky Lead Card */}
         <div className="sticky left-0 z-20 shrink-0 w-[240px] lg:w-[260px] bg-[#020b06]/95 backdrop-blur-md rounded-2xl pr-3 shadow-[20px_0_35px_-5px_rgba(2,11,6,0.95)]">
-          <MemberCard m={lead} isLead={true} />
+          <MemberCard m={lead} />
         </div>
 
         {/* Scrollable Member Cards Track */}
@@ -141,13 +129,21 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
 
       {/* Mobile View: Featured Lead + 2-Column Grid for Members */}
       <div className="md:hidden flex flex-col gap-5">
-        {/* Featured Lead Card */}
+        {/* Lead Card */}
         <div className="w-full">
-          <MemberCard m={lead} isLead={true} />
+          <MemberCard m={lead} />
         </div>
 
         {/* 2-Column Grid for Members */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          {regularMembers.map((m) => (
+            <MemberCard key={m.name} m={m} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
           {regularMembers.map((m) => (
             <MemberCard key={m.name} m={m} />
           ))}
