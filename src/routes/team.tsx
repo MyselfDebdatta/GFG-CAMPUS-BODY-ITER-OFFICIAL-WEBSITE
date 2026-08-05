@@ -137,6 +137,8 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
         {/* 2-Column Grid for Members */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {regularMembers.map((m) => (
+            <MemberCard key={m.name} m={m} />
+          ))}
         </div>
       </div>
     </section>
