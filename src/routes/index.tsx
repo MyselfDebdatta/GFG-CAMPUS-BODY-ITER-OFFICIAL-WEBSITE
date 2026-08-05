@@ -503,44 +503,54 @@ function Home() {
                   Past Events
                 </h3>
               </div>
-              <div className="max-h-[760px] overflow-y-auto custom-scrollbar pr-2 sm:pr-4 pl-6 -ml-6 py-2">
+              <div className="md:max-h-[760px] md:overflow-y-auto custom-scrollbar pr-2 sm:pr-4 pl-6 -ml-6 py-2">
                 <div className="relative border-l-2 border-white/10 space-y-8 pb-4">
                   {EVENTS.filter((e) => e.status === "past").map((e, i) => (
-                    <Reveal key={e.id} delay={i * 0.1}>
-                      <div className="relative pl-8 sm:pl-12 group">
-                        <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-raw-hover:border-[#00ff7f] group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
-                        <EventIcon category={e.category} />
-                      </div>
-                      <div className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:-translate-y-1 raw-hover:border-white/50 raw-hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer relative">
-                        <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
-                          <span className="sr-only">View {e.title}</span>
-                        </Link>
-                        <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
-                          <img
-                            src={e.image}
-                            alt={e.title}
-                            className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
-                            loading="lazy"
-                          />
-                          <span className="absolute right-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground backdrop-blur shadow-[0_0_10px_rgba(0,0,0,0.3)]">
-                            {e.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
-                          </span>
+                    <div key={e.id} className={i >= 3 ? "hidden md:block" : "block"}>
+                      <Reveal delay={i * 0.1}>
+                        <div className="relative pl-8 sm:pl-12 group">
+                          <div className="absolute left-[-17px] top-4 flex h-8 w-8 items-center justify-center rounded-full bg-[#020b06] border-2 border-white/20 transition-all group-raw-hover:border-[#00ff7f] group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.4)]">
+                          <EventIcon category={e.category} />
                         </div>
-                        <div className="p-5 sm:w-2/3 flex flex-col justify-center">
-                          <div className="flex items-center gap-3 text-xs font-medium">
-                            <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 text-white/70">{e.category}</span>
-                            <span className="text-white/60">{e.date}</span>
-                          </div>
-                          <h4 className="mt-3 text-lg font-bold transition-all duration-300 text-white hover-gradient-text">{e.title}</h4>
-                          <p className="mt-2 text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">{e.description}</p>
-                          <Link to="/events" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-raw-hover:text-[#00ff7f]">
-                            Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-raw-hover:translate-x-1" />
+                        <div className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:-translate-y-1 raw-hover:border-white/50 raw-hover:shadow-[0_0_12px_rgba(255,255,255,0.2)] sm:flex cursor-pointer relative">
+                          <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
+                            <span className="sr-only">View {e.title}</span>
                           </Link>
+                          <div className="sm:w-1/3 relative overflow-hidden aspect-video sm:aspect-auto">
+                            <img
+                              src={e.image}
+                              alt={e.title}
+                              className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
+                              loading="lazy"
+                            />
+                            <span className="absolute right-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground backdrop-blur shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                              {e.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
+                            </span>
+                          </div>
+                          <div className="p-5 sm:w-2/3 flex flex-col justify-center">
+                            <div className="flex items-center gap-3 text-xs font-medium">
+                              <span className="rounded-full bg-white/5 border border-white/10 px-2.5 py-0.5 text-white/70">{e.category}</span>
+                              <span className="text-white/60">{e.date}</span>
+                            </div>
+                            <h4 className="mt-3 text-lg font-bold transition-all duration-300 text-white hover-gradient-text">{e.title}</h4>
+                            <p className="mt-2 text-sm text-muted-foreground line-clamp-2 sm:line-clamp-none">{e.description}</p>
+                            <Link to="/events" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/50 transition-colors group-raw-hover:text-[#00ff7f]">
+                              Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-raw-hover:translate-x-1" />
+                            </Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Reveal>
+                    </Reveal>
+                  </div>
                 ))}
+                </div>
+                
+                <div className="mt-6 md:hidden flex justify-center">
+                  <Button asChild variant="outline" className="border-foreground/15 rounded-full px-6">
+                    <Link to="/events" search={{ tab: "past" }}>
+                      View all past events <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </div>
