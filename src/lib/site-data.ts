@@ -379,3 +379,12 @@ export const CONTRIBUTORS = Array.from({ length: 10 }).map((_, i) => ({
  ] ; 
   
  
+
+export const ACHIEVEMENTS = [
+  { id: '1', title: 'Smart India Hackathon', category: 'Hackathon', year: '2026', description: 'Winner of the national level hackathon.', rotation: -5, x: 10, y: 20 },
+  { id: '2', title: 'GSOC', category: 'Open Source', year: '2025', description: '3 students selected for Google Summer of Code.', rotation: 3, x: -10, y: -20 },
+  { id: '3', title: 'ICPC Regionals', category: 'Competition', year: '2024', description: 'Secured rank 12 in the regional finals.', rotation: -2, x: 20, y: 10 },
+  { id: '4', title: 'Y Combinator', category: 'Startup', year: '2026', description: 'Alumni startup accepted into YC W26.', rotation: 6, x: -20, y: 30 },
+  { id: '5', title: 'Microsoft Imagine Cup', category: 'Competition', year: '2025', description: 'Global finalists.', rotation: -7, x: 30, y: -10 },
+  { id: '6', title: 'Linux Kernel Contribution', category: 'Open Source', year: '2024', description: 'Major patch merged into the mainline kernel.', rotation: 4, x: -30, y: -30 }
+];
