@@ -180,6 +180,15 @@ export const TEAM = [
     github: "https://github.com"
   },
   {
+    name: "Snehansu Sekhar Das",
+    role: "Vice President",
+    group: "Executive Board",
+    bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
+    photo: "https://i.pravatar.cc/400?img=47",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  },
+  {
     name: "Abhijit Dash",
     role: "Tech Lead",
     group: "Technical Team",
