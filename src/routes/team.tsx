@@ -66,39 +66,41 @@ function LeadershipSection() {
       </div>
 
       {/* Group Titles Header Row for 5 Columns */}
-      <div className="hidden lg:grid grid-cols-5 gap-4 md:gap-5 lg:gap-6 mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand">
-        <div className="col-span-2 border-r border-hairline/60 pr-4 flex items-center gap-2">
+      <div className="hidden lg:grid grid-cols-5 gap-5 mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand">
+        <div className="col-span-2 flex items-center gap-2 border-r border-hairline/60 pr-4">
           <span>Coordinators</span>
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           <span className="text-muted-foreground text-[10px]">2</span>
         </div>
-        <div className="col-span-1 border-r border-hairline/60 px-2 flex items-center gap-2">
+        <div className="col-span-1 flex items-center gap-2 border-r border-hairline/60 pr-4">
           <span>Mentors</span>
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           <span className="text-muted-foreground text-[10px]">1</span>
         </div>
-        <div className="col-span-2 pl-2 flex items-center gap-2">
+        <div className="col-span-2 flex items-center gap-2 pl-1">
           <span>Executive Board</span>
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           <span className="text-muted-foreground text-[10px]">2</span>
         </div>
       </div>
 
-      {/* Desktop Equal 5-Column Grid (All 5 Cards Identical Width & Height) */}
-      <div className="hidden lg:grid grid-cols-5 gap-4 md:gap-5 lg:gap-6 items-stretch">
-        <div className="relative">
+      {/* Desktop Equal 5-Column Grid (All 5 Cards 100% Identical Width & Height) */}
+      <div className="hidden lg:grid grid-cols-5 gap-5 items-stretch">
+        <div className="h-full">
           <MemberCard m={coordinators[0]} />
         </div>
-        <div className="relative pr-3 border-r border-hairline/60">
+        <div className="h-full relative">
           <MemberCard m={coordinators[1]} />
+          <div aria-hidden className="absolute -right-2.5 top-6 bottom-6 w-px bg-hairline/60 pointer-events-none" />
         </div>
-        <div className="relative pr-3 border-r border-hairline/60">
+        <div className="h-full relative">
           <MemberCard m={mentors[0]} />
+          <div aria-hidden className="absolute -right-2.5 top-6 bottom-6 w-px bg-hairline/60 pointer-events-none" />
         </div>
-        <div className="relative">
+        <div className="h-full">
           <MemberCard m={execBoard[0]} />
         </div>
-        <div className="relative">
+        <div className="h-full">
           <MemberCard m={execBoard[1]} />
         </div>
       </div>
