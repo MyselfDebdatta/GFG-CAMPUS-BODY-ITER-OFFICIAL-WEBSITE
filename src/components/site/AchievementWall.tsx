@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export function AchievementWall() {
   return (
-    <div className="relative w-full max-w-6xl mx-auto h-[600px] md:h-[700px] rounded-3xl border border-white/10 bg-black/40 overflow-hidden shadow-inner">
+    <div className="relative w-full max-w-6xl mx-auto h-[700px] md:h-[820px] rounded-3xl border border-white/10 bg-black/40 overflow-hidden shadow-inner">
       {/* Background grid texture to look like a plotting board */}
       <div 
         className="absolute inset-0 opacity-10"
@@ -18,12 +18,11 @@ export function AchievementWall() {
         <div className="hidden md:block absolute inset-0">
           {ACHIEVEMENTS.map((achievement, i) => {
             // Distribute across the canvas roughly based on index to avoid total stacking
-            // Just some simple math to spread them out logically before applying their unique offsets
             const row = Math.floor(i / 3);
             const col = i % 3;
             
-            const baseX = col * 33 + 10; // 10%, 43%, 76%
-            const baseY = row * 45 + 15; // 15%, 60%
+            const baseX = col * 33 + 8; // 8%, 41%, 74%
+            const baseY = row * 48 + 10; // 10%, 58%
             
             return (
               <motion.div
@@ -47,7 +46,7 @@ export function AchievementWall() {
                   damping: 20,
                   delay: i * 0.1 
                 }}
-                className="absolute w-[300px] p-6 rounded-sm border border-[#00ff7f]/30 bg-[#020b06]/80 backdrop-blur-md shadow-[0_15px_35px_rgba(0,0,0,0.6)] cursor-grab origin-center"
+                className="absolute w-[290px] p-4 rounded-sm border border-[#00ff7f]/30 bg-[#020b06]/85 backdrop-blur-md shadow-[0_15px_35px_rgba(0,0,0,0.6)] cursor-grab origin-center"
                 style={{ zIndex: i }}
               >
                 {/* Tape / Pin visual (top center) */}
@@ -58,16 +57,28 @@ export function AchievementWall() {
                   <div className="w-1 h-3 bg-gray-400 drop-shadow-md" />
                 </div>
                 
-                <div className="text-[10px] font-bold uppercase tracking-widest text-[#00ff7f] mb-3 flex justify-between border-b border-[#00ff7f]/20 pb-2">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-[#00ff7f] mb-2 flex justify-between border-b border-[#00ff7f]/20 pb-1.5">
                   <span>{achievement.category}</span>
                   <span className="text-white/60">{achievement.year}</span>
                 </div>
+
+                {/* Photo Placeholder */}
+                {achievement.image && (
+                  <div className="relative mb-2.5 h-32 w-full overflow-hidden rounded-md border border-white/10 bg-black/40">
+                    <img
+                      src={achievement.image}
+                      alt={achievement.title}
+                      className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
                 
-                <h3 className="text-xl font-bold text-white mb-2 leading-tight drop-shadow-md">
+                <h3 className="text-lg font-bold text-white mb-1 leading-tight drop-shadow-md">
                   {achievement.title}
                 </h3>
                 
-                <p className="text-sm text-white/70 font-medium">
+                <p className="text-xs text-white/70 font-medium line-clamp-3">
                   {achievement.description}
                 </p>
                 
@@ -86,7 +97,7 @@ export function AchievementWall() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="relative w-full p-6 rounded-sm border border-[#00ff7f]/30 bg-[#020b06]/90 backdrop-blur-md shadow-xl"
+              className="relative w-full p-4 rounded-sm border border-[#00ff7f]/30 bg-[#020b06]/90 backdrop-blur-md shadow-xl"
             >
               {/* Pin visual */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex flex-col items-center">
@@ -94,16 +105,28 @@ export function AchievementWall() {
                 <div className="w-1 h-3 bg-gray-400" />
               </div>
               
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[#00ff7f] mb-3 flex justify-between border-b border-[#00ff7f]/20 pb-2">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-[#00ff7f] mb-2 flex justify-between border-b border-[#00ff7f]/20 pb-1.5">
                 <span>{achievement.category}</span>
                 <span className="text-white/60">{achievement.year}</span>
               </div>
+
+              {/* Photo Placeholder */}
+              {achievement.image && (
+                <div className="relative mb-2.5 h-36 w-full overflow-hidden rounded-md border border-white/10 bg-black/40">
+                  <img
+                    src={achievement.image}
+                    alt={achievement.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
               
-              <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+              <h3 className="text-lg font-bold text-white mb-1 leading-tight">
                 {achievement.title}
               </h3>
               
-              <p className="text-sm text-white/70">
+              <p className="text-xs text-white/70">
                 {achievement.description}
               </p>
             </motion.div>

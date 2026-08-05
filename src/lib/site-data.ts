@@ -370,10 +370,70 @@ export const CONTRIBUTORS = Array.from({ length: 10 }).map((_, i) => ({
   github: 'https://github.com'
 }));
 export const ACHIEVEMENTS = [
-  { id: '1', title: 'Smart India Hackathon', category: 'Hackathon', year: '2026', description: 'Winner of the national level hackathon.', rotation: -5, x: 10, y: 20 },
-  { id: '2', title: 'GSOC', category: 'Open Source', year: '2025', description: '3 students selected for Google Summer of Code.', rotation: 3, x: -10, y: -20 },
-  { id: '3', title: 'ICPC Regionals', category: 'Competition', year: '2024', description: 'Secured rank 12 in the regional finals.', rotation: -2, x: 20, y: 10 },
-  { id: '4', title: 'Y Combinator', category: 'Startup', year: '2026', description: 'Alumni startup accepted into YC W26.', rotation: 6, x: -20, y: 30 },
-  { id: '5', title: 'Microsoft Imagine Cup', category: 'Competition', year: '2025', description: 'Global finalists.', rotation: -7, x: 30, y: -10 },
-  { id: '6', title: 'Linux Kernel Contribution', category: 'Open Source', year: '2024', description: 'Major patch merged into the mainline kernel.', rotation: 4, x: -30, y: -30 }
+  { 
+    id: '1', 
+    title: 'Smart India Hackathon', 
+    category: 'Hackathon', 
+    year: '2026', 
+    description: 'Secured 1st rank in the national level hardware & software hackathon.', 
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=70',
+    rotation: -4, 
+    x: 10, 
+    y: 20 
+  },
+  { 
+    id: '2', 
+    title: 'Google Summer of Code', 
+    category: 'Open Source', 
+    year: '2025', 
+    description: '3 student developers selected for GSoC under Apache & Linux Foundation.', 
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=70',
+    rotation: 3, 
+    x: -10, 
+    y: -20 
+  },
+  { 
+    id: '3', 
+    title: 'ICPC Regional Finals', 
+    category: 'Competitive Programming', 
+    year: '2024', 
+    description: 'Qualified and secured rank 12 in the Asia-Kanpur ICPC Regional contest.', 
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=70',
+    rotation: -2, 
+    x: 20, 
+    y: 10 
+  },
+  { 
+    id: '4', 
+    title: 'IEEE Research Publication', 
+    category: 'Research & AI', 
+    year: '2026', 
+    description: 'Published a paper on Distributed Machine Learning in IEEE Xplore.', 
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=70',
+    rotation: 5, 
+    x: -20, 
+    y: 30 
+  },
+  { 
+    id: '5', 
+    title: 'Microsoft Imagine Cup', 
+    category: 'Innovation', 
+    year: '2025', 
+    description: 'Global World Finalists in Healthcare AI track.', 
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=70',
+    rotation: -6, 
+    x: 30, 
+    y: -10 
+  },
+  { 
+    id: '6', 
+    title: 'Linux Kernel Patch', 
+    category: 'Open Source', 
+    year: '2024', 
+    description: 'Core subsystem patch authored by student merged into Linux v6.8.', 
+    image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&q=70',
+    rotation: 4, 
+    x: -30, 
+    y: -30 
+  }
 ];

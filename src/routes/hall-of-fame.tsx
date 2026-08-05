@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Users, Quote, Rocket } from "lucide-react";
+import { Award, Users, Quote, Briefcase } from "lucide-react";
 import { ALUMNI, RECRUITERS } from "@/lib/site-data";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { AchievementWall } from "@/components/site/AchievementWall";
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/hall-of-fame")({
 });
 
 const HIGHLIGHTS = [
-  { icon: Rocket, label: "Startups Founded", value: 10, suffix: "+" },
+  { icon: Briefcase, label: "Tier-1 Internships", value: 35, suffix: "+" },
   { icon: Users, label: "Open Source Contributors", value: 20, suffix: "+" },
   { icon: Award, label: "Hackathon podiums", value: 12, suffix: "+" },
 ];
@@ -64,6 +64,7 @@ function HallOfFame() {
 
       {/* Scattered Achievement Wall */}
       <section className="container-page py-20 overflow-hidden">
+        <SectionHeader eyebrow="Pinned Milestones" title="Wall of Fame" align="center" className="mb-10" />
         <AchievementWall />
       </section>
 
