@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, ChevronRight } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronRight } from "lucide-react";
 import { TEAM, TEAM_GROUPS } from "@/lib/site-data";
 import { Reveal } from "@/components/site/Primitives";
-import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -20,50 +19,31 @@ export const Route = createFileRoute("/team")({
 
 function MemberCard({ m }: { m: any }) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
-      <div className="aspect-[4/5] overflow-hidden bg-muted relative">
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
+      <div className="aspect-[4/5] overflow-hidden">
         <img
-          src={m.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
+          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
           alt={m.name}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>
-      <div className="flex flex-1 flex-col p-4">
-        <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
-          {m.role}
+      <div className="p-5 flex flex-col justify-between">
+        <div>
+          <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
+          <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
         </div>
-        <div className="mt-1 text-base font-bold tracking-tight text-white line-clamp-1">
-          {m.name}
-        </div>
-        {m.bio && (
-          <p className="mt-1 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-            {m.bio}
-          </p>
-        )}
-        <div className="mt-auto pt-3 flex items-center gap-1 border-t border-hairline mt-3">
-          {m.linkedin && (
+        <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
+          {[Linkedin, Github, Mail].map((Icon, idx) => (
             <a
-              href={m.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${m.name} LinkedIn`}
-              className="grid h-7 w-7 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+              key={idx}
+              href="#"
+              aria-label={`${m.name} social link`}
+              className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
             >
-              <Linkedin className="h-3.5 w-3.5" />
+              <Icon className="h-4 w-4" />
             </a>
-          )}
-          {m.github && (
-            <a
-              href={m.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${m.name} GitHub`}
-              className="grid h-7 w-7 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
-            >
-              <Github className="h-3.5 w-3.5" />
-            </a>
-          )}
+          ))}
         </div>
       </div>
     </article>
