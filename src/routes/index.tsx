@@ -575,7 +575,7 @@ function Home() {
             </Link>
           </Button>
         </div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {TEAM.slice(0, 9).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.05}>
               <div className="group cursor-pointer relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
@@ -587,33 +587,33 @@ function Home() {
                     loading="lazy"
                   />
                   {m.linkedin && (
-                    <div className="absolute top-4 right-4 flex gap-2 z-10">
+                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex flex-col sm:flex-row gap-1.5 sm:gap-2 z-10">
                       {(m as any).github && (
                         <a
                           href={(m as any).github}
                           target="_blank"
                           rel="noreferrer"
-                          className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#333] shadow-lg transition-transform duration-300 raw-hover:scale-110"
+                          className="grid h-7 w-7 sm:h-10 sm:w-10 place-items-center rounded-full bg-white text-[#333] shadow-lg transition-transform duration-300 raw-hover:scale-110"
                           aria-label={`${m.name}'s GitHub`}
                         >
-                          <Github className="h-5 w-5" />
+                          <Github className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                         </a>
                       )}
                       <a
                         href={m.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="grid h-10 w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 raw-hover:scale-110"
+                        className="grid h-7 w-7 sm:h-10 sm:w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 raw-hover:scale-110"
                         aria-label={`${m.name}'s LinkedIn`}
                       >
-                        <Linkedin className="h-5 w-5" />
+                        <Linkedin className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                       </a>
                     </div>
                   )}
                 </div>
-                <div className="p-4">
-                  <div className="text-xs font-medium uppercase tracking-wider text-brand">{m.role}</div>
-                  <div className="mt-1 font-semibold transition-all duration-300 text-white hover-gradient-text">{m.name}</div>
+                <div className="p-3 sm:p-4">
+                  <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-brand line-clamp-1">{m.role}</div>
+                  <div className="mt-0.5 sm:mt-1 text-sm sm:text-base font-semibold transition-all duration-300 text-white hover-gradient-text line-clamp-1">{m.name}</div>
                 </div>
               </div>
             </Reveal>
