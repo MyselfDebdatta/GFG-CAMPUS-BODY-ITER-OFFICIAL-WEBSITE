@@ -32,6 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
+import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
 import {
   STATS,
   MARQUEE,
@@ -624,84 +625,24 @@ function Home() {
       {/* Separator */}
       <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
-      {/* ALUMNI / RECRUITERS */}
+      {/* AMAZING CONTRIBUTORS */}
       <section className="relative z-10 overflow-hidden py-24">
-        
         <div className="container-page flex flex-col items-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
-            CAREER VISION
+            HALL OF FAME
           </span>
           
           <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(0,255,127,0.2)] text-center">
-            Where we aim to build
+            Our Amazing Contributors
           </h2>
           
           <p className="mt-4 max-w-2xl text-center text-lg text-[#00ff7f]/60 font-medium">
-            We prepare our members with the engineering skills and mindset required to excel at top tech companies.
+            The talented members who drive innovation, win hackathons, and secure top internships.
           </p>
 
-          <div className="mt-20 w-full relative">
-            <div 
-              className="flex flex-col gap-16"
-              style={{
-                maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-                WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
-              }}
-            >
-              {/* Row 1: Left to Right */}
-              <div
-                className="flex w-max animate-marquee gap-24 whitespace-nowrap items-center"
-                style={{ animationDuration: "50s" }}
-              >
-                {[...RECRUITERS.slice(0, 14), ...RECRUITERS.slice(0, 14)].map((r, i) => (
-                  <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
-                    <img 
-                      src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
-                      alt={r.name} 
-                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-raw-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        img.style.display = 'none';
-                        img.nextElementSibling?.classList.remove('hidden');
-                      }} 
-                    />
-                    <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Row 2: Right to Left */}
-              <div
-                className="flex w-max animate-marquee-reverse gap-24 whitespace-nowrap items-center"
-                style={{ animationDuration: "55s" }}
-              >
-                {[...RECRUITERS.slice(14), ...RECRUITERS.slice(14)].map((r, i) => (
-                  <div key={i} className="flex items-center justify-center min-w-[200px] group relative">
-                    <img 
-                      src={`https://www.google.com/s2/favicons?domain=${r.domain}&sz=128`} 
-                      alt={r.name} 
-                      className="h-14 w-14 rounded-md object-contain transition-transform duration-300 group-raw-hover:scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]" 
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        img.style.display = 'none';
-                        img.nextElementSibling?.classList.remove('hidden');
-                      }} 
-                    />
-                    <span className="hidden text-3xl font-black uppercase tracking-widest text-[#00ff7f]" style={{ WebkitTextStroke: "1px rgba(0, 255, 127, 0.5)" }}>{r.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-20 text-center">
-            <Button asChild className="group relative rounded-full border border-[#00ff7f]/50 bg-[#00ff7f]/5 px-8 py-6 text-[#00ff7f] font-bold text-lg backdrop-blur-md transition-all raw-hover:bg-[#00ff7f]/10 raw-hover:shadow-[0_0_25px_rgba(0,255,127,0.25)]">
-              <Link to="/alumni" className="flex items-center gap-2">
-                Meet our alumni 
-                <ArrowUpRight className="h-5 w-5 transition-transform group-raw-hover:translate-x-1 group-raw-hover:-translate-y-1" />
-              </Link>
-            </Button>
+          <div className="mt-16 w-full">
+            <ContributorsCarousel />
           </div>
         </div>
       </section>
