@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Github, Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM, TEAM_GROUPS } from "@/lib/site-data";
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/team")({
 function MemberCard({ m }: { m: any }) {
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_10px_30px_rgba(0,255,127,0.25)]">
-      <div className="aspect-[4/5] overflow-hidden rounded-t-2xl bg-[#020b06]">
+      <div className="aspect-[4/5] w-full overflow-hidden rounded-t-2xl bg-[#020b06]">
         <img
           src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
           alt={m.name}
@@ -29,20 +29,20 @@ function MemberCard({ m }: { m: any }) {
           loading="lazy"
         />
       </div>
-      <div className="p-5 flex flex-1 flex-col justify-between rounded-b-2xl">
+      <div className="p-3 sm:p-4 md:p-5 flex flex-1 flex-col justify-between rounded-b-2xl">
         <div>
-          <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
-          <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
+          <div className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-brand truncate">{m.role}</div>
+          <div className="mt-0.5 sm:mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-tight truncate">{m.name}</div>
         </div>
-        <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
+        <div className="mt-3 sm:mt-4 flex items-center gap-1 border-t border-hairline pt-3 sm:pt-4">
           {[Linkedin, Github, Mail].map((Icon, idx) => (
             <a
               key={idx}
               href="#"
               aria-label={`${m.name} social link`}
-              className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+              className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
             >
-              <Icon className="h-4 w-4" />
+              <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </a>
           ))}
         </div>
@@ -58,60 +58,53 @@ function LeadershipSection() {
 
   return (
     <section className="container-page py-10">
-      <div className="mb-8 border-b border-hairline pb-4 flex items-center justify-between">
+      <div className="mb-6 border-b border-hairline pb-4 flex items-center justify-between">
         <h2 className="text-2xl font-bold tracking-tight">Leadership & Mentorship</h2>
         <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
           5 members
         </span>
       </div>
 
-      {/* Desktop Single Row (5 Columns) with Group Dividers */}
-      <div className="hidden lg:grid grid-cols-5 gap-6 items-stretch">
-        {/* Coordinators (2 Cards) */}
-        <div className="col-span-2 flex flex-col pr-6 border-r border-hairline/60">
-          <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand flex items-center gap-2">
-            <span>Coordinators</span>
-            <span className="h-1 w-1 rounded-full bg-brand" />
-            <span className="text-muted-foreground text-[10px]">2</span>
-          </div>
-          <div className="grid grid-cols-2 gap-4 flex-1">
-            {coordinators.map((m) => (
-              <MemberCard key={m.name} m={m} />
-            ))}
-          </div>
+      {/* Group Titles Header Row for 5 Columns */}
+      <div className="hidden lg:grid grid-cols-5 gap-4 md:gap-5 lg:gap-6 mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand">
+        <div className="col-span-2 border-r border-hairline/60 pr-4 flex items-center gap-2">
+          <span>Coordinators</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+          <span className="text-muted-foreground text-[10px]">2</span>
         </div>
-
-        {/* Mentors (1 Card) */}
-        <div className="col-span-1 flex flex-col px-4 border-r border-hairline/60">
-          <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand flex items-center gap-2">
-            <span>Mentors</span>
-            <span className="h-1 w-1 rounded-full bg-brand" />
-            <span className="text-muted-foreground text-[10px]">1</span>
-          </div>
-          <div className="flex-1">
-            {mentors.map((m) => (
-              <MemberCard key={m.name} m={m} />
-            ))}
-          </div>
+        <div className="col-span-1 border-r border-hairline/60 px-2 flex items-center gap-2">
+          <span>Mentors</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+          <span className="text-muted-foreground text-[10px]">1</span>
         </div>
-
-        {/* Executive Board (2 Cards) */}
-        <div className="col-span-2 flex flex-col pl-2">
-          <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand flex items-center gap-2">
-            <span>Executive Board</span>
-            <span className="h-1 w-1 rounded-full bg-brand" />
-            <span className="text-muted-foreground text-[10px]">2</span>
-          </div>
-          <div className="grid grid-cols-2 gap-4 flex-1">
-            {execBoard.map((m) => (
-              <MemberCard key={m.name} m={m} />
-            ))}
-          </div>
+        <div className="col-span-2 pl-2 flex items-center gap-2">
+          <span>Executive Board</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+          <span className="text-muted-foreground text-[10px]">2</span>
         </div>
       </div>
 
-      {/* Mobile & Tablet View: Grouped 2-Column Grids */}
-      <div className="lg:hidden flex flex-col gap-8">
+      {/* Desktop Equal 5-Column Grid (All 5 Cards Identical Width & Height) */}
+      <div className="hidden lg:grid grid-cols-5 gap-4 md:gap-5 lg:gap-6 items-stretch">
+        <div className="relative">
+          <MemberCard m={coordinators[0]} />
+        </div>
+        <div className="relative pr-3 border-r border-hairline/60">
+          <MemberCard m={coordinators[1]} />
+        </div>
+        <div className="relative pr-3 border-r border-hairline/60">
+          <MemberCard m={mentors[0]} />
+        </div>
+        <div className="relative">
+          <MemberCard m={execBoard[0]} />
+        </div>
+        <div className="relative">
+          <MemberCard m={execBoard[1]} />
+        </div>
+      </div>
+
+      {/* Mobile & Tablet View */}
+      <div className="lg:hidden flex flex-col gap-6">
         <div>
           <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
             Coordinators (2)
@@ -127,10 +120,8 @@ function LeadershipSection() {
           <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
             Mentors (1)
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {mentors.map((m) => (
-              <MemberCard key={m.name} m={m} />
-            ))}
+          <div className="w-1/2 pr-1.5 sm:w-1/3 sm:pr-0">
+            <MemberCard m={mentors[0]} />
           </div>
         </div>
 
@@ -168,7 +159,7 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
 
   return (
     <section className="container-page py-10">
-      <div className="mb-8 flex items-center justify-between border-b border-hairline pb-4">
+      <div className="mb-6 flex items-center justify-between border-b border-hairline pb-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">{group}</h2>
           <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
@@ -176,56 +167,41 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
           </span>
         </div>
 
-        {/* Manual Arrow Buttons for Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* Manual Arrow Buttons for Navigation */}
+        <div className="flex items-center gap-2">
           <button
             onClick={scrollLeft}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-hairline bg-surface-elevated text-foreground hover:border-brand/40 hover:bg-brand/10 hover:text-brand transition-all active:scale-95"
+            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-hairline bg-surface-elevated text-foreground hover:border-brand/40 hover:bg-brand/10 hover:text-brand transition-all active:scale-95"
             aria-label={`Scroll ${group} left`}
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
           <button
             onClick={scrollRight}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-hairline bg-surface-elevated text-foreground hover:border-brand/40 hover:bg-brand/10 hover:text-brand transition-all active:scale-95"
+            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-hairline bg-surface-elevated text-foreground hover:border-brand/40 hover:bg-brand/10 hover:text-brand transition-all active:scale-95"
             aria-label={`Scroll ${group} right`}
           >
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
       </div>
 
-      {/* Desktop View: Static Sticky Lead on Left + Manual Arrow Scrollable Track for Members */}
-      <div className="hidden md:flex relative items-stretch gap-5 py-6 px-1">
+      {/* Static Sticky Lead on Left + Scrollable Member Cards Track on Right (Mobile & Desktop) */}
+      <div className="flex relative items-stretch gap-3 sm:gap-4 md:gap-5 py-6 px-1">
         {/* Static Sticky Lead Card */}
-        <div className="sticky left-0 z-20 shrink-0 w-[240px] lg:w-[260px] bg-[#020b06]/95 backdrop-blur-md rounded-2xl pr-3 shadow-[20px_0_35px_-5px_rgba(2,11,6,0.95)]">
+        <div className="sticky left-0 z-20 shrink-0 w-[150px] sm:w-[200px] md:w-[240px] lg:w-[260px] bg-[#020b06]/95 backdrop-blur-md rounded-2xl pr-2 sm:pr-3 shadow-[15px_0_30px_-5px_rgba(2,11,6,0.95)]">
           <MemberCard m={lead} />
         </div>
 
-        {/* Scrollable Member Cards Track (Hidden native scrollbar) */}
+        {/* Scrollable Member Cards Track */}
         <div
           ref={scrollRef}
-          className="flex-1 flex gap-4 overflow-x-auto py-2 pr-6 z-10 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="flex-1 flex gap-3 sm:gap-4 overflow-x-auto py-2 pr-4 md:pr-6 z-10 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {regularMembers.map((m) => (
-            <div key={m.name} className="w-[210px] lg:w-[230px] shrink-0 py-1">
+            <div key={m.name} className="w-[140px] sm:w-[180px] md:w-[210px] lg:w-[230px] shrink-0 py-1">
               <MemberCard m={m} />
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile View: Lead Card + 2-Column Grid for Members */}
-      <div className="md:hidden flex flex-col gap-5 py-2">
-        {/* Lead Card */}
-        <div className="w-full">
-          <MemberCard m={lead} />
-        </div>
-
-        {/* 2-Column Grid for Members */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
-          {regularMembers.map((m) => (
-            <MemberCard key={m.name} m={m} />
           ))}
         </div>
       </div>
