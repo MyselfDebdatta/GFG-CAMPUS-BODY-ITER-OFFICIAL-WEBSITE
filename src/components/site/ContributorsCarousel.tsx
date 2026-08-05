@@ -26,7 +26,7 @@ export function ContributorsCarousel() {
 
   return (
     <div 
-      className="relative w-full max-w-6xl mx-auto h-[450px] flex items-center justify-center overflow-hidden"
+      className="relative w-full max-w-6xl mx-auto h-[500px] flex items-center justify-center overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -104,22 +104,24 @@ export function ContributorsCarousel() {
         })}
       </AnimatePresence>
 
-      {/* Navigation Buttons */}
-      <button 
-        onClick={handlePrev}
-        className="absolute left-4 md:left-12 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
-        aria-label="Previous contributor"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
+      {/* Navigation Buttons - Placed below cards to prevent overlap */}
+      <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-6 z-50">
+        <button 
+          onClick={handlePrev}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
+          aria-label="Previous contributor"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
 
-      <button 
-        onClick={handleNext}
-        className="absolute right-4 md:right-12 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
-        aria-label="Next contributor"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
+        <button 
+          onClick={handleNext}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
+          aria-label="Next contributor"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+      </div>
     </div>
   );
 }
