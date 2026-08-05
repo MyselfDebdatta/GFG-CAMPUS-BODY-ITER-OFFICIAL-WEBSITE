@@ -369,17 +369,6 @@ export const CONTRIBUTORS = Array.from({ length: 10 }).map((_, i) => ({
   linkedin: 'https://linkedin.com',
   github: 'https://github.com'
 }));
- e x p o r t   c o n s t   A C H I E V E M E N T S   =   [ 
-     {   i d :   ' 1 ' ,   t i t l e :   ' S m a r t   I n d i a   H a c k a t h o n ' ,   c a t e g o r y :   ' H a c k a t h o n ' ,   y e a r :   ' 2 0 2 6 ' ,   d e s c r i p t i o n :   ' W i n n e r   o f   t h e   n a t i o n a l   l e v e l   h a c k a t h o n . ' ,   r o t a t i o n :   - 5 ,   x :   1 0 ,   y :   2 0   } , 
-     {   i d :   ' 2 ' ,   t i t l e :   ' G S O C ' ,   c a t e g o r y :   ' O p e n   S o u r c e ' ,   y e a r :   ' 2 0 2 5 ' ,   d e s c r i p t i o n :   ' 3   s t u d e n t s   s e l e c t e d   f o r   G o o g l e   S u m m e r   o f   C o d e . ' ,   r o t a t i o n :   3 ,   x :   - 1 0 ,   y :   - 2 0   } , 
-     {   i d :   ' 3 ' ,   t i t l e :   ' I C P C   R e g i o n a l s ' ,   c a t e g o r y :   ' C o m p e t i t i o n ' ,   y e a r :   ' 2 0 2 4 ' ,   d e s c r i p t i o n :   ' S e c u r e d   r a n k   1 2   i n   t h e   r e g i o n a l   f i n a l s . ' ,   r o t a t i o n :   - 2 ,   x :   2 0 ,   y :   1 0   } , 
-     {   i d :   ' 4 ' ,   t i t l e :   ' Y   C o m b i n a t o r ' ,   c a t e g o r y :   ' S t a r t u p ' ,   y e a r :   ' 2 0 2 6 ' ,   d e s c r i p t i o n :   ' A l u m n i   s t a r t u p   a c c e p t e d   i n t o   Y C   W 2 6 . ' ,   r o t a t i o n :   6 ,   x :   - 2 0 ,   y :   3 0   } , 
-     {   i d :   ' 5 ' ,   t i t l e :   ' M i c r o s o f t   I m a g i n e   C u p ' ,   c a t e g o r y :   ' C o m p e t i t i o n ' ,   y e a r :   ' 2 0 2 5 ' ,   d e s c r i p t i o n :   ' G l o b a l   f i n a l i s t s . ' ,   r o t a t i o n :   - 7 ,   x :   3 0 ,   y :   - 1 0   } , 
-     {   i d :   ' 6 ' ,   t i t l e :   ' L i n u x   K e r n e l   C o n t r i b u t i o n ' ,   c a t e g o r y :   ' O p e n   S o u r c e ' ,   y e a r :   ' 2 0 2 4 ' ,   d e s c r i p t i o n :   ' M a j o r   p a t c h   m e r g e d   i n t o   t h e   m a i n l i n e   k e r n e l . ' ,   r o t a t i o n :   4 ,   x :   - 3 0 ,   y :   - 3 0   } 
- ] ; 
-  
- 
-
 export const ACHIEVEMENTS = [
   { id: '1', title: 'Smart India Hackathon', category: 'Hackathon', year: '2026', description: 'Winner of the national level hackathon.', rotation: -5, x: 10, y: 20 },
   { id: '2', title: 'GSOC', category: 'Open Source', year: '2025', description: '3 students selected for Google Summer of Code.', rotation: 3, x: -10, y: -20 },
