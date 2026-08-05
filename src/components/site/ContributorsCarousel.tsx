@@ -1,21 +1,35 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CONTRIBUTORS } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export function ContributorsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    if (isHovered) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CONTRIBUTORS.length);
-    }, 4000); // cycle every 4 seconds
+    }, 2000); // cycle every 2 seconds
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + CONTRIBUTORS.length) % CONTRIBUTORS.length);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % CONTRIBUTORS.length);
+  };
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto h-[450px] flex items-center justify-center overflow-hidden">
+    <div 
+      className="relative w-full max-w-6xl mx-auto h-[450px] flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <AnimatePresence mode="popLayout">
         {CONTRIBUTORS.map((contributor, index) => {
           // Calculate offset relative to active index
@@ -84,46 +98,28 @@ export function ContributorsCarousel() {
                 )}>
                   {contributor.achievement}
                 </p>
-                
-                <div className="mt-8 flex gap-3">
-                  {contributor.linkedin && (
-                    <a
-                      href={contributor.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={cn(
-                        "grid h-10 w-10 place-items-center rounded-full border transition-all duration-300",
-                        isActive 
-                          ? "bg-white/5 border-white/20 text-white hover:bg-[#0A66C2] hover:border-[#0A66C2]" 
-                          : "bg-transparent border-white/10 text-white/40 hover:text-white hover:border-white/30"
-                      )}
-                      aria-label={`${contributor.name}'s LinkedIn`}
-                    >
-                      <Linkedin className="h-4 w-4" />
-                    </a>
-                  )}
-                  {contributor.github && (
-                    <a
-                      href={contributor.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={cn(
-                        "grid h-10 w-10 place-items-center rounded-full border transition-all duration-300",
-                        isActive 
-                          ? "bg-white/5 border-white/20 text-white hover:bg-white hover:text-black hover:border-white" 
-                          : "bg-transparent border-white/10 text-white/40 hover:text-white hover:border-white/30"
-                      )}
-                      aria-label={`${contributor.name}'s GitHub`}
-                    >
-                      <Github className="h-4 w-4" />
-                    </a>
-                  )}
-                </div>
               </div>
             </motion.div>
           );
         })}
       </AnimatePresence>
+
+      {/* Navigation Buttons */}
+      <button 
+        onClick={handlePrev}
+        className="absolute left-4 md:left-12 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
+        aria-label="Previous contributor"
+      >
+        <ChevronLeft className="h-6 w-6" />
+      </button>
+
+      <button 
+        onClick={handleNext}
+        className="absolute right-4 md:right-12 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)]"
+        aria-label="Next contributor"
+      >
+        <ChevronRight className="h-6 w-6" />
+      </button>
     </div>
   );
 }
