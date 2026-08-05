@@ -212,17 +212,17 @@ export const TEAM = [
   },
   ...createTeamMembers("Technical Team", "Tech", 25),
   
-  // Marketing Team: Lead + 25 members
+  // PR and Media Team: Lead + 25 members
   {
     name: "Aastha Singh",
     role: "PR & Media Lead",
-    group: "Marketing Team",
+    group: "PR and Media Team",
     bio: "Brand storyteller. Grows the club community online and offline.",
     photo: "https://i.pravatar.cc/400?img=25",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
-  ...createTeamMembers("Marketing Team", "Marketing", 25),
+  ...createTeamMembers("PR and Media Team", "Media", 25),
   
   // Design Team: Lead + 25 members
   {
@@ -236,17 +236,17 @@ export const TEAM = [
   },
   ...createTeamMembers("Design Team", "Design", 25),
 
-  // Event Management Team: Lead + 25 members
+  // Operation Team: Lead + 25 members
   {
     name: "Subhakanta Das",
     role: "Operations Lead",
-    group: "Event Management Team",
+    group: "Operation Team",
     bio: "Orchestrates hackathons, bootcamps, and campus-wide summits.",
     photo: "https://i.pravatar.cc/400?img=8",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
-  ...createTeamMembers("Event Management Team", "Operations", 25),
+  ...createTeamMembers("Operation Team", "Operations", 25),
 ];
 
 export const TEAM_GROUPS = [
@@ -254,9 +254,9 @@ export const TEAM_GROUPS = [
   "Mentors",
   "Executive Board",
   "Technical Team",
-  "Marketing Team",
+  "PR and Media Team",
   "Design Team",
-  "Event Management Team",
+  "Operation Team",
 ];
 
 export const ALUMNI = [

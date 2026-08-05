@@ -1,5 +1,6 @@
+import { useState, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, Mail, ChevronRight } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM, TEAM_GROUPS } from "@/lib/site-data";
 import { Reveal } from "@/components/site/Primitives";
 
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/team")({
 
 function MemberCard({ m }: { m: any }) {
   return (
-    <article className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_60px_-30px_rgba(0,255,127,0.25)]">
       <div className="aspect-[4/5] overflow-hidden">
         <img
           src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
@@ -28,7 +29,7 @@ function MemberCard({ m }: { m: any }) {
           loading="lazy"
         />
       </div>
-      <div className="p-5 flex flex-col justify-between">
+      <div className="p-5 flex flex-1 flex-col justify-between">
         <div>
           <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
           <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
@@ -51,10 +52,23 @@ function MemberCard({ m }: { m: any }) {
 }
 
 function TeamGroupSection({ group, members }: { group: string; members: any[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const lead = members.find((m) => m.role.toLowerCase().includes("lead")) || members[0];
   const regularMembers = members.filter((m) => m !== lead);
 
   const isScrollableGroup = regularMembers.length > 4;
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
 
   if (!isScrollableGroup) {
     return (
@@ -77,38 +91,56 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
   }
 
   return (
-    <section className="container-page py-10 overflow-hidden">
-      <div className="mb-8 flex items-end justify-between border-b border-hairline pb-4">
+    <section className="container-page py-10">
+      <div className="mb-8 flex items-center justify-between border-b border-hairline pb-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">{group}</h2>
-          <p className="text-xs text-muted-foreground mt-1 hidden md:flex items-center gap-1">
-            Scroll members to the left <ChevronRight className="h-3 w-3" />
-          </p>
+          <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            {members.length} members
+          </span>
         </div>
-        <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
-          {members.length} members
-        </span>
+
+        {/* Manual Arrow Buttons for Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            onClick={scrollLeft}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-hairline bg-surface-elevated text-foreground hover:border-brand/40 hover:bg-brand/10 hover:text-brand transition-all active:scale-95"
+            aria-label={`Scroll ${group} left`}
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={scrollRight}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-hairline bg-surface-elevated text-foreground hover:border-brand/40 hover:bg-brand/10 hover:text-brand transition-all active:scale-95"
+            aria-label={`Scroll ${group} right`}
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
       </div>
 
-      {/* Desktop View: Static Sticky Lead on Left + Single Row Horizontal Scroll for Members */}
-      <div className="hidden md:flex relative items-stretch gap-5 pb-4 pt-1">
+      {/* Desktop View: Static Sticky Lead on Left + Manual Arrow Scrollable Track for Members */}
+      <div className="hidden md:flex relative items-stretch gap-5 py-6 px-1">
         {/* Static Sticky Lead Card */}
         <div className="sticky left-0 z-20 shrink-0 w-[240px] lg:w-[260px] bg-[#020b06]/95 backdrop-blur-md rounded-2xl pr-3 shadow-[20px_0_35px_-5px_rgba(2,11,6,0.95)]">
           <MemberCard m={lead} />
         </div>
 
-        {/* Scrollable Member Cards Track */}
-        <div className="flex-1 flex gap-4 overflow-x-auto scrollbar-thin py-1 pr-6 z-10 scroll-smooth">
+        {/* Scrollable Member Cards Track (Hidden native scrollbar) */}
+        <div
+          ref={scrollRef}
+          className="flex-1 flex gap-4 overflow-x-auto py-2 pr-6 z-10 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
           {regularMembers.map((m) => (
-            <div key={m.name} className="w-[210px] lg:w-[230px] shrink-0">
+            <div key={m.name} className="w-[210px] lg:w-[230px] shrink-0 py-1">
               <MemberCard m={m} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Mobile View: Featured Lead + 2-Column Grid for Members */}
-      <div className="md:hidden flex flex-col gap-5">
+      {/* Mobile View: Lead Card + 2-Column Grid for Members */}
+      <div className="md:hidden flex flex-col gap-5 py-2">
         {/* Lead Card */}
         <div className="w-full">
           <MemberCard m={lead} />
