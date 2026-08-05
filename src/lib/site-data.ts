@@ -360,14 +360,12 @@ export const FAQS = [
   },
 ];
 
- e x p o r t   c o n s t   C O N T R I B U T O R S   =   A r r a y . f r o m ( {   l e n g t h :   1 0   } ) . m a p ( ( _ ,   i )   = >   ( { 
-     i d :   \ c o n t r i b u t o r - \ \ , 
-     n a m e :   \ C o n t r i b u t o r   \ \ , 
-     r o l e :   ' D e v e l o p e r ' , 
-     a c h i e v e m e n t :   ' W i n n e r   a t   S m a r t   I n d i a   H a c k a t h o n   2 0 2 6 ' , 
-     p h o t o :   \ h t t p s : / / u i - a v a t a r s . c o m / a p i / ? n a m e = C o n t r i b u t o r + \ & b a c k g r o u n d = 0 0 f f 7 f & c o l o r = 0 2 0 b 0 6 & s i z e = 2 5 6 \ , 
-     l i n k e d i n :   ' h t t p s : / / l i n k e d i n . c o m ' , 
-     g i t h u b :   ' h t t p s : / / g i t h u b . c o m ' 
- } ) ) ; 
-  
- 
+export const CONTRIBUTORS = Array.from({ length: 10 }).map((_, i) => ({
+  id: `contributor-${i + 1}`,
+  name: `Contributor ${i + 1}`,
+  role: 'Developer',
+  achievement: 'Winner at Smart India Hackathon 2026',
+  photo: `https://ui-avatars.com/api/?name=Contributor+${i + 1}&background=00ff7f&color=020b06&size=256`,
+  linkedin: 'https://linkedin.com',
+  github: 'https://github.com'
+}));
