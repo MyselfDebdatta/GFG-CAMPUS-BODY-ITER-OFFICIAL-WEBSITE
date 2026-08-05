@@ -54,7 +54,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all",
+        "fixed inset-x-0 top-0 z-[100] transition-all",
         scrolled ? "py-2" : "py-3",
       )}
     >

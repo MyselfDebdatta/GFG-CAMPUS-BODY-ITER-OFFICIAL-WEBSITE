@@ -22,16 +22,16 @@ export function AchievementWall() {
             const col = i % 3;
             
             const baseX = col * 33 + 8; // 8%, 41%, 74%
-            const baseY = row * 48 + 10; // 10%, 58%
+            const baseY = row * 45 + 16; // 16%, 61%
             
             return (
               <motion.div
                 key={achievement.id}
                 drag
-                dragConstraints={{ left: -300, right: 300, top: -200, bottom: 200 }}
+                dragConstraints={{ left: -300, right: 300, top: -100, bottom: 200 }}
                 dragElastic={0.1}
-                whileHover={{ scale: 1.05, zIndex: 50 }}
-                whileDrag={{ scale: 1.1, zIndex: 100, cursor: "grabbing" }}
+                whileHover={{ scale: 1.05, zIndex: 30 }}
+                whileDrag={{ scale: 1.1, zIndex: 40, cursor: "grabbing" }}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ 
                   opacity: 1, 
