@@ -7,9 +7,9 @@ import { AchievementWall } from "@/components/site/AchievementWall";
 export const Route = createFileRoute("/hall-of-fame")({
   head: () => ({
     meta: [
-      { title: "Hall of Fame x{B7} GFG ITER" },
+      { title: "Hall of Fame · GFG ITER" },
       { name: "description", content: "A historical wall mapping out our greatest achievements and legacy." },
-      { property: "og:title", content: "Hall of Fame x{B7} GFG ITER" },
+      { property: "og:title", content: "Hall of Fame · GFG ITER" },
       { property: "og:description", content: "A historical wall mapping out our greatest achievements and legacy." },
       { property: "og:url", content: "/hall-of-fame" },
     ],
