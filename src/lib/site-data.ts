@@ -423,7 +423,7 @@ export const ACHIEVEMENTS = [
     description: 'Qualified and secured rank 12 in the Asia-Kanpur ICPC Regional contest.', 
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=70',
     rotation: -2, 
-    x: 20, 
+    x: -5, 
     y: 10 
   },
   { 

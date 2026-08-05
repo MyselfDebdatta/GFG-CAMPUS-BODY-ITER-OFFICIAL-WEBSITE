@@ -21,8 +21,8 @@ export function AchievementWall() {
             const row = Math.floor(i / 3);
             const col = i % 3;
             
-            const baseX = col * 33 + 8; // 8%, 41%, 74%
-            const baseY = row * 45 + 16; // 16%, 61%
+            const baseX = col * 32 + 5; // 5%, 37%, 69%
+            const baseY = row * 45 + 12; // 12%, 57%
             
             return (
               <motion.div
