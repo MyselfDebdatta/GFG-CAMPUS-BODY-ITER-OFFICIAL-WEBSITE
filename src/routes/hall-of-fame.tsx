@@ -1,35 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Building2, Users, Quote, Github, Linkedin, Mail } from "lucide-react";
+import { Award, Users, Quote, Rocket } from "lucide-react";
 import { ALUMNI, RECRUITERS } from "@/lib/site-data";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
+import { AchievementWall } from "@/components/site/AchievementWall";
 
-export const Route = createFileRoute("/alumni")({
+export const Route = createFileRoute("/hall-of-fame")({
   head: () => ({
     meta: [
-      { title: "Alumni · GFG ITER" },
-      { name: "description", content: "The GFG ITER wall of fame — alumni at top companies, grad schools, and startups." },
-      { property: "og:title", content: "Alumni · GFG ITER" },
-      { property: "og:description", content: "Wall of fame — alumni at top tech companies and grad schools." },
-      { property: "og:url", content: "/alumni" },
+      { title: "Hall of Fame x{B7} GFG ITER" },
+      { name: "description", content: "A historical wall mapping out our greatest achievements and legacy." },
+      { property: "og:title", content: "Hall of Fame x{B7} GFG ITER" },
+      { property: "og:description", content: "A historical wall mapping out our greatest achievements and legacy." },
+      { property: "og:url", content: "/hall-of-fame" },
     ],
-    links: [{ rel: "canonical", href: "/alumni" }],
+    links: [{ rel: "canonical", href: "/hall-of-fame" }],
   }),
-  component: Alumni,
+  component: HallOfFame,
 });
 
 const HIGHLIGHTS = [
-  { icon: Building2, label: "Placed at top MNCs", value: 10, suffix: "+" },
+  { icon: Rocket, label: "Startups Founded", value: 10, suffix: "+" },
   { icon: Users, label: "Open Source Contributors", value: 20, suffix: "+" },
   { icon: Award, label: "Hackathon podiums", value: 12, suffix: "+" },
 ];
 
-const NOTABLE_ALUMNI = [
-  { name: "Ankit Rajan", role: "Alumni", github: "#", linkedin: "#", mail: "#" },
-  { name: "Mukesh Kumar Padhi", role: "Alumni", github: "#", linkedin: "#", mail: "#" },
-  { name: "Rathikant Behera", role: "Alumni", github: "#", linkedin: "#", mail: "#" },
-];
-
-function Alumni() {
+function HallOfFame() {
   return (
     <>
       <section className="relative -mt-24 pt-24">
@@ -38,10 +33,10 @@ function Alumni() {
           <div className="max-w-4xl">
             <Reveal>
               <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Alumni who <span className="text-gradient-brand">shipped</span> — and kept shipping.
+                The <span className="text-gradient-brand">Hall of Fame</span>
               </h1>
               <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl leading-tight">
-                From first-year builders to engineers at some of the best tech companies in the world.
+                A historical wall mapping out our greatest achievements and legacy.
               </h2>
             </Reveal>
           </div>
@@ -67,61 +62,9 @@ function Alumni() {
         </div>
       </section>
 
-      {/* Notable Profiles */}
-      <section className="container-page py-20">
-        <SectionHeader eyebrow="Our Pride" title="Notable Alumni" align="center" />
-        <div className="mt-12 flex flex-wrap justify-center gap-6">
-          {NOTABLE_ALUMNI.map((m, i) => (
-            <div key={m.name} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
-              <Reveal delay={i * 0.05}>
-                <article className="group relative h-full overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)]">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
-                    alt={m.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
-                  <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">Will be updated shortly.</p>
-                  <div className="mt-4 flex items-center gap-1 border-t border-hairline pt-4">
-                    {m.linkedin && (
-                      <a
-                        href={m.linkedin}
-                        aria-label={`${m.name} LinkedIn`}
-                        className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
-                      >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    )}
-                    {m.github && (
-                      <a
-                        href={m.github}
-                        aria-label={`${m.name} GitHub`}
-                        className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                    )}
-                    {(m as any).mail && (
-                      <a
-                        href={(m as any).mail}
-                        aria-label={`${m.name} Mail`}
-                        className="grid h-8 w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
-                      >
-                        <Mail className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </article>
-              </Reveal>
-            </div>
-          ))}
-        </div>
+      {/* Scattered Achievement Wall */}
+      <section className="container-page py-20 overflow-hidden">
+        <AchievementWall />
       </section>
 
       {/* Recruiters */}
