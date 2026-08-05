@@ -20,16 +20,16 @@ export const Route = createFileRoute("/team")({
 
 function MemberCard({ m }: { m: any }) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_60px_-30px_rgba(0,255,127,0.25)]">
-      <div className="aspect-[4/5] overflow-hidden">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_10px_30px_rgba(0,255,127,0.25)]">
+      <div className="aspect-[4/5] overflow-hidden rounded-t-2xl bg-[#020b06]">
         <img
           src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
           alt={m.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>
-      <div className="p-5 flex flex-1 flex-col justify-between">
+      <div className="p-5 flex flex-1 flex-col justify-between rounded-b-2xl">
         <div>
           <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand">{m.role}</div>
           <div className="mt-1 text-lg font-semibold tracking-tight">{m.name}</div>
@@ -51,12 +51,108 @@ function MemberCard({ m }: { m: any }) {
   );
 }
 
+function LeadershipSection() {
+  const coordinators = TEAM.filter((m) => m.group === "Coordinator");
+  const mentors = TEAM.filter((m) => m.group === "Mentors");
+  const execBoard = TEAM.filter((m) => m.group === "Executive Board");
+
+  return (
+    <section className="container-page py-10">
+      <div className="mb-8 border-b border-hairline pb-4 flex items-center justify-between">
+        <h2 className="text-2xl font-bold tracking-tight">Leadership & Mentorship</h2>
+        <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+          5 members
+        </span>
+      </div>
+
+      {/* Desktop Single Row (5 Columns) with Group Dividers */}
+      <div className="hidden lg:grid grid-cols-5 gap-6 items-stretch">
+        {/* Coordinators (2 Cards) */}
+        <div className="col-span-2 flex flex-col pr-6 border-r border-hairline/60">
+          <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand flex items-center gap-2">
+            <span>Coordinators</span>
+            <span className="h-1 w-1 rounded-full bg-brand" />
+            <span className="text-muted-foreground text-[10px]">2</span>
+          </div>
+          <div className="grid grid-cols-2 gap-4 flex-1">
+            {coordinators.map((m) => (
+              <MemberCard key={m.name} m={m} />
+            ))}
+          </div>
+        </div>
+
+        {/* Mentors (1 Card) */}
+        <div className="col-span-1 flex flex-col px-4 border-r border-hairline/60">
+          <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand flex items-center gap-2">
+            <span>Mentors</span>
+            <span className="h-1 w-1 rounded-full bg-brand" />
+            <span className="text-muted-foreground text-[10px]">1</span>
+          </div>
+          <div className="flex-1">
+            {mentors.map((m) => (
+              <MemberCard key={m.name} m={m} />
+            ))}
+          </div>
+        </div>
+
+        {/* Executive Board (2 Cards) */}
+        <div className="col-span-2 flex flex-col pl-2">
+          <div className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand flex items-center gap-2">
+            <span>Executive Board</span>
+            <span className="h-1 w-1 rounded-full bg-brand" />
+            <span className="text-muted-foreground text-[10px]">2</span>
+          </div>
+          <div className="grid grid-cols-2 gap-4 flex-1">
+            {execBoard.map((m) => (
+              <MemberCard key={m.name} m={m} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile & Tablet View: Grouped 2-Column Grids */}
+      <div className="lg:hidden flex flex-col gap-8">
+        <div>
+          <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
+            Coordinators (2)
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            {coordinators.map((m) => (
+              <MemberCard key={m.name} m={m} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
+            Mentors (1)
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            {mentors.map((m) => (
+              <MemberCard key={m.name} m={m} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
+            Executive Board (2)
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            {execBoard.map((m) => (
+              <MemberCard key={m.name} m={m} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function TeamGroupSection({ group, members }: { group: string; members: any[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const lead = members.find((m) => m.role.toLowerCase().includes("lead")) || members[0];
   const regularMembers = members.filter((m) => m !== lead);
-
-  const isScrollableGroup = regularMembers.length > 4;
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -69,26 +165,6 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
       scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
     }
   };
-
-  if (!isScrollableGroup) {
-    return (
-      <section className="container-page py-10">
-        <div className="mb-8 flex items-end justify-between border-b border-hairline pb-4">
-          <h2 className="text-2xl font-bold tracking-tight">{group}</h2>
-          <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
-            {members.length} {members.length === 1 ? "member" : "members"}
-          </span>
-        </div>
-        <div className="grid gap-4 sm:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {members.map((m, i) => (
-            <Reveal key={m.name} delay={i * 0.05}>
-              <MemberCard m={m} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className="container-page py-10">
@@ -158,6 +234,9 @@ function TeamGroupSection({ group, members }: { group: string; members: any[] })
 }
 
 function Team() {
+  const leadershipGroups = ["Coordinator", "Mentors", "Executive Board"];
+  const scrollableGroups = TEAM_GROUPS.filter((g) => !leadershipGroups.includes(g));
+
   return (
     <>
       <section className="relative -mt-24 pt-24">
@@ -176,7 +255,11 @@ function Team() {
         </div>
       </section>
 
-      {TEAM_GROUPS.map((group) => {
+      {/* Unified Leadership Section (2 Coordinators + 1 Mentor + 2 Executive Board in single 5-col row) */}
+      <LeadershipSection />
+
+      {/* Core Teams Sections with Static Lead + 25 Scrolling Members */}
+      {scrollableGroups.map((group) => {
         const members = TEAM.filter((m) => m.group === group);
         if (!members.length) return null;
         return <TeamGroupSection key={group} group={group} members={members} />;
