@@ -298,10 +298,8 @@ export function WhatWeDoGallery() {
 
       {/* Infinite Gallery Marquee Rows */}
       <div className="relative flex flex-col gap-6 py-2">
-        {/* Edge Fade Masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#020b06]/90 via-[#020b06]/40 to-transparent z-20" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#020b06]/90 via-[#020b06]/40 to-transparent z-20" />
-
+      {/* Infinite Gallery Marquee Rows */}
+      <div className="relative flex flex-col gap-6 py-2">
         {/* ROW 1: Auto-scrolling Left */}
         <div
           ref={row1Ref}
@@ -337,27 +335,27 @@ function GalleryCard({ photo, onOpen }: { photo: (typeof GALLERY_PHOTOS)[number]
   return (
     <div
       onClick={onOpen}
-      className="group relative w-[300px] sm:w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-hairline bg-surface-elevated p-3 transition-all duration-300"
+      className="group relative w-[300px] sm:w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-[#061f12]/80 backdrop-blur-md p-3 transition-all duration-300 hover:border-[#00ff7f] hover:shadow-[0_0_25px_rgba(0,255,127,0.3)] hover:-translate-y-1"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-black">
+      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-[#031209]">
         <img
           src={photo.image}
           alt={photo.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-700 sm:group-hover:scale-105"
           loading="lazy"
           onError={(e) => {
             (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80";
           }}
         />
-        {/* Hover Expand Icon Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
+        {/* Desktop-only Hover Expand Icon Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020b06]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 hidden sm:flex sm:group-hover:opacity-100 items-center justify-center">
           <span className="flex items-center gap-2 rounded-full border border-[#00ff7f]/40 bg-[#020b06]/80 px-4 py-2 text-xs font-bold text-[#00ff7f] backdrop-blur-md shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
             <Maximize2 className="h-3.5 w-3.5" /> View Photo
           </span>
         </div>
 
         {/* Category Pill Tag */}
-        <span className="absolute top-2.5 left-2.5 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md">
+        <span className="absolute top-2.5 left-2.5 rounded-full border border-white/20 bg-[#020b06]/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-sm">
           {photo.category}
         </span>
       </div>
