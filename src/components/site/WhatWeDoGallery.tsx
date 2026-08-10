@@ -223,36 +223,13 @@ export function WhatWeDoGallery() {
               </button>
             </div>
 
-            {/* High-res Image Preview */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-black">
+            {/* High-res Image Preview Only */}
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-black flex items-center justify-center">
               <img
                 src={activePhoto.image}
                 alt={activePhoto.title}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060D09] via-transparent to-transparent opacity-80" />
-            </div>
-
-            {/* Photo Details */}
-            <div className="p-6 sm:p-8 -mt-12 relative z-10">
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                <span className="rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3 py-1 text-xs font-bold text-[#00ff7f] uppercase tracking-wider sm:hidden">
-                  {activePhoto.category}
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
-                  <MapPin className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.location}
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
-                  <Calendar className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.date}
-                </span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-                {activePhoto.title}
-              </h3>
-              <p className="text-sm sm:text-base text-white/70 leading-relaxed font-medium">
-                {activePhoto.description}
-              </p>
             </div>
           </motion.div>
         </motion.div>
