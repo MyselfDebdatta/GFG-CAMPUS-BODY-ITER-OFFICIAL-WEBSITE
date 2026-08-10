@@ -1534,12 +1534,6 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 21 — right page (Blank Back Cover) ─── */
-  pg(false, 21, (
-    <div className="flex-1 min-h-0 bg-[#F5F3EA] flex items-center justify-center">
-      {/* Empty back cover */}
-    </div>
-  )),
 ];
 
 const TOTAL_PAGES = PAGES.length;
@@ -1594,7 +1588,7 @@ export function NativeFlipBook() {
   const currentSpread = Math.floor(pageIndex / 2);
 
   const canGoNext = isMobile
-    ? pageIndex < TOTAL_PAGES - 2 // Prevent mobile from swiping to the blank back cover (index 21)
+    ? pageIndex < TOTAL_PAGES - 1
     : currentSpread < TOTAL_SPREADS - 1;
 
   const canGoPrev = isMobile ? pageIndex > 0 : currentSpread > 0;
