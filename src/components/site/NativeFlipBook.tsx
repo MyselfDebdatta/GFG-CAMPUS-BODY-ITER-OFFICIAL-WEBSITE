@@ -422,7 +422,7 @@ const PAGES: ReactNode[] = [
         ITER
       </div>
       <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
-        <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.4)", display: "inline-block", letterSpacing: "-0.01em" }}>
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
           CODE UNBOUND
         </h2>
       </div>
@@ -433,8 +433,8 @@ const PAGES: ReactNode[] = [
       
       {/* Sub Banner */}
       <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1 pb-1 mb-2.5 mx-4">
-        <div className="text-lg sm:text-xl font-serif text-[#333] tracking-wide uppercase">
-          THE <span className="text-[#008F4C] font-sans font-black tracking-tight">GFG</span> LAUNCH
+        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] leading-none uppercase tracking-wide">
+          THE <span className="text-[#008F4C] font-black">GFG</span> LAUNCH
         </div>
         <div className="absolute left-1/2 -bottom-[8px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
           7th November 2025
@@ -456,7 +456,7 @@ const PAGES: ReactNode[] = [
               <div className="border-[1.5px] border-[#F5F3EA] bg-[#222] aspect-[4/3] overflow-hidden">
                  <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=800&q=80" alt="Guess the logo" className="w-full h-full object-cover opacity-80 mix-blend-screen" />
               </div>
-              <ul className="text-white text-[7.5px] sm:text-[8px] list-disc pl-3.5 mt-2 pr-1 pb-1 space-y-1 font-medium leading-[1.3]">
+              <ul className="text-white text-[7px] sm:text-[7.5px] list-disc pl-3.5 mt-2 pr-1 pb-1 space-y-0.5 font-medium leading-[1.4]">
                  <li>During the orientation, the club's vision was clearly articulated:</li>
                  <li>To create a collaborative coding culture at ITER</li>
                  <li>To help students strengthen their problem-solving and DSA skills</li>
@@ -467,7 +467,7 @@ const PAGES: ReactNode[] = [
           </div>
           
           {/* Right Column (Starts below the image) */}
-          <div className="w-[55%] text-[#111] text-[8px] sm:text-[9.5px] text-justify leading-relaxed font-serif pr-2">
+          <div className="w-[55%] text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] pr-2">
              <p className="mb-2">
                The much-awaited launch of Code Unbound marked the official inauguration of the GeeksforGeeks (GFG) Club – ITER Student Chapter. The event was successfully conducted in the grand auditorium hall of Bansuri Guru, bringing together enthusiastic students passionate about technology, coding, and innovation.
              </p>
