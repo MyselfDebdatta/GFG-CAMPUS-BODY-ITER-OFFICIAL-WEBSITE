@@ -82,7 +82,7 @@ export const GALLERY_PHOTOS = [
     category: "Moments & Wins",
     location: "Incubation Hub",
     date: "Oct 2024",
-    image: "https://images.unsplash.com/photo-152202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
     description: "Seniors helping juniors debug React components and database connections into early morning hours."
   },
   {
@@ -209,6 +209,9 @@ export function WhatWeDoGallery() {
                 src={activePhoto.image}
                 alt={activePhoto.title}
                 className="h-full w-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80";
+                }}
               />
 
               {/* Floating Badges Over Photo Top-Left */}
@@ -342,6 +345,9 @@ function GalleryCard({ photo, onOpen }: { photo: (typeof GALLERY_PHOTOS)[number]
           alt={photo.title}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80";
+          }}
         />
         {/* Hover Expand Icon Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
