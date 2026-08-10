@@ -172,35 +172,41 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 1 (Page 2): TABLE OF CONTENTS — right page ─── */
   pg(false, 2, (
     <>
-      <div className="flex-1 min-h-0 overflow-hidden">
-        <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-          <Terminal className="h-3 w-3" /> Chapter Archive Index
+      <div className="flex-1 min-h-0 overflow-hidden flex flex-col">
+        <div className="text-right text-[9px] font-bold tracking-widest uppercase text-[#333] mb-1">
+          ITER
         </div>
-        <h2 className="text-xl sm:text-2xl font-black tracking-tight text-[#111511] mb-3 pb-2 border-b-2 border-[#008F4C]">
-          INDEX
-        </h2>
-        <div className="space-y-1.5">
+        <div className="border-t-[3px] border-[#008F4C] pt-1 pb-1 text-center">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#333]">
+            INDEX
+          </h2>
+        </div>
+        <div className="border-t-[1.5px] border-[#008F4C] mb-[3px]"></div>
+        <div className="border-t-[4px] border-[#008F4C] mb-4"></div>
+
+        <div className="flex-1 overflow-y-auto pr-1">
           {[
-            { n: "01", t: "About the Club", d: "Vision, mission, and core community values", p: "03" },
-            { n: "02", t: "Core Team & Mentors", d: "Faculty coordinators & domain leads", p: "04" },
-            { n: "03", t: "CodeUnbound Flagship Launch", d: "Kickstarting innovation & coding culture", p: "05" },
-            { n: "04", t: "Events Conducted", d: "ChaiLinks, Founders' Unplugged, Zer0ne, Rachitva", p: "06" },
-            { n: "05", t: "Members Achievements", d: "National Hackathons & SIH 2025 Victories", p: "07" },
-            { n: "06", t: "Future Vision & Core Team Photo", d: "Roadmap for 2026-27 & Chapter Group Photo", p: "08" },
+            { n: "1.", t: "About the Club", d: "Introduction to vision , mission and purpose" },
+            { n: "2.", t: "Core Team", d: "Meet the Leads" },
+            { n: "3.", t: "CodeUnbound (Club Launch/Reignite)", d: "Kickstarting innovation and coding culture" },
+            { n: "4.", t: "Events Conducted", d: "All 7 events details" },
+            { n: "5.", t: "Members Achievement", d: "Showcasing Excellence" },
+            { n: "6.", t: "Future Vission", d: "Looking Ahead" },
+            { n: "7.", t: "Core Team Photo", d: "Core Members team 2025-26" },
           ].map((item) => (
-            <div key={item.n} className="flex items-center gap-2.5 py-1.5 border-b border-[#1A1A1A]/[0.06] last:border-0">
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center bg-[#008F4C] text-white font-mono font-bold text-[9px] shadow-sm">
-                {item.n}
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-baseline gap-1.5">
-                  <h3 className="font-bold text-[10px] text-[#111511] shrink-0 uppercase tracking-tight">{item.t}</h3>
-                  <div className="flex-1 border-b border-dotted border-[#1A1A1A]/30 min-w-[20px] relative top-[-2px]" />
-                  <span className="font-mono text-[9px] font-bold text-[#008F4C] shrink-0">
-                    {item.p}
-                  </span>
+            <div key={item.n} className="pb-1.5 mb-1.5 border-b border-[#008F4C]">
+              <div className="flex items-start gap-2">
+                <span className="text-[13px] sm:text-[15px] text-[#333] font-serif w-4 shrink-0 text-right mt-0.5">
+                  {item.n}
+                </span>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold font-serif text-[13px] sm:text-[15px] text-[#111] leading-tight mb-1">
+                    {item.t}
+                  </h3>
+                  <p className="text-[9px] sm:text-[10px] text-[#555] font-medium leading-tight">
+                    {item.d}
+                  </p>
                 </div>
-                <p className="text-[8px] text-[#1A1A1A]/60 font-medium line-clamp-1">{item.d}</p>
               </div>
             </div>
           ))}
