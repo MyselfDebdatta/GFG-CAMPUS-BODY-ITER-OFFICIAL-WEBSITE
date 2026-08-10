@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Github, Linkedin, Mail } from "lucide-react";
 import { CONTRIBUTORS } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -60,43 +60,45 @@ export function ContributorsCarousel() {
       }}
     >
       {/* Cards Display Stage */}
-      <div className="relative w-full h-[410px] flex items-center justify-center overflow-hidden">
-        <AnimatePresence mode="popLayout">
-          {CONTRIBUTORS.map((lead, index) => {
-            // Calculate offset relative to active index
-            let offset = index - activeIndex;
-            
-            // Handle wrapping for infinite carousel illusion
-            const half = Math.floor(CONTRIBUTORS.length / 2);
-            if (offset > half) offset -= CONTRIBUTORS.length;
-            if (offset < -half) offset += CONTRIBUTORS.length;
-            
-            const isActive = offset === 0;
-            const isVisible = Math.abs(offset) <= 2; 
+      <div 
+        className="relative w-full h-[470px] flex items-center justify-center py-8"
+        style={{
+          maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+        }}
+      >
+        {CONTRIBUTORS.map((lead, index) => {
+          // Calculate offset relative to active index with smooth wrapping
+          let offset = (index - activeIndex + CONTRIBUTORS.length) % CONTRIBUTORS.length;
+          const half = Math.floor(CONTRIBUTORS.length / 2);
+          if (offset > half) offset -= CONTRIBUTORS.length;
+          
+          const isActive = offset === 0;
+          const isVisible = Math.abs(offset) <= 2; 
 
-            if (!isVisible) return null;
+          if (!isVisible) return null;
 
-            const xPos = `calc(${offset * 100}% + ${offset * 24}px)`;
+          // Smooth pixel displacement based on card width + gap
+          const x = offset * 340; 
 
-            return (
-              <motion.div
-                key={lead.id}
-                initial={{ opacity: 0, scale: 0.8, x: xPos }}
-                animate={{ 
-                  opacity: isActive ? 1 : Math.max(0, 1 - Math.abs(offset) * 0.45),
-                  scale: isActive ? 1 : 1 - Math.abs(offset) * 0.15,
-                  x: xPos,
-                  zIndex: 10 - Math.abs(offset)
-                }}
-                exit={{ opacity: 0, scale: 0.8, x: xPos }}
-                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-                className={cn(
-                  "absolute w-[290px] sm:w-[350px] rounded-3xl border p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between h-[390px]",
-                  isActive 
-                    ? "border-[#00ff7f] shadow-[0_0_15px_rgba(0,255,127,0.4)] bg-surface-elevated scale-105" 
-                    : "border-white/10 bg-surface/80 opacity-50"
-                )}
-              >
+          return (
+            <motion.div
+              key={lead.id}
+              initial={false}
+              animate={{ 
+                x,
+                scale: isActive ? 1.05 : 1 - Math.abs(offset) * 0.12,
+                opacity: isActive ? 1 : Math.max(0.2, 0.6 - Math.abs(offset) * 0.2),
+                zIndex: 20 - Math.abs(offset)
+              }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className={cn(
+                "absolute w-[290px] sm:w-[340px] rounded-3xl border p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between h-[395px] select-none",
+                isActive 
+                  ? "border-[#00ff7f] shadow-[0_0_20px_rgba(0,255,127,0.35)] bg-surface-elevated" 
+                  : "border-white/10 bg-surface/80 opacity-50"
+              )}
+            >
                 <div className="flex flex-col items-center text-center">
                   {/* Styled Initials Circle Badge (No Stock Photos) */}
                   <div className={cn(
@@ -167,7 +169,6 @@ export function ContributorsCarousel() {
               </motion.div>
             );
           })}
-        </AnimatePresence>
       </div>
 
       {/* Navigation Buttons Placed Clearly Below Cards */}
