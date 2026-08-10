@@ -101,8 +101,8 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
       { label: "Networking", desc: "One-on-one conversations with speakers" },
     ],
   },
-  "chai-links-ep00": {
-    brief: "ChainLinks Episode 00 introduced a refreshing shift from conventional academic events, creating an open space where conversations, curiosity, and connection took center stage over cups of chai. Students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking.",
+  "chai-links-ep01": {
+    brief: "ChainLinks Episode 01 introduced a refreshing shift from conventional academic events, creating an open space where conversations, curiosity, and connection took center stage over cups of chai. Students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking.",
     objectives: [
       "Break academic barriers through circle-based Chai Pe Charcha discussions",
       "Direct guidance from faculty members on research and technical roadmaps",
@@ -116,8 +116,8 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
       { label: "Networking & Chai", desc: "Peer networking over tea and refreshments" },
     ],
   },
-  "chai-links-ep01": {
-    brief: "ChainLinks Episode 01 elevated the initiative with powerful themes of TinyML and Agentic AI. Students dived into running compact machine learning models on microcontrollers and building autonomous AI systems, bridging complex concepts with real-world implementation.",
+  "chai-links-ep02": {
+    brief: "ChainLinks Episode 02 elevated the initiative with powerful themes of TinyML and Agentic AI. Students dived into running compact machine learning models on microcontrollers and building autonomous AI systems, bridging complex concepts with real-world implementation.",
     objectives: [
       "Explore low-power edge machine learning models (TinyML) on microcontrollers",
       "Discuss autonomous systems, reasoning frameworks, and Agentic AI",
