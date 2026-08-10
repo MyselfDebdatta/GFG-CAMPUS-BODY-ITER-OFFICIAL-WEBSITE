@@ -1489,6 +1489,57 @@ const PAGES: ReactNode[] = [
       </div>
     </div>
   )),
+
+  /* ─── PAGE 20 — left page (Poster) ─── */
+  pg(true, 20, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col justify-between pt-8 pb-10 px-6">
+      {/* Top Section */}
+      <div className="flex justify-between items-start">
+        {/* Left Text */}
+        <div className="flex flex-col text-[#E69A6E] font-black uppercase text-3xl sm:text-4xl leading-[0.85] tracking-tight" style={{ transform: "scaleY(1.2)", transformOrigin: "top left" }}>
+          <span>THE</span>
+          <span>MOST</span>
+          <span>CREATIVE</span>
+          <span>ACT</span>
+          <span>IS</span>
+        </div>
+        
+        {/* Right Image */}
+        <div className="w-[45%] ml-4 relative mt-1">
+          <div className="w-full aspect-[4/5] overflow-hidden rounded-[2px] shadow-sm border border-black/5">
+            <img src="https://images.unsplash.com/photo-1560972550-aba3456b5564?auto=format&fit=crop&w=500&q=80" alt="Creative" className="w-full h-full object-cover contrast-110 grayscale-[20%]" />
+          </div>
+        </div>
+      </div>
+      
+      {/* Middle Text */}
+      <div className="flex justify-end mt-8 pr-2">
+        <div className="flex flex-col text-right text-[#92C04D] font-black uppercase text-xl sm:text-2xl leading-[0.9] tracking-tight" style={{ transform: "scaleY(1.1)", transformOrigin: "top right" }}>
+          <span>THE ACT OF CREATING</span>
+          <span>YOURSELF</span>
+        </div>
+      </div>
+      
+      {/* Bottom Connect Section */}
+      <div className="flex items-end justify-center gap-1.5 mt-auto">
+        <span className="text-[#111] font-bold text-[10px] sm:text-[12px] mb-1.5">Let's</span>
+        <div className="flex items-center text-[#457B9D] font-black uppercase text-[40px] sm:text-[50px] tracking-tight leading-none" style={{ transform: "scaleY(1.1)", transformOrigin: "bottom" }}>
+          <span>C</span>
+          <div className="mx-1 w-[35px] h-[35px] sm:w-[45px] sm:h-[45px] border-[2.5px] border-[#457B9D] bg-white p-[2px] flex-shrink-0 relative -top-[2px]">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://geeksforgeeks.org" alt="QR Code" className="w-full h-full object-contain" />
+          </div>
+          <span>NNECT.</span>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 21 — right page (Blank Back Cover) ─── */
+  pg(false, 21, (
+    <div className="flex-1 min-h-0 bg-[#F5F3EA] flex items-center justify-center">
+      {/* Empty back cover */}
+    </div>
+  )),
 ];
 
 const TOTAL_PAGES = PAGES.length;
