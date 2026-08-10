@@ -298,8 +298,6 @@ export function WhatWeDoGallery() {
 
       {/* Infinite Gallery Marquee Rows */}
       <div className="relative flex flex-col gap-6 py-2">
-      {/* Infinite Gallery Marquee Rows */}
-      <div className="relative flex flex-col gap-6 py-2">
         {/* ROW 1: Auto-scrolling Left */}
         <div
           ref={row1Ref}
