@@ -417,12 +417,12 @@ function Home() {
                 <Link
                   to="/events"
                   search={{ tab: "past", category: "All" }}
-                  className="group relative inline-flex items-center gap-4 rounded-full border border-[#00ff7f]/40 bg-[#060D09]/80 px-8 py-4 text-base font-extrabold text-white backdrop-blur-xl transition-all duration-300 hover:border-[#00ff7f] hover:bg-[#00ff7f]/10 hover:shadow-[0_0_30px_rgba(0,255,127,0.4)] active:scale-95 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                  className="group relative inline-flex items-center gap-4 rounded-full border border-[#00ff7f]/40 bg-white/5 px-8 py-4 text-base font-extrabold text-white backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:bg-[#00ff7f]/10 hover:shadow-[0_0_20px_rgba(0,255,127,0.3)] active:scale-95"
                 >
                   <span className="relative z-10 text-white group-hover:text-[#00ff7f] transition-colors">
                     View All Past Events
                   </span>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00ff7f]/10 text-[#00ff7f] border border-[#00ff7f]/30 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#00ff7f] group-hover:text-[#020b06] shadow-[0_0_10px_rgba(0,255,127,0.2)]">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00ff7f]/10 text-[#00ff7f] border border-[#00ff7f]/30 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#00ff7f] group-hover:text-[#020b06]">
                     <ArrowRight className="h-4 w-4" />
                   </div>
                 </Link>
