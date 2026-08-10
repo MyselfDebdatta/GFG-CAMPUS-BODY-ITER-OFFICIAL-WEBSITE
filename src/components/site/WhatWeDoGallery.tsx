@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ChevronLeft, ChevronRight, X, Maximize2, MapPin, Calendar, Camera } from "lucide-react";
 
@@ -100,8 +101,13 @@ const CATEGORIES = ["All", "Hackathons & Summits", "Workshops & Pods", "Group & 
 export function WhatWeDoGallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activePhoto, setActivePhoto] = useState<(typeof GALLERY_PHOTOS)[number] | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const filteredPhotos = selectedCategory === "All"
     ? GALLERY_PHOTOS
@@ -152,6 +158,107 @@ export function WhatWeDoGallery() {
     if (row1Ref.current) row1Ref.current.scrollBy({ left: 360, behavior: "smooth" });
     if (row2Ref.current) row2Ref.current.scrollBy({ left: 360, behavior: "smooth" });
   };
+
+  const modalJSX = (
+    <AnimatePresence>
+      {activePhoto && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setActivePhoto(null)}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4 sm:p-6 md:p-8 backdrop-blur-2xl overflow-y-auto"
+        >
+          {/* Previous Photo Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrevPhoto();
+            }}
+            className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-black/80 text-white hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] transition-all active:scale-95 shadow-[0_0_25px_rgba(0,0,0,0.8)]"
+            aria-label="Previous photo"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Next Photo Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNextPhoto();
+            }}
+            className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-black/80 text-white hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] transition-all active:scale-95 shadow-[0_0_25px_rgba(0,0,0,0.8)]"
+            aria-label="Next photo"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Modal Content Card */}
+          <motion.div
+            key={activePhoto.id}
+            initial={{ scale: 0.95, opacity: 0, y: 15 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.95, opacity: 0, y: 15 }}
+            transition={{ duration: 0.25 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full rounded-3xl border border-[#00ff7f]/40 bg-[#060D09] overflow-hidden shadow-[0_0_80px_rgba(0,255,127,0.25)] my-auto flex flex-col"
+          >
+            {/* Separate Header Bar: Counter Tag & Close Button */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#030905]">
+              <div className="flex items-center gap-3">
+                <span className="rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3.5 py-1 text-xs font-extrabold text-[#00ff7f] tracking-wide">
+                  {currentIndex + 1} / {filteredPhotos.length}
+                </span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-xs font-bold text-white/80 uppercase tracking-wider hidden sm:inline-block">
+                  {activePhoto.category}
+                </span>
+              </div>
+
+              <button
+                onClick={() => setActivePhoto(null)}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white hover:bg-[#00ff7f] hover:text-[#020b06] transition-all shadow-md"
+                aria-label="Close photo preview"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* High-res Image Preview */}
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-black">
+              <img
+                src={activePhoto.image}
+                alt={activePhoto.title}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060D09] via-transparent to-transparent opacity-80" />
+            </div>
+
+            {/* Photo Details */}
+            <div className="p-6 sm:p-8 -mt-12 relative z-10">
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                <span className="rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3 py-1 text-xs font-bold text-[#00ff7f] uppercase tracking-wider sm:hidden">
+                  {activePhoto.category}
+                </span>
+                <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
+                  <MapPin className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.location}
+                </span>
+                <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
+                  <Calendar className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.date}
+                </span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
+                {activePhoto.title}
+              </h3>
+              <p className="text-sm sm:text-base text-white/70 leading-relaxed font-medium">
+                {activePhoto.description}
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 
   return (
     <section className="relative z-10 py-24 overflow-hidden bg-transparent">
@@ -211,7 +318,7 @@ export function WhatWeDoGallery() {
       </div>
 
       {/* Infinite Gallery Marquee Rows */}
-      <div className="relative flex flex-col gap-6 py-4">
+      <div className="relative flex flex-col gap-6 py-2">
         {/* Edge Fade Masks */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#020b06]/90 via-[#020b06]/40 to-transparent z-20" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#020b06]/90 via-[#020b06]/40 to-transparent z-20" />
@@ -219,7 +326,7 @@ export function WhatWeDoGallery() {
         {/* ROW 1: Auto-scrolling Left */}
         <div
           ref={row1Ref}
-          className="flex gap-5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth py-2 px-6"
+          className="flex gap-5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth py-6 sm:py-8 px-6"
         >
           <div className="flex gap-5 shrink-0 animate-marquee hover:[animation-play-state:paused]" style={{ animationDuration: "55s" }}>
             {row1.map((photo, i) => (
@@ -231,7 +338,7 @@ export function WhatWeDoGallery() {
         {/* ROW 2: Auto-scrolling Right */}
         <div
           ref={row2Ref}
-          className="flex gap-5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth py-2 px-6"
+          className="flex gap-5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth py-6 sm:py-8 px-6"
         >
           <div className="flex gap-5 shrink-0 animate-marquee-reverse hover:[animation-play-state:paused]" style={{ animationDuration: "60s" }}>
             {row2Loop.map((photo, i) => (
@@ -241,99 +348,8 @@ export function WhatWeDoGallery() {
         </div>
       </div>
 
-      {/* Fullscreen Photo Lightbox Modal (z-[200] ensures high priority over Navbar) */}
-      <AnimatePresence>
-        {activePhoto && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActivePhoto(null)}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4 sm:p-6 md:p-8 backdrop-blur-2xl overflow-y-auto"
-          >
-            {/* Previous Photo Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handlePrevPhoto();
-              }}
-              className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-black/70 text-white hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] transition-all active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
-              aria-label="Previous photo"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-
-            {/* Next Photo Button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleNextPhoto();
-              }}
-              className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-black/70 text-white hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] transition-all active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
-              aria-label="Next photo"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-
-            {/* Modal Content Card */}
-            <motion.div
-              key={activePhoto.id}
-              initial={{ scale: 0.95, opacity: 0, y: 15 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 15 }}
-              transition={{ duration: 0.25 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full rounded-3xl border border-[#00ff7f]/40 bg-[#060D09] overflow-hidden shadow-[0_0_80px_rgba(0,255,127,0.25)] my-auto"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setActivePhoto(null)}
-                className="absolute top-4 right-4 z-30 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/70 text-white hover:bg-[#00ff7f] hover:text-[#020b06] transition-all shadow-lg"
-                aria-label="Close photo preview"
-              >
-                <X className="h-5 w-5" />
-              </button>
-
-              {/* High-res Image Preview */}
-              <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-black">
-                <img
-                  src={activePhoto.image}
-                  alt={activePhoto.title}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060D09] via-transparent to-transparent opacity-90" />
-
-                {/* Counter Tag */}
-                <div className="absolute top-4 left-4 z-20 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-bold text-white/80 backdrop-blur-md">
-                  {currentIndex + 1} / {filteredPhotos.length}
-                </div>
-              </div>
-
-              {/* Photo Details */}
-              <div className="p-6 sm:p-8 -mt-16 relative z-10">
-                <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3 py-1 text-xs font-bold text-[#00ff7f] uppercase tracking-wider">
-                    {activePhoto.category}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
-                    <MapPin className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.location}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
-                    <Calendar className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.date}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-                  {activePhoto.title}
-                </h3>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed font-medium">
-                  {activePhoto.description}
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Portaled Fullscreen Lightbox Modal */}
+      {isMounted && createPortal(modalJSX, document.body)}
     </section>
   );
 }
