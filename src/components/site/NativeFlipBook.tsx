@@ -108,7 +108,7 @@ const PAGES: ReactNode[] = [
     <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#C4C0AE]/60 via-[#E3DFCD]/20 to-transparent pointer-events-none z-10 mix-blend-multiply" />
 
     {/* Header */}
-    <div className="flex items-center justify-between z-10 border-b-2 border-[#008F4C]/80 pb-2.5 px-5 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 shrink-0">
+    <div className="flex items-center justify-between z-10 border-b-2 border-[#008F4C]/80 pb-8 px-5 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 shrink-0">
       <div className="flex items-center gap-2">
         <div className="h-7 w-7 rounded bg-[#008F4C] flex items-center justify-center font-extrabold text-white text-xs">
           G
