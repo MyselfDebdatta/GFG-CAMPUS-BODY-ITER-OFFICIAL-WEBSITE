@@ -351,10 +351,13 @@ const PAGES: ReactNode[] = [
           MEET OUR CORE
         </h2>
       </div>
-      <div className="border-t-[2px] border-[#008F4C] mb-2 mt-0.5"></div>
-      
-      <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mb-1 leading-none uppercase tracking-wide">
-        LEADS
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center pt-1 pb-1 leading-none uppercase tracking-wide">
+          LEADS
+        </div>
+        <div className="border-t-[1px] border-[#008F4C] mb-2"></div>
       </div>
       
       {/* Content Area */}
@@ -386,8 +389,13 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Divider for Team Co-ordinators */}
-        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mt-1.5 mb-1 leading-none uppercase tracking-wide">
-          TEAM CO-ORDINATORS
+        <div className="w-full mt-1.5">
+          <div className="border-t-[2px] border-[#008F4C]"></div>
+          <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+          <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center pt-1 pb-1 leading-none uppercase tracking-wide">
+            TEAM CO-ORDINATORS
+          </div>
+          <div className="border-t-[1px] border-[#008F4C] mb-1.5"></div>
         </div>
         
         {/* Row 3: Co-ordinators */}
