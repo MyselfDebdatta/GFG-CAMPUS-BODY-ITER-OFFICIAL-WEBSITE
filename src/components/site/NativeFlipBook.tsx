@@ -701,9 +701,9 @@ export function NativeFlipBook() {
         targetPageIndex: pageIndex - 1,
         staticLeft: null,
         staticRight: null,
-        staticMobile: PAGES[pageIndex - 1],
+        staticMobile: PAGES[pageIndex],
         frontFace: PAGES[pageIndex - 1],
-        backFace: PAGES[pageIndex],
+        backFace: PAGES[pageIndex - 1],
       };
 
       setIsFlipping(true);
@@ -826,7 +826,7 @@ export function NativeFlipBook() {
   }
 
   /* ──────── Page height ──────── */
-  const pageH = isMobile ? 540 : 660;
+  const pageH = 660;
 
   /* ──────── Render ──────── */
   return (
@@ -901,6 +901,22 @@ export function NativeFlipBook() {
           >
             <ChevronRight className="h-5 w-5" />
           </button>
+
+          {/* ── Mobile Tap Zones ── */}
+          {isMobile && (
+            <>
+              <div
+                className="absolute inset-y-0 left-0 w-1/4 z-30 cursor-pointer"
+                onClick={handlePrev}
+                aria-label="Previous page (tap zone)"
+              />
+              <div
+                className="absolute inset-y-0 right-0 w-1/4 z-30 cursor-pointer"
+                onClick={handleNext}
+                aria-label="Next page (tap zone)"
+              />
+            </>
+          )}
 
           {/* ── Hardcover shell ── */}
           <div
