@@ -79,7 +79,7 @@ export const EVENTS = [
     venue: "ITER Main Campus",
     status: "past",
     speakers: [
-      { name: "GFG Design & Media Leads", role: "Judges & Facilitators", photo: "" }
+      { name: "GFG Lead Board", role: "Core Team", photo: "" }
     ],
     description:
       "A fast-paced Design-Pitch competition inspiring participants to transform abstract ideas into compelling product concepts through design thinking, branding, and persuasive pitching under tight time constraints.",
@@ -94,7 +94,7 @@ export const EVENTS = [
     venue: "ITER Main Campus",
     status: "past",
     speakers: [
-      { name: "GFG Tech & Design Leads", role: "Event Conductors", photo: "" }
+      { name: "GFG Lead Board", role: "Core Team", photo: "" }
     ],
     description:
       "A multidisciplinary Capture the Flag event blending technology, strategy, and virtual economy management. Teams showcased technical expertise, real-time decision making, and hackathon-style solution development.",
