@@ -913,6 +913,180 @@ const PAGES: ReactNode[] = [
       </div>
     </div>
   )),
+
+  /* ─── PAGE 12 — left page ─── */
+  pg(true, 12, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-1">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          4th February 2026
+        </div>
+      </div>
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2"></div>
+      </div>
+      
+      {/* Top Image */}
+      <div className="w-full h-[150px] sm:h-[180px] border-[3px] border-[#008F4C] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Event Highlights" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-3 px-2 mt-2">
+        {/* Left Column (Green Box overlapping top image) */}
+        <div className="w-[50%] -mt-[60px] sm:-mt-[80px] relative z-10 pb-2">
+          <div className="bg-[#008F4C] p-1.5 shadow-md h-fit">
+            <div className="border-b-[1px] border-white pb-1 mb-2">
+              <h3 className="text-white text-[12px] sm:text-[14px] font-bold text-left tracking-wide">Event Highlights</h3>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4]">
+                  We were honored to host Zahid Akhtar, Founder of OneLife and a Life & Career Coach, Behavioral Trainer, and Public Speaker. With a strong focus on clarity, confidence, and purposeful growth, he works closely with students and professionals to help them navigate career decisions, build effective communication skills, and develop emotional resilience.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4]">
+                  His session was not just inspiring but deeply practical, offering actionable insights that encouraged our audience to reflect, reset, and move forward with greater direction and confidence.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4]">
+                  Zahid Sir's perspective on intuition, connection, and navigating uncertainty felt relatable, especially for students who are still figuring things out.
+                </p>
+              </div>
+            </div>
+            {/* Image inside green box */}
+            <div className="w-full border-[1.5px] border-white mt-2 p-0.5 bg-white">
+              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80" alt="Zahid Akhtar" className="w-full h-[70px] sm:h-[80px] object-cover grayscale-[20%] contrast-125" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Right Column */}
+        <div className="w-[50%] flex flex-col pt-1 pl-1 items-end">
+          {/* Top Right Image on Gray Box */}
+          <div className="w-[90%] relative mb-4 mt-2">
+            <div className="absolute inset-0 bg-[#D9D9D9] -left-1.5 -bottom-1.5 top-1.5 right-1.5"></div>
+            <div className="relative border-[1px] border-[#008F4C] overflow-hidden bg-white p-0.5">
+              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+            </div>
+          </div>
+          
+          {/* Bottom Right Green Box on Gray Box */}
+          <div className="w-[95%] relative mt-auto mb-2">
+            <div className="absolute inset-0 bg-[#D9D9D9] -left-2 -bottom-2 top-2 right-2"></div>
+            <div className="relative bg-[#008F4C] p-2 shadow-sm">
+              <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4]">
+                The Founder's Unplugged session concluded on a highly impactful note, leaving participants with valuable lessons on personality development, career growth, and entrepreneurship. Through engaging discussions and practical insights, students gained the confidence to embrace challenges, think strategically, and pursue their goals with clarity, resilience, and a balanced mindset.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 13 — right page ─── */
+  pg(false, 13, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 4.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          RAW & READY
+        </h2>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+        <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          PERSONALITY DEVELOPMENT SESSION
+        </div>
+        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          4th February 2026
+        </div>
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-4 px-2 mt-2 h-[65%]">
+        {/* Left Column (Gray background + Green Box) */}
+        <div className="w-[60%] relative">
+          <div className="absolute inset-0 bg-[#D9D9D9] -left-2 top-0 bottom-0 right-4"></div>
+          <div className="relative bg-[#008F4C] p-2 sm:p-2.5 shadow-md h-full -top-1 ml-2 flex flex-col">
+            <h3 className="text-white text-[12px] sm:text-[14px] font-bold tracking-wide mb-1">Overview</h3>
+            <p className="text-white text-[6.5px] sm:text-[7px] font-medium leading-[1.4] mb-2">
+              An insightful session was conducted on Personality Development of which key takeaway are-
+            </p>
+            <div className="flex flex-col gap-1.5">
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium leading-[1.4]">
+                  <span className="font-bold">1. Introduction to Personal Growth</span><br/>
+                  Focusing on how self-awareness and behaviour shape our professional journey. The session emphasized that personal growth is as essential as technical skills in today's competitive environment.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium leading-[1.4]">
+                  <span className="font-bold">2. Building Self-Esteem</span><br/>
+                  We learned that self-esteem is the belief in one's own worth and capabilities. Confidence doesn't come from knowing everything, but from staying steady even when we don't have all the answers.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium leading-[1.4]">
+                  <span className="font-bold">3. Understanding Facts vs Opinions</span><br/>
+                  Distinguished between facts (objective truths) and opinions (personal viewpoints). This clarity helps improve communication, teamwork, and logical thinking—crucial skills for developers.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium leading-[1.4]">
+                  <span className="font-bold">4. Time Management Techniques</span><br/>
+                  The session shared a practical 4-box method for managing time effectively:<br/>
+                  Do: Tasks that are important & urgent<br/>
+                  Schedule: Important but not urgent<br/>
+                  Delegate: Urgent but less important<br/>
+                  Eliminate: Not important & not urgent
+                </p>
+              </div>
+            </div>
+            <p className="text-white text-[6.5px] sm:text-[7px] font-medium leading-[1.4] mt-2">
+              This approach helps students balance academics, coding practice, and personal commitments efficiently.
+            </p>
+          </div>
+        </div>
+        
+        {/* Right Column (Stacked Images) */}
+        <div className="w-[40%] flex flex-col justify-between">
+          <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80" alt="Session 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden mt-2">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Session 2" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden mt-2">
+            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80" alt="Session 3" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
 ];
 
 const TOTAL_PAGES = PAGES.length;
