@@ -278,29 +278,29 @@ function EventDetails() {
           {/* Left: Mission Brief */}
           <div className="space-y-6">
             {/* Brief */}
-            <div className="rounded-2xl border border-hairline bg-surface-elevated p-8 md:p-10">
-              <div className="flex items-center gap-2.5 mb-5">
+            <div className="rounded-2xl border border-hairline bg-surface-elevated p-6 sm:p-7">
+              <div className="flex items-center gap-2.5 mb-4">
                 <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center">
                   <Terminal className="h-4 w-4 text-brand" />
                 </div>
-                <h2 className="text-xl font-bold tracking-tight">Mission Brief</h2>
+                <h2 className="text-lg font-bold tracking-tight">Mission Brief</h2>
               </div>
-              <p className="text-muted-foreground text-[15px] leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {copy.brief}
               </p>
             </div>
 
             {/* Objectives */}
-            <div className="rounded-2xl border border-hairline bg-surface-elevated p-8 md:p-10">
-              <div className="flex items-center gap-2.5 mb-5">
+            <div className="rounded-2xl border border-hairline bg-surface-elevated p-6 sm:p-7">
+              <div className="flex items-center gap-2.5 mb-4">
                 <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center">
                   <Target className="h-4 w-4 text-brand" />
                 </div>
-                <h2 className="text-xl font-bold tracking-tight">Objectives</h2>
+                <h2 className="text-lg font-bold tracking-tight">Objectives</h2>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {copy.objectives.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[15px] text-muted-foreground">
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                     <Zap className="h-4 w-4 text-brand/60 mt-0.5 shrink-0" />
                     <span>{obj}</span>
                   </li>
@@ -310,7 +310,7 @@ function EventDetails() {
           </div>
 
           {/* Right: Crew & CTA */}
-          <div className="flex flex-col justify-between space-y-6 lg:space-y-0 h-full">
+          <div className="space-y-6">
             {/* Crew Dossier */}
             <div className="rounded-2xl border border-hairline bg-surface-elevated overflow-hidden">
               <div className="border-b border-hairline px-6 py-4 flex items-center gap-2.5">
