@@ -621,29 +621,142 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 7 (Page 8): FUTURE VISION — right page ─── */
-  pg(false, 8, (
-    <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-        <Rocket className="h-3 w-3" /> Looking Ahead
+  /* ─── PAGE 8 — left page ─── */
+  pg(true, 8, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-1">
+        ITER
       </div>
-      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
-        Future Vision 2026–27
-      </h2>
-      <div className="space-y-2.5 text-[10px] text-[#1A1A1A]/90 font-medium leading-relaxed">
-        <p>
-          Scaling GFG ITER into Odisha's flagship student innovation ecosystem
-          — expanding national hackathon partnerships, open-source grants, and
-          direct industry mentorship pipelines.
-        </p>
-        <div className="aspect-[16/8] w-full overflow-hidden border-[3px] border-[#008F4C] p-0.5 bg-white relative group shadow-sm">
-          <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
-            alt="GFG ITER Core Team Group Photo 2025-26"
-            className="w-full h-full object-cover grayscale-[20%] contrast-125"
-          />
-          <div className="absolute inset-x-0 bottom-0 bg-[#008F4C]/90 backdrop-blur-sm p-1.5 text-center text-[8px] font-bold text-white uppercase tracking-wider">
-            Executive & Core Team 2025–26
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C] mb-2"></div>
+      </div>
+      
+      {/* Top Image */}
+      <div className="w-full h-[160px] sm:h-[190px] border-[3px] border-[#008F4C] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-3 px-2 mt-2">
+        {/* Left Column */}
+        <div className="w-[45%] flex flex-col pt-1">
+          <p className="text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-3">
+            The experience was defined by its informal and welcoming environment. Tea and refreshments, served during the discussions, subtly enhanced the relaxed atmosphere, making participants feel at ease. ChainLinks Episode 0 was open to all students through a registration-based system, with attendance intentionally limited to ensure meaningful interaction. Despite this, the event attracted strong interest, bringing together students from different academic years who shared a genuine enthusiasm for discussion-driven learning.
+          </p>
+          <div className="w-full border-[2px] border-[#008F4C] aspect-square overflow-hidden mt-auto">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+        
+        {/* Right Column (Green Box overlapping top image) */}
+        <div className="w-[55%] -mt-[80px] sm:-mt-[100px] relative z-10">
+          <div className="bg-[#008F4C] p-1.5 shadow-md border-[1.5px] border-white ring-[1.5px] ring-[#008F4C] flex flex-col gap-1.5">
+            <div className="border-[0.5px] border-white p-1.5">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+                Beyond academics, the event stood out for the accessibility it created. Students had the rare opportunity to directly engage with faculty members in an approachable setting. This removed the usual barriers, allowing questions to flow more freely and conversations to feel more personal. As a result, learning became a collaborative process rather than a one-sided exchange
+              </p>
+            </div>
+            <div className="border-[0.5px] border-white p-1.5">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+                The event also encouraged valuable peer interaction. Its circle-based format naturally brought together students with similar interests, creating space for open discussions and idea sharing. In a typical academic environment where networking often feels forced, ChainLinks enabled connections to form organically, fostering a sense of community and collaboration.
+              </p>
+            </div>
+            <div className="border-[0.5px] border-white p-1.5">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+                Ultimately, ChaiLinks Episode 0 showcased the impact of reimagining traditional engagement formats. By prioritizing conversation over formality and interaction over rigid structure, the event delivered an experience that was both enriching and accessible. Its success set a strong foundation for future editions, aligning with the club's vision of promoting dialogue, curiosity, and meaningful academic connections.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 9 — right page ─── */
+  pg(false, 9, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 2.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          CHAILINKS
+        </h2>
+        <div className="absolute right-0 top-1 text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EPISODE:01
+        </div>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+        <div className="text-[9px] sm:text-[10px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          CUP THAT CONNECTS . CONVERSATION THAT MATTERS
+        </div>
+        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          3rd December 2025
+        </div>
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-3 px-2 mt-2">
+        {/* Left Column (Green Box) */}
+        <div className="w-[45%] bg-[#008F4C] p-1.5 shadow-md h-fit">
+          <div className="border-b-[1px] border-white pb-1 mb-2">
+            <h3 className="text-white text-[12px] sm:text-[14px] font-bold text-center uppercase tracking-wide">Overview</h3>
+          </div>
+          <div className="flex flex-col gap-2 text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+            <p>
+              After the strong foundation laid by Episode 0, ChainLinks Episode 01 didn't just continue the journey — it elevated it. This edition wasn't simply an event; it was a milestone that reflected growth, ambition, and a clear vision for the future With the powerful themes of TinyML and Agentic AI, Episode 01 brought frontier technology into an open, discussion-driven space — making complex ideas accessible, exciting, and actionable.
+            </p>
+            <div className="border-[0.5px] border-white p-1">
+              <p>
+                These are not ordinary classroom topics. They represent the next wave of technological transformation — from smart embedded devices to self-operating AI systems. By centering the session around these domains, the GFG Club positioned ChainLinks Episode 01 at the forefront of innovation.
+              </p>
+            </div>
+            <p>
+              ChainLinks Episode 01 was not just a continuation of a successful initiative — it was its evolution. After introducing the idea of open, conversation-driven learning in Episode 0, the GeeksforGeeks Club returned with a sharper vision, greater ambition, and a theme that reflected the future of technology itself: TinyML and Agentic AI.
+            </p>
+            <p>
+              From the very beginning, the atmosphere carried a sense of purpose. This was no ordinary academic interaction. It was a space where emerging technologies were not simplified into surface-level discussions, but explored with depth, curiosity, and confidence. TinyML brought attention to the power of running machine learning models on compact, low-energy devices, pushing intelligence to the edge. Agentic AI expanded the horizon further, opening dialogue around autonomous systems capable of reasoning, adapting, and acting independently.
+            </p>
+            <p>
+              As faculty members shared their expertise and research insights, the room quickly transformed into a living exchange of ideas.
+            </p>
+          </div>
+        </div>
+        
+        {/* Right Column */}
+        <div className="w-[55%] flex flex-col pt-1">
+          <div className="w-full border-[3px] border-[#008F4C] aspect-[4/3] overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Episode 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="text-[#222] font-medium text-justify leading-[1.6]">
+            <p className="font-bold text-[8px] sm:text-[8.5px] text-[#111] mb-1.5 leading-[1.4]">
+              Choosing TinyML and Agentic AI was a State- statement in itself.
+            </p>
+            <ul className="list-disc pl-3 mb-2 text-[7.5px] sm:text-[8px] space-y-0.5">
+              <li>TinyML explored how machine learning models can run efficiently on microcontrollers and low-power devices — bringing intelligence directly to the edge.</li>
+              <li>Agentic AI opened conversations around autonomous AI systems capable of reasoning, decision-making, and executing tasks independently.</li>
+            </ul>
+            <p className="text-[7.5px] sm:text-[8px] mb-2">
+              The format retained its signature informal spirit, inspired by the comfort of a Chai Pe Charcha, but the conversations reflected a noticeable leap in intellectual intensity. Students were not merely listening — they were engaging, questioning architectures, discussing deployment challenges, debating real-world implications, and imagining applications beyond the classroom.
+            </p>
+            <p className="text-[7.5px] sm:text-[8px]">
+              What made Episode 01 truly remarkable was the shift in mindset it inspired. Discussions moved beyond definitions and theory into implementation and innovation. Students explored how TinyML models could be optimized for embedded devices, and how these technologies could shape industries in the coming years.
+            </p>
           </div>
         </div>
       </div>
