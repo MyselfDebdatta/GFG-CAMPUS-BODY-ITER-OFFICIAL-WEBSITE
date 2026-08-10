@@ -201,35 +201,34 @@ export function WhatWeDoGallery() {
             exit={{ scale: 0.95, opacity: 0, y: 15 }}
             transition={{ duration: 0.25 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full rounded-3xl border border-[#00ff7f]/40 bg-[#060D09] overflow-hidden shadow-[0_0_80px_rgba(0,255,127,0.25)] my-auto flex flex-col"
+            className="relative max-w-5xl w-full rounded-3xl border border-[#00ff7f]/40 bg-black overflow-hidden shadow-[0_0_80px_rgba(0,255,127,0.25)] my-auto"
           >
-            {/* Separate Header Bar: Counter Tag & Close Button */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#030905]">
-              <div className="flex items-center gap-3">
-                <span className="rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3.5 py-1 text-xs font-extrabold text-[#00ff7f] tracking-wide">
-                  {currentIndex + 1} / {filteredPhotos.length}
-                </span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-xs font-bold text-white/80 uppercase tracking-wider hidden sm:inline-block">
-                  {activePhoto.category}
-                </span>
-              </div>
-
-              <button
-                onClick={() => setActivePhoto(null)}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white hover:bg-[#00ff7f] hover:text-[#020b06] transition-all shadow-md"
-                aria-label="Close photo preview"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            {/* High-res Image Preview Only */}
+            {/* High-res Image Preview Filling Entire Card */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-black flex items-center justify-center">
               <img
                 src={activePhoto.image}
                 alt={activePhoto.title}
                 className="h-full w-full object-cover"
               />
+
+              {/* Floating Badges Over Photo Top-Left */}
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-3">
+                <span className="rounded-full border border-[#00ff7f]/50 bg-black/60 backdrop-blur-md px-3.5 py-1.5 text-xs font-extrabold text-[#00ff7f] tracking-wide shadow-lg">
+                  {currentIndex + 1} / {filteredPhotos.length}
+                </span>
+                <span className="rounded-full border border-white/20 bg-black/60 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-white uppercase tracking-wider shadow-lg hidden sm:inline-block">
+                  {activePhoto.category}
+                </span>
+              </div>
+
+              {/* Floating Close Button Over Photo Top-Right */}
+              <button
+                onClick={() => setActivePhoto(null)}
+                className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 backdrop-blur-md text-white hover:bg-[#00ff7f] hover:text-[#020b06] transition-all shadow-lg"
+                aria-label="Close photo preview"
+              >
+                <X className="h-5 w-5" />
+              </button>
             </div>
           </motion.div>
         </motion.div>
