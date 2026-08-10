@@ -335,9 +335,6 @@ function EventDetails() {
                     </div>
                   </div>
                 ))}
-                <p className="text-xs text-muted-foreground/60 leading-relaxed pt-1">
-                  Additional speakers and mentors will be confirmed closer to the event date. Follow our socials for live updates.
-                </p>
               </div>
             </div>
 
