@@ -435,68 +435,7 @@ function Home() {
       {/* Separator */}
       <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
-      {/* TEAM PREVIEW */}
-      <section className="relative z-10 container-page py-24">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeader
-            eyebrow="Leadership"
-            title="The people behind GFG ITER"
-            description="A small, focused team of student engineers and designers."
-          />
-          <Button asChild variant="outline" className="border-foreground/15">
-            <Link to="/team">
-              Full team <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-          {TEAM.slice(0, 9).map((m, i) => (
-            <Reveal key={m.name} delay={i * 0.05}>
-              <div className="group cursor-pointer relative overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-white/5 backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <img
-                    src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
-                    alt={m.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
-                    loading="lazy"
-                  />
-                  {m.linkedin && (
-                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex flex-col sm:flex-row gap-1.5 sm:gap-2 z-10">
-                      {(m as any).github && (
-                        <a
-                          href={(m as any).github}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="grid h-7 w-7 sm:h-10 sm:w-10 place-items-center rounded-full bg-white text-[#333] shadow-lg transition-transform duration-300 raw-hover:scale-110"
-                          aria-label={`${m.name}'s GitHub`}
-                        >
-                          <Github className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-                        </a>
-                      )}
-                      <a
-                        href={m.linkedin}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="grid h-7 w-7 sm:h-10 sm:w-10 place-items-center rounded-full bg-white text-[#0A66C2] shadow-lg transition-transform duration-300 raw-hover:scale-110"
-                        aria-label={`${m.name}'s LinkedIn`}
-                      >
-                        <Linkedin className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-                      </a>
-                    </div>
-                  )}
-                </div>
-                <div className="p-3 sm:p-4">
-                  <div className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-brand line-clamp-1">{m.role}</div>
-                  <div className="mt-0.5 sm:mt-1 text-sm sm:text-base font-semibold transition-all duration-300 text-white hover-gradient-text line-clamp-1">{m.name}</div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
-      {/* Separator */}
-      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
       {/* AMAZING CONTRIBUTORS */}
       <section className="relative z-10 overflow-hidden py-24">
