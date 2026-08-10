@@ -1087,6 +1087,408 @@ const PAGES: ReactNode[] = [
       </div>
     </div>
   )),
+
+  /* ─── PAGE 14 — left page ─── */
+  pg(true, 14, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-1">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          4th February 2026
+        </div>
+      </div>
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2"></div>
+      </div>
+      
+      {/* Top Image */}
+      <div className="w-full h-[140px] sm:h-[160px] border-[3px] border-[#008F4C] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Activity" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-3 px-2 mt-2 h-[55%]">
+        {/* Left Column (Green Box) */}
+        <div className="w-[55%] -mt-[40px] sm:-mt-[60px] relative z-10 pb-2">
+          <div className="bg-[#008F4C] p-1.5 shadow-md h-full flex flex-col">
+            <div className="border-b-[1px] border-white pb-1 mb-2">
+              <h3 className="text-white text-[12px] sm:text-[14px] font-bold text-left tracking-wide">Event Highlights</h3>
+            </div>
+            <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4] mb-2">
+              The personality development session was interactive, reflective, and thought-provoking. Participants were led through a series of carefully curated activities which encouraged them to think critically and work effectively as a team.
+            </p>
+            <div className="flex flex-col gap-1.5 flex-1 justify-between">
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  <span className="font-bold">• Activity-1</span><br/>
+                  The series of activities commenced with a scenario-based activity, "Lost in the Jungle". It challenged the participants with a survival scenario with a given list of limited resources. First they were asked to rank these resources individually and then as a group in terms of what they believed would be most essential for survival. The activity focused on making decisions under pressure, analytical thinking, teamwork and taking other people's opinion into consideration. This enabled participants to realize that people working together normally provide solutions that are superior to one person thinking. This would be achieved by comparing individual priorities with group and expert priorities.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  <span className="font-bold">• Activity-2</span><br/>
+                  The second activity was a simple instruction following task. The participants were provided with a sheet containing a set of instructions to be followed. As the participants worked on the task, they realized that to complete the task correctly, one had to read the instructions carefully and not rush through them. The task taught the participants the importance of fully understanding a task before completing it on time. The activity highlights the significance of mindfulness, clarity and discipline, which are essential qualities for successful communication and professional development.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1.5">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  <span className="font-bold">• Activity-3</span><br/>
+                  The third activity was a mini ideathon, which was a creative activity. The participants were divided into groups of four to five people. The task was to brainstorm and present out-of-the-box ideas. The ideas included everything from creative tools that were inspired by fiction to solutions that were improved with creative thinking. The activity promoted innovation, communication skills, teamwork and ability to present ideas without any hesitation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Right Column */}
+        <div className="w-[45%] flex flex-col justify-between pt-2 pb-2">
+          {/* Top Right Image */}
+          <div className="w-[90%] border-[2px] border-[#008F4C] overflow-hidden ml-auto">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Students engaging" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+          </div>
+          
+          {/* Bottom Right Green Box on Gray Box */}
+          <div className="w-full relative mt-auto">
+            <div className="absolute inset-0 bg-[#D9D9D9] -left-2 -bottom-2 top-2 right-2"></div>
+            <div className="relative bg-[#008F4C] p-2 shadow-sm border-[0.5px] border-white">
+              <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                <span className="font-bold">• Activity-4</span><br/>
+                The final activity focused on basic financial literacy and investment awareness. The participants were made aware of various savings and investment alternatives, which were compared on the basis of risk, returns, and liquidity. The participants were able to understand better the impact of financial choices on long-term results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 15 — right page ─── */
+  pg(false, 15, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 5.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          ZERONE
+        </h2>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+        <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          CAPTURE THE FLAG EVENT
+        </div>
+        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          3rd April 2026
+        </div>
+      </div>
+      
+      {/* Top Image */}
+      <div className="w-full h-[130px] border-[2px] border-white overflow-hidden mb-2 relative">
+        <div className="absolute inset-0 bg-[#D9D9D9] -left-1 -bottom-1 top-1 right-1 -z-10"></div>
+        <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="Zerone Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-4 px-2 h-full">
+        {/* Left Column (3 images) */}
+        <div className="w-[45%] flex flex-col gap-2">
+          <div className="w-full border-[1.5px] border-white overflow-hidden bg-white shadow-sm">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=500&q=80" alt="Zerone 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full border-[1.5px] border-white overflow-hidden bg-white shadow-sm">
+            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80" alt="Zerone 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full border-[1.5px] border-white overflow-hidden bg-white shadow-sm">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Zerone 3" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+        
+        {/* Right Column (Green Box) */}
+        <div className="w-[55%] relative h-[210px]">
+          <div className="absolute inset-0 bg-[#D9D9D9] -left-2 top-2 -bottom-2 right-2"></div>
+          <div className="relative bg-[#008F4C] p-2.5 shadow-md h-full text-white">
+            <h3 className="text-[12px] sm:text-[14px] font-bold tracking-wide mb-1 uppercase">Overview:</h3>
+            <p className="text-[6.5px] sm:text-[7px] font-medium leading-[1.4] mb-2 text-justify">
+              ZerOne successfully blended technology, strategy, and innovation through an engaging multidisciplinary challenge. Teams showcased technical expertise and collaborative problem-solving while adapting to a dynamic virtual economy.
+            </p>
+            <ul className="list-disc pl-3 text-[6.5px] sm:text-[7px] font-medium leading-[1.4] mb-2 space-y-1">
+              <li>Encouraged innovation through hackathon-style development.</li>
+              <li>Strengthened teamwork, resource management, and real-time decision-making.</li>
+              <li>Concluded with impactful solution presentations and evaluations.</li>
+            </ul>
+            <p className="text-[6.5px] sm:text-[7px] font-medium leading-[1.4] text-justify mt-2">
+              ZerOne emerged as a true celebration of innovation, collaboration, and technological excellence, inspiring participants to think beyond conventional boundaries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 16 — left page ─── */
+  pg(true, 16, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 6.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          RACHITVA
+        </h2>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+        <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          DESIGN-PITCH EVENT
+        </div>
+        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          5th April 2026
+        </div>
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-4 px-2 h-full">
+        {/* Left Column */}
+        <div className="w-[50%] flex flex-col justify-between pb-2">
+          {/* Green Box */}
+          <div className="relative mb-3">
+            <div className="absolute inset-0 bg-[#D9D9D9] -left-2 top-2 -bottom-2 right-2"></div>
+            <div className="relative bg-[#008F4C] p-2.5 shadow-md text-white">
+              <h3 className="text-[12px] sm:text-[14px] font-bold tracking-wide mb-1 uppercase">Overview:</h3>
+              <p className="text-[7px] sm:text-[7.5px] font-medium leading-[1.4] text-justify">
+                Rachitva inspired participants to transform abstract ideas into compelling product concepts through creativity and innovation. Teams demonstrated exceptional design thinking, branding, and persuasive pitching under time constraints. The event fostered quick thinking, effective communication, and entrepreneurial spirit, leaving participants with valuable experience in product development and strategic marketing.
+              </p>
+            </div>
+          </div>
+          {/* Bottom Left Image */}
+          <div className="w-full mt-auto mb-1 border-[1.5px] border-white shadow-sm overflow-hidden bg-white">
+            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=500&q=80" alt="Pitch" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+        
+        {/* Right Column (3 Images) */}
+        <div className="w-[50%] flex flex-col justify-between pb-2">
+          <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80" alt="Rachitva 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white my-2">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="Rachitva 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white mt-auto mb-1">
+            <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=500&q=80" alt="Rachitva Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 17 — right page ─── */
+  pg(false, 17, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-end items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          MEMBERS ACHIEVEMENTS
+        </h2>
+      </div>
+      
+      <div className="w-full mb-4">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+      </div>
+      
+      {/* List of achievements */}
+      <div className="flex flex-col gap-5 px-3">
+        {/* Item 1 */}
+        <div className="flex items-center gap-3">
+          <div className="w-[55%] flex flex-col">
+            <h3 className="text-[#008F4C] font-bold text-[11px] sm:text-[13px] leading-[1.2] mb-1">24-Hour Hackathon,<br/>XIM University</h3>
+            <p className="font-bold text-[#111] text-[8px] sm:text-[9px] mb-1">1st Prize Secured</p>
+            <p className="text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.4] text-[#222]">
+              Team Hex Syndicate — Sanyukt Kumar Rai, Aman Murari Singh, Pratham Gupta, Abhishek Raj, and Sujal Kumar — secured 1st Prize at the 24-hour hackathon hosted by XIM University, with their innovation, technical expertise, and dedication driving this outstanding achievement.
+            </p>
+          </div>
+          <div className="w-[45%]">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Achievement 1" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
+          </div>
+        </div>
+        
+        {/* Item 2 */}
+        <div className="flex items-center gap-3">
+          <div className="w-[55%] flex flex-col">
+            <h3 className="text-[#008F4C] font-bold text-[11px] sm:text-[13px] leading-[1.2] mb-1">HackFest, Advaita,<br/>IIIT Bhubaneswar</h3>
+            <p className="font-bold text-[#111] text-[8px] sm:text-[9px] mb-1">Champions Title Secured</p>
+            <p className="text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.4] text-[#222]">
+              Team MindMesh — Shubham Parida, Ankita Mohapatra, Shlok Katiyar, and Shreya Patel secured the Champions title at HackFest, Advaita, IIIT Bhubaneswar, with their innovation, teamwork, and dedication setting them apart and driving this outstanding achievement.
+            </p>
+          </div>
+          <div className="w-[45%]">
+            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=500&q=80" alt="Achievement 2" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
+          </div>
+        </div>
+        
+        {/* Item 3 */}
+        <div className="flex items-center gap-3">
+          <div className="w-[55%] flex flex-col">
+            <h3 className="text-[#008F4C] font-bold text-[11px] sm:text-[13px] leading-[1.2] mb-1">Smart India Hackathon<br/>Internals, 2025</h3>
+            <p className="font-bold text-[#111] text-[8px] sm:text-[9px] mb-1">1st in Hardware</p>
+            <p className="text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.4] text-[#222]">
+              Team Bhumicare, Vivek Ranjan Sahoo, Ayush Ranjan Pradhan, Subasis Mishra, Depesh Singh, Anjali Rout, Subhashree Sahoo secured the 1st in Hardware and 4th overall at SIH Internal 2025.
+            </p>
+          </div>
+          <div className="w-[45%]">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Achievement 3" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 18 — left page ─── */
+  pg(true, 18, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      <div className="w-full mb-3">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+      </div>
+      
+      {/* Section 1: LOOKING AHEAD */}
+      <div className="text-center mb-1">
+        <h3 className="inline-block text-[10px] sm:text-[12px] font-bold text-[#111] uppercase tracking-wide border-b-[1.5px] border-[#111] pb-0.5">
+          LOOKING AHEAD:
+        </h3>
+      </div>
+      <div className="bg-[#008F4C] p-2 sm:p-2.5 mb-3">
+        <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+          Following the success of our recent technical sessions and coding initiatives, the chapter is planning more hands-on and skill-focused events for students. Upcoming activities will include mock interview sessions, coding challenges, and focused problem-solving workshops to strengthen programming fundamentals and interview preparation.<br/><br/>
+          The chapter also aims to conduct deep-dive learning sessions on data structures, algorithms, system design, and real-world case studies, helping students gain practical knowledge aligned with industry expectations. Networking sessions with alumni and professionals will further provide insights into career paths, challenges, and opportunities in the tech industry.
+        </p>
+      </div>
+      
+      {/* Section 2: APPRECIATION */}
+      <div className="text-center mb-1">
+        <h3 className="inline-block text-[10px] sm:text-[12px] font-bold text-[#111] uppercase tracking-wide border-b-[1.5px] border-[#111] pb-0.5">
+          A NOTE OF <span className="text-[#008F4C]">APPRECIATION</span>
+        </h3>
+      </div>
+      <div className="px-2 mb-3">
+        <p className="text-[#222] text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+          We extend our heartfelt gratitude to all the students, faculty members, mentors, and volunteers who contributed to making our initiatives meaningful and impactful.<br/>
+          Students brought curiosity, enthusiasm, and dedication, turning every workshop and coding session into a vibrant learning environment. Mentors and alumni generously shared their experiences and technical insights, helping bridge the gap between academic learning and real-world industry practices.<br/>
+          Faculty members provided continuous guidance and encouragement, ensuring that every initiative remained well-structured, inclusive, and student-driven. Meanwhile, the volunteers worked tirelessly behind the scenes to coordinate events, manage logistics, and ensure smooth execution.<br/>
+          Together, this community has created more than just technical events—it has fostered a culture of collaboration, continuous learning, and innovation that will inspire many future batches.
+        </p>
+      </div>
+      
+      {/* Section 3: UPCOMING INITIATIVES */}
+      <div className="text-center mb-1 mt-auto">
+        <h3 className="inline-block text-[10px] sm:text-[12px] font-bold text-[#111] uppercase tracking-wide border-b-[1.5px] border-[#111] pb-0.5">
+          <span className="text-[#008F4C]">UPCOMING</span> INITIATIVES
+        </h3>
+      </div>
+      <div className="bg-[#008F4C] p-2 sm:p-2.5 mb-2">
+        <ul className="text-white text-[7px] sm:text-[7.5px] font-medium leading-[1.5] space-y-1">
+          <li>• Hackathon-style coding events centered around real-world problem statements</li>
+          <li>• Resume and portfolio review clinics with alumni and industry mentors</li>
+          <li>• Regular workshops on AI tools, development frameworks, and emerging technologies</li>
+          <li>• Competitive programming practice sessions and coding contests</li>
+          <li>• Career guidance sessions for internships and placements</li>
+        </ul>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 19 — right page ─── */
+  pg(false, 19, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-end items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          CORE TEAM 2025-26
+        </h2>
+      </div>
+      
+      <div className="w-full mb-3">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+      </div>
+      
+      {/* Images Section */}
+      <div className="flex-1 relative flex flex-col pb-2 px-2">
+        {/* Top Image */}
+        <div className="flex-1 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="Core Team Top" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        </div>
+        
+        {/* Bottom Image */}
+        <div className="flex-1 overflow-hidden mt-1">
+          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Core Team Bottom" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        </div>
+        
+        {/* Overlapping Banner */}
+        <div className="absolute top-1/2 left-2 -translate-y-1/2 z-10 w-fit">
+          <div className="absolute inset-0 bg-[#D9D9D9] -left-1 top-1 -bottom-1 right-1"></div>
+          <div className="relative bg-[#008F4C] border-[1px] border-white py-1.5 px-4 shadow-md">
+            <h3 className="text-white text-[12px] sm:text-[14px] font-black uppercase tracking-wide">
+              GFG ITER CORE TEAM
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
 ];
 
 const TOTAL_PAGES = PAGES.length;
