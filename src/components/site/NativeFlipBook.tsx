@@ -416,40 +416,64 @@ const PAGES: ReactNode[] = [
 
   /* ─── PAGE 4 (Page 5): CODEUNBOUND LAUNCH — left page ─── */
   pg(true, 5, (
-    <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-        <Rocket className="h-3 w-3" /> Flagship Inauguration
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header aligned perfectly with Page 3/4 */}
+      <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-0.5">
+        ITER
       </div>
-      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-1.5 pb-2 border-b-2 border-[#008F4C]">
-        CodeUnbound: The Launch
-      </h2>
-      <div className="flex items-center gap-3 text-[9px] font-mono text-[#1A1A1A]/70 mb-2.5 font-bold">
-        <span className="flex items-center gap-1">
-          <Calendar className="h-2.5 w-2.5 text-[#008F4C]" /> Nov 07, 2025
-        </span>
-        <span className="flex items-center gap-1">
-          <MapPin className="h-2.5 w-2.5 text-[#008F4C]" /> Bansuri Guru Aud.
-        </span>
+      <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
+        <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.4)", display: "inline-block", letterSpacing: "-0.01em" }}>
+          CODE UNBOUND
+        </h2>
       </div>
-      <div className="space-y-2 text-[10px] text-[#1A1A1A]/90 font-medium leading-relaxed">
-        <p>
-          The official grand launch of the GeeksforGeeks ITER Chapter at
-          Bansuri Guru Auditorium. Attended by over 300+ enthusiastic
-          builders, faculty leads, and industry guests.
-        </p>
-        <div className="aspect-[16/8] w-full overflow-hidden border-[3px] border-[#008F4C] p-0.5 bg-white shadow-sm">
-          <img
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
-            alt="CodeUnbound Launch"
-            className="w-full h-full object-cover grayscale-[20%] contrast-125"
-          />
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1 pb-1 mb-2.5 mx-4">
+        <div className="text-lg sm:text-xl font-serif text-[#333] tracking-wide uppercase">
+          THE <span className="text-[#008F4C] font-sans font-black tracking-tight">GFG</span> LAUNCH
         </div>
-        <div className="grid grid-cols-2 gap-1.5 text-[9px]">
-          <div className="p-1.5 bg-[#008F4C]/10 border border-[#008F4C]/30 font-bold text-[#111511]">
-            <span className="text-[#008F4C]">⚡</span> Interactive Menti Quiz
+        <div className="absolute left-1/2 -bottom-[8px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          7th November 2025
+        </div>
+      </div>
+      
+      {/* Content Area */}
+      <div className="relative flex-1">
+        {/* Top Image */}
+        <div className="w-full h-[150px] sm:h-[180px] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="CodeUnbound Launch Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        </div>
+        
+        {/* Two Columns */}
+        <div className="flex gap-3 px-2 mt-3">
+          {/* Left Column (Overlaps image via negative margin) */}
+          <div className="w-[45%] -mt-[70px] sm:-mt-[90px] relative z-10">
+            <div className="bg-[#008F4C] p-1.5 shadow-md">
+              <div className="border-[1.5px] border-[#F5F3EA] bg-[#222] aspect-[4/3] overflow-hidden">
+                 <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=800&q=80" alt="Guess the logo" className="w-full h-full object-cover opacity-80 mix-blend-screen" />
+              </div>
+              <ul className="text-white text-[7.5px] sm:text-[8px] list-disc pl-3.5 mt-2 pr-1 pb-1 space-y-1 font-medium leading-[1.3]">
+                 <li>During the orientation, the club's vision was clearly articulated:</li>
+                 <li>To create a collaborative coding culture at ITER</li>
+                 <li>To help students strengthen their problem-solving and DSA skills</li>
+                 <li>To prepare members for internships, hackathons, and placements</li>
+                 <li>To encourage peer learning, mentorship, and real-world project building</li>
+              </ul>
+            </div>
           </div>
-          <div className="p-1.5 bg-[#008F4C]/10 border border-[#008F4C]/30 font-bold text-[#111511]">
-            <span className="text-[#008F4C]">🎯</span> Annual Roadmap Unveil
+          
+          {/* Right Column (Starts below the image) */}
+          <div className="w-[55%] text-[#111] text-[8px] sm:text-[9.5px] text-justify leading-relaxed font-serif pr-2">
+             <p className="mb-2">
+               The much-awaited launch of Code Unbound marked the official inauguration of the GeeksforGeeks (GFG) Club – ITER Student Chapter. The event was successfully conducted in the grand auditorium hall of Bansuri Guru, bringing together enthusiastic students passionate about technology, coding, and innovation.
+             </p>
+             <p>
+               The session began with a warm welcome to all attendees, followed by the unveiling of the GFG Club at ITER. The respective leads and core team members were formally introduced, each sharing their journey, technical interests, and vision for building a strong developer community within the campus.
+             </p>
           </div>
         </div>
       </div>
