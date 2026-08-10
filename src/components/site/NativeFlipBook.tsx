@@ -762,6 +762,157 @@ const PAGES: ReactNode[] = [
       </div>
     </div>
   )),
+
+  /* ─── PAGE 10 — left page ─── */
+  pg(true, 10, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-1">
+        ITER
+      </div>
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C] mb-2"></div>
+      </div>
+      
+      {/* Top Image */}
+      <div className="w-full h-[160px] sm:h-[190px] border-[3px] border-[#008F4C] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="ChainLinks Group" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-3 px-2 mt-2">
+        {/* Left Column */}
+        <div className="w-[45%] flex flex-col pt-1">
+          <div className="text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-3">
+            <p className="mb-1">
+              ChainLinks Episode 01 was not just a milestone — it was a moment that redefined possibility. What started in Episode 0 as a bold experiment in open dialogue evolved into something far greater: a living, breathing ecosystem of ideas, ambition, and fearless curiosity. The conversations were deeper. The vision was clearer. The energy was unstoppable. This was no longer just a gathering — it was a spark.
+            </p>
+            <p className="mb-1">
+              It wasn't only about TinyML pushing intelligence to the edge. It wasn't only about Agentic AI shaping autonomous futures. It was about daring to explore what others hesitate to touch. It was about students realizing their potential is bigger than any syllabus. It was about transforming doubt into direction and curiosity into creation.
+            </p>
+            <p className="mb-1">
+              In that room, innovation didn't feel distant — it felt personal. The future didn't seem abstract — it felt buildable.
+            </p>
+            <p>
+              And with Episode 01, ChainLinks didn't just raise the bar — it ignited a culture of excellence, a wave of bold thinkers, and a legacy that will continue shaping innovators long after the chai cups are empty.
+            </p>
+          </div>
+          <div className="w-full border-[2px] border-[#008F4C] aspect-square overflow-hidden mt-auto">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+        
+        {/* Right Column (Green Box overlapping top image) */}
+        <div className="w-[55%] -mt-[80px] sm:-mt-[100px] relative z-10">
+          <div className="bg-[#008F4C] p-1.5 shadow-md border-[1.5px] border-white ring-[1.5px] ring-[#008F4C] flex flex-col gap-1.5">
+            <div className="border-[0.5px] border-white p-1.5">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+                The informal setting played a powerful role once again. With tea and refreshments creating a relaxed environment, barriers dissolved. Faculty members became mentors in dialogue rather than distant authorities. Students spoke freely, shared project ideas, sought guidance on research paths, and discovered clarity in domains that once felt overwhelming. The openness of the environment encouraged authenticity — and with it, confidence. Beyond the technical insights, ChainLinks Episode 01 strengthened something even more valuable: connection.
+              </p>
+            </div>
+            <div className="border-[0.5px] border-white p-1.5">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+                Students from different academic years found common ground through shared interests. Peer discussions sparked collaborations. Curiosity evolved into ambition. The circle-based interaction model fostered organic networking, turning conversations into opportunities. This edition marked a defining achievement for the GFG Club. It demonstrated that when given the right platform, students are capable of engaging with advanced and future-oriented technologies in meaningful ways. ChainLinks Episode 01 proved that when minds connect without barriers.
+              </p>
+            </div>
+            <div className="border-[0.5px] border-white p-1.5">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+                By choosing bold themes and trusting the power of dialogue, the club elevated the ChainLinks initiative to a new standard. ChainLinks Episode 01 was not simply about TinyML or Agentic AI. It was about empowering students to think independently, question deeply, and innovate confidently. It proved that learning thrives where hierarchy fades and curiosity leads. More than an event, it became a moment of transformation — a statement that the future of technology belongs to those willing to explore it together.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 11 — right page ─── */
+  pg(false, 11, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 3.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          FOUNDER'S UNPLUGGED
+        </h2>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+        <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          THE GFG PODCAST.
+        </div>
+        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          23rd December 2025
+        </div>
+      </div>
+      
+      {/* Two Columns */}
+      <div className="flex gap-4 px-2 mt-2 h-[65%]">
+        {/* Left Column (Gray background + Green Box) */}
+        <div className="w-[60%] relative">
+          <div className="absolute inset-0 bg-[#D9D9D9] -left-2 top-0 bottom-0 right-4"></div>
+          <div className="relative bg-[#008F4C] p-2 sm:p-2.5 shadow-md h-full -top-1 ml-2">
+            <h3 className="text-white text-[12px] sm:text-[14px] font-bold tracking-wide mb-1">Overview</h3>
+            <p className="text-white text-[6.5px] sm:text-[7px] font-medium leading-[1.4] mb-2">
+              An insightful session was conducted on Personality Development of which key takeaway are-
+            </p>
+            <div className="flex flex-col gap-1.5">
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  The Founder's Unplugged, organized by the GeeksforGeeks , turned out to be more than just a podcast session — it felt like an honest conversation about what building a startup truly looks like.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  From the very beginning, the atmosphere was engaging and comfortable. It wasn't a one-sided lecture; it was a dialogue. The speakers shared their perspectives with clarity and authenticity, making complex startup concepts feel relatable for students who are still exploring their paths.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  The Rapid Fire round added an exciting spark to the session. Questions like "Gut Feeling or Market Research?", "Perfect Plan or Fast Execution?", and "Passion or Logic?" led to sharp yet thoughtful responses.
+                </p>
+              </div>
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+                  What stood out was the balance in their answers — the importance of optimism and belief to begin a journey, and the need for strategy, validation, and evidence to sustain it.
+                </p>
+              </div>
+            </div>
+            <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4] mt-2">
+              This approach helps students balance academics, coding practice, and personal commitments efficiently.
+            </p>
+          </div>
+        </div>
+        
+        {/* Right Column (Stacked Images) */}
+        <div className="w-[40%] flex flex-col justify-between">
+          <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80" alt="Podcast 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Podcast 2" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+          <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80" alt="Podcast 3" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
 ];
 
 const TOTAL_PAGES = PAGES.length;
