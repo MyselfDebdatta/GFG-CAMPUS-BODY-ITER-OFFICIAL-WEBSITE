@@ -108,29 +108,16 @@ const PAGES: ReactNode[] = [
     <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#C4C0AE]/60 via-[#E3DFCD]/20 to-transparent pointer-events-none z-10 mix-blend-multiply" />
 
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-5 sm:pt-6 md:pt-7 px-5 sm:px-6 md:px-7">
-      <div className="flex justify-between items-end mb-1">
-        <div className="flex items-center gap-2">
-          <div className="h-6 w-6 rounded bg-[#008F4C] flex items-center justify-center font-extrabold text-white text-[10px]">
-            G
-          </div>
-          <div>
-            <div className="text-[9px] font-bold uppercase tracking-widest text-[#333]">
-              GeeksforGeeks
-            </div>
-            <div className="text-[8px] text-[#666] tracking-wider font-semibold">
-              Campus Body ITER
-            </div>
-          </div>
+      <div className="flex justify-between items-end mb-2">
+        <div className="flex items-center">
+          <img src="/Logo_light1.svg" alt="GFG Campus Body ITER" className="h-5 sm:h-6 w-auto object-contain brightness-0" />
         </div>
         <div className="text-right text-[9px] font-bold tracking-widest uppercase text-[#333]">
-          SOA University
+          ITER, SOA University
         </div>
       </div>
       
       <div className="border-t-[3px] border-[#008F4C] pt-3 pb-3 text-center">
-        <div className="inline-flex items-center gap-1.5 border border-[#008F4C]/30 bg-[#008F4C]/5 px-3 py-0.5 text-[8px] font-mono uppercase tracking-[0.12em] text-[#008F4C] mb-3">
-          <Sparkles className="h-2.5 w-2.5" /> Official Chapter Publication
-        </div>
         <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[#333] leading-none mb-1">
           Geeks <span className="text-[#008F4C]">For</span> Geeks
         </h1>
@@ -139,23 +126,26 @@ const PAGES: ReactNode[] = [
         </div>
       </div>
       <div className="border-t-[1.5px] border-[#008F4C] mb-[3px]"></div>
-      <div className="border-t-[4px] border-[#008F4C] mb-4"></div>
+      <div className="border-t-[4px] border-[#008F4C] mb-6"></div>
 
       <div className="flex-1 flex flex-col justify-center items-center pb-6">
-        <div className="w-full max-w-[200px] aspect-[16/9] overflow-hidden border-[3px] border-[#008F4C] relative mb-6 shadow-sm p-0.5 bg-white">
+        <div className="w-full max-w-[280px] sm:max-w-[340px] aspect-[16/10] overflow-hidden border-[4px] border-[#008F4C] relative mb-6 shadow-lg bg-white">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
             alt="GFG ITER Builders"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform hover:scale-105 duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111511]/80 via-transparent to-transparent flex items-end justify-center p-1.5">
-            <span className="text-[8px] font-semibold text-white">
-              ITER Campus Student Chapter · Siksha 'O' Anusandhan
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111511]/90 via-[#111511]/20 to-transparent flex flex-col justify-end p-4">
+            <span className="text-[12px] sm:text-[14px] font-bold text-white mb-0.5 leading-tight tracking-wide">
+              ITER Campus Student Chapter
+            </span>
+            <span className="text-[9px] sm:text-[10px] font-medium text-[#00ff7f]">
+              Siksha 'O' Anusandhan
             </span>
           </div>
         </div>
         
-        <div className="flex justify-center items-center gap-2 text-[9px] font-mono text-[#008F4C] tracking-widest font-bold">
+        <div className="flex justify-center items-center gap-3 text-[10px] sm:text-[11px] font-mono text-[#008F4C] tracking-widest font-bold">
           <span>.CODE</span>
           <span className="text-[#1A1A1A]/30">·</span>
           <span>.CONNECT</span>
@@ -163,10 +153,24 @@ const PAGES: ReactNode[] = [
           <span>.CONQUER</span>
         </div>
       </div>
+      
+      {/* Unique Front Page Element */}
+      <div className="flex justify-between items-end pb-4">
+        <div className="text-[8px] font-mono text-[#1A1A1A]/60 flex flex-col gap-0.5">
+          <span className="font-bold tracking-widest text-[#008F4C] uppercase text-[9px]">VOL. 01</span>
+          <span className="uppercase tracking-wider">Annual Edition</span>
+        </div>
+        <div className="flex items-center gap-[2px] opacity-70">
+          {/* Barcode-like visual */}
+          {[12, 16, 8, 14, 6, 16, 12, 5, 10, 16, 14, 6, 16, 10, 12, 8, 16, 14].map((h, i) => (
+            <div key={i} className={`bg-[#333] ${i % 3 === 0 ? 'w-[2px]' : 'w-[1px]'}`} style={{ height: `${h}px` }} />
+          ))}
+        </div>
+      </div>
     </div>
 
     {/* Footer */}
-    <div className="flex items-center justify-between text-[8px] text-[#1A1A1A]/50 font-semibold z-10 border-t border-[#1A1A1A]/10 pt-2 pb-3 px-5 sm:px-6 md:px-7 shrink-0">
+    <div className="flex items-center justify-between text-[8px] text-[#1A1A1A]/50 font-semibold z-10 border-t-2 border-[#1A1A1A]/10 pt-2 pb-3 px-5 sm:px-6 md:px-7 shrink-0">
       <span>Published by GFG ITER Media Board</span>
       <span>Bhubaneswar, Odisha</span>
     </div>
