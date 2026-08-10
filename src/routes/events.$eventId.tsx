@@ -102,22 +102,7 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
     ],
   },
   "chai-links-ep01": {
-    brief: "ChainLinks Episode 01 introduced a refreshing shift from conventional academic events, creating an open space where conversations, curiosity, and connection took center stage over cups of chai. Students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking.",
-    objectives: [
-      "Break academic barriers through circle-based Chai Pe Charcha discussions",
-      "Direct guidance from faculty members on research and technical roadmaps",
-      "Explore diverse domains: IoT, AI/ML, Cloud Computing, and Networking",
-      "Foster authentic peer networking across different academic years",
-    ],
-    timeline: [
-      { label: "Faculty Intros", desc: "Participating faculty members introduce their research domains" },
-      { label: "Circle Formation", desc: "Students join domain-specific discussion circles based on interest" },
-      { label: "Open Dialogue", desc: "Informal exchanges on technical topics, career queries, and project ideas" },
-      { label: "Networking & Chai", desc: "Peer networking over tea and refreshments" },
-    ],
-  },
-  "chai-links-ep02": {
-    brief: "ChainLinks Episode 02 elevated the initiative with powerful themes of TinyML and Agentic AI. Students dived into running compact machine learning models on microcontrollers and building autonomous AI systems, bridging complex concepts with real-world implementation.",
+    brief: "ChainLinks Episode 01 elevated the initiative with powerful themes of TinyML and Agentic AI. Students dived into running compact machine learning models on microcontrollers and building autonomous AI systems, bridging complex concepts with real-world implementation.",
     objectives: [
       "Explore low-power edge machine learning models (TinyML) on microcontrollers",
       "Discuss autonomous systems, reasoning frameworks, and Agentic AI",
@@ -129,6 +114,36 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
       { label: "Domain Circles", desc: "Breakout sessions exploring edge ML models and AI agent architectures" },
       { label: "Faculty Mentorship", desc: "Direct guidance on research paths and deployment challenges" },
       { label: "Idea Exchange", desc: "Collaborative brainstorming over tea and refreshments" },
+    ],
+  },
+  "code-unbound-launch": {
+    brief: "Code Unbound marked the official launch of the GeeksforGeeks (GFG) Club – ITER Student Chapter in the grand auditorium hall of Bansuri Guru. The inauguration set a clear roadmap for creating a collaborative coding culture, strengthening DSA problem-solving skills, and preparing members for placements.",
+    objectives: [
+      "Official inauguration of the GFG ITER Student Chapter",
+      "Formal introduction of domain leads, mentors, and executive board",
+      "Interactive tech Menti Quiz with prizes and awards for top performers",
+      "Unveiling upcoming workshops, mentorship programs, and hackathon schedules",
+    ],
+    timeline: [
+      { label: "Grand Welcome", desc: "Opening ceremony and address in Bansuri Guru Auditorium" },
+      { label: "Vision Unveiling", desc: "President and leads outline DSA, dev, and placement initiatives" },
+      { label: "Interactive Quiz", desc: "Menti Quiz testing general tech awareness and logical reasoning" },
+      { label: "Felicitation", desc: "Top quiz performers awarded, followed by team networking" },
+    ],
+  },
+  "chai-links-ep00": {
+    brief: "ChainLinks Episode 00 introduced a refreshing shift from conventional academic events, creating an open space where conversations, curiosity, and connection took center stage over cups of chai. Students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking.",
+    objectives: [
+      "Break academic barriers through circle-based Chai Pe Charcha discussions",
+      "Direct guidance from faculty members on research and technical roadmaps",
+      "Explore diverse domains: IoT, AI/ML, Cloud Computing, and Networking",
+      "Foster authentic peer networking across different academic years",
+    ],
+    timeline: [
+      { label: "Faculty Intros", desc: "Participating faculty members introduce their research domains" },
+      { label: "Circle Formation", desc: "Students join domain-specific discussion circles based on interest" },
+      { label: "Open Dialogue", desc: "Informal exchanges on technical topics, career queries, and project ideas" },
+      { label: "Networking & Chai", desc: "Peer networking over tea and refreshments" },
     ],
   },
 };

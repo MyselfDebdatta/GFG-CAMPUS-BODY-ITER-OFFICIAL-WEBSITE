@@ -120,21 +120,6 @@ export const EVENTS = [
     id: "chai-links-ep01",
     title: "ChaiLinks: Episode 01",
     category: "Workshop",
-    date: "Nov 06, 2025",
-    venue: "ITER Main Campus",
-    status: "past",
-    speakers: [
-      { name: "Faculty Mentors & GFG Leads", role: "Discussion Leads", photo: "" }
-    ],
-    description:
-      "Cup that connects, conversation that matters. Episode 01 introduced a refreshing shift from conventional academic events — an informal 'Chai Pe Charcha' where students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking in small circle discussions.",
-    image:
-      "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=1400&q=70",
-  },
-  {
-    id: "chai-links-ep02",
-    title: "ChaiLinks: Episode 02",
-    category: "Workshop",
     date: "Dec 03, 2025",
     venue: "ITER Main Campus",
     status: "past",
@@ -142,9 +127,39 @@ export const EVENTS = [
       { name: "Faculty Mentors & GFG Leads", role: "Domain Leads", photo: "" }
     ],
     description:
-      "Elevating open, conversation-driven learning with a focus on TinyML and Agentic AI. Episode 02 brought frontier tech into casual discussion circles, enabling students to explore low-power edge machine learning and autonomous AI systems over tea with faculty mentors.",
+      "Elevating open, conversation-driven learning with a focus on TinyML and Agentic AI. Episode 01 brought frontier tech into casual discussion circles, enabling students to explore low-power edge machine learning and autonomous AI systems over tea with faculty mentors.",
     image:
       "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "code-unbound-launch",
+    title: "Code Unbound: The GFG Launch",
+    category: "Seminar",
+    date: "Nov 07, 2025",
+    venue: "Bansuri Guru Auditorium, ITER",
+    status: "past",
+    speakers: [
+      { name: "GFG Lead Board", role: "Core Team", photo: "" }
+    ],
+    description:
+      "The official inauguration of the GeeksforGeeks (GFG) Club – ITER Student Chapter in the grand auditorium hall of Bansuri Guru. Featuring vision roadmaps, domain lead introductions, and an interactive Menti Quiz with awards.",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "chai-links-ep00",
+    title: "ChaiLinks: Episode 00",
+    category: "Workshop",
+    date: "Nov 06, 2025",
+    venue: "ITER Main Campus",
+    status: "past",
+    speakers: [
+      { name: "Faculty Mentors & GFG Leads", role: "Discussion Leads", photo: "" }
+    ],
+    description:
+      "Cup that connects, conversation that matters. Episode 00 introduced a refreshing shift from conventional academic events — an informal 'Chai Pe Charcha' where students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking in small circle discussions.",
+    image:
+      "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=1400&q=70",
   },
 ];
 
