@@ -229,15 +229,15 @@ const PAGES: ReactNode[] = [
       <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-0.5">
         ITER
       </div>
-      <div className="border-t-[3px] border-[#008F4C] pt-1 pb-1 text-center">
-        <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.02em" }}>
+      <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
           ABOUT THE CLUB
         </h2>
       </div>
       <div className="border-t-[2px] border-[#008F4C] mb-2 mt-0.5"></div>
       
       {/* Banner Image */}
-      <div className="relative w-full h-[65px] sm:h-[80px] mb-4">
+      <div className="relative w-full h-[60px] sm:h-[70px] mb-3">
         <div className="w-full h-full bg-[#ccc] overflow-hidden">
            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="ITER Campus" className="w-full h-full object-cover" />
         </div>
@@ -254,27 +254,27 @@ const PAGES: ReactNode[] = [
           <div className="text-[7.5px] sm:text-[8.5px] font-bold uppercase tracking-widest text-[#333] mb-0.5">
             CORE TEAM – GFG ITER CAMPUS BODY
           </div>
-          <div className="text-[7.5px] sm:text-[8.5px] font-bold text-[#333] mb-1.5">
+          <div className="text-[7.5px] sm:text-[8.5px] font-bold text-[#333] mb-1">
             GFG ITER Campus Body · Tech Community · Student Driven
           </div>
           
-          <h3 className="text-base sm:text-lg font-bold text-[#111] mb-1 leading-none">
+          <h3 className="text-[13px] sm:text-[15px] font-bold text-[#111] mb-0.5 leading-none">
             About the Club
           </h3>
-          <p className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-snug mb-1.5 text-justify">
+          <p className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-snug mb-1 text-justify">
             The GeeksforGeeks ITER Campus Body is a student-driven tech community committed to fostering innovations, collaborations, and technical excellence among students. Built with the vision of bridging the gap between academic learning and industry demands, the club actively engages students through impactful initiatives.
           </p>
-          <p className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-snug mb-1.5 text-justify">
+          <p className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-snug mb-1 text-justify">
             Through sessions, workshops, and interactive events, students gain real-world exposure beyond academics. The club encourages peer learning and leadership.
           </p>
-          <p className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-snug mb-2 text-justify">
+          <p className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-snug mb-1.5 text-justify">
             With continuous growth and innovation, the community is shaping future developers and problem-solvers.
           </p>
 
-          <h4 className="text-xs sm:text-sm font-bold text-[#111] mb-1">
+          <h4 className="text-[10px] sm:text-[11px] font-bold text-[#111] mb-0.5">
             What We Do
           </h4>
-          <ul className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-tight space-y-0.5 mb-2 pl-1">
+          <ul className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-tight space-y-0.5 mb-1.5 pl-1">
             <li>• Coding Contests & DSA Sessions</li>
             <li>• Skills Exchange Workshops</li>
             <li>• Tech Talks & Founder Sessions</li>
@@ -282,10 +282,10 @@ const PAGES: ReactNode[] = [
             <li>• Personality Development & Career Guidance</li>
           </ul>
 
-          <h4 className="text-xs sm:text-sm font-bold text-[#111] mb-1">
+          <h4 className="text-[10px] sm:text-[11px] font-bold text-[#111] mb-0.5">
             Our Impact
           </h4>
-          <ul className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-tight space-y-0.5 mb-1 pl-1">
+          <ul className="text-[7.5px] sm:text-[8.5px] text-[#222] font-medium leading-tight space-y-0.5 mb-0.5 pl-1">
             <li>• Created a strong coding culture on campus</li>
             <li>• Helped students prepare for placements and Internships</li>
             <li>• Encouraged participation in hackathons and open-source</li>
@@ -296,9 +296,9 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Right Column */}
-        <div className="flex-[4.5] flex flex-col gap-1.5">
+        <div className="flex-[4.5] flex flex-col gap-1">
           {/* Green box */}
-          <div className="bg-[#008F4C] text-white p-2 text-[7.5px] sm:text-[8.5px] font-medium leading-snug text-justify">
+          <div className="bg-[#008F4C] text-white p-1.5 text-[7.5px] sm:text-[8.5px] font-medium leading-snug text-justify">
             <p className="mb-1">Through sessions, workshops, and interactive events, students gain real-world exposure beyond traditional academics. These initiatives strengthen technical skills while encouraging practical learning. The club promotes peer learning, collaboration, and leadership, creating an environment where students grow together.</p>
             <p>With continuous growth and innovation, the community is shaping future developers and problem-solvers. By bridging the gap between theory and practice, the club helps students build industry-ready skills and prepare for their careers.</p>
           </div>
@@ -309,12 +309,12 @@ const PAGES: ReactNode[] = [
           </div>
           
           {/* Green Pill */}
-          <div className="bg-[#008F4C] text-white text-center text-[7.5px] sm:text-[8.5px] font-bold py-1 uppercase tracking-wider">
+          <div className="bg-[#008F4C] text-white text-center text-[7.5px] sm:text-[8.5px] font-bold py-0.5 uppercase tracking-wider mt-0.5">
             Core Team / Faculty Coordinator
           </div>
           
           {/* Quote */}
-          <p className="text-[7.5px] sm:text-[8.5px] italic text-[#222] leading-snug text-justify font-bold px-1">
+          <p className="text-[7.5px] sm:text-[8.5px] italic text-[#222] leading-snug text-justify font-bold px-1 mt-0.5">
             "Together, we are empowering future developers, encouraging innovation, and building a thriving tech community focused on growth and collaboration."
           </p>
         </div>
