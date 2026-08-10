@@ -81,7 +81,7 @@ const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode =>
    COMPONENTS
    ═══════════════════════════════════════════════════════════════════ */
 const PersonCard = ({ name, role, src }: { name: string, role: string, src?: string }) => (
-  <div className="relative rounded-[6px] sm:rounded-[8px] overflow-hidden aspect-[3/4.2] shadow-sm bg-[#789A5F] border-[0.5px] border-[#008F4C]/20">
+  <div className="relative rounded-[6px] sm:rounded-[8px] overflow-hidden aspect-[3/4] shadow-sm bg-[#789A5F] border-[0.5px] border-[#008F4C]/20">
     {src ? (
       <img src={src} alt={name} className="w-full h-full object-cover opacity-90 mix-blend-luminosity" />
     ) : (
@@ -353,24 +353,24 @@ const PAGES: ReactNode[] = [
       </div>
       <div className="border-t-[2px] border-[#008F4C] mb-2 mt-0.5"></div>
       
-      <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mb-1.5 leading-none uppercase tracking-wide">
+      <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mb-1 leading-none uppercase tracking-wide">
         LEADS
       </div>
       
       {/* Content Area */}
       <div className="flex-1 flex flex-col justify-between pb-1">
         {/* Row 1: President & Vice President */}
-        <div className="flex justify-center gap-3">
-          <div className="w-[32%] max-w-[110px]">
+        <div className="flex justify-center gap-2.5">
+          <div className="w-[30%] max-w-[100px]">
             <PersonCard name="VIVEK RANJAN SAHOO" role="PRESIDENT" />
           </div>
-          <div className="w-[32%] max-w-[110px]">
+          <div className="w-[30%] max-w-[100px]">
             <PersonCard name="SNEHANSU SEKHAR DASH" role="VICE-PRESIDENT" />
           </div>
         </div>
         
         {/* Row 2: Tech Leads */}
-        <div className="grid grid-cols-4 gap-1.5 px-0.5">
+        <div className="grid grid-cols-4 gap-1.5 px-0.5 mt-1">
           <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
@@ -378,19 +378,19 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Divider for Team Co-ordinators */}
-        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mt-2 mb-1.5 leading-none uppercase tracking-wide">
+        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mt-1.5 mb-1 leading-none uppercase tracking-wide">
           TEAM CO-ORDINATORS
         </div>
         
         {/* Row 3: Co-ordinators */}
         <div className="flex justify-center gap-2 px-3">
-          <div className="w-[30%] max-w-[100px]">
+          <div className="w-[28%] max-w-[90px]">
             <PersonCard name="ANUBHAB SAMANTARAY" role="CLUB COORDINATOR" />
           </div>
-          <div className="w-[30%] max-w-[100px]">
+          <div className="w-[28%] max-w-[90px]">
             <PersonCard name="AKANSHA AJAY" role="CLUB COORDINATOR" />
           </div>
-          <div className="w-[30%] max-w-[100px]">
+          <div className="w-[28%] max-w-[90px]">
             <PersonCard name="AYUSH R. PRADHAN" role="COMMUNITY MENTOR" />
           </div>
         </div>
