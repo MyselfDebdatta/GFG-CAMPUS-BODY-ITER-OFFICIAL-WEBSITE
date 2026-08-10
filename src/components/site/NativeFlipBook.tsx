@@ -855,9 +855,7 @@ export function NativeFlipBook() {
           <div
             className="absolute rounded-sm pointer-events-none"
             style={{
-              inset: isMobile ? -4 : -6,
-              background:
-                "linear-gradient(145deg, #020b06 0%, #071a0f 50%, #020b06 100%)",
+              inset: 0,
               boxShadow:
                 "0 25px 70px -15px rgba(0,0,0,0.85), 0 8px 20px -8px rgba(0,0,0,0.6)",
             }}
