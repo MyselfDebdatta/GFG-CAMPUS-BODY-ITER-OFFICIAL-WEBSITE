@@ -86,6 +86,21 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
       { label: "Demo Day", desc: "Final presentations to a panel of industry judges" },
     ],
   },
+  "raw-and-ready": {
+    brief: "Raw & Ready was an interactive personality development workshop designed to build self-awareness, confidence, and time management skills. Participants engaged in scenario-based survival challenges, team ideathons, and practical financial literacy exercises to complement their technical training.",
+    objectives: [
+      "Master time management using the Eisenhower 4-Box matrix method (Do, Schedule, Delegate, Eliminate)",
+      "Distinguish objective facts from personal opinions to improve developer communication",
+      "Engage in 'Lost in the Jungle' survival scenario testing teamwork under pressure",
+      "Participate in mini-ideathons and basic financial literacy comparisons",
+    ],
+    timeline: [
+      { label: "Personal Growth & Self-Esteem", desc: "Introduction to self-awareness and confidence building" },
+      { label: "Lost in the Jungle Activity", desc: "Team survival scenario testing analytical decision making" },
+      { label: "Instruction & Ideathon Sprint", desc: "Mindfulness exercises and 4-person mini ideathon sprint" },
+      { label: "Time Management & Financial Literacy", desc: "Eisenhower matrix training and financial literacy wrap-up" },
+    ],
+  },
   "founders-unplugged": {
     brief: "Founders' Unplugged: From Chaos to Creation (The GFG Podcast) turned out to be far more than just a podcast session — it was an open, authentic dialogue with Zahid Akhtar (Founder of OneLife, Life & Career Coach, Behavioral Trainer). Students gained actionable insights into navigating career decisions, building emotional resilience, and balancing academics with coding.",
     objectives: [

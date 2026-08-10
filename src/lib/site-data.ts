@@ -102,6 +102,21 @@ export const EVENTS = [
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
   },
   {
+    id: "raw-and-ready",
+    title: "Raw & Ready: Personality Development",
+    category: "Workshop",
+    date: "Feb 04, 2026",
+    venue: "ITER Main Campus",
+    status: "past",
+    speakers: [
+      { name: "GFG Mentors & Trainers", role: "Facilitators", photo: "" }
+    ],
+    description:
+      "An interactive session on personal growth, self-esteem, and time management (Eisenhower 4-box method). Featured team activities including 'Lost in the Jungle', mini-ideathons, and basic financial literacy.",
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
     id: "founders-unplugged",
     title: "Founders' Unplugged: From Chaos to Creation",
     category: "Seminar",
