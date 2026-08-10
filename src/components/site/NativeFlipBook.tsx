@@ -20,22 +20,30 @@ import {
    ═══════════════════════════════════════════════════════════════════ */
 
 const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode => (
-  <div className="w-full h-full flex flex-col bg-[#09140F] text-white overflow-hidden relative select-none">
-    {/* Subtle tonal depth */}
+  <div className="w-full h-full flex flex-col bg-[#F5F3EA] text-[#1A1A1A] overflow-hidden relative select-none">
+    {/* Subtle paper texture (SVG noise) */}
+    <div 
+      className="absolute inset-0 pointer-events-none opacity-[0.25]"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+      }}
+    />
+
+    {/* Subtle tonal depth (warm vignette) */}
     <div
-      className="absolute inset-0 pointer-events-none"
+      className="absolute inset-0 pointer-events-none mix-blend-multiply"
       style={{
         background:
-          "radial-gradient(ellipse at 60% 35%, rgba(11,23,18,0.5) 0%, transparent 70%)",
+          "radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(200, 195, 180, 0.3) 100%)",
       }}
     />
 
     {/* Inner gutter shadow toward spine */}
     <div
-      className={`absolute inset-y-0 w-12 pointer-events-none z-10 ${
+      className={`absolute inset-y-0 w-16 pointer-events-none z-10 mix-blend-multiply ${
         isLeft
-          ? "right-0 bg-gradient-to-l from-black/30 to-transparent"
-          : "left-0 bg-gradient-to-r from-black/30 to-transparent"
+          ? "right-0 bg-gradient-to-l from-[#C4C0AE]/60 via-[#E3DFCD]/20 to-transparent"
+          : "left-0 bg-gradient-to-r from-[#C4C0AE]/60 via-[#E3DFCD]/20 to-transparent"
       }`}
     />
 
@@ -45,22 +53,22 @@ const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode =>
     </div>
 
     {/* Running footer with page number */}
-    <div className="mx-5 sm:mx-6 md:mx-7 pb-3 pt-2 flex items-center justify-between text-[10px] text-white/20 font-mono relative z-[1] shrink-0 border-t border-white/[0.06]">
+    <div className="mx-5 sm:mx-6 md:mx-7 pb-3 pt-2 flex items-center justify-between text-[10px] text-[#1A1A1A]/50 font-mono relative z-[1] shrink-0 border-t border-[#008F4C]/20">
       {isLeft ? (
         <>
-          <span className="tabular-nums font-semibold">
+          <span className="tabular-nums font-semibold text-[#008F4C]">
             {String(pageNum).padStart(2, "0")}
           </span>
-          <span className="text-[8px] tracking-[0.2em] uppercase">
+          <span className="text-[8px] tracking-[0.2em] uppercase font-bold text-[#1A1A1A]/40">
             GeeksforGeeks Campus Body ITER
           </span>
         </>
       ) : (
         <>
-          <span className="text-[8px] tracking-[0.2em] uppercase">
+          <span className="text-[8px] tracking-[0.2em] uppercase font-bold text-[#1A1A1A]/40">
             Annual Report 2025–26
           </span>
-          <span className="tabular-nums font-semibold">
+          <span className="tabular-nums font-semibold text-[#008F4C]">
             {String(pageNum).padStart(2, "0")}
           </span>
         </>
@@ -74,34 +82,49 @@ const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode =>
    ═══════════════════════════════════════════════════════════════════ */
 
 const PAGES: ReactNode[] = [
-  /* ─── PAGE 0 (Page 1): COVER — left page, special gradient ─── */
+  /* ─── PAGE 0 (Page 1): COVER — left page ─── */
   <div
     key="p1"
-    className="w-full h-full flex flex-col justify-between bg-gradient-to-br from-[#04140a] via-[#020b06] to-[#082213] text-white relative overflow-hidden select-none"
+    className="w-full h-full flex flex-col justify-between bg-[#F5F3EA] text-[#1A1A1A] relative overflow-hidden select-none"
   >
-    <div className="absolute top-0 right-0 w-56 h-56 bg-[#00ff7f]/8 rounded-full blur-3xl pointer-events-none" />
-    <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#00ff7f]/5 rounded-full blur-3xl pointer-events-none" />
+    {/* Subtle paper texture (SVG noise) */}
+    <div 
+      className="absolute inset-0 pointer-events-none opacity-[0.25]"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+      }}
+    />
+
+    {/* Subtle tonal depth */}
+    <div
+      className="absolute inset-0 pointer-events-none mix-blend-multiply"
+      style={{
+        background:
+          "radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(200, 195, 180, 0.3) 100%)",
+      }}
+    />
+
     {/* Gutter shadow (right = toward spine) */}
-    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black/30 to-transparent pointer-events-none z-10" />
+    <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#C4C0AE]/60 via-[#E3DFCD]/20 to-transparent pointer-events-none z-10 mix-blend-multiply" />
 
     {/* Header */}
-    <div className="flex items-center justify-between z-10 border-b border-white/10 pb-2.5 px-5 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 shrink-0">
+    <div className="flex items-center justify-between z-10 border-b-2 border-[#008F4C]/80 pb-2.5 px-5 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 shrink-0">
       <div className="flex items-center gap-2">
-        <div className="h-7 w-7 rounded-lg bg-[#00ff7f]/20 border border-[#00ff7f]/40 flex items-center justify-center font-extrabold text-[#00ff7f] text-xs">
+        <div className="h-7 w-7 rounded bg-[#008F4C] flex items-center justify-center font-extrabold text-white text-xs">
           G
         </div>
         <div>
-          <div className="text-[9px] font-bold uppercase tracking-widest text-[#00ff7f]">
+          <div className="text-[9px] font-bold uppercase tracking-widest text-[#008F4C]">
             GeeksforGeeks
           </div>
-          <div className="text-[8px] text-white/50 tracking-wider">
+          <div className="text-[8px] text-[#1A1A1A]/60 tracking-wider font-semibold">
             Campus Body ITER
           </div>
         </div>
       </div>
       <div className="text-right">
-        <div className="text-[9px] font-bold text-white/70">SOA University</div>
-        <div className="text-[8px] text-[#00ff7f]/80">
+        <div className="text-[9px] font-bold text-[#111511]">SOA University</div>
+        <div className="text-[8px] text-[#008F4C] font-semibold">
           Academic Year 2025–26
         </div>
       </div>
@@ -109,38 +132,38 @@ const PAGES: ReactNode[] = [
 
     {/* Center title */}
     <div className="my-auto text-center z-10 py-2 px-5 sm:px-6 md:px-7">
-      <div className="inline-flex items-center gap-1.5 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-3 py-0.5 text-[9px] font-mono uppercase tracking-[0.12em] text-[#00ff7f] mb-2.5">
+      <div className="inline-flex items-center gap-1.5 border border-[#008F4C]/30 bg-[#008F4C]/5 px-3 py-0.5 text-[9px] font-mono uppercase tracking-[0.12em] text-[#008F4C] mb-3">
         <Sparkles className="h-2.5 w-2.5" /> Official Chapter Publication
       </div>
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white leading-none mb-1">
-        Geeks <span className="text-[#00ff7f]">For</span> Geeks
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#111511] leading-none mb-1">
+        Geeks <span className="text-[#008F4C]">For</span> Geeks
       </h1>
-      <div className="text-base sm:text-lg font-extrabold tracking-widest text-[#00ff7f]/90 mb-3">
+      <div className="text-base sm:text-lg font-extrabold tracking-widest text-[#008F4C] mb-4">
         2025 – 2026
       </div>
-      <div className="max-w-[180px] mx-auto aspect-[16/9] rounded-lg overflow-hidden border border-[#00ff7f]/20 shadow-[0_0_15px_rgba(0,255,127,0.1)] relative mb-2.5">
+      <div className="max-w-[180px] mx-auto aspect-[16/9] overflow-hidden border-[3px] border-[#008F4C] relative mb-4 shadow-sm p-0.5 bg-white">
         <img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
           alt="GFG ITER Builders"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end justify-center p-1.5">
-          <span className="text-[8px] font-semibold text-white/80">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111511]/80 via-transparent to-transparent flex items-end justify-center p-1.5">
+          <span className="text-[8px] font-semibold text-white">
             ITER Campus Student Chapter · Siksha 'O' Anusandhan
           </span>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-2 text-[9px] font-mono text-[#00ff7f] tracking-widest font-bold">
+      <div className="flex justify-center items-center gap-2 text-[9px] font-mono text-[#008F4C] tracking-widest font-bold">
         <span>.CODE</span>
-        <span className="text-white/30">·</span>
+        <span className="text-[#1A1A1A]/30">·</span>
         <span>.CONNECT</span>
-        <span className="text-white/30">·</span>
+        <span className="text-[#1A1A1A]/30">·</span>
         <span>.CONQUER</span>
       </div>
     </div>
 
     {/* Footer */}
-    <div className="flex items-center justify-between text-[8px] text-white/35 z-10 border-t border-white/8 pt-2 pb-3 px-5 sm:px-6 md:px-7 shrink-0">
+    <div className="flex items-center justify-between text-[8px] text-[#1A1A1A]/50 font-semibold z-10 border-t border-[#1A1A1A]/10 pt-2 pb-3 px-5 sm:px-6 md:px-7 shrink-0">
       <span>Published by GFG ITER Media Board</span>
       <span>Bhubaneswar, Odisha</span>
     </div>
@@ -150,10 +173,10 @@ const PAGES: ReactNode[] = [
   pg(false, 2, (
     <>
       <div className="flex-1 min-h-0 overflow-hidden">
-        <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
           <Terminal className="h-3 w-3" /> Chapter Archive Index
         </div>
-        <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-3 pb-2 border-b border-[#00ff7f]/30">
+        <h2 className="text-xl sm:text-2xl font-black tracking-tight text-[#111511] mb-3 pb-2 border-b-2 border-[#008F4C]">
           INDEX
         </h2>
         <div className="space-y-1.5">
@@ -165,25 +188,25 @@ const PAGES: ReactNode[] = [
             { n: "05", t: "Members Achievements", d: "National Hackathons & SIH 2025 Victories", p: "07" },
             { n: "06", t: "Future Vision & Core Team Photo", d: "Roadmap for 2026-27 & Chapter Group Photo", p: "08" },
           ].map((item) => (
-            <div key={item.n} className="flex items-center gap-2.5 py-1.5 border-b border-white/[0.04] last:border-0">
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-[#00ff7f]/15 text-[#00ff7f] font-mono font-bold text-[9px]">
+            <div key={item.n} className="flex items-center gap-2.5 py-1.5 border-b border-[#1A1A1A]/[0.06] last:border-0">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center bg-[#008F4C] text-white font-mono font-bold text-[9px] shadow-sm">
                 {item.n}
               </span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline gap-1.5">
-                  <h3 className="font-bold text-[10px] text-white/90 shrink-0">{item.t}</h3>
-                  <div className="flex-1 border-b border-dotted border-white/10 min-w-[20px] relative top-[-2px]" />
-                  <span className="font-mono text-[8px] text-[#00ff7f]/60 shrink-0">
+                  <h3 className="font-bold text-[10px] text-[#111511] shrink-0 uppercase tracking-tight">{item.t}</h3>
+                  <div className="flex-1 border-b border-dotted border-[#1A1A1A]/30 min-w-[20px] relative top-[-2px]" />
+                  <span className="font-mono text-[9px] font-bold text-[#008F4C] shrink-0">
                     {item.p}
                   </span>
                 </div>
-                <p className="text-[8px] text-white/40 line-clamp-1">{item.d}</p>
+                <p className="text-[8px] text-[#1A1A1A]/60 font-medium line-clamp-1">{item.d}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-auto pt-2.5 text-center text-[8px] font-mono text-[#00ff7f]/40">
+      <div className="mt-auto pt-2.5 text-center text-[8px] font-mono font-semibold text-[#1A1A1A]/40 border-t border-[#1A1A1A]/10">
         GeeksforGeeks Campus Body ITER · Annual Edition 2025–26
       </div>
     </>
@@ -192,16 +215,16 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 2 (Page 3): ABOUT THE CLUB — left page ─── */
   pg(true, 3, (
     <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
         <BookOpen className="h-3 w-3" /> Chapter Overview
       </div>
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
         Building Coders & Creating Impact
       </h2>
-      <div className="space-y-2.5 text-[10px] text-white/75 leading-relaxed">
+      <div className="space-y-2.5 text-[10px] text-[#1A1A1A]/90 leading-relaxed font-medium">
         <p>
           The{" "}
-          <strong className="text-[#00ff7f]">
+          <strong className="text-[#008F4C] font-extrabold">
             GeeksforGeeks ITER Campus Body
           </strong>{" "}
           is a student-driven technical community committed to fostering
@@ -209,31 +232,31 @@ const PAGES: ReactNode[] = [
           across SOA University.
         </p>
         <div className="grid grid-cols-2 gap-2">
-          <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
-            <div className="font-bold text-[#00ff7f] text-[9px] uppercase mb-1 tracking-wider">
+          <div className="p-2 border border-[#008F4C]/30 bg-white/50">
+            <div className="font-bold text-[#008F4C] text-[9px] uppercase mb-1 tracking-wider border-b border-[#008F4C]/20 pb-0.5">
               What We Do
             </div>
-            <ul className="text-[9px] text-white/60 space-y-0.5">
-              <li>• Coding Contests & DSA Sessions</li>
+            <ul className="text-[9px] text-[#1A1A1A]/80 space-y-0.5 font-semibold">
+              <li>• Coding Contests & DSA</li>
               <li>• Jatuk Exchange Workshops</li>
-              <li>• Founders' Unplugged Podcast</li>
+              <li>• Founders' Unplugged</li>
               <li>• ChaiLinks Knowledge Sharing</li>
             </ul>
           </div>
-          <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
-            <div className="font-bold text-[#00ff7f] text-[9px] uppercase mb-1 tracking-wider">
+          <div className="p-2 border border-[#008F4C]/30 bg-white/50">
+            <div className="font-bold text-[#008F4C] text-[9px] uppercase mb-1 tracking-wider border-b border-[#008F4C]/20 pb-0.5">
               Our Impact
             </div>
-            <ul className="text-[9px] text-white/60 space-y-0.5">
+            <ul className="text-[9px] text-[#1A1A1A]/80 space-y-0.5 font-semibold">
               <li>• Built strong coding culture</li>
               <li>• Mentored 1000+ students</li>
-              <li>• SIH & National Hackathon Ranks</li>
-              <li>• Industry & Peer Mentorship</li>
+              <li>• SIH & National Ranks</li>
+              <li>• Industry Mentorship</li>
             </ul>
           </div>
         </div>
-        <div className="border-l-2 border-[#00ff7f]/40 pl-3 py-1.5 bg-[#00ff7f]/[0.04]">
-          <p className="text-[9px] text-[#00ff7f]/90 italic leading-relaxed">
+        <div className="border-l-4 border-[#008F4C] pl-3 py-1.5 bg-[#008F4C]/5">
+          <p className="text-[9px] text-[#111511] italic leading-relaxed font-bold">
             "Together, we are empowering future developers, encouraging
             innovation, and building a thriving tech community focused on
             growth and collaboration."
@@ -246,64 +269,64 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 3 (Page 4): CORE TEAM — right page ─── */
   pg(false, 4, (
     <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
         <Users className="h-3 w-3" /> Chapter Leadership
       </div>
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
         Core Team 2025–26
       </h2>
       <div className="space-y-2.5">
         <div>
-          <div className="text-[9px] font-bold uppercase tracking-wider text-[#00ff7f]/80 mb-1">
+          <div className="text-[9px] font-bold uppercase tracking-wider text-[#008F4C] mb-1 border-b border-[#008F4C]/20 inline-block pb-0.5">
             Faculty Mentors
           </div>
-          <div className="grid grid-cols-2 gap-1.5">
-            <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
-              <div className="font-bold text-[10px] text-white">
+          <div className="grid grid-cols-2 gap-1.5 mt-1">
+            <div className="p-2 border border-[#1A1A1A]/10 bg-white/40">
+              <div className="font-bold text-[10px] text-[#111511]">
                 Dr. Debahuti Mishra
               </div>
-              <div className="text-[8px] text-white/50">
+              <div className="text-[8px] text-[#1A1A1A]/70 font-semibold">
                 Faculty Coordinator · HOD CSE
               </div>
             </div>
-            <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
-              <div className="font-bold text-[10px] text-white">
+            <div className="p-2 border border-[#1A1A1A]/10 bg-white/40">
+              <div className="font-bold text-[10px] text-[#111511]">
                 Prof. Abhijit Dash
               </div>
-              <div className="text-[8px] text-white/50">
+              <div className="text-[8px] text-[#1A1A1A]/70 font-semibold">
                 Faculty Mentor · Associate Prof
               </div>
             </div>
           </div>
         </div>
         <div>
-          <div className="text-[9px] font-bold uppercase tracking-wider text-[#00ff7f]/80 mb-1">
+          <div className="text-[9px] font-bold uppercase tracking-wider text-[#008F4C] mb-1 border-b border-[#008F4C]/20 inline-block pb-0.5">
             Student Coordinators
           </div>
-          <div className="grid grid-cols-2 gap-1.5">
-            <div className="p-2 bg-[#00ff7f]/[0.06] border border-[#00ff7f]/20">
-              <div className="font-bold text-[10px] text-white">
+          <div className="grid grid-cols-2 gap-1.5 mt-1">
+            <div className="p-2 bg-[#008F4C] border border-[#008F4C] text-white shadow-sm">
+              <div className="font-bold text-[10px]">
                 Anubhab Samantary
               </div>
-              <div className="text-[8px] text-[#00ff7f]/80 font-mono">
+              <div className="text-[8px] font-mono font-semibold text-white/80">
                 Coordinator
               </div>
             </div>
-            <div className="p-2 bg-[#00ff7f]/[0.06] border border-[#00ff7f]/20">
-              <div className="font-bold text-[10px] text-white">
+            <div className="p-2 bg-[#008F4C] border border-[#008F4C] text-white shadow-sm">
+              <div className="font-bold text-[10px]">
                 Akansha Ajay
               </div>
-              <div className="text-[8px] text-[#00ff7f]/80 font-mono">
+              <div className="text-[8px] font-mono font-semibold text-white/80">
                 Coordinator
               </div>
             </div>
           </div>
         </div>
         <div>
-          <div className="text-[9px] font-bold uppercase tracking-wider text-[#00ff7f]/80 mb-1">
+          <div className="text-[9px] font-bold uppercase tracking-wider text-[#008F4C] mb-1 border-b border-[#008F4C]/20 inline-block pb-0.5">
             Domain Leads
           </div>
-          <div className="grid grid-cols-3 gap-1.5">
+          <div className="grid grid-cols-3 gap-1.5 mt-1">
             {[
               { name: "Kabir Sharma", role: "Tech Lead" },
               { name: "Isha Nanda", role: "Design Lead" },
@@ -314,12 +337,12 @@ const PAGES: ReactNode[] = [
             ].map((l) => (
               <div
                 key={l.name}
-                className="p-1.5 bg-white/[0.03] border border-white/[0.06] text-center"
+                className="p-1.5 border border-[#1A1A1A]/15 bg-white/50 text-center"
               >
-                <div className="font-bold text-[9px] text-white truncate">
+                <div className="font-bold text-[9px] text-[#111511] truncate">
                   {l.name}
                 </div>
-                <div className="text-[7px] text-white/50 truncate">
+                <div className="text-[7px] font-bold text-[#008F4C] uppercase tracking-wider truncate mt-0.5">
                   {l.role}
                 </div>
               </div>
@@ -333,39 +356,39 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 4 (Page 5): CODEUNBOUND LAUNCH — left page ─── */
   pg(true, 5, (
     <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
         <Rocket className="h-3 w-3" /> Flagship Inauguration
       </div>
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-1.5 pb-2 border-b border-white/[0.08]">
-        CodeUnbound: The GFG Launch
+      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-1.5 pb-2 border-b-2 border-[#008F4C]">
+        CodeUnbound: The Launch
       </h2>
-      <div className="flex items-center gap-3 text-[9px] font-mono text-[#00ff7f]/80 mb-2.5">
+      <div className="flex items-center gap-3 text-[9px] font-mono text-[#1A1A1A]/70 mb-2.5 font-bold">
         <span className="flex items-center gap-1">
-          <Calendar className="h-2.5 w-2.5" /> Nov 07, 2025
+          <Calendar className="h-2.5 w-2.5 text-[#008F4C]" /> Nov 07, 2025
         </span>
         <span className="flex items-center gap-1">
-          <MapPin className="h-2.5 w-2.5" /> Bansuri Guru Auditorium
+          <MapPin className="h-2.5 w-2.5 text-[#008F4C]" /> Bansuri Guru Aud.
         </span>
       </div>
-      <div className="space-y-2 text-[10px] text-white/75 leading-relaxed">
+      <div className="space-y-2 text-[10px] text-[#1A1A1A]/90 font-medium leading-relaxed">
         <p>
           The official grand launch of the GeeksforGeeks ITER Chapter at
           Bansuri Guru Auditorium. Attended by over 300+ enthusiastic
           builders, faculty leads, and industry guests.
         </p>
-        <div className="aspect-[16/8] w-full overflow-hidden border border-white/[0.08]">
+        <div className="aspect-[16/8] w-full overflow-hidden border-[3px] border-[#008F4C] p-0.5 bg-white shadow-sm">
           <img
             src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
             alt="CodeUnbound Launch"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale-[20%] contrast-125"
           />
         </div>
         <div className="grid grid-cols-2 gap-1.5 text-[9px]">
-          <div className="p-1.5 bg-white/[0.03] border border-white/[0.06] font-semibold">
-            ⚡ Interactive Menti Live Quiz
+          <div className="p-1.5 bg-[#008F4C]/10 border border-[#008F4C]/30 font-bold text-[#111511]">
+            <span className="text-[#008F4C]">⚡</span> Interactive Menti Quiz
           </div>
-          <div className="p-1.5 bg-white/[0.03] border border-white/[0.06] font-semibold">
-            🎯 Annual Roadmap Unveil
+          <div className="p-1.5 bg-[#008F4C]/10 border border-[#008F4C]/30 font-bold text-[#111511]">
+            <span className="text-[#008F4C]">🎯</span> Annual Roadmap Unveil
           </div>
         </div>
       </div>
@@ -375,10 +398,10 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 5 (Page 6): EVENTS CONDUCTED — right page ─── */
   pg(false, 6, (
     <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
         <Zap className="h-3 w-3" /> Chapter Milestones
       </div>
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
         Campus Events Recaps
       </h2>
       <div className="space-y-1.5 text-[10px]">
@@ -389,14 +412,14 @@ const PAGES: ReactNode[] = [
           { t: "Zer0ne: Capture the Flag", d: "Apr 03, 2026", desc: "Multidisciplinary CTF competition blending technology & virtual economy." },
           { t: "Rachitva: Design-Pitch", d: "Apr 05, 2026", desc: "Fast-paced product design and pitching competition (Merlin Throne)." },
         ].map((ev) => (
-          <div key={ev.t} className="p-2 bg-white/[0.02] border border-white/[0.05]">
-            <div className="flex items-center justify-between font-bold text-white mb-0.5">
-              <span className="text-[#00ff7f] text-[10px]">{ev.t}</span>
-              <span className="text-[8px] font-mono text-white/40">
+          <div key={ev.t} className="p-2 bg-white/50 border-l-4 border-[#008F4C] border-y border-r border-[#1A1A1A]/10 shadow-sm">
+            <div className="flex items-center justify-between font-black text-[#111511] mb-0.5">
+              <span className="text-[10px] uppercase tracking-tight">{ev.t}</span>
+              <span className="text-[8px] font-mono text-[#008F4C]">
                 {ev.d}
               </span>
             </div>
-            <p className="text-[9px] text-white/60 leading-snug">{ev.desc}</p>
+            <p className="text-[9px] text-[#1A1A1A]/80 font-medium leading-snug">{ev.desc}</p>
           </div>
         ))}
       </div>
@@ -406,10 +429,10 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 6 (Page 7): ACHIEVEMENTS — left page ─── */
   pg(true, 7, (
     <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
         <Trophy className="h-3 w-3" /> Hall of Fame
       </div>
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
         Members Achievements
       </h2>
       <div className="space-y-2">
@@ -426,19 +449,20 @@ const PAGES: ReactNode[] = [
           },
           {
             title: "Smart India Hackathon Internals 2025",
-            award: "🏆 1st Hardware / 4th Overall",
+            award: "🏆 1st Hardware / 4th",
             team: "Team Bhumicare — Vivek Ranjan Sahoo, Ayush Ranjan Pradhan, Subasis Mishra, Depesh Singh, Anjali Rout, Subhashree Sahoo.",
           },
         ].map((a) => (
           <div
             key={a.title}
-            className="p-2.5 bg-[#00ff7f]/[0.04] border border-[#00ff7f]/20"
+            className="p-2.5 bg-[#008F4C] text-white shadow-sm relative overflow-hidden"
           >
-            <div className="flex items-center justify-between text-[10px] font-bold text-white mb-0.5">
-              <span>{a.title}</span>
-              <span className="text-[#00ff7f] shrink-0 ml-2">{a.award}</span>
+            <div className="absolute right-0 top-0 w-16 h-16 bg-white/10 rounded-full blur-xl -mr-8 -mt-8" />
+            <div className="flex items-start justify-between text-[10px] font-black mb-1 relative z-10">
+              <span className="leading-tight w-2/3 uppercase">{a.title}</span>
+              <span className="text-white/90 bg-black/20 px-1.5 py-0.5 rounded text-[8px] shrink-0 ml-2">{a.award}</span>
             </div>
-            <p className="text-[9px] text-white/70 leading-relaxed">
+            <p className="text-[8px] text-white/80 font-medium leading-relaxed relative z-10 border-t border-white/20 pt-1 mt-1">
               {a.team}
             </p>
           </div>
@@ -450,26 +474,26 @@ const PAGES: ReactNode[] = [
   /* ─── PAGE 7 (Page 8): FUTURE VISION — right page ─── */
   pg(false, 8, (
     <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
         <Rocket className="h-3 w-3" /> Looking Ahead
       </div>
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
         Future Vision 2026–27
       </h2>
-      <div className="space-y-2.5 text-[10px] text-white/75 leading-relaxed">
+      <div className="space-y-2.5 text-[10px] text-[#1A1A1A]/90 font-medium leading-relaxed">
         <p>
           Scaling GFG ITER into Odisha's flagship student innovation ecosystem
           — expanding national hackathon partnerships, open-source grants, and
           direct industry mentorship pipelines.
         </p>
-        <div className="aspect-[16/8] w-full overflow-hidden border border-[#00ff7f]/20 relative group">
+        <div className="aspect-[16/8] w-full overflow-hidden border-[3px] border-[#008F4C] p-0.5 bg-white relative group shadow-sm">
           <img
             src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
             alt="GFG ITER Core Team Group Photo 2025-26"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale-[20%] contrast-125"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-black/70 backdrop-blur-sm p-1.5 text-center text-[8px] font-bold text-[#00ff7f]">
-            GFG ITER Executive & Core Team Members 2025–26
+          <div className="absolute inset-x-0 bottom-0 bg-[#008F4C]/90 backdrop-blur-sm p-1.5 text-center text-[8px] font-bold text-white uppercase tracking-wider">
+            Executive & Core Team 2025–26
           </div>
         </div>
       </div>
@@ -516,13 +540,13 @@ export function NativeFlipBook() {
   /* Dynamic shadow on the revealed page — peaks at 90° */
   const revealedShadow = useTransform(flipAngle, (a: number) => {
     const abs = Math.abs(a);
-    return Math.sin((abs * Math.PI) / 180) * 0.32;
+    return Math.sin((abs * Math.PI) / 180) * 0.15; // Softer shadow for light pages
   });
 
   /* Light overlay on turning sheet front face — subtle */
   const frontLightOpacity = useTransform(flipAngle, (a: number) => {
     const abs = Math.abs(a);
-    return Math.sin((abs * Math.PI) / 180) * 0.1;
+    return Math.sin((abs * Math.PI) / 180) * 0.08; // Softer shadow on moving page
   });
 
   /* ──────── Derived ──────── */
@@ -742,7 +766,7 @@ export function NativeFlipBook() {
   /* ──────── Render ──────── */
   return (
     <section className="relative z-10 py-20 sm:py-24 overflow-hidden bg-transparent">
-      {/* Ambient background glow */}
+      {/* Ambient background glow (keep dark mode style outside the book) */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/[0.04] blur-[120px] rounded-full" />
 
       <div className="container-page">
@@ -826,7 +850,7 @@ export function NativeFlipBook() {
             }}
           />
 
-          {/* ── Page edges (stacked paper effect) ── */}
+          {/* ── Page edges (stacked paper effect - updated to white/cream for paper) ── */}
           {!isMobile && (
             <>
               <div
@@ -836,7 +860,7 @@ export function NativeFlipBook() {
                   left: 5,
                   right: 5,
                   height: 1,
-                  background: "rgba(255,255,255,0.05)",
+                  background: "rgba(245,243,234,0.7)",
                 }}
               />
               <div
@@ -846,7 +870,7 @@ export function NativeFlipBook() {
                   left: 8,
                   right: 8,
                   height: 1,
-                  background: "rgba(255,255,255,0.03)",
+                  background: "rgba(245,243,234,0.5)",
                 }}
               />
               <div
@@ -856,7 +880,7 @@ export function NativeFlipBook() {
                   left: 11,
                   right: 11,
                   height: 1,
-                  background: "rgba(255,255,255,0.015)",
+                  background: "rgba(245,243,234,0.3)",
                 }}
               />
               {/* Right outer edge */}
@@ -867,7 +891,7 @@ export function NativeFlipBook() {
                   bottom: 4,
                   right: -2,
                   width: 1,
-                  background: "rgba(255,255,255,0.04)",
+                  background: "rgba(245,243,234,0.6)",
                 }}
               />
               <div
@@ -877,7 +901,7 @@ export function NativeFlipBook() {
                   bottom: 7,
                   right: -3,
                   width: 1,
-                  background: "rgba(255,255,255,0.02)",
+                  background: "rgba(245,243,234,0.4)",
                 }}
               />
               {/* Left outer edge */}
@@ -888,7 +912,7 @@ export function NativeFlipBook() {
                   bottom: 4,
                   left: -2,
                   width: 1,
-                  background: "rgba(255,255,255,0.04)",
+                  background: "rgba(245,243,234,0.6)",
                 }}
               />
               <div
@@ -898,7 +922,7 @@ export function NativeFlipBook() {
                   bottom: 7,
                   left: -3,
                   width: 1,
-                  background: "rgba(255,255,255,0.02)",
+                  background: "rgba(245,243,234,0.4)",
                 }}
               />
             </>
@@ -930,39 +954,40 @@ export function NativeFlipBook() {
                     </div>
                   </div>
 
-                  {/* Center spine */}
+                  {/* Center spine - updated for lighter pages to create realistic fold */}
                   <div
                     className="absolute inset-y-0 left-1/2 -translate-x-1/2 pointer-events-none"
                     style={{
-                      width: 10,
+                      width: 12,
                       zIndex: 15,
                       background:
-                        "linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.45))",
+                        "linear-gradient(to right, rgba(160,155,140,0.5), rgba(120,115,100,0.8) 40%, rgba(120,115,100,0.8) 60%, rgba(160,155,140,0.5))",
                       boxShadow:
-                        "inset 0 0 8px rgba(0,0,0,0.6), 0 0 1px rgba(0,255,127,0.06)",
+                        "inset 0 0 5px rgba(0,0,0,0.4), 0 0 2px rgba(0,0,0,0.1)",
+                      mixBlendMode: "multiply"
                     }}
                   />
 
                   {/* ── Shadow on revealed page during flip ── */}
                   {isFlipping && flipDirection === "forward" && (
                     <motion.div
-                      className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"
+                      className="absolute inset-y-0 right-0 w-1/2 pointer-events-none mix-blend-multiply"
                       style={{
                         zIndex: 12,
                         opacity: revealedShadow,
                         background:
-                          "linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%)",
+                          "linear-gradient(to right, rgba(100,95,80,0.6) 0%, rgba(150,145,130,0.1) 50%, transparent 100%)",
                       }}
                     />
                   )}
                   {isFlipping && flipDirection === "backward" && (
                     <motion.div
-                      className="absolute inset-y-0 left-0 w-1/2 pointer-events-none"
+                      className="absolute inset-y-0 left-0 w-1/2 pointer-events-none mix-blend-multiply"
                       style={{
                         zIndex: 12,
                         opacity: revealedShadow,
                         background:
-                          "linear-gradient(to left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%)",
+                          "linear-gradient(to left, rgba(100,95,80,0.6) 0%, rgba(150,145,130,0.1) 50%, transparent 100%)",
                       }}
                     />
                   )}
@@ -994,13 +1019,13 @@ export function NativeFlipBook() {
                         {flipDataRef.current.frontFace}
                         {/* Light/shadow overlay on front */}
                         <motion.div
-                          className="absolute inset-0 pointer-events-none"
+                          className="absolute inset-0 pointer-events-none mix-blend-multiply"
                           style={{
                             opacity: frontLightOpacity,
                             background:
                               flipDirection === "forward"
-                                ? "linear-gradient(to left, rgba(0,0,0,0.5), transparent 60%)"
-                                : "linear-gradient(to right, rgba(0,0,0,0.5), transparent 60%)",
+                                ? "linear-gradient(to left, rgba(100,95,80,0.4), transparent 60%)"
+                                : "linear-gradient(to right, rgba(100,95,80,0.4), transparent 60%)",
                             backfaceVisibility: "hidden",
                           }}
                         />
@@ -1017,7 +1042,7 @@ export function NativeFlipBook() {
                         {flipDataRef.current.backFace}
                       </div>
 
-                      {/* Page edge thickness on turning page */}
+                      {/* Page edge thickness on turning page - matched to ivory paper */}
                       <div
                         className="absolute pointer-events-none"
                         style={{
@@ -1028,7 +1053,9 @@ export function NativeFlipBook() {
                             ? { right: -1 }
                             : { left: -1 }),
                           background:
-                            "linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.03), rgba(255,255,255,0.06))",
+                            "linear-gradient(to bottom, #F5F3EA, #E3DFCD, #F5F3EA)",
+                          borderLeft: flipDirection === "forward" ? "1px solid rgba(0,0,0,0.05)" : "none",
+                          borderRight: flipDirection === "backward" ? "1px solid rgba(0,0,0,0.05)" : "none",
                           backfaceVisibility: "hidden",
                         }}
                       />
@@ -1050,12 +1077,12 @@ export function NativeFlipBook() {
                   {/* Shadow on revealed page during flip */}
                   {isFlipping && (
                     <motion.div
-                      className="absolute inset-0 pointer-events-none"
+                      className="absolute inset-0 pointer-events-none mix-blend-multiply"
                       style={{
                         zIndex: 12,
                         opacity: revealedShadow,
                         background:
-                          "linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)",
+                          "linear-gradient(to right, rgba(100,95,80,0.5) 0%, rgba(150,145,130,0.1) 50%, transparent 100%)",
                       }}
                     />
                   )}
@@ -1080,11 +1107,11 @@ export function NativeFlipBook() {
                       >
                         {flipDataRef.current.frontFace}
                         <motion.div
-                          className="absolute inset-0 pointer-events-none"
+                          className="absolute inset-0 pointer-events-none mix-blend-multiply"
                           style={{
                             opacity: frontLightOpacity,
                             background:
-                              "linear-gradient(to left, rgba(0,0,0,0.4), transparent 50%)",
+                              "linear-gradient(to left, rgba(100,95,80,0.3), transparent 50%)",
                             backfaceVisibility: "hidden",
                           }}
                         />
