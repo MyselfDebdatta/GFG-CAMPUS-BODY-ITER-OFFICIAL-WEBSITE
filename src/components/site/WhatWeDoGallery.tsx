@@ -342,13 +342,13 @@ function GalleryCard({ photo, onOpen }: { photo: (typeof GALLERY_PHOTOS)[number]
   return (
     <div
       onClick={onOpen}
-      className="group relative w-[300px] sm:w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-[#060D09]/90 backdrop-blur-md p-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00ff7f] hover:shadow-[0_0_25px_rgba(0,255,127,0.4)]"
+      className="group relative w-[300px] sm:w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-hairline bg-surface-elevated p-3 transition-all duration-300"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-black">
         <img
           src={photo.image}
           alt={photo.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
         {/* Hover Expand Icon Overlay */}
@@ -365,10 +365,10 @@ function GalleryCard({ photo, onOpen }: { photo: (typeof GALLERY_PHOTOS)[number]
       </div>
 
       <div className="p-3">
-        <h4 className="text-base font-bold text-white line-clamp-1 group-hover:text-[#00ff7f] transition-colors">
+        <h4 className="text-base font-bold text-white line-clamp-1 hover-gradient-text transition-colors">
           {photo.title}
         </h4>
-        <div className="mt-1 flex items-center justify-between text-xs text-white/50">
+        <div className="mt-1 flex items-center justify-between text-xs text-white/60">
           <span className="flex items-center gap-1 line-clamp-1">
             <MapPin className="h-3 w-3 text-[#00ff7f]" /> {photo.location}
           </span>
