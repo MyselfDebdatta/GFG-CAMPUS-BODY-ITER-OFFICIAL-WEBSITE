@@ -858,7 +858,6 @@ export function NativeFlipBook() {
               inset: isMobile ? -4 : -6,
               background:
                 "linear-gradient(145deg, #020b06 0%, #071a0f 50%, #020b06 100%)",
-              border: "1px solid rgba(0,255,127,0.08)",
               boxShadow:
                 "0 25px 70px -15px rgba(0,0,0,0.85), 0 8px 20px -8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,255,127,0.06)",
             }}
