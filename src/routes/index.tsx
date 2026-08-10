@@ -33,6 +33,7 @@ import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
 import { WhatWeDoGallery } from "@/components/site/WhatWeDoGallery";
+import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
 import {
   STATS,
   MARQUEE,
