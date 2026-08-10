@@ -387,9 +387,9 @@ export const CONTRIBUTORS = [
   {
     id: "lead-1",
     name: "Anubhab Samantary",
-    role: "Faculty Coordinator",
-    achievement: "Associate Professor, Dept. of CSE. Chapter Advisor & Faculty Coordinator.",
-    photo: "https://i.pravatar.cc/400?img=52",
+    role: "Coordinator",
+    achievement: '"Bridging vision with execution to lead GFG ITER towards excellence."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "anubhab.samantary@soa.ac.in"
@@ -397,9 +397,9 @@ export const CONTRIBUTORS = [
   {
     id: "lead-2",
     name: "Akansha Ajay",
-    role: "Faculty Coordinator",
-    achievement: "Assistant Professor, Dept. of CSE. Research mentor & Faculty Coordinator.",
-    photo: "https://i.pravatar.cc/400?img=40",
+    role: "Coordinator",
+    achievement: '"Fostering collaboration and driving impactful student tech initiatives."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "akansha.ajay@soa.ac.in"
@@ -408,8 +408,8 @@ export const CONTRIBUTORS = [
     id: "lead-3",
     name: "Ayush R. Pradhan",
     role: "Community Mentor",
-    achievement: "GFG ITER Alumnus. Mentoring students for top placements and open source.",
-    photo: "https://i.pravatar.cc/400?img=33",
+    achievement: '"Empowering developers to transition from campus learning to industry impact."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "ayush.pradhan@soa.ac.in"
@@ -418,8 +418,8 @@ export const CONTRIBUTORS = [
     id: "lead-4",
     name: "Vivek Ranjan Sahoo",
     role: "President",
-    achievement: "Final-year CSE. Full-stack engineer leading student operations & tech initiatives.",
-    photo: "https://i.pravatar.cc/400?img=12",
+    achievement: '"Building a culture of relentless innovation, shipping, and peer learning."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "vivek.sahoo@iter.ac.in"
@@ -428,8 +428,8 @@ export const CONTRIBUTORS = [
     id: "lead-5",
     name: "Snehansu Sekhar Das",
     role: "Vice President",
-    achievement: "Systems and cloud specialist. Managing campus events & partnerships.",
-    photo: "https://i.pravatar.cc/400?img=47",
+    achievement: '"Scaling our community reach and driving campus-wide technical summits."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "snehansu.das@iter.ac.in"
@@ -438,8 +438,8 @@ export const CONTRIBUTORS = [
     id: "lead-6",
     name: "Abhijit Dash",
     role: "Tech Lead",
-    achievement: "Open source developer. Spearheading technical pods, projects, & bootcamps.",
-    photo: "https://i.pravatar.cc/400?img=15",
+    achievement: '"Crafting robust architecture and leading hands-on technical sprints."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "abhijit.dash@iter.ac.in"
@@ -448,8 +448,8 @@ export const CONTRIBUTORS = [
     id: "lead-7",
     name: "Aastha Singh",
     role: "PR & Media Lead",
-    achievement: "Community strategist & media lead growing GFG ITER presence online and offline.",
-    photo: "https://i.pravatar.cc/400?img=25",
+    achievement: '"Amplifying our builders\' stories and scaling our brand presence."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "aastha.singh@iter.ac.in"
@@ -458,8 +458,8 @@ export const CONTRIBUTORS = [
     id: "lead-8",
     name: "Sanyukt Kumar Rai",
     role: "Design Lead",
-    achievement: "Product designer creating brand design systems, UI/UX, and visual guidelines.",
-    photo: "https://i.pravatar.cc/400?img=45",
+    achievement: '"Designing intuitive user experiences and crafting our visual identity."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "sanyukt.rai@iter.ac.in"
@@ -468,8 +468,8 @@ export const CONTRIBUTORS = [
     id: "lead-9",
     name: "Subhakanta Das",
     role: "Operations Lead",
-    achievement: "Event organizer directing flagship hackathons, bootcamps & campus summits.",
-    photo: "https://i.pravatar.cc/400?img=8",
+    achievement: '"Orchestrating seamless hackathons, bootcamps, and campus logistics."',
+    photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "subhakanta.das@iter.ac.in"
