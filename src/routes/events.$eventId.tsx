@@ -87,18 +87,18 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
     ],
   },
   "founders-unplugged": {
-    brief: "Founders Unplugged brought startup founders and C-suite executives to campus for raw, unscripted conversations about building companies. No polished keynotes — just real stories about failure, pivots, and the unglamorous grind behind every success story.",
+    brief: "Founders' Unplugged: From Chaos to Creation (The GFG Podcast) turned out to be far more than just a podcast session — it was an open, authentic dialogue with Zahid Akhtar (Founder of OneLife, Life & Career Coach, Behavioral Trainer). Students gained actionable insights into navigating career decisions, building emotional resilience, and balancing academics with coding.",
     objectives: [
-      "Unfiltered insights from founders who've raised funding and scaled",
-      "Real talk on technical co-founder dynamics and early-stage decisions",
-      "Interactive Q&A — every question from the audience was answered",
-      "Actionable advice on transitioning from campus to startup life",
+      "Navigating career choices and developing emotional resilience with Zahid Akhtar",
+      "Building effective communication skills and a strategic growth mindset",
+      "Engaging Rapid Fire debate: 'Gut Feeling vs Market Research' & 'Perfect Plan vs Fast Execution'",
+      "Balancing academics, coding practice, and personal commitments efficiently",
     ],
     timeline: [
-      { label: "Opening", desc: "Welcome address and speaker introductions" },
-      { label: "Fireside Chat", desc: "Moderated conversation on the startup journey" },
-      { label: "Audience Q&A", desc: "Open mic — students ask, founders answer" },
-      { label: "Networking", desc: "One-on-one conversations with speakers" },
+      { label: "Podcast Opening", desc: "Welcome address and introducing guest speaker Zahid Akhtar" },
+      { label: "Fireside Dialogue", desc: "Unfiltered discussion on personality development and career clarity" },
+      { label: "Rapid Fire Round", desc: "Fast-paced debates: Gut Feeling vs Market Research & Plan vs Execution" },
+      { label: "Q&A & Felicitation", desc: "Audience questions, speaker felicitation, and closing takeaways" },
     ],
   },
   "chai-links-ep01": {

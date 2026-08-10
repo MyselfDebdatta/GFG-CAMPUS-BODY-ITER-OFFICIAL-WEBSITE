@@ -103,16 +103,16 @@ export const EVENTS = [
   },
   {
     id: "founders-unplugged",
-    title: "Founders Unplugged: Stories and Insights",
+    title: "Founders' Unplugged: From Chaos to Creation",
     category: "Seminar",
-    date: "Dec 23, 2025, 4:30 PM",
+    date: "Dec 23, 2025",
     venue: "ITER Main Campus",
     status: "past",
     speakers: [
-      { name: "Guest Speakers", role: "Founders & CEOs", photo: "https://i.pravatar.cc/150?img=33" }
+      { name: "Zahid Akhtar", role: "Founder of OneLife", photo: "" }
     ],
     description:
-      "A power-packed session where startup founders, CEOs, and CMOs share real-world insights on building companies, crafting strategy, and staying motivated through the startup journey.",
+      "An honest podcast-style conversation on personality development, career growth, and startup realities featuring Zahid Akhtar (Founder of OneLife). Highlights included a rapid-fire round debating 'Gut Feeling vs Market Research' and 'Perfect Plan vs Fast Execution'.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=70",
   },
