@@ -63,8 +63,8 @@ export function ContributorsCarousel() {
       <div 
         className="relative w-full h-[470px] flex items-center justify-center py-8"
         style={{
-          maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)"
         }}
       >
         {CONTRIBUTORS.map((lead, index) => {
@@ -76,10 +76,8 @@ export function ContributorsCarousel() {
           const isActive = offset === 0;
           const isVisible = Math.abs(offset) <= 2; 
 
-          if (!isVisible) return null;
-
-          // Smooth pixel displacement based on card width + gap
-          const x = offset * 340; 
+          // Spacious horizontal separation (400px spacing for 340px cards)
+          const x = offset * 400; 
 
           return (
             <motion.div
@@ -87,13 +85,14 @@ export function ContributorsCarousel() {
               initial={false}
               animate={{ 
                 x,
-                scale: isActive ? 1.05 : 1 - Math.abs(offset) * 0.12,
-                opacity: isActive ? 1 : Math.max(0.2, 0.6 - Math.abs(offset) * 0.2),
+                scale: isActive ? 1.05 : Math.max(0.75, 0.9 - Math.abs(offset) * 0.1),
+                opacity: isVisible ? (isActive ? 1 : Math.max(0.2, 0.5 - Math.abs(offset) * 0.15)) : 0,
+                pointerEvents: isVisible ? "auto" : "none",
                 zIndex: 20 - Math.abs(offset)
               }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
               className={cn(
-                "absolute w-[290px] sm:w-[340px] rounded-3xl border p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between h-[395px] select-none",
+                "absolute w-[290px] sm:w-[340px] rounded-3xl border p-6 sm:p-7 backdrop-blur-xl transition-colors duration-500 flex flex-col justify-between h-[395px] select-none",
                 isActive 
                   ? "border-[#00ff7f] shadow-[0_0_20px_rgba(0,255,127,0.35)] bg-surface-elevated" 
                   : "border-white/10 bg-surface/80 opacity-50"
