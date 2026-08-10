@@ -19,7 +19,7 @@ export const Route = createFileRoute("/events/")({
   }),
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      tab: (search.tab === "past" ? "past" : "upcoming") as "upcoming" | "past",
+      tab: (search.tab === "past" ? "past" : search.tab === "ongoing" ? "ongoing" : "upcoming") as "upcoming" | "ongoing" | "past",
       category: (search.category as string) || "All",
     };
   },
@@ -30,7 +30,7 @@ function Events() {
   const { tab, category } = Route.useSearch();
   const navigate = useNavigate({ from: Route.id });
 
-  const setTab = (newTab: "upcoming" | "past") => {
+  const setTab = (newTab: "upcoming" | "ongoing" | "past") => {
     navigate({ search: (prev) => ({ ...prev, tab: newTab }), resetScroll: false });
   };
 
@@ -64,13 +64,13 @@ function Events() {
       <section className="container-page">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-hairline pb-6">
           <div className="inline-flex rounded-full border border-hairline bg-surface p-1">
-            {(["upcoming", "past"] as const).map((t) => (
+            {(["upcoming", "ongoing", "past"] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => setTab(t)}
                 className={cn(
                   "relative px-4 py-1.5 text-sm font-medium capitalize rounded-full transition-colors",
-                  tab === t ? "text-brand-foreground" : "text-muted-foreground hover:text-foreground",
+                  tab === t ? "text-brand-foreground font-bold" : "text-muted-foreground hover:text-foreground",
                 )}
                 style={tab === t ? { backgroundColor: '#00ff7f' } : undefined}
               >
@@ -142,6 +142,10 @@ function Events() {
                       {e.status === "upcoming" ? (
                         <Button size="sm" className="bg-brand text-brand-foreground hover:bg-brand/90 font-semibold">
                           Register
+                        </Button>
+                      ) : e.status === "ongoing" ? (
+                        <Button size="sm" className="bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 font-bold">
+                          Join Live
                         </Button>
                       ) : (
                         <span className="inline-flex h-9 items-center justify-center rounded-md border border-hairline bg-transparent px-3 text-sm font-semibold text-foreground">
