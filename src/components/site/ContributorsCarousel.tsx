@@ -16,16 +16,16 @@ export function ContributorsCarousel() {
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play cycle every 3 seconds when not paused
+  // Auto-play cycle every 2.2 seconds when not paused
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CONTRIBUTORS.length);
-    }, 3000);
+    }, 2200);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // When user manually clicks controls, pause and auto-resume after 4s
+  // When user manually clicks controls, pause and auto-resume after 3s
   const resetInteractionTimer = () => {
     setIsPaused(true);
     if (timerRef.current) {
@@ -33,7 +33,7 @@ export function ContributorsCarousel() {
     }
     timerRef.current = setTimeout(() => {
       setIsPaused(false);
-    }, 4000);
+    }, 3000);
   };
 
   const handlePrev = (e?: React.MouseEvent) => {
@@ -89,20 +89,20 @@ export function ContributorsCarousel() {
                   zIndex: 10 - Math.abs(offset)
                 }}
                 exit={{ opacity: 0, scale: 0.8, x: xPos }}
-                transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
                 className={cn(
-                  "absolute w-[290px] sm:w-[350px] rounded-3xl border bg-[#040e08]/95 p-6 sm:p-7 backdrop-blur-xl transition-colors duration-500 shadow-2xl flex flex-col justify-between h-[390px]",
+                  "absolute w-[290px] sm:w-[350px] rounded-3xl border p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between h-[390px]",
                   isActive 
-                    ? "border-[#00ff7f]/50 shadow-[0_0_50px_rgba(0,255,127,0.2)] bg-[#06180d]" 
-                    : "border-white/10 opacity-60"
+                    ? "border-[#00ff7f] shadow-[0_0_15px_rgba(0,255,127,0.4)] bg-surface-elevated scale-105" 
+                    : "border-white/10 bg-surface/80 opacity-50"
                 )}
               >
                 <div className="flex flex-col items-center text-center">
                   {/* Styled Initials Circle Badge (No Stock Photos) */}
                   <div className={cn(
-                    "relative mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 transition-all duration-500 bg-gradient-to-br from-[#00ff7f]/20 via-[#00ff7f]/10 to-transparent text-[#00ff7f] font-black text-2xl tracking-wider select-none",
+                    "relative mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 transition-all duration-300 bg-gradient-to-br from-[#00ff7f]/20 via-[#00ff7f]/10 to-transparent text-[#00ff7f] font-black text-2xl tracking-wider select-none",
                     isActive 
-                      ? "border-[#00ff7f] shadow-[0_0_25px_rgba(0,255,127,0.35)] scale-105" 
+                      ? "border-[#00ff7f] shadow-[0_0_15px_rgba(0,255,127,0.3)] scale-105" 
                       : "border-white/15 text-white/50"
                   )}>
                     {getInitials(lead.name)}
