@@ -124,7 +124,7 @@ export function WhatWeDoGallery() {
   };
 
   return (
-    <section className="relative z-10 py-24 overflow-hidden bg-[#020b06]">
+    <section className="relative z-10 py-24 overflow-hidden bg-transparent">
       {/* Background radial glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/5 blur-[120px] rounded-full" />
 
@@ -183,8 +183,8 @@ export function WhatWeDoGallery() {
       {/* Infinite Gallery Marquee Rows */}
       <div className="relative flex flex-col gap-6 py-4">
         {/* Edge Fade Masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#020b06] via-[#020b06]/80 to-transparent z-20" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#020b06] via-[#020b06]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#020b06]/90 via-[#020b06]/40 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#020b06]/90 via-[#020b06]/40 to-transparent z-20" />
 
         {/* ROW 1: Auto-scrolling Left */}
         <div
