@@ -107,58 +107,61 @@ const PAGES: ReactNode[] = [
     {/* Gutter shadow (right = toward spine) */}
     <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#C4C0AE]/60 via-[#E3DFCD]/20 to-transparent pointer-events-none z-10 mix-blend-multiply" />
 
-    {/* Header */}
-    <div className="flex items-center justify-between z-10 border-b-2 border-[#008F4C]/80 pb-8 px-5 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 shrink-0">
-      <div className="flex items-center gap-2">
-        <div className="h-7 w-7 rounded bg-[#008F4C] flex items-center justify-center font-extrabold text-white text-xs">
-          G
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-5 sm:pt-6 md:pt-7 px-5 sm:px-6 md:px-7">
+      <div className="flex justify-between items-end mb-1">
+        <div className="flex items-center gap-2">
+          <div className="h-6 w-6 rounded bg-[#008F4C] flex items-center justify-center font-extrabold text-white text-[10px]">
+            G
+          </div>
+          <div>
+            <div className="text-[9px] font-bold uppercase tracking-widest text-[#333]">
+              GeeksforGeeks
+            </div>
+            <div className="text-[8px] text-[#666] tracking-wider font-semibold">
+              Campus Body ITER
+            </div>
+          </div>
         </div>
-        <div>
-          <div className="text-[9px] font-bold uppercase tracking-widest text-[#008F4C]">
-            GeeksforGeeks
-          </div>
-          <div className="text-[8px] text-[#1A1A1A]/60 tracking-wider font-semibold">
-            Campus Body ITER
-          </div>
+        <div className="text-right text-[9px] font-bold tracking-widest uppercase text-[#333]">
+          SOA University
         </div>
       </div>
-      <div className="text-right">
-        <div className="text-[9px] font-bold text-[#111511]">SOA University</div>
-        <div className="text-[8px] text-[#008F4C] font-semibold">
-          Academic Year 2025–26
+      
+      <div className="border-t-[3px] border-[#008F4C] pt-3 pb-3 text-center">
+        <div className="inline-flex items-center gap-1.5 border border-[#008F4C]/30 bg-[#008F4C]/5 px-3 py-0.5 text-[8px] font-mono uppercase tracking-[0.12em] text-[#008F4C] mb-3">
+          <Sparkles className="h-2.5 w-2.5" /> Official Chapter Publication
+        </div>
+        <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[#333] leading-none mb-1">
+          Geeks <span className="text-[#008F4C]">For</span> Geeks
+        </h1>
+        <div className="text-sm sm:text-base font-extrabold tracking-widest text-[#008F4C]">
+          2025 – 2026
         </div>
       </div>
-    </div>
+      <div className="border-t-[1.5px] border-[#008F4C] mb-[3px]"></div>
+      <div className="border-t-[4px] border-[#008F4C] mb-4"></div>
 
-    {/* Center title */}
-    <div className="my-auto text-center z-10 py-2 px-5 sm:px-6 md:px-7">
-      <div className="inline-flex items-center gap-1.5 border border-[#008F4C]/30 bg-[#008F4C]/5 px-3 py-0.5 text-[9px] font-mono uppercase tracking-[0.12em] text-[#008F4C] mb-3">
-        <Sparkles className="h-2.5 w-2.5" /> Official Chapter Publication
-      </div>
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#111511] leading-none mb-1">
-        Geeks <span className="text-[#008F4C]">For</span> Geeks
-      </h1>
-      <div className="text-base sm:text-lg font-extrabold tracking-widest text-[#008F4C] mb-4">
-        2025 – 2026
-      </div>
-      <div className="max-w-[180px] mx-auto aspect-[16/9] overflow-hidden border-[3px] border-[#008F4C] relative mb-4 shadow-sm p-0.5 bg-white">
-        <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-          alt="GFG ITER Builders"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111511]/80 via-transparent to-transparent flex items-end justify-center p-1.5">
-          <span className="text-[8px] font-semibold text-white">
-            ITER Campus Student Chapter · Siksha 'O' Anusandhan
-          </span>
+      <div className="flex-1 flex flex-col justify-center items-center pb-6">
+        <div className="w-full max-w-[200px] aspect-[16/9] overflow-hidden border-[3px] border-[#008F4C] relative mb-6 shadow-sm p-0.5 bg-white">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+            alt="GFG ITER Builders"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111511]/80 via-transparent to-transparent flex items-end justify-center p-1.5">
+            <span className="text-[8px] font-semibold text-white">
+              ITER Campus Student Chapter · Siksha 'O' Anusandhan
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-center items-center gap-2 text-[9px] font-mono text-[#008F4C] tracking-widest font-bold">
-        <span>.CODE</span>
-        <span className="text-[#1A1A1A]/30">·</span>
-        <span>.CONNECT</span>
-        <span className="text-[#1A1A1A]/30">·</span>
-        <span>.CONQUER</span>
+        
+        <div className="flex justify-center items-center gap-2 text-[9px] font-mono text-[#008F4C] tracking-widest font-bold">
+          <span>.CODE</span>
+          <span className="text-[#1A1A1A]/30">·</span>
+          <span>.CONNECT</span>
+          <span className="text-[#1A1A1A]/30">·</span>
+          <span>.CONQUER</span>
+        </div>
       </div>
     </div>
 
@@ -778,7 +781,7 @@ export function NativeFlipBook() {
   }
 
   /* ──────── Page height ──────── */
-  const pageH = isMobile ? 460 : 560;
+  const pageH = isMobile ? 500 : 600;
 
   /* ──────── Render ──────── */
   return (
