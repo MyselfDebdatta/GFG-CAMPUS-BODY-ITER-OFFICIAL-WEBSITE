@@ -432,7 +432,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1 pb-1 mb-2.5 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-2.5 mb-2.5 mx-4">
         <div className="text-[13px] sm:text-[15px] font-bold text-[#111] leading-none uppercase tracking-wide">
           THE <span className="text-[#008F4C] font-black">GFG</span> LAUNCH
         </div>
@@ -575,7 +575,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
         <div className="text-[9px] sm:text-[10px] font-bold text-[#111] leading-none uppercase tracking-widest">
           CUP THAT CONNECTS . CONVERSATION THAT MATTERS
         </div>
@@ -701,7 +701,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
         <div className="text-[9px] sm:text-[10px] font-bold text-[#111] leading-none uppercase tracking-widest">
           CUP THAT CONNECTS . CONVERSATION THAT MATTERS
         </div>
@@ -851,7 +851,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
         <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
           THE GFG PODCAST.
         </div>
@@ -1017,7 +1017,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
         <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
           PERSONALITY DEVELOPMENT SESSION
         </div>
@@ -1191,7 +1191,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
         <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
           CAPTURE THE FLAG EVENT
         </div>
@@ -1268,7 +1268,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
         <div className="text-[10px] sm:text-[12px] font-bold text-[#111] leading-none uppercase tracking-widest">
           DESIGN-PITCH EVENT
         </div>
