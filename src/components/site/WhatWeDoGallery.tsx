@@ -283,7 +283,7 @@ export function WhatWeDoGallery() {
               onClick={() => setSelectedCategory(cat)}
               className={`rounded-full px-4 py-2 text-xs font-bold tracking-wider transition-all duration-300 ${
                 selectedCategory === cat
-                  ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] scale-105"
+                  ? "bg-[#00ff7f] text-[#020b06] border border-[#00ff7f] scale-105"
                   : "border border-white/10 bg-white/5 text-white/70 hover:border-[#00ff7f]/30 hover:text-white"
               }`}
             >
@@ -304,7 +304,7 @@ export function WhatWeDoGallery() {
           ref={row1Ref}
           className="flex gap-5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth py-6 sm:py-8 px-6"
         >
-          <div className="flex gap-5 shrink-0 animate-marquee hover:[animation-play-state:paused]" style={{ animationDuration: "55s" }}>
+          <div className="flex gap-5 shrink-0 animate-marquee hover:[animation-play-state:paused] [will-change:transform]" style={{ animationDuration: "55s" }}>
             {row1.map((photo, i) => (
               <GalleryCard key={`r1-${photo.id}-${i}`} photo={photo} onOpen={() => setActivePhoto(photo)} />
             ))}
@@ -316,7 +316,7 @@ export function WhatWeDoGallery() {
           ref={row2Ref}
           className="flex gap-5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth py-6 sm:py-8 px-6"
         >
-          <div className="flex gap-5 shrink-0 animate-marquee-reverse hover:[animation-play-state:paused]" style={{ animationDuration: "60s" }}>
+          <div className="flex gap-5 shrink-0 animate-marquee-reverse hover:[animation-play-state:paused] [will-change:transform]" style={{ animationDuration: "60s" }}>
             {row2Loop.map((photo, i) => (
               <GalleryCard key={`r2-${photo.id}-${i}`} photo={photo} onOpen={() => setActivePhoto(photo)} />
             ))}
