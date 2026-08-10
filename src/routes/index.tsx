@@ -32,7 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
-import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
+import { WhatWeDoGallery } from "@/components/site/WhatWeDoGallery";
 import {
   STATS,
   MARQUEE,
@@ -357,92 +357,8 @@ function Home() {
         </div>
       </section>
 
-      {/* FACULTY COORDINATORS */}
-      <section className="relative z-10 container-page py-24">
-        <SectionHeader
-          eyebrow="Leadership"
-          title={<>Our Faculty Coordinators</>}
-          description="Guiding the next generation of engineers at GFG Campus Body ITER."
-        />
-        
-        <div className="mt-16 flex flex-col gap-10 max-w-5xl mx-auto">
-          {/* Card 1 */}
-          <Reveal delay={0.1}>
-            <article className="flex flex-col md:flex-row items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 raw-hover:border-brand/40 raw-hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
-              {/* Image side */}
-              <div className="w-full md:w-1/3 shrink-0">
-                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-raw-hover:scale-[1.02]">
-                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-raw-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-                </div>
-              </div>
-              
-              {/* Content side */}
-              <div className="w-full md:w-2/3 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
-                  Faculty Coordinator | GFG Campus Body ITER
-                </div>
-                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 1</h3>
-                <p className="text-sm text-brand font-medium mb-8">Associate Professor, Department of CSE</p>
-                
-                <div className="relative border-l-2 border-brand/40 pl-5 py-2">
-                  <p className="text-white/70 text-base leading-relaxed">
-                    Empowering students to push the boundaries of technology. At GFG ITER, we believe in building a foundation of strong technical skills, continuous learning, and collaborative innovation that prepares you for the challenges of tomorrow.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-hairline">
-                  <a
-                    href="#"
-                    aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform raw-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                  >
-                    <Linkedin className="h-5 w-5 text-[#0A66C2]" strokeWidth={2.5} />
-                  </a>
-                </div>
-              </div>
-            </article>
-          </Reveal>
-
-          {/* Card 2 */}
-          <Reveal delay={0.2}>
-            <article className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 raw-hover:border-brand/40 raw-hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
-              {/* Image side */}
-              <div className="w-full md:w-1/3 shrink-0">
-                <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-raw-hover:scale-[1.02]">
-                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-raw-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-                </div>
-              </div>
-              
-              {/* Content side */}
-              <div className="w-full md:w-2/3 flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
-                  Faculty Coordinator | GFG Campus Body ITER
-                </div>
-                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 2</h3>
-                <p className="text-sm text-brand font-medium mb-8">Assistant Professor, Department of CSE</p>
-                
-                <div className="relative border-l-2 border-brand/40 pl-5 py-2">
-                  <p className="text-white/70 text-base leading-relaxed">
-                    Innovation starts with a curious mindset and a supportive community. Our goal at GFG ITER is to provide students with the platform and resources they need to experiment, fail, learn, and ultimately build products that matter.
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-hairline">
-                  <a
-                    href="#"
-                    aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform raw-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                  >
-                    <Linkedin className="h-5 w-5 text-[#0A66C2]" strokeWidth={2.5} />
-                  </a>
-                </div>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
+      {/* WHAT WE DO / PHOTO GALLERY */}
+      <WhatWeDoGallery />
 
       {/* Separator */}
       <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
