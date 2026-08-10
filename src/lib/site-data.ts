@@ -73,31 +73,31 @@ export const EVENTS = [
   },
   {
     id: "rachitva-event",
-    title: "Rachitva",
-    category: "Competition",
-    date: "Apr 05, 2026, 8:00 AM",
+    title: "Rachitva: Design-Pitch Event",
+    category: "Contest",
+    date: "Apr 05, 2026",
     venue: "ITER Main Campus",
     status: "past",
     speakers: [
-      { name: "Design Team", role: "Organizers", photo: "https://i.pravatar.cc/150?img=45" }
+      { name: "GFG Design & Media Leads", role: "Judges & Facilitators", photo: "" }
     ],
     description:
-      "Rachitva is an impromptu design and communication skills competition tailored for those who can think on their feet. In this fast-paced event, participants are challenged to craft and present innovative solutions.",
+      "A fast-paced Design-Pitch competition inspiring participants to transform abstract ideas into compelling product concepts through design thinking, branding, and persuasive pitching under tight time constraints.",
     image:
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "zerone-event",
-    title: "Zer0ne",
-    category: "Flagship",
-    date: "Apr 03, 2026, 8:00 AM",
+    title: "Zer0ne: Capture the Flag",
+    category: "Contest",
+    date: "Apr 03, 2026",
     venue: "ITER Main Campus",
     status: "past",
     speakers: [
-      { name: "GFG ITER Team", role: "Organizers", photo: "https://i.pravatar.cc/150?img=50" }
+      { name: "GFG Tech & Design Leads", role: "Event Conductors", photo: "" }
     ],
     description:
-      "Zer0ne is the flagship creativity-driven event of GFG Chapter ITER, focused on product thinking, design, and innovation. Participants will dive deep into problem-solving.",
+      "A multidisciplinary Capture the Flag event blending technology, strategy, and virtual economy management. Teams showcased technical expertise, real-time decision making, and hackathon-style solution development.",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
   },
