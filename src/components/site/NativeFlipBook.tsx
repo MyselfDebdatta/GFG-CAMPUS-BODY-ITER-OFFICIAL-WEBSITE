@@ -78,6 +78,23 @@ const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode =>
 );
 
 /* ═══════════════════════════════════════════════════════════════════
+   COMPONENTS
+   ═══════════════════════════════════════════════════════════════════ */
+const PersonCard = ({ name, role, src }: { name: string, role: string, src?: string }) => (
+  <div className="relative rounded-[6px] sm:rounded-[8px] overflow-hidden aspect-[3/4.2] shadow-sm bg-[#789A5F] border-[0.5px] border-[#008F4C]/20">
+    {src ? (
+      <img src={src} alt={name} className="w-full h-full object-cover opacity-90 mix-blend-luminosity" />
+    ) : (
+      <div className="w-full h-full bg-gradient-to-br from-[#87A86E] to-[#688B4F] opacity-90 mix-blend-multiply" />
+    )}
+    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-1.5 flex flex-col justify-end text-center h-[55%]">
+      <div className="text-white font-black text-[7.5px] sm:text-[8.5px] leading-none tracking-wide uppercase drop-shadow-md">{name}</div>
+      <div className="text-white/90 font-bold text-[5.5px] sm:text-[6.5px] uppercase tracking-widest mt-1 drop-shadow-md">{role}</div>
+    </div>
+  </div>
+);
+
+/* ═══════════════════════════════════════════════════════════════════
    PAGE CONTENT — 8 pages, all existing content preserved
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -324,85 +341,63 @@ const PAGES: ReactNode[] = [
 
   /* ─── PAGE 3 (Page 4): CORE TEAM — right page ─── */
   pg(false, 4, (
-    <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-        <Users className="h-3 w-3" /> Chapter Leadership
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header aligned perfectly with Page 3 */}
+      <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-0.5">
+        ITER
       </div>
-      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
-        Core Team 2025–26
-      </h2>
-      <div className="space-y-2.5">
-        <div>
-          <div className="text-[9px] font-bold uppercase tracking-wider text-[#008F4C] mb-1 border-b border-[#008F4C]/20 inline-block pb-0.5">
-            Faculty Mentors
+      <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
+        <h2 className="text-4xl sm:text-5xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.01em" }}>
+          MEET OUR CORE
+        </h2>
+      </div>
+      <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
+        <h3 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.01em" }}>
+          LEADS
+        </h3>
+      </div>
+      <div className="border-t-[1px] border-[#008F4C] mb-2 mt-0.5"></div>
+      
+      {/* Content Area */}
+      <div className="flex-1 flex flex-col justify-between pb-1">
+        {/* Row 1: President & Vice President */}
+        <div className="flex justify-center gap-3">
+          <div className="w-[32%] max-w-[110px]">
+            <PersonCard name="VIVEK RANJAN SAHOO" role="PRESIDENT" />
           </div>
-          <div className="grid grid-cols-2 gap-1.5 mt-1">
-            <div className="p-2 border border-[#1A1A1A]/10 bg-white/40">
-              <div className="font-bold text-[10px] text-[#111511]">
-                Dr. Debahuti Mishra
-              </div>
-              <div className="text-[8px] text-[#1A1A1A]/70 font-semibold">
-                Faculty Coordinator · HOD CSE
-              </div>
-            </div>
-            <div className="p-2 border border-[#1A1A1A]/10 bg-white/40">
-              <div className="font-bold text-[10px] text-[#111511]">
-                Prof. Abhijit Dash
-              </div>
-              <div className="text-[8px] text-[#1A1A1A]/70 font-semibold">
-                Faculty Mentor · Associate Prof
-              </div>
-            </div>
+          <div className="w-[32%] max-w-[110px]">
+            <PersonCard name="SNEHANSU SEKHAR DASH" role="VICE-PRESIDENT" />
           </div>
         </div>
-        <div>
-          <div className="text-[9px] font-bold uppercase tracking-wider text-[#008F4C] mb-1 border-b border-[#008F4C]/20 inline-block pb-0.5">
-            Student Coordinators
-          </div>
-          <div className="grid grid-cols-2 gap-1.5 mt-1">
-            <div className="p-2 bg-[#008F4C] border border-[#008F4C] text-white shadow-sm">
-              <div className="font-bold text-[10px]">
-                Anubhab Samantary
-              </div>
-              <div className="text-[8px] font-mono font-semibold text-white/80">
-                Coordinator
-              </div>
-            </div>
-            <div className="p-2 bg-[#008F4C] border border-[#008F4C] text-white shadow-sm">
-              <div className="font-bold text-[10px]">
-                Akansha Ajay
-              </div>
-              <div className="text-[8px] font-mono font-semibold text-white/80">
-                Coordinator
-              </div>
-            </div>
-          </div>
+        
+        {/* Row 2: Tech Leads */}
+        <div className="grid grid-cols-4 gap-1.5 px-0.5">
+          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
         </div>
-        <div>
-          <div className="text-[9px] font-bold uppercase tracking-wider text-[#008F4C] mb-1 border-b border-[#008F4C]/20 inline-block pb-0.5">
-            Domain Leads
+        
+        {/* Divider for Team Co-ordinators */}
+        <div className="mt-1">
+          <div className="border-t-[2px] border-[#008F4C] pt-1 pb-1 text-center">
+            <h3 className="text-xl sm:text-2xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.01em" }}>
+              TEAM CO-ORDINATORS
+            </h3>
           </div>
-          <div className="grid grid-cols-3 gap-1.5 mt-1">
-            {[
-              { name: "Kabir Sharma", role: "Tech Lead" },
-              { name: "Isha Nanda", role: "Design Lead" },
-              { name: "Kabir Sen", role: "Events Lead" },
-              { name: "Aastha Singh", role: "PR & Media" },
-              { name: "Sanyukt Rai", role: "Design Lead" },
-              { name: "Subhakanta Das", role: "Operations" },
-            ].map((l) => (
-              <div
-                key={l.name}
-                className="p-1.5 border border-[#1A1A1A]/15 bg-white/50 text-center"
-              >
-                <div className="font-bold text-[9px] text-[#111511] truncate">
-                  {l.name}
-                </div>
-                <div className="text-[7px] font-bold text-[#008F4C] uppercase tracking-wider truncate mt-0.5">
-                  {l.role}
-                </div>
-              </div>
-            ))}
+          <div className="border-t-[1px] border-[#008F4C] mb-2 mt-0.5"></div>
+        </div>
+        
+        {/* Row 3: Co-ordinators */}
+        <div className="flex justify-center gap-2 px-3">
+          <div className="w-[30%] max-w-[100px]">
+            <PersonCard name="ANUBHAB SAMANTARAY" role="CLUB COORDINATOR" />
+          </div>
+          <div className="w-[30%] max-w-[100px]">
+            <PersonCard name="AKANSHA AJAY" role="CLUB COORDINATOR" />
+          </div>
+          <div className="w-[30%] max-w-[100px]">
+            <PersonCard name="AYUSH R. PRADHAN" role="COMMUNITY MENTOR" />
           </div>
         </div>
       </div>
