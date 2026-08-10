@@ -224,53 +224,106 @@ const PAGES: ReactNode[] = [
 
   /* ─── PAGE 2 (Page 3): ABOUT THE CLUB — left page ─── */
   pg(true, 3, (
-    <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-        <BookOpen className="h-3 w-3" /> Chapter Overview
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="text-right text-[8px] font-bold tracking-widest uppercase text-[#333] mb-1">
+        ITER
       </div>
-      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
-        Building Coders & Creating Impact
-      </h2>
-      <div className="space-y-2.5 text-[10px] text-[#1A1A1A]/90 leading-relaxed font-medium">
-        <p>
-          The{" "}
-          <strong className="text-[#008F4C] font-extrabold">
-            GeeksforGeeks ITER Campus Body
-          </strong>{" "}
-          is a student-driven technical community committed to fostering
-          innovation, collaboration, and technical excellence among students
-          across SOA University.
-        </p>
-        <div className="grid grid-cols-2 gap-2">
-          <div className="p-2 border border-[#008F4C]/30 bg-white/50">
-            <div className="font-bold text-[#008F4C] text-[9px] uppercase mb-1 tracking-wider border-b border-[#008F4C]/20 pb-0.5">
-              What We Do
-            </div>
-            <ul className="text-[9px] text-[#1A1A1A]/80 space-y-0.5 font-semibold">
-              <li>• Coding Contests & DSA</li>
-              <li>• Jatuk Exchange Workshops</li>
-              <li>• Founders' Unplugged</li>
-              <li>• ChaiLinks Knowledge Sharing</li>
-            </ul>
-          </div>
-          <div className="p-2 border border-[#008F4C]/30 bg-white/50">
-            <div className="font-bold text-[#008F4C] text-[9px] uppercase mb-1 tracking-wider border-b border-[#008F4C]/20 pb-0.5">
-              Our Impact
-            </div>
-            <ul className="text-[9px] text-[#1A1A1A]/80 space-y-0.5 font-semibold">
-              <li>• Built strong coding culture</li>
-              <li>• Mentored 1000+ students</li>
-              <li>• SIH & National Ranks</li>
-              <li>• Industry Mentorship</li>
-            </ul>
-          </div>
+      <div className="border-t-[3px] border-[#008F4C] pt-2 text-center overflow-hidden">
+        <h2 className="text-4xl sm:text-5xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.4)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          ABOUT THE CLUB
+        </h2>
+      </div>
+      <div className="border-t-[2px] border-[#008F4C] mb-3 mt-1.5"></div>
+      
+      {/* Banner Image */}
+      <div className="relative w-full h-[100px] sm:h-[120px] mb-5">
+        <div className="w-full h-full bg-[#ccc] overflow-hidden">
+           <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="ITER Campus" className="w-full h-full object-cover" />
         </div>
-        <div className="border-l-4 border-[#008F4C] pl-3 py-1.5 bg-[#008F4C]/5">
-          <p className="text-[9px] text-[#111511] italic leading-relaxed font-bold">
-            "Together, we are empowering future developers, encouraging
-            innovation, and building a thriving tech community focused on
-            growth and collaboration."
+        <div className="absolute -bottom-3 left-8 right-8 bg-[#666666] py-1.5 px-2 text-center text-white z-10 shadow-sm">
+          <h3 className="font-bold text-[10px] sm:text-[12px] tracking-wide mb-0.5">GEEKSFORGEEKS CAMPUS BODY ITER:</h3>
+          <p className="text-[9px] sm:text-[11px] font-medium">Building Coders and Creating Impact</p>
+        </div>
+      </div>
+
+      {/* Two Columns */}
+      <div className="flex gap-4 mt-2 flex-1 overflow-y-auto pr-1">
+        {/* Left Column */}
+        <div className="flex-[5.5]">
+          <div className="text-[8px] sm:text-[9px] font-bold uppercase tracking-widest text-[#333] mb-0.5">
+            CORE TEAM – GFG ITER CAMPUS BODY
+          </div>
+          <div className="text-[8px] sm:text-[9px] font-bold text-[#333] mb-2">
+            GFG ITER Campus Body · Tech Community · Student Driven
+          </div>
+          
+          <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#111] mb-1.5 leading-none">
+            About the Club
+          </h3>
+          <p className="text-[8px] sm:text-[9px] text-[#333] font-serif leading-tight mb-2 text-justify">
+            The GeeksforGeeks ITER Campus Body is a student-driven tech community committed to fostering innovations, collaborations, and technical excellence among students. Built with the vision of bridging the gap between academic learning and industry demands, the club actively engages students through impactful initiatives.
           </p>
+          <p className="text-[8px] sm:text-[9px] text-[#333] font-serif leading-tight mb-2 text-justify">
+            Through sessions, workshops, and interactive events, students gain real-world exposure beyond academics. The club encourages peer learning and leadership.
+          </p>
+          <p className="text-[8px] sm:text-[9px] text-[#333] font-serif leading-tight mb-3 text-justify">
+            With continuous growth and innovation, the community is shaping future developers and problem-solvers.
+          </p>
+
+          <h4 className="text-sm sm:text-base font-bold font-serif text-[#111] mb-1">
+            What We Do
+          </h4>
+          <ul className="text-[8px] sm:text-[9px] text-[#333] font-serif leading-tight space-y-0.5 mb-3 pl-1">
+            <li>• Coding Contests & DSA Sessions</li>
+            <li>• Skills Exchange Workshops</li>
+            <li>• Tech Talks & Founder Sessions</li>
+            <li>• ChaiLinks – Informal Knowledge Sharing Series</li>
+            <li>• Personality Development & Career Guidance</li>
+          </ul>
+
+          <h4 className="text-sm sm:text-base font-bold font-serif text-[#111] mb-1">
+            Our Impact
+          </h4>
+          <ul className="text-[8px] sm:text-[9px] text-[#333] font-serif leading-tight space-y-0.5 mb-2 pl-1">
+            <li>• Created a strong coding culture on campus</li>
+            <li>• Helped students prepare for placements and Internships</li>
+            <li>• Encouraged participation in hackathons and open-source</li>
+            <li>• Built a supportive peer-learning environment</li>
+            <li>• Organized hands-on workshops to enhance practical skills</li>
+            <li>• Connected students with industry experts and mentors</li>
+          </ul>
+        </div>
+        
+        {/* Right Column */}
+        <div className="flex-[4.5] flex flex-col gap-2">
+          {/* Green box */}
+          <div className="bg-[#008F4C] text-white p-2 text-[7px] sm:text-[8px] font-serif leading-tight text-justify">
+            <p className="mb-1.5">Through sessions, workshops, and interactive events, students gain real-world exposure beyond traditional academics. These initiatives strengthen technical skills while encouraging practical learning. The club promotes peer learning, collaboration, and leadership, creating an environment where students grow together.</p>
+            <p>With continuous growth and innovation, the community is shaping future developers and problem-solvers. By bridging the gap between theory and practice, the club helps students build industry-ready skills and prepare for their careers.</p>
+          </div>
+          
+          {/* Square Image Placeholder */}
+          <div className="w-full aspect-[4/3] bg-[#ccc] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Event" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
+          </div>
+          
+          {/* Green Pill */}
+          <div className="bg-[#008F4C] text-white text-center text-[8px] sm:text-[9px] font-bold py-1 uppercase tracking-wider">
+            Core Team / Faculty Coordinator
+          </div>
+          
+          {/* Quote */}
+          <p className="text-[8px] sm:text-[9px] font-serif italic text-[#333] leading-tight text-justify font-semibold">
+            "Together, we are empowering future developers, encouraging innovation, and building a thriving tech community focused on growth and collaboration."
+          </p>
+        </div>
+      </div>
+      
+      {/* Bottom Line */}
+      <div className="mt-auto pt-2 border-t-[3px] border-[#008F4C]">
+        <div className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#333]">
+          GEEKSFORGEEKS CAMPUS BODY ITER
         </div>
       </div>
     </div>
