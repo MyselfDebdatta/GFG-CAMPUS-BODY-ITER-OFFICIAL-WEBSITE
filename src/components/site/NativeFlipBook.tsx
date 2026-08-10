@@ -364,26 +364,26 @@ const PAGES: ReactNode[] = [
       <div className="flex-1 flex flex-col justify-between pb-1">
         {/* Row 1: President & Vice President */}
         <div className="flex justify-center gap-2 px-1">
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="VIVEK RANJAN SAHOO" role="PRESIDENT" />
           </div>
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="SNEHANSU SEKHAR DASH" role="VICE-PRESIDENT" />
           </div>
         </div>
         
         {/* Row 2: Tech Leads */}
         <div className="flex justify-center gap-2 px-1 mt-1">
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           </div>
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           </div>
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           </div>
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           </div>
         </div>
@@ -400,13 +400,13 @@ const PAGES: ReactNode[] = [
         
         {/* Row 3: Co-ordinators */}
         <div className="flex justify-center gap-2 px-1">
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="ANUBHAB SAMANTARAY" role="CLUB COORDINATOR" />
           </div>
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="AKANSHA AJAY" role="CLUB COORDINATOR" />
           </div>
-          <div className="w-[23%] max-w-[85px]">
+          <div className="w-[23%] max-w-[105px]">
             <PersonCard name="AYUSH R. PRADHAN" role="COMMUNITY MENTOR" />
           </div>
         </div>
