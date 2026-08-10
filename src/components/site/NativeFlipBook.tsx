@@ -480,78 +480,143 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 5 (Page 6): EVENTS CONDUCTED — right page ─── */
-  pg(false, 6, (
-    <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-        <Zap className="h-3 w-3" /> Chapter Milestones
+  /* ─── PAGE 6 — left page ─── */
+  pg(true, 6, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-0.5">
+        ITER
       </div>
-      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
-        Campus Events Recaps
-      </h2>
-      <div className="space-y-1.5 text-[10px]">
-        {[
-          { t: "ChaiLinks Ep 00 & Ep 01", d: "Nov & Dec 2025", desc: "Informal Chai Pe Charcha sessions on IoT, AI/ML, Cloud & TinyML." },
-          { t: "Founders' Unplugged", d: "Dec 23, 2025", desc: "Podcast with Zahid Akhtar (Founder, OneLife) on startup strategy." },
-          { t: "Raw & Ready Workshop", d: "Feb 04, 2026", desc: "Personality development, Eisenhower matrix & jungle survival challenge." },
-          { t: "Zer0ne: Capture the Flag", d: "Apr 03, 2026", desc: "Multidisciplinary CTF competition blending technology & virtual economy." },
-          { t: "Rachitva: Design-Pitch", d: "Apr 05, 2026", desc: "Fast-paced product design and pitching competition (Merlin Throne)." },
-        ].map((ev) => (
-          <div key={ev.t} className="p-2 bg-white/50 border-l-4 border-[#008F4C] border-y border-r border-[#1A1A1A]/10 shadow-sm">
-            <div className="flex items-center justify-between font-black text-[#111511] mb-0.5">
-              <span className="text-[10px] uppercase tracking-tight">{ev.t}</span>
-              <span className="text-[8px] font-mono text-[#008F4C]">
-                {ev.d}
-              </span>
-            </div>
-            <p className="text-[9px] text-[#1A1A1A]/80 font-medium leading-snug">{ev.desc}</p>
-          </div>
-        ))}
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center pt-1 pb-1 leading-none uppercase tracking-wide">
+          OVERVIEW
+        </div>
+        <div className="border-t-[1px] border-[#008F4C] mb-2.5"></div>
+      </div>
+      
+      {/* Three Green Columns */}
+      <div className="flex gap-2 px-1 mb-3">
+        <div className="flex-1 bg-[#008F4C] p-1 shadow-sm">
+           <div className="border-[0.5px] border-white p-1 h-full flex items-center">
+             <p className="text-white text-[6px] sm:text-[6.5px] leading-[1.4] text-justify font-medium">
+               The session also highlighted upcoming workshops, coding contests, mentorship programs, and collaborative projects planned under the GFG banner. Students were introduced to the benefits of being part of the GeeksforGeeks ecosystem, including access to quality resources, coding practice platforms, and networking opportunities. Students were encouraged to actively participate and enhance their skills.
+             </p>
+           </div>
+        </div>
+        <div className="flex-1 bg-[#008F4C] p-1 shadow-sm">
+           <div className="border-[0.5px] border-white p-1 h-full flex items-center">
+             <p className="text-white text-[6px] sm:text-[6.5px] leading-[1.4] text-justify font-medium">
+               To make the event lively and engaging, an interactive Menti Quiz was conducted at the end of the session. The quiz featured simple yet exciting tech-related questions covering programming basics, logical reasoning, and general technical awareness. The activity created a fun, competitive environment where students actively participated using their devices. Top performers were recognized and rewarded, adding excitement and leaving participants with a memorable experience.
+             </p>
+           </div>
+        </div>
+        <div className="flex-1 bg-[#008F4C] p-1 shadow-sm">
+           <div className="border-[0.5px] border-white p-1 h-full flex items-center">
+             <p className="text-white text-[6px] sm:text-[6.5px] leading-[1.4] text-justify font-medium">
+               The top performers were recognized and awarded, adding an element of excitement and motivation to the event. The enthusiasm in the hall reflected the strong interest of students in being part of this growing tech community. This concluded on a high note, inspiring students to stay engaged and explore more opportunities within the tech community. It left students motivated to continue learning and growing together.
+             </p>
+           </div>
+        </div>
+      </div>
+      
+      {/* Body Text */}
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-3">
+        <p className="mb-1.5">
+          Code Unbound was not just a launch event — it was the beginning of a movement towards technical excellence at ITER. The overwhelming response from students showcased their eagerness to learn, build, and grow together.
+        </p>
+        <p>
+          With a strong leadership team and a clear vision, the GFG Club – ITER Student Chapter is set to empower students with knowledge, skills, and opportunities that go beyond the classroom.
+        </p>
+      </div>
+      
+      {/* Bottom Image */}
+      <div className="w-full px-5 mb-3 flex justify-center">
+        <div className="w-[90%] border-[3px] border-[#008F4C] aspect-[2/1] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Code Unbound Team" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        </div>
+      </div>
+      
+      {/* Bottom Text */}
+      <div className="text-center px-4 mt-auto pb-2">
+        <p className="text-[9px] sm:text-[10px] font-black text-[#111] tracking-wide">
+          The journey has just begun — and the code is now truly unbound.
+        </p>
       </div>
     </div>
   )),
 
-  /* ─── PAGE 6 (Page 7): ACHIEVEMENTS — left page ─── */
-  pg(true, 7, (
-    <div className="flex-1 min-h-0 overflow-hidden">
-      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#008F4C] mb-1 font-bold">
-        <Trophy className="h-3 w-3" /> Hall of Fame
+  /* ─── PAGE 7 — right page ─── */
+  pg(false, 7, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-2">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 1.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
       </div>
-      <h2 className="text-lg sm:text-xl font-black tracking-tight text-[#111511] mb-2.5 pb-2 border-b-2 border-[#008F4C]">
-        Members Achievements
-      </h2>
-      <div className="space-y-2">
-        {[
-          {
-            title: "24-Hour Hackathon, XIM University",
-            award: "🏆 1st Prize",
-            team: "Team Hex Syndicate — Sanyukt Kumar Rai, Aman Murari Singh, Pratham Gupta, Abhishek Raj, Sujal Kumar.",
-          },
-          {
-            title: "HackFest, Advaita, IIIT Bhubaneswar",
-            award: "🏆 Champions Title",
-            team: "Team MindMesh — Shubham Parida, Ankita Mohapatra, Shlok Katiyar, Shreya Patel.",
-          },
-          {
-            title: "Smart India Hackathon Internals 2025",
-            award: "🏆 1st Hardware / 4th",
-            team: "Team Bhumicare — Vivek Ranjan Sahoo, Ayush Ranjan Pradhan, Subasis Mishra, Depesh Singh, Anjali Rout, Subhashree Sahoo.",
-          },
-        ].map((a) => (
-          <div
-            key={a.title}
-            className="p-2.5 bg-[#008F4C] text-white shadow-sm relative overflow-hidden"
-          >
-            <div className="absolute right-0 top-0 w-16 h-16 bg-white/10 rounded-full blur-xl -mr-8 -mt-8" />
-            <div className="flex items-start justify-between text-[10px] font-black mb-1 relative z-10">
-              <span className="leading-tight w-2/3 uppercase">{a.title}</span>
-              <span className="text-white/90 bg-black/20 px-1.5 py-0.5 rounded text-[8px] shrink-0 ml-2">{a.award}</span>
-            </div>
-            <p className="text-[8px] text-white/80 font-medium leading-relaxed relative z-10 border-t border-white/20 pt-1 mt-1">
-              {a.team}
-            </p>
-          </div>
-        ))}
+      
+      <div className="relative text-center mb-1">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          CHAILINKS
+        </h2>
+        <div className="absolute right-0 top-1 text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EPISODE:00
+        </div>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-1.5 mb-3 mx-4">
+        <div className="text-[9px] sm:text-[10px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          CUP THAT CONNECTS . CONVERSATION THAT MATTERS
+        </div>
+        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+          6th November 2025
+        </div>
+      </div>
+      
+      {/* Overlapping Image Section */}
+      <div className="relative flex justify-center mb-3 pr-[70px] sm:pr-[90px] pl-2 mt-1">
+        <div className="border-[3px] border-[#008F4C] w-full aspect-[16/10] bg-[#222]">
+           <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        </div>
+        <div className="absolute top-1/2 -translate-y-1/2 right-2 w-[110px] sm:w-[130px] bg-[#008F4C] p-2 shadow-md">
+           <p className="text-white text-[7px] sm:text-[7.5px] text-center font-medium leading-[1.5]">
+             ChainLinks Episode 0, organized by the GeeksforGeeks (GFG) Club, introduced a refreshing shift from conventional academic events, creating a space where conversations, curiosity, and connection took centre stage.
+           </p>
+        </div>
+      </div>
+      
+      {/* Body Text */}
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-3">
+         <p>
+           Conceptualized around the idea of an informal Chai Pe Charcha, the event aimed to transform how students engage with faculty members. Instead of structured presentations or formal sessions, ChainLinks Episode 0 offered something far more dynamic — a setting designed for open interaction. The session began with participating faculty members introducing themselves, sharing insights into their respective domains, and briefly discussing their ongoing work and areas of interest. Representing diverse fields such as IoT, AI/ML, Cloud Computing, Networking, and emerging technologies, the introductions provided students with exposure to a broad academic landscape within a single session.
+         </p>
+      </div>
+      
+      {/* Section Divider */}
+      <div className="w-full mb-1">
+        <div className="border-t-[2px] border-[#333]"></div>
+        <div className="border-t-[1px] border-[#333] mt-[1px]"></div>
+        <div className="text-[8px] sm:text-[9px] font-black text-[#111] pt-1 leading-none uppercase tracking-widest text-left px-2">
+          WHAT FOLLOWED DEFINED THE ESSENCE OF THE EVENT.
+        </div>
+        <div className="border-t-[1px] border-[#333] mt-1 mb-1.5"></div>
+      </div>
+      
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6]">
+         <p>
+           The venue was arranged into multiple discussion circles, each associated with a specific technical domain. Faculty members were assigned to these circles, while students were free to join discussions based on their interests. This format immediately shifted the energy of the room — replacing passive listening with active participation. Within each circle, conversations unfolded naturally. Students asked questions, explored concepts, sought academic guidance, and engaged in discussions that extended beyond textbooks. The absence of rigid structure allowed interactions to evolve organically, making the exchanges more candid and meaningful. The discussions ranged across technical topics, project insights, and career-related queries. Students found themselves navigating unfamiliar subjects, clarifying doubts, and gaining perspectives that are rarely accessible in traditional classroom settings. The format encouraged curiosity, allowing participants to engage without hesitation.
+         </p>
       </div>
     </div>
   )),
