@@ -360,21 +360,29 @@ const PAGES: ReactNode[] = [
       {/* Content Area */}
       <div className="flex-1 flex flex-col justify-between pb-1">
         {/* Row 1: President & Vice President */}
-        <div className="flex justify-center gap-2.5">
-          <div className="w-[30%] max-w-[100px]">
+        <div className="flex justify-center gap-2 px-1">
+          <div className="w-[23%] max-w-[85px]">
             <PersonCard name="VIVEK RANJAN SAHOO" role="PRESIDENT" />
           </div>
-          <div className="w-[30%] max-w-[100px]">
+          <div className="w-[23%] max-w-[85px]">
             <PersonCard name="SNEHANSU SEKHAR DASH" role="VICE-PRESIDENT" />
           </div>
         </div>
         
         {/* Row 2: Tech Leads */}
-        <div className="grid grid-cols-4 gap-1.5 px-0.5 mt-1">
-          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
-          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
-          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
-          <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+        <div className="flex justify-center gap-2 px-1 mt-1">
+          <div className="w-[23%] max-w-[85px]">
+            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          </div>
+          <div className="w-[23%] max-w-[85px]">
+            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          </div>
+          <div className="w-[23%] max-w-[85px]">
+            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          </div>
+          <div className="w-[23%] max-w-[85px]">
+            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+          </div>
         </div>
         
         {/* Divider for Team Co-ordinators */}
@@ -383,14 +391,14 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Row 3: Co-ordinators */}
-        <div className="flex justify-center gap-2 px-3">
-          <div className="w-[28%] max-w-[90px]">
+        <div className="flex justify-center gap-2 px-1">
+          <div className="w-[23%] max-w-[85px]">
             <PersonCard name="ANUBHAB SAMANTARAY" role="CLUB COORDINATOR" />
           </div>
-          <div className="w-[28%] max-w-[90px]">
+          <div className="w-[23%] max-w-[85px]">
             <PersonCard name="AKANSHA AJAY" role="CLUB COORDINATOR" />
           </div>
-          <div className="w-[28%] max-w-[90px]">
+          <div className="w-[23%] max-w-[85px]">
             <PersonCard name="AYUSH R. PRADHAN" role="COMMUNITY MENTOR" />
           </div>
         </div>
@@ -896,21 +904,19 @@ export function NativeFlipBook() {
             <ChevronRight className="h-5 w-5" />
           </button>
 
-          {/* ── Mobile Tap Zones ── */}
-          {isMobile && (
-            <>
-              <div
-                className="absolute inset-y-0 left-0 w-1/4 z-30 cursor-pointer"
-                onClick={handlePrev}
-                aria-label="Previous page (tap zone)"
-              />
-              <div
-                className="absolute inset-y-0 right-0 w-1/4 z-30 cursor-pointer"
-                onClick={handleNext}
-                aria-label="Next page (tap zone)"
-              />
-            </>
-          )}
+          {/* ── Global Tap Zones ── */}
+          <>
+            <div
+              className="absolute inset-y-0 left-0 w-1/4 z-30 cursor-pointer"
+              onClick={handlePrev}
+              aria-label="Previous page (tap zone)"
+            />
+            <div
+              className="absolute inset-y-0 right-0 w-1/4 z-30 cursor-pointer"
+              onClick={handleNext}
+              aria-label="Next page (tap zone)"
+            />
+          </>
 
           {/* ── Hardcover shell ── */}
           <div
