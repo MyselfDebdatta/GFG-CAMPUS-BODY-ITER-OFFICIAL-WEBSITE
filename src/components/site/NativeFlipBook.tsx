@@ -53,7 +53,7 @@ const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode =>
     </div>
 
     {/* Running footer with page number */}
-    <div className="mx-5 sm:mx-6 md:mx-7 pb-3 pt-2 flex items-center justify-between text-[10px] text-[#1A1A1A]/50 font-mono relative z-[1] shrink-0 border-t border-[#008F4C]/20">
+    <div className="mx-5 sm:mx-6 md:mx-7 pb-3 pt-2 flex items-center justify-between text-[10px] text-[#1A1A1A]/50 font-mono relative z-[1] shrink-0 border-t-[3px] border-[#008F4C]">
       {isLeft ? (
         <>
           <span className="tabular-nums font-semibold text-[#008F4C]">
@@ -317,13 +317,6 @@ const PAGES: ReactNode[] = [
           <p className="text-[7.5px] sm:text-[8.5px] italic text-[#222] leading-snug text-justify font-bold px-1 mt-0.5">
             "Together, we are empowering future developers, encouraging innovation, and building a thriving tech community focused on growth and collaboration."
           </p>
-        </div>
-      </div>
-      
-      {/* Bottom Line */}
-      <div className="mt-auto pt-2 border-t-[3px] border-[#008F4C]">
-        <div className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#333]">
-          GEEKSFORGEEKS CAMPUS BODY ITER
         </div>
       </div>
     </div>
