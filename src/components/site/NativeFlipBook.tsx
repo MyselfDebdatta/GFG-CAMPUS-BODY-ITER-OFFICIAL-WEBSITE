@@ -212,9 +212,6 @@ const PAGES: ReactNode[] = [
           ))}
         </div>
       </div>
-      <div className="mt-auto pt-2.5 text-center text-[8px] font-mono font-semibold text-[#1A1A1A]/40 border-t border-[#1A1A1A]/10">
-        GeeksforGeeks Campus Body ITER · Annual Edition 2025–26
-      </div>
     </>
   )),
 
