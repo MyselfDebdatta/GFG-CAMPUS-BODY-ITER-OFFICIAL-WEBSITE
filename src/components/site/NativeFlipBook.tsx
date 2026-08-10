@@ -1,674 +1,1149 @@
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  BookOpen, 
-  ExternalLink, 
-  Sparkles, 
-  Trophy, 
-  Users, 
-  Calendar, 
-  MapPin, 
-  Rocket, 
-  Award, 
-  Zap, 
-  Terminal
+import { useState, useRef, useEffect, useCallback, type ReactNode } from "react";
+import { motion, useMotionValue, useTransform, animate as motionAnimate } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  BookOpen,
+  ExternalLink,
+  Sparkles,
+  Trophy,
+  Users,
+  Calendar,
+  MapPin,
+  Rocket,
+  Zap,
+  Terminal,
 } from "lucide-react";
 
-const PAGE_CARD_CLASS = "h-[540px] sm:h-[580px] md:h-[620px] w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden shadow-2xl";
+/* ═══════════════════════════════════════════════════════════════════
+   HELPER — Wraps page content in a realistic printed-paper frame
+   ═══════════════════════════════════════════════════════════════════ */
 
-const PAGES = [
-  // PAGE 1: COVER
-  {
-    id: 1,
-    type: "cover",
-    title: "GFG ITER Annual Report 2025–26",
-    subtitle: ".CODE · .CONNECT · .CONQUER",
-    content: (
-      <div className="h-[540px] sm:h-[580px] md:h-[620px] w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-gradient-to-br from-[#04140a] via-[#020b06] to-[#082213] text-white relative overflow-hidden border border-[#00ff7f]/30 rounded-2xl shadow-2xl">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#00ff7f]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#00ff7f]/5 rounded-full blur-3xl pointer-events-none" />
-        
-        {/* Top Header Logos */}
-        <div className="flex items-center justify-between z-10 border-b border-white/10 pb-3 shrink-0">
-          <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-xl bg-[#00ff7f]/20 border border-[#00ff7f]/40 flex items-center justify-center font-extrabold text-[#00ff7f] text-base">
-              G
-            </div>
-            <div>
-              <div className="text-xs font-bold uppercase tracking-widest text-[#00ff7f]">GeeksforGeeks</div>
-              <div className="text-[10px] text-white/60 tracking-wider">Campus Body ITER</div>
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="text-xs font-bold text-white/80">SOA University</div>
-            <div className="text-[10px] text-[#00ff7f]">Academic Year 2025–26</div>
-          </div>
+const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode => (
+  <div className="w-full h-full flex flex-col bg-[#09140F] text-white overflow-hidden relative select-none">
+    {/* Subtle tonal depth */}
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background:
+          "radial-gradient(ellipse at 60% 35%, rgba(11,23,18,0.5) 0%, transparent 70%)",
+      }}
+    />
+
+    {/* Inner gutter shadow toward spine */}
+    <div
+      className={`absolute inset-y-0 w-12 pointer-events-none z-10 ${
+        isLeft
+          ? "right-0 bg-gradient-to-l from-black/30 to-transparent"
+          : "left-0 bg-gradient-to-r from-black/30 to-transparent"
+      }`}
+    />
+
+    {/* Content area */}
+    <div className="flex-1 flex flex-col p-5 sm:p-6 md:p-7 relative z-[1] min-h-0 overflow-hidden">
+      {children}
+    </div>
+
+    {/* Running footer with page number */}
+    <div className="mx-5 sm:mx-6 md:mx-7 pb-3 pt-2 flex items-center justify-between text-[10px] text-white/20 font-mono relative z-[1] shrink-0 border-t border-white/[0.06]">
+      {isLeft ? (
+        <>
+          <span className="tabular-nums font-semibold">
+            {String(pageNum).padStart(2, "0")}
+          </span>
+          <span className="text-[8px] tracking-[0.2em] uppercase">
+            GeeksforGeeks Campus Body ITER
+          </span>
+        </>
+      ) : (
+        <>
+          <span className="text-[8px] tracking-[0.2em] uppercase">
+            Annual Report 2025–26
+          </span>
+          <span className="tabular-nums font-semibold">
+            {String(pageNum).padStart(2, "0")}
+          </span>
+        </>
+      )}
+    </div>
+  </div>
+);
+
+/* ═══════════════════════════════════════════════════════════════════
+   PAGE CONTENT — 8 pages, all existing content preserved
+   ═══════════════════════════════════════════════════════════════════ */
+
+const PAGES: ReactNode[] = [
+  /* ─── PAGE 0 (Page 1): COVER — left page, special gradient ─── */
+  <div
+    key="p1"
+    className="w-full h-full flex flex-col justify-between bg-gradient-to-br from-[#04140a] via-[#020b06] to-[#082213] text-white relative overflow-hidden select-none"
+  >
+    <div className="absolute top-0 right-0 w-56 h-56 bg-[#00ff7f]/8 rounded-full blur-3xl pointer-events-none" />
+    <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#00ff7f]/5 rounded-full blur-3xl pointer-events-none" />
+    {/* Gutter shadow (right = toward spine) */}
+    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black/30 to-transparent pointer-events-none z-10" />
+
+    {/* Header */}
+    <div className="flex items-center justify-between z-10 border-b border-white/10 pb-2.5 px-5 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 shrink-0">
+      <div className="flex items-center gap-2">
+        <div className="h-7 w-7 rounded-lg bg-[#00ff7f]/20 border border-[#00ff7f]/40 flex items-center justify-center font-extrabold text-[#00ff7f] text-xs">
+          G
         </div>
-
-        {/* Center Artwork & Main Title */}
-        <div className="my-auto text-center z-10 py-2">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3.5 py-1 text-[11px] font-mono uppercase tracking-[0.15em] text-[#00ff7f] mb-3">
-            <Sparkles className="h-3 w-3" /> Official Chapter Publication
+        <div>
+          <div className="text-[9px] font-bold uppercase tracking-widest text-[#00ff7f]">
+            GeeksforGeeks
           </div>
-          
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-none mb-2">
-            Geeks <span className="text-[#00ff7f]">For</span> Geeks
-          </h1>
-          
-          <div className="text-xl sm:text-2xl font-extrabold tracking-widest text-[#00ff7f]/90 mb-3">
-            2025 – 2026
+          <div className="text-[8px] text-white/50 tracking-wider">
+            Campus Body ITER
           </div>
-
-          <div className="max-w-xs mx-auto aspect-[16/9] rounded-xl overflow-hidden border border-[#00ff7f]/30 shadow-[0_0_25px_rgba(0,255,127,0.15)] relative group mb-3">
-            <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
-              alt="GFG ITER Builders" 
-              className="w-full h-full object-cover" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end justify-center p-2">
-              <span className="text-[11px] font-semibold text-white/90">ITER Campus Student Chapter · Siksha 'O' Anusandhan</span>
-            </div>
-          </div>
-
-          <div className="flex justify-center items-center gap-3 text-[11px] font-mono text-[#00ff7f] tracking-widest font-bold">
-            <span>.CODE</span>
-            <span>·</span>
-            <span>.CONNECT</span>
-            <span>·</span>
-            <span>.CONQUER</span>
-          </div>
-        </div>
-
-        {/* Footer info */}
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/60 z-10 border-t border-white/10 pt-2.5 shrink-0">
-          <span>Published by GFG ITER Media Board</span>
-          <span>Bhubaneswar, Odisha</span>
         </div>
       </div>
-    )
-  },
+      <div className="text-right">
+        <div className="text-[9px] font-bold text-white/70">SOA University</div>
+        <div className="text-[8px] text-[#00ff7f]/80">
+          Academic Year 2025–26
+        </div>
+      </div>
+    </div>
 
-  // PAGE 2: TABLE OF CONTENTS
-  {
-    id: 2,
-    type: "index",
-    title: "Table of Contents",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <Terminal className="h-3.5 w-3.5" /> CHAPTER ARCHIVE INDEX
+    {/* Center title */}
+    <div className="my-auto text-center z-10 py-2 px-5 sm:px-6 md:px-7">
+      <div className="inline-flex items-center gap-1.5 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-3 py-0.5 text-[9px] font-mono uppercase tracking-[0.12em] text-[#00ff7f] mb-2.5">
+        <Sparkles className="h-2.5 w-2.5" /> Official Chapter Publication
+      </div>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white leading-none mb-1">
+        Geeks <span className="text-[#00ff7f]">For</span> Geeks
+      </h1>
+      <div className="text-base sm:text-lg font-extrabold tracking-widest text-[#00ff7f]/90 mb-3">
+        2025 – 2026
+      </div>
+      <div className="max-w-[180px] mx-auto aspect-[16/9] rounded-lg overflow-hidden border border-[#00ff7f]/20 shadow-[0_0_15px_rgba(0,255,127,0.1)] relative mb-2.5">
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+          alt="GFG ITER Builders"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end justify-center p-1.5">
+          <span className="text-[8px] font-semibold text-white/80">
+            ITER Campus Student Chapter · Siksha 'O' Anusandhan
+          </span>
+        </div>
+      </div>
+      <div className="flex justify-center items-center gap-2 text-[9px] font-mono text-[#00ff7f] tracking-widest font-bold">
+        <span>.CODE</span>
+        <span className="text-white/30">·</span>
+        <span>.CONNECT</span>
+        <span className="text-white/30">·</span>
+        <span>.CONQUER</span>
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div className="flex items-center justify-between text-[8px] text-white/35 z-10 border-t border-white/8 pt-2 pb-3 px-5 sm:px-6 md:px-7 shrink-0">
+      <span>Published by GFG ITER Media Board</span>
+      <span>Bhubaneswar, Odisha</span>
+    </div>
+  </div>,
+
+  /* ─── PAGE 1 (Page 2): TABLE OF CONTENTS — right page ─── */
+  pg(false, 2, (
+    <>
+      <div className="flex-1 min-h-0 overflow-hidden">
+        <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+          <Terminal className="h-3 w-3" /> Chapter Archive Index
+        </div>
+        <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-3 pb-2 border-b border-[#00ff7f]/30">
+          INDEX
+        </h2>
+        <div className="space-y-1.5">
+          {[
+            { n: "01", t: "About the Club", d: "Vision, mission, and core community values", p: "03" },
+            { n: "02", t: "Core Team & Mentors", d: "Faculty coordinators & domain leads", p: "04" },
+            { n: "03", t: "CodeUnbound Flagship Launch", d: "Kickstarting innovation & coding culture", p: "05" },
+            { n: "04", t: "Events Conducted", d: "ChaiLinks, Founders' Unplugged, Zer0ne, Rachitva", p: "06" },
+            { n: "05", t: "Members Achievements", d: "National Hackathons & SIH 2025 Victories", p: "07" },
+            { n: "06", t: "Future Vision & Core Team Photo", d: "Roadmap for 2026-27 & Chapter Group Photo", p: "08" },
+          ].map((item) => (
+            <div key={item.n} className="flex items-center gap-2.5 py-1.5 border-b border-white/[0.04] last:border-0">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-[#00ff7f]/15 text-[#00ff7f] font-mono font-bold text-[9px]">
+                {item.n}
+              </span>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-1.5">
+                  <h3 className="font-bold text-[10px] text-white/90 shrink-0">{item.t}</h3>
+                  <div className="flex-1 border-b border-dotted border-white/10 min-w-[20px] relative top-[-2px]" />
+                  <span className="font-mono text-[8px] text-[#00ff7f]/60 shrink-0">
+                    {item.p}
+                  </span>
+                </div>
+                <p className="text-[8px] text-white/40 line-clamp-1">{item.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-auto pt-2.5 text-center text-[8px] font-mono text-[#00ff7f]/40">
+        GeeksforGeeks Campus Body ITER · Annual Edition 2025–26
+      </div>
+    </>
+  )),
+
+  /* ─── PAGE 2 (Page 3): ABOUT THE CLUB — left page ─── */
+  pg(true, 3, (
+    <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <BookOpen className="h-3 w-3" /> Chapter Overview
+      </div>
+      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+        Building Coders & Creating Impact
+      </h2>
+      <div className="space-y-2.5 text-[10px] text-white/75 leading-relaxed">
+        <p>
+          The{" "}
+          <strong className="text-[#00ff7f]">
+            GeeksforGeeks ITER Campus Body
+          </strong>{" "}
+          is a student-driven technical community committed to fostering
+          innovation, collaboration, and technical excellence among students
+          across SOA University.
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
+            <div className="font-bold text-[#00ff7f] text-[9px] uppercase mb-1 tracking-wider">
+              What We Do
+            </div>
+            <ul className="text-[9px] text-white/60 space-y-0.5">
+              <li>• Coding Contests & DSA Sessions</li>
+              <li>• Jatuk Exchange Workshops</li>
+              <li>• Founders' Unplugged Podcast</li>
+              <li>• ChaiLinks Knowledge Sharing</li>
+            </ul>
           </div>
-          <h2 className="text-2xl font-extrabold tracking-tight text-white mb-4 border-b-2 border-[#00ff7f] pb-2">
-            INDEX
-          </h2>
+          <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
+            <div className="font-bold text-[#00ff7f] text-[9px] uppercase mb-1 tracking-wider">
+              Our Impact
+            </div>
+            <ul className="text-[9px] text-white/60 space-y-0.5">
+              <li>• Built strong coding culture</li>
+              <li>• Mentored 1000+ students</li>
+              <li>• SIH & National Hackathon Ranks</li>
+              <li>• Industry & Peer Mentorship</li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-l-2 border-[#00ff7f]/40 pl-3 py-1.5 bg-[#00ff7f]/[0.04]">
+          <p className="text-[9px] text-[#00ff7f]/90 italic leading-relaxed">
+            "Together, we are empowering future developers, encouraging
+            innovation, and building a thriving tech community focused on
+            growth and collaboration."
+          </p>
+        </div>
+      </div>
+    </div>
+  )),
 
-          <div className="space-y-2.5">
+  /* ─── PAGE 3 (Page 4): CORE TEAM — right page ─── */
+  pg(false, 4, (
+    <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <Users className="h-3 w-3" /> Chapter Leadership
+      </div>
+      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+        Core Team 2025–26
+      </h2>
+      <div className="space-y-2.5">
+        <div>
+          <div className="text-[9px] font-bold uppercase tracking-wider text-[#00ff7f]/80 mb-1">
+            Faculty Mentors
+          </div>
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
+              <div className="font-bold text-[10px] text-white">
+                Dr. Debahuti Mishra
+              </div>
+              <div className="text-[8px] text-white/50">
+                Faculty Coordinator · HOD CSE
+              </div>
+            </div>
+            <div className="p-2 bg-white/[0.03] border border-white/[0.06]">
+              <div className="font-bold text-[10px] text-white">
+                Prof. Abhijit Dash
+              </div>
+              <div className="text-[8px] text-white/50">
+                Faculty Mentor · Associate Prof
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="text-[9px] font-bold uppercase tracking-wider text-[#00ff7f]/80 mb-1">
+            Student Coordinators
+          </div>
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="p-2 bg-[#00ff7f]/[0.06] border border-[#00ff7f]/20">
+              <div className="font-bold text-[10px] text-white">
+                Anubhab Samantary
+              </div>
+              <div className="text-[8px] text-[#00ff7f]/80 font-mono">
+                Coordinator
+              </div>
+            </div>
+            <div className="p-2 bg-[#00ff7f]/[0.06] border border-[#00ff7f]/20">
+              <div className="font-bold text-[10px] text-white">
+                Akansha Ajay
+              </div>
+              <div className="text-[8px] text-[#00ff7f]/80 font-mono">
+                Coordinator
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="text-[9px] font-bold uppercase tracking-wider text-[#00ff7f]/80 mb-1">
+            Domain Leads
+          </div>
+          <div className="grid grid-cols-3 gap-1.5">
             {[
-              { num: "01", title: "About the Club", desc: "Vision, mission, and core community values", page: "03" },
-              { num: "02", title: "Core Team & Mentors", desc: "Faculty coordinators & domain leads", page: "04" },
-              { num: "03", title: "CodeUnbound Flagship Launch", desc: "Kickstarting innovation & coding culture", page: "05" },
-              { num: "04", title: "Events Conducted", desc: "ChaiLinks, Founders' Unplugged, Zer0ne, Rachitva", page: "06" },
-              { num: "05", title: "Members Achievements", desc: "National Hackathons & SIH 2025 Victories", page: "07" },
-              { num: "06", title: "Future Vision & Core Team Photo", desc: "Roadmap for 2026-27 & Chapter Group Photo", page: "08" },
-            ].map((item) => (
-              <div key={item.num} className="group flex items-center gap-3 p-2.5 rounded-xl border border-white/5 bg-white/5 hover:border-[#00ff7f]/40 hover:bg-[#00ff7f]/10 transition-all cursor-pointer">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#00ff7f]/20 text-[#00ff7f] font-mono font-extrabold text-xs">
-                  {item.num}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-xs text-white group-hover:text-[#00ff7f] transition-colors">{item.title}</h3>
-                    <span className="font-mono text-[10px] text-[#00ff7f]/80 font-semibold">PAGE {item.page}</span>
-                  </div>
-                  <p className="text-[10px] text-white/60 line-clamp-1 mt-0.5">{item.desc}</p>
+              { name: "Kabir Sharma", role: "Tech Lead" },
+              { name: "Isha Nanda", role: "Design Lead" },
+              { name: "Kabir Sen", role: "Events Lead" },
+              { name: "Aastha Singh", role: "PR & Media" },
+              { name: "Sanyukt Rai", role: "Design Lead" },
+              { name: "Subhakanta Das", role: "Operations" },
+            ].map((l) => (
+              <div
+                key={l.name}
+                className="p-1.5 bg-white/[0.03] border border-white/[0.06] text-center"
+              >
+                <div className="font-bold text-[9px] text-white truncate">
+                  {l.name}
+                </div>
+                <div className="text-[7px] text-white/50 truncate">
+                  {l.role}
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </div>
+    </div>
+  )),
 
-        <div className="mt-3 p-2 rounded-xl border border-[#00ff7f]/20 bg-[#00ff7f]/5 text-center text-[10px] font-mono text-[#00ff7f] shrink-0">
-          GeeksforGeeks Campus Body ITER · Annual Edition 2025–26
+  /* ─── PAGE 4 (Page 5): CODEUNBOUND LAUNCH — left page ─── */
+  pg(true, 5, (
+    <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <Rocket className="h-3 w-3" /> Flagship Inauguration
+      </div>
+      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-1.5 pb-2 border-b border-white/[0.08]">
+        CodeUnbound: The GFG Launch
+      </h2>
+      <div className="flex items-center gap-3 text-[9px] font-mono text-[#00ff7f]/80 mb-2.5">
+        <span className="flex items-center gap-1">
+          <Calendar className="h-2.5 w-2.5" /> Nov 07, 2025
+        </span>
+        <span className="flex items-center gap-1">
+          <MapPin className="h-2.5 w-2.5" /> Bansuri Guru Auditorium
+        </span>
+      </div>
+      <div className="space-y-2 text-[10px] text-white/75 leading-relaxed">
+        <p>
+          The official grand launch of the GeeksforGeeks ITER Chapter at
+          Bansuri Guru Auditorium. Attended by over 300+ enthusiastic
+          builders, faculty leads, and industry guests.
+        </p>
+        <div className="aspect-[16/8] w-full overflow-hidden border border-white/[0.08]">
+          <img
+            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
+            alt="CodeUnbound Launch"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-1.5 text-[9px]">
+          <div className="p-1.5 bg-white/[0.03] border border-white/[0.06] font-semibold">
+            ⚡ Interactive Menti Live Quiz
+          </div>
+          <div className="p-1.5 bg-white/[0.03] border border-white/[0.06] font-semibold">
+            🎯 Annual Roadmap Unveil
+          </div>
         </div>
       </div>
-    )
-  },
+    </div>
+  )),
 
-  // PAGE 3: ABOUT THE CLUB
-  {
-    id: 3,
-    type: "content",
-    title: "About the Club",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <BookOpen className="h-3.5 w-3.5" /> CHAPTER OVERVIEW
+  /* ─── PAGE 5 (Page 6): EVENTS CONDUCTED — right page ─── */
+  pg(false, 6, (
+    <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <Zap className="h-3 w-3" /> Chapter Milestones
+      </div>
+      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+        Campus Events Recaps
+      </h2>
+      <div className="space-y-1.5 text-[10px]">
+        {[
+          { t: "ChaiLinks Ep 00 & Ep 01", d: "Nov & Dec 2025", desc: "Informal Chai Pe Charcha sessions on IoT, AI/ML, Cloud & TinyML." },
+          { t: "Founders' Unplugged", d: "Dec 23, 2025", desc: "Podcast with Zahid Akhtar (Founder, OneLife) on startup strategy." },
+          { t: "Raw & Ready Workshop", d: "Feb 04, 2026", desc: "Personality development, Eisenhower matrix & jungle survival challenge." },
+          { t: "Zer0ne: Capture the Flag", d: "Apr 03, 2026", desc: "Multidisciplinary CTF competition blending technology & virtual economy." },
+          { t: "Rachitva: Design-Pitch", d: "Apr 05, 2026", desc: "Fast-paced product design and pitching competition (Merlin Throne)." },
+        ].map((ev) => (
+          <div key={ev.t} className="p-2 bg-white/[0.02] border border-white/[0.05]">
+            <div className="flex items-center justify-between font-bold text-white mb-0.5">
+              <span className="text-[#00ff7f] text-[10px]">{ev.t}</span>
+              <span className="text-[8px] font-mono text-white/40">
+                {ev.d}
+              </span>
+            </div>
+            <p className="text-[9px] text-white/60 leading-snug">{ev.desc}</p>
           </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-3 border-b border-white/10 pb-2">
-            Building Coders & Creating Impact
-          </h2>
+        ))}
+      </div>
+    </div>
+  )),
 
-          <div className="space-y-3 text-xs sm:text-xs text-white/80 leading-relaxed">
-            <p className="font-medium text-white/90">
-              The <strong className="text-[#00ff7f]">GeeksforGeeks ITER Campus Body</strong> is a student-driven technical community committed to fostering innovation, collaboration, and technical excellence among students across SOA University.
+  /* ─── PAGE 6 (Page 7): ACHIEVEMENTS — left page ─── */
+  pg(true, 7, (
+    <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <Trophy className="h-3 w-3" /> Hall of Fame
+      </div>
+      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+        Members Achievements
+      </h2>
+      <div className="space-y-2">
+        {[
+          {
+            title: "24-Hour Hackathon, XIM University",
+            award: "🏆 1st Prize",
+            team: "Team Hex Syndicate — Sanyukt Kumar Rai, Aman Murari Singh, Pratham Gupta, Abhishek Raj, Sujal Kumar.",
+          },
+          {
+            title: "HackFest, Advaita, IIIT Bhubaneswar",
+            award: "🏆 Champions Title",
+            team: "Team MindMesh — Shubham Parida, Ankita Mohapatra, Shlok Katiyar, Shreya Patel.",
+          },
+          {
+            title: "Smart India Hackathon Internals 2025",
+            award: "🏆 1st Hardware / 4th Overall",
+            team: "Team Bhumicare — Vivek Ranjan Sahoo, Ayush Ranjan Pradhan, Subasis Mishra, Depesh Singh, Anjali Rout, Subhashree Sahoo.",
+          },
+        ].map((a) => (
+          <div
+            key={a.title}
+            className="p-2.5 bg-[#00ff7f]/[0.04] border border-[#00ff7f]/20"
+          >
+            <div className="flex items-center justify-between text-[10px] font-bold text-white mb-0.5">
+              <span>{a.title}</span>
+              <span className="text-[#00ff7f] shrink-0 ml-2">{a.award}</span>
+            </div>
+            <p className="text-[9px] text-white/70 leading-relaxed">
+              {a.team}
             </p>
-
-            <div className="grid grid-cols-2 gap-2.5 my-3">
-              <div className="p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <div className="font-bold text-[#00ff7f] text-[11px] uppercase mb-1">What We Do</div>
-                <ul className="text-[10px] text-white/70 space-y-1">
-                  <li>• Coding Contests & DSA Sessions</li>
-                  <li>• Jatuk Exchange Workshops</li>
-                  <li>• Founders' Unplugged Podcast</li>
-                  <li>• ChaiLinks Knowledge Sharing</li>
-                </ul>
-              </div>
-              <div className="p-2.5 rounded-xl border border-white/10 bg-white/5">
-                <div className="font-bold text-[#00ff7f] text-[11px] uppercase mb-1">Our Impact</div>
-                <ul className="text-[10px] text-white/70 space-y-1">
-                  <li>• Built strong coding culture</li>
-                  <li>• Mentored 1000+ students</li>
-                  <li>• SIH & National Hackathon Ranks</li>
-                  <li>• Industry & Peer Mentorship</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-[#00ff7f]/30 bg-[#00ff7f]/10 p-3 text-center">
-              <p className="text-[11px] font-semibold text-[#00ff7f] italic">
-                "Together, we are empowering future developers, encouraging innovation, and building a thriving tech community focused on growth and collaboration."
-              </p>
-            </div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+  )),
 
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/50 border-t border-white/10 pt-2.5 shrink-0">
-          <span>PAGE 03</span>
-          <span>GEEKSFORGEEKS CAMPUS BODY ITER</span>
+  /* ─── PAGE 7 (Page 8): FUTURE VISION — right page ─── */
+  pg(false, 8, (
+    <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#00ff7f] mb-1">
+        <Rocket className="h-3 w-3" /> Looking Ahead
+      </div>
+      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-white mb-2.5 pb-2 border-b border-white/[0.08]">
+        Future Vision 2026–27
+      </h2>
+      <div className="space-y-2.5 text-[10px] text-white/75 leading-relaxed">
+        <p>
+          Scaling GFG ITER into Odisha's flagship student innovation ecosystem
+          — expanding national hackathon partnerships, open-source grants, and
+          direct industry mentorship pipelines.
+        </p>
+        <div className="aspect-[16/8] w-full overflow-hidden border border-[#00ff7f]/20 relative group">
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+            alt="GFG ITER Core Team Group Photo 2025-26"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 bg-black/70 backdrop-blur-sm p-1.5 text-center text-[8px] font-bold text-[#00ff7f]">
+            GFG ITER Executive & Core Team Members 2025–26
+          </div>
         </div>
       </div>
-    )
-  },
-
-  // PAGE 4: CORE TEAM & LEADERSHIP
-  {
-    id: 4,
-    type: "team",
-    title: "Core Team & Mentors",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <Users className="h-3.5 w-3.5" /> CHAPTER LEADERSHIP
-          </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-3 border-b border-white/10 pb-2">
-            Core Team 2025–26
-          </h2>
-
-          <div className="space-y-3">
-            {/* Faculty */}
-            <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[#00ff7f] mb-1.5">Faculty Mentors</div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="p-2.5 rounded-lg border border-white/10 bg-white/5">
-                  <div className="font-bold text-xs text-white">Dr. Debahuti Mishra</div>
-                  <div className="text-[10px] text-white/60">Faculty Coordinator · HOD CSE</div>
-                </div>
-                <div className="p-2.5 rounded-lg border border-white/10 bg-white/5">
-                  <div className="font-bold text-xs text-white">Prof. Abhijit Dash</div>
-                  <div className="text-[10px] text-white/60">Faculty Mentor · Associate Prof</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Coordinators */}
-            <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[#00ff7f] mb-1.5">Student Coordinators</div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="p-2.5 rounded-lg border border-[#00ff7f]/30 bg-[#00ff7f]/10">
-                  <div className="font-bold text-xs text-white">Anubhab Samantary</div>
-                  <div className="text-[10px] text-[#00ff7f] font-mono">Coordinator</div>
-                </div>
-                <div className="p-2.5 rounded-lg border border-[#00ff7f]/30 bg-[#00ff7f]/10">
-                  <div className="font-bold text-xs text-white">Akansha Ajay</div>
-                  <div className="text-[10px] text-[#00ff7f] font-mono">Coordinator</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Domain Leads */}
-            <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[#00ff7f] mb-1.5">Domain Leads</div>
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { name: "Kabir Sharma", role: "Tech Lead" },
-                  { name: "Isha Nanda", role: "Design Lead" },
-                  { name: "Kabir Sen", role: "Events Lead" },
-                  { name: "Aastha Singh", role: "PR & Media" },
-                  { name: "Sanyukt Rai", role: "Design Lead" },
-                  { name: "Subhakanta Das", role: "Operations" },
-                ].map((l) => (
-                  <div key={l.name} className="p-2 rounded-lg border border-white/5 bg-white/5 text-center">
-                    <div className="font-bold text-[11px] text-white truncate">{l.name}</div>
-                    <div className="text-[9px] text-white/60 truncate">{l.role}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/50 border-t border-white/10 pt-2.5 shrink-0">
-          <span>PAGE 04</span>
-          <span>GEEKSFORGEEKS CAMPUS BODY ITER</span>
-        </div>
-      </div>
-    )
-  },
-
-  // PAGE 5: CODE UNBOUND LAUNCH
-  {
-    id: 5,
-    type: "event",
-    title: "CodeUnbound Flagship Launch",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <Rocket className="h-3.5 w-3.5" /> FLAGSHIP INAUGURATION
-          </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-2 border-b border-white/10 pb-2">
-            CodeUnbound: The GFG Launch
-          </h2>
-
-          <div className="flex items-center gap-3 text-[11px] font-mono text-[#00ff7f] mb-3">
-            <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> Nov 07, 2025</span>
-            <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> Bansuri Guru Auditorium</span>
-          </div>
-
-          <div className="space-y-2.5 text-xs text-white/80 leading-relaxed">
-            <p>
-              The official grand launch of the GeeksforGeeks ITER Chapter at Bansuri Guru Auditorium. Attended by over 300+ enthusiastic builders, faculty leads, and industry guests.
-            </p>
-
-            <div className="aspect-[16/8] w-full overflow-hidden rounded-xl border border-white/10 my-2">
-              <img 
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" 
-                alt="CodeUnbound Launch" 
-                className="w-full h-full object-cover" 
-              />
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 text-[10px]">
-              <div className="p-2 rounded-lg border border-white/10 bg-white/5 font-semibold">
-                ⚡ Interactive Menti Live Quiz
-              </div>
-              <div className="p-2 rounded-lg border border-white/10 bg-white/5 font-semibold">
-                🎯 Annual Roadmap Unveil
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/50 border-t border-white/10 pt-2.5 shrink-0">
-          <span>PAGE 05</span>
-          <span>GEEKSFORGEEKS CAMPUS BODY ITER</span>
-        </div>
-      </div>
-    )
-  },
-
-  // PAGE 6: EVENTS CONDUCTED
-  {
-    id: 6,
-    type: "events",
-    title: "Events Conducted",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <Zap className="h-3.5 w-3.5" /> CHAPTER MILESTONES
-          </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-3 border-b border-white/10 pb-2">
-            Campus Events Recaps
-          </h2>
-
-          <div className="space-y-2 text-xs">
-            {[
-              { title: "ChaiLinks Ep 00 & Ep 01", date: "Nov & Dec 2025", desc: "Informal Chai Pe Charcha sessions on IoT, AI/ML, Cloud & TinyML." },
-              { title: "Founders' Unplugged", date: "Dec 23, 2025", desc: "Podcast with Zahid Akhtar (Founder, OneLife) on startup strategy." },
-              { title: "Raw & Ready Workshop", date: "Feb 04, 2026", desc: "Personality development, Eisenhower matrix & jungle survival challenge." },
-              { title: "Zer0ne: Capture the Flag", date: "Apr 03, 2026", desc: "Multidisciplinary CTF competition blending technology & virtual economy." },
-              { title: "Rachitva: Design-Pitch", date: "Apr 05, 2026", desc: "Fast-paced product design and pitching competition (Merlin Throne)." },
-            ].map((ev) => (
-              <div key={ev.title} className="p-2 rounded-lg border border-white/5 bg-white/5">
-                <div className="flex items-center justify-between font-bold text-white mb-0.5">
-                  <span className="text-[#00ff7f] text-[11px]">{ev.title}</span>
-                  <span className="text-[9px] font-mono text-white/50">{ev.date}</span>
-                </div>
-                <p className="text-[10px] text-white/70 leading-tight">{ev.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/50 border-t border-white/10 pt-2.5 shrink-0">
-          <span>PAGE 06</span>
-          <span>GEEKSFORGEEKS CAMPUS BODY ITER</span>
-        </div>
-      </div>
-    )
-  },
-
-  // PAGE 7: MEMBERS ACHIEVEMENTS
-  {
-    id: 7,
-    type: "achievements",
-    title: "Members Achievements",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <Trophy className="h-3.5 w-3.5" /> HALL OF FAME
-          </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-3 border-b border-white/10 pb-2">
-            Members Achievements
-          </h2>
-
-          <div className="space-y-2.5">
-            <div className="p-2.5 rounded-xl border border-[#00ff7f]/40 bg-[#00ff7f]/10">
-              <div className="flex items-center justify-between text-[11px] font-bold text-white mb-0.5">
-                <span>24-Hour Hackathon, XIM University</span>
-                <span className="text-[#00ff7f]">🏆 1st Prize</span>
-              </div>
-              <p className="text-[10px] text-white/80 leading-relaxed">
-                Team Hex Syndicate — Sanyukt Kumar Rai, Aman Murari Singh, Pratham Gupta, Abhishek Raj, Sujal Kumar.
-              </p>
-            </div>
-
-            <div className="p-2.5 rounded-xl border border-[#00ff7f]/40 bg-[#00ff7f]/10">
-              <div className="flex items-center justify-between text-[11px] font-bold text-white mb-0.5">
-                <span>HackFest, Advaita, IIIT Bhubaneswar</span>
-                <span className="text-[#00ff7f]">🏆 Champions Title</span>
-              </div>
-              <p className="text-[10px] text-white/80 leading-relaxed">
-                Team MindMesh — Shubham Parida, Ankita Mohapatra, Shlok Katiyar, Shreya Patel.
-              </p>
-            </div>
-
-            <div className="p-2.5 rounded-xl border border-[#00ff7f]/40 bg-[#00ff7f]/10">
-              <div className="flex items-center justify-between text-[11px] font-bold text-white mb-0.5">
-                <span>Smart India Hackathon Internals 2025</span>
-                <span className="text-[#00ff7f]">🏆 1st Hardware / 4th Overall</span>
-              </div>
-              <p className="text-[10px] text-white/80 leading-relaxed">
-                Team Bhumicare — Vivek Ranjan Sahoo, Ayush Ranjan Pradhan, Subasis Mishra, Depesh Singh, Anjali Rout, Subhashree Sahoo.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/50 border-t border-white/10 pt-2.5 shrink-0">
-          <span>PAGE 07</span>
-          <span>GEEKSFORGEEKS CAMPUS BODY ITER</span>
-        </div>
-      </div>
-    )
-  },
-
-  // PAGE 8: FUTURE VISION & GROUP PHOTO
-  {
-    id: 8,
-    type: "closing",
-    title: "Future Vision & Group Photo",
-    content: (
-      <div className={PAGE_CARD_CLASS}>
-        <div>
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
-            <Rocket className="h-3.5 w-3.5" /> LOOKING AHEAD
-          </div>
-          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-3 border-b border-white/10 pb-2">
-            Future Vision 2026–27
-          </h2>
-
-          <div className="space-y-2.5 text-xs text-white/80 leading-relaxed">
-            <p>
-              Scaling GFG ITER into Odisha's flagship student innovation ecosystem — expanding national hackathon partnerships, open-source grants, and direct industry mentorship pipelines.
-            </p>
-
-            <div className="aspect-[16/8] w-full overflow-hidden rounded-xl border border-[#00ff7f]/30 my-2 shadow-lg relative group">
-              <img 
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" 
-                alt="GFG ITER Core Team Group Photo 2025-26" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-black/80 backdrop-blur-md p-1.5 text-center text-[9px] font-bold text-[#00ff7f]">
-                GFG ITER Executive & Core Team Members 2025–26
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-white/50 border-t border-white/10 pt-2.5 shrink-0">
-          <span>PAGE 08</span>
-          <span>GEEKSFORGEEKS CAMPUS BODY ITER</span>
-        </div>
-      </div>
-    )
-  }
+    </div>
+  )),
 ];
 
+const TOTAL_PAGES = PAGES.length;
+const TOTAL_SPREADS = Math.ceil(TOTAL_PAGES / 2);
+
+/* ═══════════════════════════════════════════════════════════════════
+   MAIN COMPONENT — Realistic 3D Interactive Book
+   ═══════════════════════════════════════════════════════════════════ */
+
 export function NativeFlipBook() {
-  const [currentPage, setCurrentPage] = useState(0); // 0-indexed (0 to PAGES.length - 1)
+  /* ──────── State ──────── */
+  const [pageIndex, setPageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const lastWheelTime = useRef<number>(0);
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState<
+    "forward" | "backward" | null
+  >(null);
 
-  const flipbookExternalUrl = "https://heyzine.com/flip-book/9752568637.html#page/1";
+  /* ──────── Refs ──────── */
+  const bookRef = useRef<HTMLDivElement>(null);
+  const lastWheelTime = useRef(0);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const prefersReducedMotion = useRef(false);
 
+  /* Flip data captured at animation start so render can read it stably */
+  const flipDataRef = useRef<{
+    targetPageIndex: number;
+    staticLeft: ReactNode;
+    staticRight: ReactNode;
+    staticMobile: ReactNode;
+    frontFace: ReactNode;
+    backFace: ReactNode;
+  } | null>(null);
+
+  /* ──────── Motion values ──────── */
+  const flipAngle = useMotionValue(0);
+
+  /* Dynamic shadow on the revealed page — peaks at 90° */
+  const revealedShadow = useTransform(flipAngle, (a: number) => {
+    const abs = Math.abs(a);
+    return Math.sin((abs * Math.PI) / 180) * 0.32;
+  });
+
+  /* Light overlay on turning sheet front face — subtle */
+  const frontLightOpacity = useTransform(flipAngle, (a: number) => {
+    const abs = Math.abs(a);
+    return Math.sin((abs * Math.PI) / 180) * 0.1;
+  });
+
+  /* ──────── Derived ──────── */
+  const currentSpread = Math.floor(pageIndex / 2);
+
+  const canGoNext = isMobile
+    ? pageIndex < TOTAL_PAGES - 1
+    : currentSpread < TOTAL_SPREADS - 1;
+
+  const canGoPrev = isMobile ? pageIndex > 0 : currentSpread > 0;
+
+  /* ──────── Effects ──────── */
+
+  // Responsive detection
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
-  const totalPages = PAGES.length;
-
-  const nextPage = () => {
-    setCurrentPage((prev) => {
-      if (isMobile) {
-        return Math.min(prev + 1, totalPages - 1);
-      } else {
-        return Math.min(prev + 2, totalPages - 1);
-      }
-    });
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prev) => {
-      if (isMobile) {
-        return Math.max(prev - 1, 0);
-      } else {
-        return Math.max(prev - 2, 0);
-      }
-    });
-  };
-
-  // Handle Wheel Scroll Over Flipbook to Flip Pages Smoothly
+  // Sync page index on mode change (ensure even on desktop)
   useEffect(() => {
-    const el = containerRef.current;
+    if (!isMobile) {
+      setPageIndex((p) => Math.floor(p / 2) * 2);
+    }
+  }, [isMobile]);
+
+  // Reduced motion preference
+  useEffect(() => {
+    prefersReducedMotion.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+  }, []);
+
+  /* ──────── Navigation handlers ──────── */
+
+  const handleNext = useCallback(() => {
+    if (isFlipping || !canGoNext) return;
+
+    if (prefersReducedMotion.current) {
+      setPageIndex((p) =>
+        isMobile
+          ? Math.min(p + 1, TOTAL_PAGES - 1)
+          : Math.min(p + 2, (TOTAL_SPREADS - 1) * 2)
+      );
+      return;
+    }
+
+    // Capture flip data
+    if (isMobile) {
+      flipDataRef.current = {
+        targetPageIndex: pageIndex + 1,
+        staticLeft: null,
+        staticRight: null,
+        staticMobile: PAGES[pageIndex + 1],
+        frontFace: PAGES[pageIndex],
+        backFace: PAGES[pageIndex + 1],
+      };
+    } else {
+      const s = currentSpread;
+      flipDataRef.current = {
+        targetPageIndex: (s + 1) * 2,
+        staticLeft: PAGES[s * 2],
+        staticRight: PAGES[(s + 1) * 2 + 1] ?? null,
+        staticMobile: null,
+        frontFace: PAGES[s * 2 + 1],
+        backFace: PAGES[(s + 1) * 2],
+      };
+    }
+
+    setIsFlipping(true);
+    setFlipDirection("forward");
+    flipAngle.set(0);
+
+    motionAnimate(flipAngle, -180, {
+      duration: 0.85,
+      ease: [0.645, 0.045, 0.355, 1.0],
+      onComplete: () => {
+        setPageIndex(flipDataRef.current!.targetPageIndex);
+        setIsFlipping(false);
+        setFlipDirection(null);
+        flipDataRef.current = null;
+        flipAngle.set(0);
+      },
+    });
+  }, [isFlipping, canGoNext, isMobile, pageIndex, currentSpread, flipAngle]);
+
+  const handlePrev = useCallback(() => {
+    if (isFlipping || !canGoPrev) return;
+
+    if (prefersReducedMotion.current) {
+      setPageIndex((p) =>
+        isMobile ? Math.max(p - 1, 0) : Math.max(p - 2, 0)
+      );
+      return;
+    }
+
+    if (isMobile) {
+      flipDataRef.current = {
+        targetPageIndex: pageIndex - 1,
+        staticLeft: null,
+        staticRight: null,
+        staticMobile: PAGES[pageIndex - 1],
+        frontFace: PAGES[pageIndex - 1],
+        backFace: PAGES[pageIndex],
+      };
+
+      setIsFlipping(true);
+      setFlipDirection("backward");
+      flipAngle.set(-180);
+
+      motionAnimate(flipAngle, 0, {
+        duration: 0.85,
+        ease: [0.645, 0.045, 0.355, 1.0],
+        onComplete: () => {
+          setPageIndex(flipDataRef.current!.targetPageIndex);
+          setIsFlipping(false);
+          setFlipDirection(null);
+          flipDataRef.current = null;
+          flipAngle.set(0);
+        },
+      });
+    } else {
+      const s = currentSpread;
+      flipDataRef.current = {
+        targetPageIndex: (s - 1) * 2,
+        staticLeft: PAGES[(s - 1) * 2],
+        staticRight: PAGES[s * 2 + 1],
+        staticMobile: null,
+        frontFace: PAGES[s * 2],
+        backFace: PAGES[(s - 1) * 2 + 1],
+      };
+
+      setIsFlipping(true);
+      setFlipDirection("backward");
+      flipAngle.set(0);
+
+      motionAnimate(flipAngle, 180, {
+        duration: 0.85,
+        ease: [0.645, 0.045, 0.355, 1.0],
+        onComplete: () => {
+          setPageIndex(flipDataRef.current!.targetPageIndex);
+          setIsFlipping(false);
+          setFlipDirection(null);
+          flipDataRef.current = null;
+          flipAngle.set(0);
+        },
+      });
+    }
+  }, [isFlipping, canGoPrev, isMobile, pageIndex, currentSpread, flipAngle]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") handleNext();
+      else if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [handleNext, handlePrev]);
+
+  // Wheel navigation
+  useEffect(() => {
+    const el = bookRef.current;
     if (!el) return;
-
-    const handleWheel = (e: WheelEvent) => {
+    const onWheel = (e: WheelEvent) => {
       e.preventDefault();
-      e.stopPropagation();
-
       const now = Date.now();
-      if (now - lastWheelTime.current < 400) return; // 400ms throttle
+      if (now - lastWheelTime.current < 900) return;
       lastWheelTime.current = now;
+      if (e.deltaY > 0) handleNext();
+      else if (e.deltaY < 0) handlePrev();
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [handleNext, handlePrev]);
 
-      if (e.deltaY > 0) {
-        nextPage();
-      } else if (e.deltaY < 0) {
-        prevPage();
+  // Touch swipe
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const onTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const dx = e.changedTouches[0].clientX - touchStartX.current;
+      const dy = e.changedTouches[0].clientY - touchStartY.current;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+        if (dx < 0) handleNext();
+        else handlePrev();
       }
-    };
+    },
+    [handleNext, handlePrev]
+  );
 
-    el.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      el.removeEventListener("wheel", handleWheel);
-    };
-  }, [isMobile, totalPages]);
+  /* ──────── Compute visible pages ──────── */
 
+  let leftContent: ReactNode = null;
+  let rightContent: ReactNode = null;
+  let mobileContent: ReactNode = null;
+
+  if (isFlipping && flipDataRef.current) {
+    const fd = flipDataRef.current;
+    leftContent = fd.staticLeft;
+    rightContent = fd.staticRight;
+    mobileContent = fd.staticMobile;
+  } else {
+    leftContent = PAGES[pageIndex];
+    rightContent = PAGES[pageIndex + 1] ?? null;
+    mobileContent = PAGES[pageIndex];
+  }
+
+  /* ──────── Page height ──────── */
+  const pageH = isMobile ? 460 : 560;
+
+  /* ──────── Render ──────── */
   return (
-    <section className="relative z-10 py-24 overflow-hidden bg-transparent">
-      {/* Background radial ambient glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[900px] bg-[#00ff7f]/5 blur-[140px] rounded-full" />
+    <section className="relative z-10 py-20 sm:py-24 overflow-hidden bg-transparent">
+      {/* Ambient background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/[0.04] blur-[120px] rounded-full" />
 
       <div className="container-page">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        {/* ═══ Section Header ═══ */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-10">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-4 py-1.5 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md mb-4">
               <BookOpen className="h-3.5 w-3.5" />
               ANNUAL REPORT 2025–26 · LIFE AT GFG ITER
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
-              GFG ITER <span className="text-gradient-brand">Annual Report</span>
+              GFG ITER{" "}
+              <span className="text-gradient-brand">Annual Report</span>
             </h2>
-            <p className="mt-3 text-base sm:text-lg text-white/70 max-w-2xl font-medium leading-relaxed">
-              Explore our complete chapter chronicle — interactive 3D edition showcasing our hackathons, technical workshops, team milestones, and student achievements.
+            <p className="mt-3 text-base sm:text-lg text-white/60 max-w-2xl font-medium leading-relaxed">
+              Explore our complete chapter chronicle — interactive 3D edition.
+              Turn the pages to discover hackathons, workshops, team milestones,
+              and student achievements.
             </p>
           </div>
+          <a
+            href="https://heyzine.com/flip-book/9752568637.html#page/1"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 rounded-xl border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2.5 text-sm font-bold text-[#00ff7f] backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:shadow-[0_0_20px_rgba(0,255,127,0.3)] active:scale-95 shrink-0"
+          >
+            View External PDF
+            <ExternalLink className="h-4 w-4" />
+          </a>
+        </div>
 
-          {/* Controls Bar - External PDF Link only */}
-          <div className="flex items-center gap-3 shrink-0">
-            <a
-              href={flipbookExternalUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-5 py-2.5 text-sm font-bold text-[#00ff7f] backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:shadow-[0_0_20px_rgba(0,255,127,0.35)] active:scale-95 shadow-md"
+        {/* ═══ Book Container ═══ */}
+        <div
+          ref={bookRef}
+          className="relative mx-auto select-none"
+          style={{ maxWidth: isMobile ? 420 : 1060 }}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          {/* ── Navigation arrows ── */}
+          <button
+            onClick={handlePrev}
+            disabled={!canGoPrev || isFlipping}
+            className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
+              isMobile ? "-left-1" : "-left-14"
+            } ${
+              !canGoPrev || isFlipping
+                ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
+                : "border-[#00ff7f]/30 bg-[#020b06]/80 text-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 hover:shadow-[0_0_18px_rgba(0,255,127,0.3)] active:scale-95"
+            }`}
+            aria-label="Previous page"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            disabled={!canGoNext || isFlipping}
+            className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
+              isMobile ? "-right-1" : "-right-14"
+            } ${
+              !canGoNext || isFlipping
+                ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
+                : "border-[#00ff7f]/30 bg-[#020b06]/80 text-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 hover:shadow-[0_0_18px_rgba(0,255,127,0.3)] active:scale-95"
+            }`}
+            aria-label="Next page"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
+          {/* ── Hardcover shell ── */}
+          <div
+            className="absolute rounded-sm pointer-events-none"
+            style={{
+              inset: isMobile ? -4 : -6,
+              background:
+                "linear-gradient(145deg, #020b06 0%, #071a0f 50%, #020b06 100%)",
+              border: "1px solid rgba(0,255,127,0.08)",
+              boxShadow:
+                "0 25px 70px -15px rgba(0,0,0,0.85), 0 8px 20px -8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,255,127,0.06)",
+            }}
+          />
+
+          {/* ── Page edges (stacked paper effect) ── */}
+          {!isMobile && (
+            <>
+              <div
+                className="absolute pointer-events-none rounded-[1px]"
+                style={{
+                  bottom: -2,
+                  left: 5,
+                  right: 5,
+                  height: 1,
+                  background: "rgba(255,255,255,0.05)",
+                }}
+              />
+              <div
+                className="absolute pointer-events-none rounded-[1px]"
+                style={{
+                  bottom: -3,
+                  left: 8,
+                  right: 8,
+                  height: 1,
+                  background: "rgba(255,255,255,0.03)",
+                }}
+              />
+              <div
+                className="absolute pointer-events-none rounded-[1px]"
+                style={{
+                  bottom: -4,
+                  left: 11,
+                  right: 11,
+                  height: 1,
+                  background: "rgba(255,255,255,0.015)",
+                }}
+              />
+              {/* Right outer edge */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: 4,
+                  bottom: 4,
+                  right: -2,
+                  width: 1,
+                  background: "rgba(255,255,255,0.04)",
+                }}
+              />
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: 7,
+                  bottom: 7,
+                  right: -3,
+                  width: 1,
+                  background: "rgba(255,255,255,0.02)",
+                }}
+              />
+              {/* Left outer edge */}
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: 4,
+                  bottom: 4,
+                  left: -2,
+                  width: 1,
+                  background: "rgba(255,255,255,0.04)",
+                }}
+              />
+              <div
+                className="absolute pointer-events-none"
+                style={{
+                  top: 7,
+                  bottom: 7,
+                  left: -3,
+                  width: 1,
+                  background: "rgba(255,255,255,0.02)",
+                }}
+              />
+            </>
+          )}
+
+          {/* ═══ Pages area with 3D perspective ═══ */}
+          <div style={{ perspective: 2500 }} className="relative">
+            <div
+              className="relative"
+              style={{
+                transformStyle: "preserve-3d",
+                height: pageH,
+              }}
             >
-              <span>View External PDF</span>
-              <ExternalLink className="h-4 w-4" />
-            </a>
+              {/* ── DESKTOP LAYOUT ── */}
+              {!isMobile && (
+                <>
+                  {/* Left page */}
+                  <div className="absolute inset-y-0 left-0 w-1/2">
+                    <div className="w-full h-full overflow-hidden">
+                      {leftContent}
+                    </div>
+                  </div>
+
+                  {/* Right page */}
+                  <div className="absolute inset-y-0 right-0 w-1/2">
+                    <div className="w-full h-full overflow-hidden">
+                      {rightContent}
+                    </div>
+                  </div>
+
+                  {/* Center spine */}
+                  <div
+                    className="absolute inset-y-0 left-1/2 -translate-x-1/2 pointer-events-none"
+                    style={{
+                      width: 10,
+                      zIndex: 15,
+                      background:
+                        "linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.45))",
+                      boxShadow:
+                        "inset 0 0 8px rgba(0,0,0,0.6), 0 0 1px rgba(0,255,127,0.06)",
+                    }}
+                  />
+
+                  {/* ── Shadow on revealed page during flip ── */}
+                  {isFlipping && flipDirection === "forward" && (
+                    <motion.div
+                      className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"
+                      style={{
+                        zIndex: 12,
+                        opacity: revealedShadow,
+                        background:
+                          "linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%)",
+                      }}
+                    />
+                  )}
+                  {isFlipping && flipDirection === "backward" && (
+                    <motion.div
+                      className="absolute inset-y-0 left-0 w-1/2 pointer-events-none"
+                      style={{
+                        zIndex: 12,
+                        opacity: revealedShadow,
+                        background:
+                          "linear-gradient(to left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%)",
+                      }}
+                    />
+                  )}
+
+                  {/* ═══ TURNING SHEET — The physical page flip ═══ */}
+                  {isFlipping && flipDataRef.current && (
+                    <motion.div
+                      className="absolute inset-y-0"
+                      style={{
+                        width: "50%",
+                        left:
+                          flipDirection === "forward" ? "50%" : 0,
+                        transformOrigin:
+                          flipDirection === "forward"
+                            ? "left center"
+                            : "right center",
+                        rotateY: flipAngle,
+                        translateZ: 2,
+                        transformStyle: "preserve-3d",
+                        zIndex: 20,
+                        willChange: "transform",
+                      }}
+                    >
+                      {/* Front face */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ backfaceVisibility: "hidden" }}
+                      >
+                        {flipDataRef.current.frontFace}
+                        {/* Light/shadow overlay on front */}
+                        <motion.div
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            opacity: frontLightOpacity,
+                            background:
+                              flipDirection === "forward"
+                                ? "linear-gradient(to left, rgba(0,0,0,0.5), transparent 60%)"
+                                : "linear-gradient(to right, rgba(0,0,0,0.5), transparent 60%)",
+                            backfaceVisibility: "hidden",
+                          }}
+                        />
+                      </div>
+
+                      {/* Back face */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{
+                          backfaceVisibility: "hidden",
+                          transform: "rotateY(180deg)",
+                        }}
+                      >
+                        {flipDataRef.current.backFace}
+                      </div>
+
+                      {/* Page edge thickness on turning page */}
+                      <div
+                        className="absolute pointer-events-none"
+                        style={{
+                          top: 2,
+                          bottom: 2,
+                          width: 2,
+                          ...(flipDirection === "forward"
+                            ? { right: -1 }
+                            : { left: -1 }),
+                          background:
+                            "linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0.03), rgba(255,255,255,0.06))",
+                          backfaceVisibility: "hidden",
+                        }}
+                      />
+                    </motion.div>
+                  )}
+                </>
+              )}
+
+              {/* ── MOBILE LAYOUT ── */}
+              {isMobile && (
+                <>
+                  {/* Static page (the revealed / underlying page) */}
+                  <div className="absolute inset-0">
+                    <div className="w-full h-full overflow-hidden">
+                      {isFlipping ? mobileContent : mobileContent}
+                    </div>
+                  </div>
+
+                  {/* Shadow on revealed page during flip */}
+                  {isFlipping && (
+                    <motion.div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        zIndex: 12,
+                        opacity: revealedShadow,
+                        background:
+                          "linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)",
+                      }}
+                    />
+                  )}
+
+                  {/* Turning sheet */}
+                  {isFlipping && flipDataRef.current && (
+                    <motion.div
+                      className="absolute inset-0"
+                      style={{
+                        transformOrigin: "left center",
+                        rotateY: flipAngle,
+                        translateZ: 2,
+                        transformStyle: "preserve-3d",
+                        zIndex: 20,
+                        willChange: "transform",
+                      }}
+                    >
+                      {/* Front face */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ backfaceVisibility: "hidden" }}
+                      >
+                        {flipDataRef.current.frontFace}
+                        <motion.div
+                          className="absolute inset-0 pointer-events-none"
+                          style={{
+                            opacity: frontLightOpacity,
+                            background:
+                              "linear-gradient(to left, rgba(0,0,0,0.4), transparent 50%)",
+                            backfaceVisibility: "hidden",
+                          }}
+                        />
+                      </div>
+                      {/* Back face */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{
+                          backfaceVisibility: "hidden",
+                          transform: "rotateY(180deg)",
+                        }}
+                      >
+                        {flipDataRef.current.backFace}
+                      </div>
+                    </motion.div>
+                  )}
+                </>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* NATIVE INTERACTIVE FLIPBOOK CONTAINER */}
-        <div 
-          ref={containerRef}
-          className="relative rounded-3xl border border-[#00ff7f]/30 bg-[#020b06]/90 backdrop-blur-2xl p-4 sm:p-6 md:p-8 shadow-[inset_0_0_40px_rgba(0,255,127,0.05),0_25px_60px_-10px_rgba(0,0,0,0.9)] overflow-hidden"
-        >
-          {/* Top Bar inside Card */}
-          <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 z-20">
-            <div className="flex items-center gap-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#00ff7f] animate-pulse" />
-              <span className="text-xs font-mono uppercase tracking-wider text-[#00ff7f] font-bold">
-                Native Interactive Reader · {isMobile ? `Page ${currentPage + 1} of ${totalPages}` : `Pages ${currentPage + 1}–${Math.min(currentPage + 2, totalPages)} of ${totalPages}`}
-              </span>
-            </div>
-
-            {/* Jump to Page Pill Controls */}
-            <div className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-3 py-1 text-xs">
-              {PAGES.map((p, idx) => (
-                <button
-                  key={p.id}
-                  onClick={() => setCurrentPage(idx)}
-                  className={`h-6 w-6 rounded-full font-mono text-[11px] font-bold transition-all ${
-                    currentPage === idx || (!isMobile && currentPage + 1 === idx)
-                      ? "bg-[#00ff7f] text-[#020b06] scale-110 shadow-[0_0_10px_rgba(0,255,127,0.4)]"
-                      : "text-white/60 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {p.id}
-                </button>
-              ))}
-            </div>
+        {/* ═══ Page indicator ═══ */}
+        <div className="mt-5 text-center">
+          <span className="text-xs font-mono text-white/30">
+            {isMobile
+              ? `Page ${pageIndex + 1} of ${TOTAL_PAGES}`
+              : `Pages ${currentSpread * 2 + 1}–${Math.min(currentSpread * 2 + 2, TOTAL_PAGES)} of ${TOTAL_PAGES}`}
+          </span>
+          <div className="flex items-center justify-center gap-1.5 mt-2">
+            {Array.from({ length: isMobile ? TOTAL_PAGES : TOTAL_SPREADS }).map(
+              (_, i) => {
+                const isActive = isMobile
+                  ? i === pageIndex
+                  : i === currentSpread;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      if (isFlipping) return;
+                      setPageIndex(isMobile ? i : i * 2);
+                    }}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      isActive
+                        ? "w-6 bg-[#00ff7f]"
+                        : "w-1.5 bg-white/15 hover:bg-white/30"
+                    }`}
+                    aria-label={`Go to ${isMobile ? `page ${i + 1}` : `spread ${i + 1}`}`}
+                  />
+                );
+              }
+            )}
           </div>
+        </div>
 
-          {/* MAIN BOOK SPREAD VIEWPORT WITH 3D PAGE FLIP TRANSITION */}
-          <div className="relative my-auto flex-1 h-[540px] sm:h-[580px] md:h-[620px] flex items-center justify-center py-2 px-2 sm:px-10">
-            {/* Previous Page Arrow Button */}
-            <button
-              onClick={prevPage}
-              disabled={currentPage === 0}
-              className={`absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-[#00ff7f]/40 bg-[#020b06]/90 text-[#00ff7f] backdrop-blur-md transition-all ${
-                currentPage === 0
-                  ? "opacity-30 cursor-not-allowed border-white/10 text-white/30"
-                  : "hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 shadow-[0_0_20px_rgba(0,255,127,0.3)]"
-              }`}
-              aria-label="Previous Page"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-
-            {/* Next Page Arrow Button */}
-            <button
-              onClick={nextPage}
-              disabled={currentPage >= totalPages - 1}
-              className={`absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-[#00ff7f]/40 bg-[#020b06]/90 text-[#00ff7f] backdrop-blur-md transition-all ${
-                currentPage >= totalPages - 1
-                  ? "opacity-30 cursor-not-allowed border-white/10 text-white/30"
-                  : "hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 shadow-[0_0_20px_rgba(0,255,127,0.3)]"
-              }`}
-              aria-label="Next Page"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-
-            {/* FLIPBOOK STAGE: 2-PAGE SPREAD ON DESKTOP / 1-PAGE ON MOBILE */}
-            <div className="w-full max-w-5xl h-[540px] sm:h-[580px] md:h-[620px] relative flex items-center justify-center perspective-1000">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentPage}
-                  initial={{ opacity: 0, rotateY: -15, scale: 0.96 }}
-                  animate={{ opacity: 1, rotateY: 0, scale: 1 }}
-                  exit={{ opacity: 0, rotateY: 15, scale: 0.96 }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="w-full h-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 relative"
-                >
-                  {/* Left Page (or single page on mobile) */}
-                  <div className="w-full h-full shadow-[0_15px_35px_rgba(0,0,0,0.8)] rounded-2xl">
-                    {PAGES[currentPage].content}
-                  </div>
-
-                  {/* Right Page (on desktop spread) */}
-                  {!isMobile && (
-                    <div className="w-full h-full shadow-[0_15px_35px_rgba(0,0,0,0.8)] rounded-2xl hidden md:block">
-                      {PAGES[currentPage + 1] ? (
-                        PAGES[currentPage + 1].content
-                      ) : (
-                        <div className="h-full w-full flex items-center justify-center bg-[#040e08] border border-white/10 rounded-2xl p-8 text-center text-white/40">
-                          <div>
-                            <Sparkles className="h-10 w-10 mx-auto text-[#00ff7f]/40 mb-3" />
-                            <div className="font-mono text-xs uppercase tracking-widest">End of Report</div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Bottom Footer Information */}
-          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs font-mono text-white/60">
-            <div className="flex items-center gap-2">
-              <span className="text-[#00ff7f]">⚡ Tip:</span> Scroll wheel up/down over reader to turn pages seamlessly
-            </div>
-            <div className="flex items-center gap-4">
-              <span>GeeksforGeeks Campus Body ITER</span>
-              <span>·</span>
-              <span className="text-[#00ff7f]">ESTD 2025</span>
-            </div>
-          </div>
+        {/* ═══ Footer tip ═══ */}
+        <div className="mt-3 text-center text-[10px] font-mono text-white/20">
+          <span className="text-[#00ff7f]/40">⚡</span> Use arrow keys, scroll
+          wheel, or swipe to turn pages
         </div>
       </div>
     </section>
