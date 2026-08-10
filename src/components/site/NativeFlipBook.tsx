@@ -347,16 +347,15 @@ const PAGES: ReactNode[] = [
         ITER
       </div>
       <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
-        <h2 className="text-4xl sm:text-5xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.01em" }}>
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
           MEET OUR CORE
         </h2>
       </div>
-      <div className="border-t-[2px] border-[#008F4C] pt-0.5 pb-0.5 text-center">
-        <h3 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.01em" }}>
-          LEADS
-        </h3>
+      <div className="border-t-[2px] border-[#008F4C] mb-2 mt-0.5"></div>
+      
+      <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mb-1.5 leading-none uppercase tracking-wide">
+        LEADS
       </div>
-      <div className="border-t-[1px] border-[#008F4C] mb-2 mt-0.5"></div>
       
       {/* Content Area */}
       <div className="flex-1 flex flex-col justify-between pb-1">
@@ -379,13 +378,8 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Divider for Team Co-ordinators */}
-        <div className="mt-1">
-          <div className="border-t-[2px] border-[#008F4C] pt-1 pb-1 text-center">
-            <h3 className="text-xl sm:text-2xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.3)", display: "inline-block", letterSpacing: "-0.01em" }}>
-              TEAM CO-ORDINATORS
-            </h3>
-          </div>
-          <div className="border-t-[1px] border-[#008F4C] mb-2 mt-0.5"></div>
+        <div className="text-[13px] sm:text-[15px] font-bold text-[#111] text-center mt-2 mb-1.5 leading-none uppercase tracking-wide">
+          TEAM CO-ORDINATORS
         </div>
         
         {/* Row 3: Co-ordinators */}
