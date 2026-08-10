@@ -1,7 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ChevronLeft, ChevronRight, X, Maximize2, MapPin, Calendar, Camera } from "lucide-react";
-import { SectionHeader } from "@/components/site/Primitives";
 
 export const GALLERY_PHOTOS = [
   {
@@ -82,7 +81,7 @@ export const GALLERY_PHOTOS = [
     category: "Moments & Wins",
     location: "Incubation Hub",
     date: "Oct 2024",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-152202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
     description: "Seniors helping juniors debug React components and database connections into early morning hours."
   },
   {
@@ -107,6 +106,37 @@ export function WhatWeDoGallery() {
   const filteredPhotos = selectedCategory === "All"
     ? GALLERY_PHOTOS
     : GALLERY_PHOTOS.filter((p) => p.category === selectedCategory);
+
+  const currentIndex = activePhoto
+    ? filteredPhotos.findIndex((p) => p.id === activePhoto.id)
+    : -1;
+
+  const handleNextPhoto = () => {
+    if (currentIndex !== -1 && filteredPhotos.length > 0) {
+      const nextIdx = (currentIndex + 1) % filteredPhotos.length;
+      setActivePhoto(filteredPhotos[nextIdx]);
+    }
+  };
+
+  const handlePrevPhoto = () => {
+    if (currentIndex !== -1 && filteredPhotos.length > 0) {
+      const prevIdx = (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length;
+      setActivePhoto(filteredPhotos[prevIdx]);
+    }
+  };
+
+  // Keyboard navigation for Lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!activePhoto) return;
+      if (e.key === "ArrowRight") handleNextPhoto();
+      if (e.key === "ArrowLeft") handlePrevPhoto();
+      if (e.key === "Escape") setActivePhoto(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activePhoto, currentIndex, filteredPhotos]);
 
   // Duplicate for smooth continuous marquee loop
   const row1 = [...filteredPhotos, ...filteredPhotos];
@@ -143,7 +173,7 @@ export function WhatWeDoGallery() {
             </p>
           </div>
 
-          {/* Manual Arrow Controls */}
+          {/* Manual Arrow Controls for Row Tracks */}
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={scrollLeft}
@@ -211,7 +241,7 @@ export function WhatWeDoGallery() {
         </div>
       </div>
 
-      {/* Fullscreen Photo Lightbox Modal */}
+      {/* Fullscreen Photo Lightbox Modal (z-[200] ensures high priority over Navbar) */}
       <AnimatePresence>
         {activePhoto && (
           <motion.div
@@ -219,19 +249,46 @@ export function WhatWeDoGallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActivePhoto(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-xl"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4 sm:p-6 md:p-8 backdrop-blur-2xl overflow-y-auto"
           >
+            {/* Previous Photo Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrevPhoto();
+              }}
+              className="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-black/70 text-white hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] transition-all active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+              aria-label="Previous photo"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            {/* Next Photo Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNextPhoto();
+              }}
+              className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-black/70 text-white hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] transition-all active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+              aria-label="Next photo"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Modal Content Card */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              key={activePhoto.id}
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full rounded-3xl border border-[#00ff7f]/30 bg-[#060D09] overflow-hidden shadow-[0_0_60px_rgba(0,255,127,0.2)]"
+              className="relative max-w-4xl w-full rounded-3xl border border-[#00ff7f]/40 bg-[#060D09] overflow-hidden shadow-[0_0_80px_rgba(0,255,127,0.25)] my-auto"
             >
               {/* Close Button */}
               <button
                 onClick={() => setActivePhoto(null)}
-                className="absolute top-4 right-4 z-30 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/60 text-white hover:bg-[#00ff7f] hover:text-[#020b06] transition-all"
+                className="absolute top-4 right-4 z-30 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/70 text-white hover:bg-[#00ff7f] hover:text-[#020b06] transition-all shadow-lg"
                 aria-label="Close photo preview"
               >
                 <X className="h-5 w-5" />
@@ -245,6 +302,11 @@ export function WhatWeDoGallery() {
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#060D09] via-transparent to-transparent opacity-90" />
+
+                {/* Counter Tag */}
+                <div className="absolute top-4 left-4 z-20 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-bold text-white/80 backdrop-blur-md">
+                  {currentIndex + 1} / {filteredPhotos.length}
+                </div>
               </div>
 
               {/* Photo Details */}
@@ -253,10 +315,10 @@ export function WhatWeDoGallery() {
                   <span className="rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3 py-1 text-xs font-bold text-[#00ff7f] uppercase tracking-wider">
                     {activePhoto.category}
                   </span>
-                  <span className="flex items-center gap-1.5 text-xs text-white/70 font-medium">
+                  <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
                     <MapPin className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.location}
                   </span>
-                  <span className="flex items-center gap-1.5 text-xs text-white/70 font-medium">
+                  <span className="flex items-center gap-1.5 text-xs text-white/80 font-semibold">
                     <Calendar className="h-3.5 w-3.5 text-[#00ff7f]" /> {activePhoto.date}
                   </span>
                 </div>
@@ -280,7 +342,7 @@ function GalleryCard({ photo, onOpen }: { photo: (typeof GALLERY_PHOTOS)[number]
   return (
     <div
       onClick={onOpen}
-      className="group relative w-[300px] sm:w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-[#060D09] p-3 transition-all duration-500 hover:-translate-y-2 hover:border-[#00ff7f]/60 hover:shadow-[0_15px_35px_rgba(0,255,127,0.2)]"
+      className="group relative w-[300px] sm:w-[360px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-[#00ff7f]/20 bg-[#060D09]/90 backdrop-blur-md p-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00ff7f] hover:shadow-[0_0_25px_rgba(0,255,127,0.4)]"
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-black">
         <img
