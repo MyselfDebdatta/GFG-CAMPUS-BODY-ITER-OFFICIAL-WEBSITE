@@ -8,15 +8,15 @@ import {
   Sparkles, 
   Trophy, 
   Users, 
-  Code2, 
   Calendar, 
   MapPin, 
   Rocket, 
   Award, 
-  ShieldCheck, 
   Zap, 
   Terminal
 } from "lucide-react";
+
+const PAGE_CARD_CLASS = "h-[540px] sm:h-[580px] md:h-[620px] w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden shadow-2xl";
 
 const PAGES = [
   // PAGE 1: COVER
@@ -26,12 +26,12 @@ const PAGES = [
     title: "GFG ITER Annual Report 2025–26",
     subtitle: ".CODE · .CONNECT · .CONQUER",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-gradient-to-br from-[#04140a] via-[#020b06] to-[#082213] text-white relative overflow-hidden border border-[#00ff7f]/30 rounded-2xl shadow-2xl">
+      <div className="h-[540px] sm:h-[580px] md:h-[620px] w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-gradient-to-br from-[#04140a] via-[#020b06] to-[#082213] text-white relative overflow-hidden border border-[#00ff7f]/30 rounded-2xl shadow-2xl">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#00ff7f]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#00ff7f]/5 rounded-full blur-3xl pointer-events-none" />
         
         {/* Top Header Logos */}
-        <div className="flex items-center justify-between z-10 border-b border-white/10 pb-3">
+        <div className="flex items-center justify-between z-10 border-b border-white/10 pb-3 shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="h-9 w-9 rounded-xl bg-[#00ff7f]/20 border border-[#00ff7f]/40 flex items-center justify-center font-extrabold text-[#00ff7f] text-base">
               G
@@ -96,7 +96,7 @@ const PAGES = [
     type: "index",
     title: "Table of Contents",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <Terminal className="h-3.5 w-3.5" /> CHAPTER ARCHIVE INDEX
@@ -143,7 +143,7 @@ const PAGES = [
     type: "content",
     title: "About the Club",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <BookOpen className="h-3.5 w-3.5" /> CHAPTER OVERVIEW
@@ -200,7 +200,7 @@ const PAGES = [
     type: "team",
     title: "Core Team & Mentors",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <Users className="h-3.5 w-3.5" /> CHAPTER LEADERSHIP
@@ -214,11 +214,11 @@ const PAGES = [
             <div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-[#00ff7f] mb-1.5">Faculty Mentors</div>
               <div className="grid grid-cols-2 gap-2">
-                <div className="p-2 rounded-lg border border-white/10 bg-white/5">
+                <div className="p-2.5 rounded-lg border border-white/10 bg-white/5">
                   <div className="font-bold text-xs text-white">Dr. Debahuti Mishra</div>
                   <div className="text-[10px] text-white/60">Faculty Coordinator · HOD CSE</div>
                 </div>
-                <div className="p-2 rounded-lg border border-white/10 bg-white/5">
+                <div className="p-2.5 rounded-lg border border-white/10 bg-white/5">
                   <div className="font-bold text-xs text-white">Prof. Abhijit Dash</div>
                   <div className="text-[10px] text-white/60">Faculty Mentor · Associate Prof</div>
                 </div>
@@ -229,11 +229,11 @@ const PAGES = [
             <div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-[#00ff7f] mb-1.5">Student Coordinators</div>
               <div className="grid grid-cols-2 gap-2">
-                <div className="p-2 rounded-lg border border-[#00ff7f]/30 bg-[#00ff7f]/10">
+                <div className="p-2.5 rounded-lg border border-[#00ff7f]/30 bg-[#00ff7f]/10">
                   <div className="font-bold text-xs text-white">Anubhab Samantary</div>
                   <div className="text-[10px] text-[#00ff7f] font-mono">Coordinator</div>
                 </div>
-                <div className="p-2 rounded-lg border border-[#00ff7f]/30 bg-[#00ff7f]/10">
+                <div className="p-2.5 rounded-lg border border-[#00ff7f]/30 bg-[#00ff7f]/10">
                   <div className="font-bold text-xs text-white">Akansha Ajay</div>
                   <div className="text-[10px] text-[#00ff7f] font-mono">Coordinator</div>
                 </div>
@@ -243,7 +243,7 @@ const PAGES = [
             {/* Domain Leads */}
             <div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-[#00ff7f] mb-1.5">Domain Leads</div>
-              <div className="grid grid-cols-3 gap-1.5">
+              <div className="grid grid-cols-3 gap-2">
                 {[
                   { name: "Kabir Sharma", role: "Tech Lead" },
                   { name: "Isha Nanda", role: "Design Lead" },
@@ -252,8 +252,8 @@ const PAGES = [
                   { name: "Sanyukt Rai", role: "Design Lead" },
                   { name: "Subhakanta Das", role: "Operations" },
                 ].map((l) => (
-                  <div key={l.name} className="p-1.5 rounded-lg border border-white/5 bg-white/5 text-center">
-                    <div className="font-bold text-[10px] text-white truncate">{l.name}</div>
+                  <div key={l.name} className="p-2 rounded-lg border border-white/5 bg-white/5 text-center">
+                    <div className="font-bold text-[11px] text-white truncate">{l.name}</div>
                     <div className="text-[9px] text-white/60 truncate">{l.role}</div>
                   </div>
                 ))}
@@ -276,7 +276,7 @@ const PAGES = [
     type: "event",
     title: "CodeUnbound Flagship Launch",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <Rocket className="h-3.5 w-3.5" /> FLAGSHIP INAUGURATION
@@ -328,7 +328,7 @@ const PAGES = [
     type: "events",
     title: "Events Conducted",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <Zap className="h-3.5 w-3.5" /> CHAPTER MILESTONES
@@ -370,7 +370,7 @@ const PAGES = [
     type: "achievements",
     title: "Members Achievements",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <Trophy className="h-3.5 w-3.5" /> HALL OF FAME
@@ -426,7 +426,7 @@ const PAGES = [
     type: "closing",
     title: "Future Vision & Group Photo",
     content: (
-      <div className="h-full w-full flex flex-col justify-between p-5 sm:p-6 md:p-7 bg-[#06140b] text-white border border-white/10 rounded-2xl relative overflow-hidden">
+      <div className={PAGE_CARD_CLASS}>
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#00ff7f] mb-1.5">
             <Rocket className="h-3.5 w-3.5" /> LOOKING AHEAD
@@ -593,7 +593,7 @@ export function NativeFlipBook() {
           </div>
 
           {/* MAIN BOOK SPREAD VIEWPORT WITH 3D PAGE FLIP TRANSITION */}
-          <div className="relative my-auto flex-1 min-h-[500px] sm:min-h-[580px] md:min-h-[640px] flex items-center justify-center py-2 px-2 sm:px-10">
+          <div className="relative my-auto flex-1 h-[540px] sm:h-[580px] md:h-[620px] flex items-center justify-center py-2 px-2 sm:px-10">
             {/* Previous Page Arrow Button */}
             <button
               onClick={prevPage}
@@ -623,7 +623,7 @@ export function NativeFlipBook() {
             </button>
 
             {/* FLIPBOOK STAGE: 2-PAGE SPREAD ON DESKTOP / 1-PAGE ON MOBILE */}
-            <div className="w-full max-w-5xl h-full min-h-[480px] sm:min-h-[560px] md:min-h-[620px] relative flex items-center justify-center perspective-1000">
+            <div className="w-full max-w-5xl h-[540px] sm:h-[580px] md:h-[620px] relative flex items-center justify-center perspective-1000">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentPage}
