@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export function AchievementWall() {
   return (
-    <div className="relative w-full max-w-6xl mx-auto h-[700px] md:h-[820px] rounded-3xl border border-white/10 bg-black/40 overflow-hidden shadow-inner">
+    <div className="relative w-full max-w-6xl mx-auto h-[500px] md:h-[580px] rounded-3xl border border-white/10 bg-black/40 overflow-hidden shadow-inner">
       {/* Background grid texture to look like a plotting board */}
       <div 
         className="absolute inset-0 opacity-10"
@@ -74,11 +74,17 @@ export function AchievementWall() {
                   </div>
                 )}
                 
-                <h3 className="text-lg font-bold text-white mb-1 leading-tight drop-shadow-md">
+                <h3 className="text-base font-bold text-white mb-1 leading-tight drop-shadow-md">
                   {achievement.title}
                 </h3>
+
+                {(achievement as any).award && (
+                  <div className="text-[11px] font-extrabold text-[#00ff7f] mb-2 uppercase tracking-wide">
+                    🏆 {(achievement as any).award}
+                  </div>
+                )}
                 
-                <p className="text-xs text-white/70 font-medium line-clamp-3">
+                <p className="text-xs text-white/80 font-medium leading-relaxed">
                   {achievement.description}
                 </p>
                 
@@ -122,11 +128,17 @@ export function AchievementWall() {
                 </div>
               )}
               
-              <h3 className="text-lg font-bold text-white mb-1 leading-tight">
+              <h3 className="text-base font-bold text-white mb-1 leading-tight">
                 {achievement.title}
               </h3>
               
-              <p className="text-xs text-white/70">
+              {(achievement as any).award && (
+                <div className="text-[11px] font-extrabold text-[#00ff7f] mb-2 uppercase tracking-wide">
+                  🏆 {(achievement as any).award}
+                </div>
+              )}
+              
+              <p className="text-xs text-white/80 leading-relaxed">
                 {achievement.description}
               </p>
             </motion.div>
