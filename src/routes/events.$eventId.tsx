@@ -310,7 +310,7 @@ function EventDetails() {
           </div>
 
           {/* Right: Crew & CTA */}
-          <div className="space-y-6">
+          <div className="flex flex-col justify-between space-y-6 lg:space-y-0 h-full">
             {/* Crew Dossier */}
             <div className="rounded-2xl border border-hairline bg-surface-elevated overflow-hidden">
               <div className="border-b border-hairline px-6 py-4 flex items-center gap-2.5">
