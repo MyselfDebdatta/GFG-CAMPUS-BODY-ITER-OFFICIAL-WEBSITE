@@ -63,8 +63,7 @@ export const EVENTS = [
     venue: "ITER Main Campus",
     status: "ongoing",
     speakers: [
-      { name: "Kabir Sharma", role: "Tech Lead", photo: "https://i.pravatar.cc/150?img=15" },
-      { name: "Isha Nanda", role: "Design Lead", photo: "https://i.pravatar.cc/150?img=45" }
+      { name: "GFG Lead Board", role: "Core Team", photo: "" }
     ],
     description:
       "A comprehensive two-month mentorship initiative where senior engineers lead hands-on sessions across diverse tech domains, accelerating your mastery of modern tech stacks.",

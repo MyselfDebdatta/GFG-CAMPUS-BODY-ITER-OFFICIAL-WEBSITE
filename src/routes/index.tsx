@@ -456,6 +456,23 @@ function Home() {
           <div className="mt-16 w-full">
             <ContributorsCarousel />
           </div>
+
+          {/* View Complete Core Team Action Button */}
+          <div className="mt-12 flex justify-center">
+            <Reveal delay={0.1}>
+              <Link
+                to="/team"
+                className="group relative inline-flex items-center gap-4 rounded-full border border-[#00ff7f]/40 bg-white/5 px-8 py-4 text-base font-extrabold text-white backdrop-blur-md transition-all duration-300 hover:border-[#00ff7f] hover:bg-[#00ff7f]/10 hover:shadow-[0_0_20px_rgba(0,255,127,0.3)] active:scale-95"
+              >
+                <span className="relative z-10 text-white group-hover:text-[#00ff7f] transition-colors">
+                  View Complete Core Team
+                </span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00ff7f]/10 text-[#00ff7f] border border-[#00ff7f]/30 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-[#00ff7f] group-hover:text-[#020b06]">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 
