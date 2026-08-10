@@ -735,12 +735,26 @@ export function NativeFlipBook() {
     (e: React.TouchEvent) => {
       const dx = e.changedTouches[0].clientX - touchStartX.current;
       const dy = e.changedTouches[0].clientY - touchStartY.current;
+      
+      // Swipe detection
       if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
         if (dx < 0) handleNext();
         else handlePrev();
+        return;
+      }
+      
+      // Tap detection (on mobile)
+      if (isMobile && Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+        const tapX = e.changedTouches[0].clientX;
+        const screenW = window.innerWidth;
+        if (tapX > screenW / 2) {
+          handleNext();
+        } else {
+          handlePrev();
+        }
       }
     },
-    [handleNext, handlePrev]
+    [handleNext, handlePrev, isMobile]
   );
 
   /* ──────── Compute visible pages ──────── */
