@@ -437,20 +437,20 @@ function Home() {
 
 
 
-      {/* AMAZING CONTRIBUTORS */}
+      {/* CHAPTER LEADERSHIP & DOMAIN LEADS */}
       <section className="relative z-10 overflow-hidden py-24">
         <div className="container-page flex flex-col items-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
-            HALL OF FAME
+            CHAPTER LEADERSHIP & DOMAIN LEADS
           </span>
           
           <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(0,255,127,0.2)] text-center">
-            Our Amazing Contributors
+            The Minds Behind GFG ITER
           </h2>
           
           <p className="mt-4 max-w-2xl text-center text-lg text-[#00ff7f]/60 font-medium">
-            The talented members who drive innovation, win hackathons, and secure top internships.
+            Meet the faculty coordinators, mentors, executive board, and domain leads driving our chapter forward.
           </p>
 
           <div className="mt-16 w-full">

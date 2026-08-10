@@ -383,15 +383,98 @@ export const FAQS = [
   },
 ];
 
-export const CONTRIBUTORS = Array.from({ length: 10 }).map((_, i) => ({
-  id: `contributor-${i + 1}`,
-  name: `Contributor ${i + 1}`,
-  role: 'Developer',
-  achievement: 'Winner at Smart India Hackathon 2026',
-  photo: `https://ui-avatars.com/api/?name=Contributor+${i + 1}&background=00ff7f&color=020b06&size=256`,
-  linkedin: 'https://linkedin.com',
-  github: 'https://github.com'
-}));
+export const CONTRIBUTORS = [
+  {
+    id: "lead-1",
+    name: "Anubhab Samantary",
+    role: "Faculty Coordinator",
+    achievement: "Associate Professor, Dept. of CSE. Chapter Advisor & Faculty Coordinator.",
+    photo: "https://i.pravatar.cc/400?img=52",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "anubhab.samantary@soa.ac.in"
+  },
+  {
+    id: "lead-2",
+    name: "Akansha Ajay",
+    role: "Faculty Coordinator",
+    achievement: "Assistant Professor, Dept. of CSE. Research mentor & Faculty Coordinator.",
+    photo: "https://i.pravatar.cc/400?img=40",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "akansha.ajay@soa.ac.in"
+  },
+  {
+    id: "lead-3",
+    name: "Ayush R. Pradhan",
+    role: "Community Mentor",
+    achievement: "GFG ITER Alumnus. Mentoring students for top placements and open source.",
+    photo: "https://i.pravatar.cc/400?img=33",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "ayush.pradhan@soa.ac.in"
+  },
+  {
+    id: "lead-4",
+    name: "Vivek Ranjan Sahoo",
+    role: "President",
+    achievement: "Final-year CSE. Full-stack engineer leading student operations & tech initiatives.",
+    photo: "https://i.pravatar.cc/400?img=12",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "vivek.sahoo@iter.ac.in"
+  },
+  {
+    id: "lead-5",
+    name: "Snehansu Sekhar Das",
+    role: "Vice President",
+    achievement: "Systems and cloud specialist. Managing campus events & partnerships.",
+    photo: "https://i.pravatar.cc/400?img=47",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "snehansu.das@iter.ac.in"
+  },
+  {
+    id: "lead-6",
+    name: "Abhijit Dash",
+    role: "Tech Lead",
+    achievement: "Open source developer. Spearheading technical pods, projects, & bootcamps.",
+    photo: "https://i.pravatar.cc/400?img=15",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "abhijit.dash@iter.ac.in"
+  },
+  {
+    id: "lead-7",
+    name: "Aastha Singh",
+    role: "PR & Media Lead",
+    achievement: "Community strategist & media lead growing GFG ITER presence online and offline.",
+    photo: "https://i.pravatar.cc/400?img=25",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "aastha.singh@iter.ac.in"
+  },
+  {
+    id: "lead-8",
+    name: "Sanyukt Kumar Rai",
+    role: "Design Lead",
+    achievement: "Product designer creating brand design systems, UI/UX, and visual guidelines.",
+    photo: "https://i.pravatar.cc/400?img=45",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "sanyukt.rai@iter.ac.in"
+  },
+  {
+    id: "lead-9",
+    name: "Subhakanta Das",
+    role: "Operations Lead",
+    achievement: "Event organizer directing flagship hackathons, bootcamps & campus summits.",
+    photo: "https://i.pravatar.cc/400?img=8",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "subhakanta.das@iter.ac.in"
+  }
+];
 export const ACHIEVEMENTS = [
   { 
     id: '1', 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail } from "lucide-react";
 import { CONTRIBUTORS } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -9,16 +9,16 @@ export function ContributorsCarousel() {
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play cycle every 2 seconds when not paused
+  // Auto-play cycle every 3 seconds when not paused
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % CONTRIBUTORS.length);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // When user manually clicks controls, pause and auto-resume after 2.5s
+  // When user manually clicks controls, pause and auto-resume after 4s
   const resetInteractionTimer = () => {
     setIsPaused(true);
     if (timerRef.current) {
@@ -26,7 +26,7 @@ export function ContributorsCarousel() {
     }
     timerRef.current = setTimeout(() => {
       setIsPaused(false);
-    }, 2500);
+    }, 4000);
   };
 
   const handlePrev = (e?: React.MouseEvent) => {
@@ -43,7 +43,7 @@ export function ContributorsCarousel() {
 
   return (
     <div 
-      className="relative w-full max-w-6xl mx-auto h-[500px] flex items-center justify-center overflow-hidden"
+      className="relative w-full max-w-6xl mx-auto h-[540px] flex items-center justify-center overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         if (timerRef.current) {
@@ -53,7 +53,7 @@ export function ContributorsCarousel() {
       }}
     >
       <AnimatePresence mode="popLayout">
-        {CONTRIBUTORS.map((contributor, index) => {
+        {CONTRIBUTORS.map((lead, index) => {
           // Calculate offset relative to active index
           let offset = index - activeIndex;
           
@@ -67,14 +67,14 @@ export function ContributorsCarousel() {
 
           if (!isVisible) return null;
 
-          const xPos = `calc(${offset * 100}% + ${offset * 24}px)`;
+          const xPos = `calc(${offset * 105}% + ${offset * 20}px)`;
 
           return (
             <motion.div
-              key={contributor.id}
+              key={lead.id}
               initial={{ opacity: 0, scale: 0.8, x: xPos }}
               animate={{ 
-                opacity: isActive ? 1 : Math.max(0, 1 - Math.abs(offset) * 0.4),
+                opacity: isActive ? 1 : Math.max(0, 1 - Math.abs(offset) * 0.45),
                 scale: isActive ? 1 : 1 - Math.abs(offset) * 0.15,
                 x: xPos,
                 zIndex: 10 - Math.abs(offset)
@@ -82,62 +82,103 @@ export function ContributorsCarousel() {
               exit={{ opacity: 0, scale: 0.8, x: xPos }}
               transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
               className={cn(
-                "absolute w-[280px] sm:w-[320px] rounded-3xl border bg-[#020b06]/90 p-8 backdrop-blur-md transition-colors duration-500",
-                isActive ? "border-[#00ff7f]/40 shadow-[0_0_40px_rgba(0,255,127,0.15)]" : "border-white/10"
+                "absolute w-[310px] sm:w-[360px] rounded-3xl border bg-[#040e08]/95 p-7 sm:p-8 backdrop-blur-xl transition-all duration-500 shadow-2xl flex flex-col justify-between h-[440px]",
+                isActive 
+                  ? "border-[#00ff7f]/50 shadow-[0_0_50px_rgba(0,255,127,0.2)] bg-[#06180d]" 
+                  : "border-white/10 opacity-60"
               )}
             >
               <div className="flex flex-col items-center text-center">
+                {/* Avatar with Glow Ring */}
                 <div className={cn(
-                  "relative mb-5 h-24 w-24 overflow-hidden rounded-full border-2 transition-all duration-500",
-                  isActive ? "border-[#00ff7f] shadow-[0_0_20px_rgba(0,255,127,0.3)]" : "border-white/10"
+                  "relative mb-5 h-28 w-28 overflow-hidden rounded-full border-2 p-1 transition-all duration-500",
+                  isActive ? "border-[#00ff7f] shadow-[0_0_25px_rgba(0,255,127,0.35)] scale-105" : "border-white/15"
                 )}>
                   <img
-                    src={contributor.photo}
-                    alt={contributor.name}
-                    className="h-full w-full object-cover"
+                    src={lead.photo}
+                    alt={lead.name}
+                    className="h-full w-full rounded-full object-cover"
                     loading="lazy"
                   />
                 </div>
                 
+                {/* Role Pill */}
+                <span className="inline-block rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#00ff7f] shadow-sm mb-3">
+                  {lead.role}
+                </span>
+
+                {/* Name */}
                 <h3 className={cn(
-                  "text-xl font-bold transition-colors duration-500",
-                  isActive ? "text-white" : "text-white/60"
+                  "text-xl sm:text-2xl font-black tracking-tight transition-colors duration-500 line-clamp-1",
+                  isActive ? "text-white hover-gradient-text" : "text-white/70"
                 )}>
-                  {contributor.name}
+                  {lead.name}
                 </h3>
                 
-                <p className="mt-1.5 text-xs font-bold uppercase tracking-widest text-[#00ff7f]/80">
-                  {contributor.role}
-                </p>
-                
+                {/* Bio / Achievement */}
                 <p className={cn(
-                  "mt-4 text-sm leading-relaxed transition-colors duration-500 line-clamp-3",
+                  "mt-3 text-xs sm:text-sm leading-relaxed transition-colors duration-500 line-clamp-3 font-medium",
                   isActive ? "text-white/80" : "text-white/40"
                 )}>
-                  {contributor.achievement}
+                  {lead.achievement}
                 </p>
+              </div>
+
+              {/* Social Options Footer: GitHub, LinkedIn, Email */}
+              <div className="mt-6 flex items-center justify-center gap-3 pt-5 border-t border-white/10">
+                {lead.github && (
+                  <a
+                    href={lead.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-all hover:border-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 shadow-md"
+                    aria-label={`${lead.name}'s GitHub`}
+                  >
+                    <Github className="h-4 w-4" />
+                  </a>
+                )}
+                {lead.linkedin && (
+                  <a
+                    href={lead.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-all hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white hover:scale-110 active:scale-95 shadow-md"
+                    aria-label={`${lead.name}'s LinkedIn`}
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                )}
+                {lead.email && (
+                  <a
+                    href={`mailto:${lead.email}`}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-all hover:border-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 shadow-md"
+                    aria-label={`Email ${lead.name}`}
+                  >
+                    <Mail className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             </motion.div>
           );
         })}
       </AnimatePresence>
 
-      {/* Navigation Buttons */}
-      <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-6 z-50">
+      {/* Carousel Arrow Controls */}
+      <div className="absolute bottom-2 left-0 right-0 flex items-center justify-center gap-5 z-50">
         <button 
           onClick={handlePrev}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)] active:scale-95"
-          aria-label="Previous contributor"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_20px_rgba(0,255,127,0.4)] active:scale-95 shadow-lg"
+          aria-label="Previous lead profile"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-5 w-5" />
         </button>
 
         <button 
           onClick={handleNext}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_15px_rgba(0,255,127,0.5)] active:scale-95"
-          aria-label="Next contributor"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#020b06]/80 text-white backdrop-blur-md transition-all hover:bg-[#00ff7f] hover:text-black hover:border-[#00ff7f] hover:shadow-[0_0_20px_rgba(0,255,127,0.4)] active:scale-95 shadow-lg"
+          aria-label="Next lead profile"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-5 w-5" />
         </button>
       </div>
     </div>
