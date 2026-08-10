@@ -859,7 +859,7 @@ export function NativeFlipBook() {
               background:
                 "linear-gradient(145deg, #020b06 0%, #071a0f 50%, #020b06 100%)",
               boxShadow:
-                "0 25px 70px -15px rgba(0,0,0,0.85), 0 8px 20px -8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(0,255,127,0.06)",
+                "0 25px 70px -15px rgba(0,0,0,0.85), 0 8px 20px -8px rgba(0,0,0,0.6)",
             }}
           />
 
