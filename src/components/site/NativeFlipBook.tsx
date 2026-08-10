@@ -1594,7 +1594,7 @@ export function NativeFlipBook() {
   const currentSpread = Math.floor(pageIndex / 2);
 
   const canGoNext = isMobile
-    ? pageIndex < TOTAL_PAGES - 1
+    ? pageIndex < TOTAL_PAGES - 2 // Prevent mobile from swiping to the blank back cover (index 21)
     : currentSpread < TOTAL_SPREADS - 1;
 
   const canGoPrev = isMobile ? pageIndex > 0 : currentSpread > 0;
