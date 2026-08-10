@@ -101,19 +101,34 @@ const EVENT_COPY: Record<string, { brief: string; objectives: string[]; timeline
       { label: "Networking", desc: "One-on-one conversations with speakers" },
     ],
   },
-  "chai-links-session": {
-    brief: "Chai Links is where formality ends and genuine learning begins. Over cups of chai, students debug problems together, explore new technologies, and get candid advice from faculty mentors and senior engineers. No agenda, no pressure — just pure technical curiosity.",
+  "chai-links-ep00": {
+    brief: "ChainLinks Episode 00 introduced a refreshing shift from conventional academic events, creating an open space where conversations, curiosity, and connection took center stage over cups of chai. Students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking.",
     objectives: [
-      "Collaborative problem-solving in a relaxed environment",
-      "Deep dives into trending tech topics chosen by participants",
-      "Direct mentorship from faculty and experienced alumni",
-      "Building cross-year connections within the GFG community",
+      "Break academic barriers through circle-based Chai Pe Charcha discussions",
+      "Direct guidance from faculty members on research and technical roadmaps",
+      "Explore diverse domains: IoT, AI/ML, Cloud Computing, and Networking",
+      "Foster authentic peer networking across different academic years",
     ],
     timeline: [
-      { label: "Warm-Up", desc: "Chai served, topic nominations collected from crowd" },
-      { label: "Deep Dive", desc: "Top-voted topic explored with live demos" },
-      { label: "Debug Circle", desc: "Bring your bugs — community helps you solve them" },
-      { label: "Wrap-Up", desc: "Key takeaways shared and next session announced" },
+      { label: "Faculty Intros", desc: "Participating faculty members introduce their research domains" },
+      { label: "Circle Formation", desc: "Students join domain-specific discussion circles based on interest" },
+      { label: "Open Dialogue", desc: "Informal exchanges on technical topics, career queries, and project ideas" },
+      { label: "Networking & Chai", desc: "Peer networking over tea and refreshments" },
+    ],
+  },
+  "chai-links-ep01": {
+    brief: "ChainLinks Episode 01 elevated the initiative with powerful themes of TinyML and Agentic AI. Students dived into running compact machine learning models on microcontrollers and building autonomous AI systems, bridging complex concepts with real-world implementation.",
+    objectives: [
+      "Explore low-power edge machine learning models (TinyML) on microcontrollers",
+      "Discuss autonomous systems, reasoning frameworks, and Agentic AI",
+      "Engage in deep-dive technical debates with faculty mentors and domain leads",
+      "Spark cross-year project collaborations in emerging frontier tech",
+    ],
+    timeline: [
+      { label: "Theme Overview", desc: "Introduction to TinyML and Agentic AI paradigms" },
+      { label: "Domain Circles", desc: "Breakout sessions exploring edge ML models and AI agent architectures" },
+      { label: "Faculty Mentorship", desc: "Direct guidance on research paths and deployment challenges" },
+      { label: "Idea Exchange", desc: "Collaborative brainstorming over tea and refreshments" },
     ],
   },
 };

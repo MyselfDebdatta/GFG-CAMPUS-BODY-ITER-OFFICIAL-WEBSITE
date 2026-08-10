@@ -117,19 +117,34 @@ export const EVENTS = [
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=70",
   },
   {
-    id: "chai-links-session",
-    title: "Chai Links: Community Session",
-    category: "Community",
-    date: "Dec 03, 2025, 4:30 PM",
+    id: "chai-links-ep00",
+    title: "ChaiLinks: Episode 00",
+    category: "Workshop",
+    date: "Nov 06, 2025",
     venue: "ITER Main Campus",
     status: "past",
     speakers: [
-      { name: "GFG Team & Faculty", role: "Mentors", photo: "https://i.pravatar.cc/150?img=60" }
+      { name: "Faculty Mentors & GFG Leads", role: "Discussion Leads", photo: "" }
     ],
     description:
-      "A casual community session where students discuss tech problems, clear doubts, and dive into modern tech topics alongside expert faculty and the GFG team.",
+      "Cup that connects, conversation that matters. Episode 00 introduced a refreshing shift from conventional academic events — an informal 'Chai Pe Charcha' where students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking in small circle discussions.",
     image:
       "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=1400&q=70",
+  },
+  {
+    id: "chai-links-ep01",
+    title: "ChaiLinks: Episode 01",
+    category: "Workshop",
+    date: "Dec 03, 2025",
+    venue: "ITER Main Campus",
+    status: "past",
+    speakers: [
+      { name: "Faculty Mentors & GFG Leads", role: "Domain Leads", photo: "" }
+    ],
+    description:
+      "Elevating open, conversation-driven learning with a focus on TinyML and Agentic AI. Episode 01 brought frontier tech into casual discussion circles, enabling students to explore low-power edge machine learning and autonomous AI systems over tea with faculty mentors.",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=70",
   },
 ];
 
