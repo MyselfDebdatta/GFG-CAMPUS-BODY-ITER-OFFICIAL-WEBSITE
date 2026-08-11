@@ -19,3 +19,11 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Deployment
+
+```sh
+docker build --no-cache -t gfgiter .
+
+docker run -p 5173:5173 gfgiter
+```
