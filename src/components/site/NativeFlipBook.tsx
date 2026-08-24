@@ -597,25 +597,30 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Body Text */}
-      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-3">
+      {/* Body Text */}
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-2 flex flex-col gap-1">
          <p>
-           Conceptualized around the idea of an informal Chai Pe Charcha, the event aimed to transform how students engage with faculty members. Instead of structured presentations or formal sessions, ChainLinks Episode 0 offered something far more dynamic — a setting designed for open interaction. The session began with participating faculty members introducing themselves, sharing insights into their respective domains, and briefly discussing their ongoing work and areas of interest. Representing diverse fields such as IoT, AI/ML, Cloud Computing, Networking, and emerging technologies, the introductions provided students with exposure to a broad academic landscape within a single session.
+           Conceptualized around the idea of an informal Chai Pe Charcha, the event aimed to transform how students engage with faculty members. Instead of structured presentations or formal sessions, ChainLinks Episode 0 offered something far more dynamic — a setting designed for open interaction.
+         </p>
+         <p>
+           The session began with participating faculty members introducing themselves, sharing insights into their respective domains, and briefly discussing their ongoing work and areas of interest. Representing diverse fields such as IoT, AI/ML, Cloud Computing, Networking, and emerging technologies, the introductions provided students with exposure to a broad academic landscape within a single session.
          </p>
       </div>
       
-      {/* Section Divider */}
-      <div className="w-full mb-1">
-        <div className="border-t-[2px] border-[#333]"></div>
-        <div className="border-t-[1px] border-[#333] mt-[1px]"></div>
-        <div className="text-[8px] sm:text-[9px] font-black text-[#111] pt-1 leading-none uppercase tracking-widest text-left px-2">
+      {/* Section Heading */}
+      <div className="px-2 mb-1.5">
+        <h3 className="inline-block text-[9px] sm:text-[10px] font-bold text-[#111] uppercase tracking-wide border-b-[1.5px] border-[#111] pb-[1px]">
           WHAT FOLLOWED DEFINED THE ESSENCE OF THE EVENT.
-        </div>
-        <div className="border-t-[1px] border-[#333] mt-1 mb-1.5"></div>
+        </h3>
       </div>
       
-      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6]">
+      {/* Bottom Text */}
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] flex flex-col gap-1">
          <p>
-           The venue was arranged into multiple discussion circles, each associated with a specific technical domain. Faculty members were assigned to these circles, while students were free to join discussions based on their interests. This format immediately shifted the energy of the room — replacing passive listening with active participation. Within each circle, conversations unfolded naturally. Students asked questions, explored concepts, sought academic guidance, and engaged in discussions that extended beyond textbooks. The absence of rigid structure allowed interactions to evolve organically, making the exchanges more candid and meaningful. The discussions ranged across technical topics, project insights, and career-related queries. Students found themselves navigating unfamiliar subjects, clarifying doubts, and gaining perspectives that are rarely accessible in traditional classroom settings. The format encouraged curiosity, allowing participants to engage without hesitation.
+           The venue was arranged into multiple discussion circles, each associated with a specific technical domain. Faculty members were assigned to these circles, while students were free to join discussions based on their interests. This format immediately shifted the energy of the room — replacing passive listening with active participation.
+         </p>
+         <p>
+           Within each circle, conversations unfolded naturally. Students asked questions, explored concepts, sought academic guidance, and engaged in discussions that extended beyond textbooks. The absence of rigid structure allowed interactions to evolve organically, making the exchanges more candid and meaningful. The discussions ranged across technical topics, project insights, and career-related queries. Students found themselves navigating unfamiliar subjects, clarifying doubts, and gaining perspectives that are rarely accessible in traditional classroom settings. The format encouraged curiosity, allowing participants to engage without hesitation.
          </p>
       </div>
     </div>
