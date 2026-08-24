@@ -681,7 +681,7 @@ const PAGES: ReactNode[] = [
   pg(false, 9, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
-      <div className="flex justify-between items-end mb-2">
+      <div className="flex justify-between items-end mb-1">
         <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
           EVENT 2.
         </div>
@@ -690,7 +690,7 @@ const PAGES: ReactNode[] = [
         </div>
       </div>
       
-      <div className="relative text-center mb-1">
+      <div className="relative text-center mb-0.5">
         <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
           CHAILINKS
         </h2>
@@ -701,27 +701,27 @@ const PAGES: ReactNode[] = [
       
       <div className="w-full">
         <div className="border-t-[2px] border-[#008F4C]"></div>
-        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-2.5"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-1.5"></div>
       </div>
       
       {/* Sub Banner */}
-      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-3 mb-3 mx-4">
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-2 mb-2 mx-4">
         <div className="text-[9px] sm:text-[10px] font-bold text-[#111] leading-none uppercase tracking-widest">
           CUP THAT CONNECTS . CONVERSATION THAT MATTERS
         </div>
-        <div className="absolute left-1/2 -bottom-[7px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
+        <div className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[10px] font-bold text-[#111] whitespace-nowrap">
           3rd December 2025
         </div>
       </div>
       
       {/* Two Columns */}
-      <div className="flex gap-3 px-2 mt-2">
+      <div className="flex gap-3 px-2 mt-1.5">
         {/* Left Column (Green Box) */}
         <div className="w-[45%] bg-[#008F4C] p-1.5 shadow-md h-fit">
-          <div className="border-b-[1px] border-white pb-1 mb-2">
+          <div className="border-b-[1px] border-white pb-1 mb-1.5">
             <h3 className="text-white text-[12px] sm:text-[14px] font-bold text-center uppercase tracking-wide">Overview</h3>
           </div>
-          <div className="flex flex-col gap-2 text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+          <div className="flex flex-col gap-1.5 text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.3]">
             <p>
               After the strong foundation laid by Episode 0, ChainLinks Episode 01 didn't just continue the journey — it elevated it. This edition wasn't simply an event; it was a milestone that reflected growth, ambition, and a clear vision for the future With the powerful themes of TinyML and Agentic AI, Episode 01 brought frontier technology into an open, discussion-driven space — making complex ideas accessible, exciting, and actionable.
             </p>
@@ -743,19 +743,19 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Right Column */}
-        <div className="w-[55%] flex flex-col pt-1">
-          <div className="w-full border-[3px] border-[#008F4C] aspect-[4/3] overflow-hidden mb-3">
+        <div className="w-[55%] flex flex-col pt-0">
+          <div className="w-full border-[3px] border-[#008F4C] aspect-[16/9] overflow-hidden mb-1.5">
             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Episode 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
-          <div className="text-[#222] font-medium text-justify leading-[1.6]">
-            <p className="font-bold text-[8px] sm:text-[8.5px] text-[#111] mb-1.5 leading-[1.4]">
+          <div className="text-[#222] font-medium text-justify leading-[1.4] flex flex-col gap-1.5">
+            <p className="font-bold text-[8px] sm:text-[8.5px] text-[#111] leading-[1.3]">
               Choosing TinyML and Agentic AI was a State- statement in itself.
             </p>
-            <ul className="list-disc pl-3 mb-2 text-[7.5px] sm:text-[8px] space-y-0.5">
+            <ul className="list-disc pl-3 text-[7.5px] sm:text-[8px] space-y-0">
               <li>TinyML explored how machine learning models can run efficiently on microcontrollers and low-power devices — bringing intelligence directly to the edge.</li>
               <li>Agentic AI opened conversations around autonomous AI systems capable of reasoning, decision-making, and executing tasks independently.</li>
             </ul>
-            <p className="text-[7.5px] sm:text-[8px] mb-2">
+            <p className="text-[7.5px] sm:text-[8px]">
               The format retained its signature informal spirit, inspired by the comfort of a Chai Pe Charcha, but the conversations reflected a noticeable leap in intellectual intensity. Students were not merely listening — they were engaging, questioning architectures, discussing deployment challenges, debating real-world implications, and imagining applications beyond the classroom.
             </p>
             <p className="text-[7.5px] sm:text-[8px]">
