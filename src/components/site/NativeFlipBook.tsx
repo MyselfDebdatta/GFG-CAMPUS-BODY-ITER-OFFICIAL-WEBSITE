@@ -585,20 +585,19 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Overlapping Image Section */}
-      <div className="relative flex justify-center mb-3 pr-[70px] sm:pr-[90px] pl-2 mt-1">
-        <div className="border-[3px] border-[#008F4C] w-full aspect-[16/10] bg-[#222]">
+      <div className="relative flex justify-center mb-1.5 pr-[70px] sm:pr-[90px] pl-2 mt-1">
+        <div className="border-[3px] border-[#008F4C] w-full aspect-[2/1] bg-[#222]">
            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-2 w-[110px] sm:w-[130px] bg-[#008F4C] p-2 shadow-md">
-           <p className="text-white text-[7px] sm:text-[7.5px] text-center font-medium leading-[1.5]">
+           <p className="text-white text-[7px] sm:text-[7.5px] text-center font-medium leading-[1.4]">
              ChainLinks Episode 0, organized by the GeeksforGeeks (GFG) Club, introduced a refreshing shift from conventional academic events, creating a space where conversations, curiosity, and connection took centre stage.
            </p>
         </div>
       </div>
       
       {/* Body Text */}
-      {/* Body Text */}
-      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-2 flex flex-col gap-1">
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.5] mb-1.5 flex flex-col gap-0.5">
          <p>
            Conceptualized around the idea of an informal Chai Pe Charcha, the event aimed to transform how students engage with faculty members. Instead of structured presentations or formal sessions, ChainLinks Episode 0 offered something far more dynamic — a setting designed for open interaction.
          </p>
@@ -608,14 +607,14 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Section Heading */}
-      <div className="px-2 mb-1.5">
+      <div className="px-2 mb-1">
         <h3 className="inline-block text-[9px] sm:text-[10px] font-bold text-[#111] uppercase tracking-wide border-b-[1.5px] border-[#111] pb-[1px]">
           WHAT FOLLOWED DEFINED THE ESSENCE OF THE EVENT.
         </h3>
       </div>
       
       {/* Bottom Text */}
-      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] flex flex-col gap-1">
+      <div className="px-2 text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.5] flex flex-col gap-0.5">
          <p>
            The venue was arranged into multiple discussion circles, each associated with a specific technical domain. Faculty members were assigned to these circles, while students were free to join discussions based on their interests. This format immediately shifted the energy of the room — replacing passive listening with active participation.
          </p>
