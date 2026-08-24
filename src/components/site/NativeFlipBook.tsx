@@ -779,48 +779,48 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Top Image */}
-      <div className="w-full h-[160px] sm:h-[190px] border-[3px] border-[#008F4C] overflow-hidden">
+      <div className="w-full h-[130px] sm:h-[150px] shrink-0 border-[3px] border-[#008F4C] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="ChainLinks Group" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
-      <div className="flex gap-3 px-2 mt-2">
+      <div className="flex gap-3 px-2 mt-1.5">
         {/* Left Column */}
-        <div className="w-[45%] flex flex-col pt-1">
-          <div className="text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.6] mb-3">
-            <p className="mb-1">
+        <div className="w-[45%] flex flex-col pt-0">
+          <div className="text-[#222] text-[7.5px] sm:text-[8px] font-medium text-justify leading-[1.4] mb-1.5 flex flex-col gap-1">
+            <p>
               ChainLinks Episode 01 was not just a milestone — it was a moment that redefined possibility. What started in Episode 0 as a bold experiment in open dialogue evolved into something far greater: a living, breathing ecosystem of ideas, ambition, and fearless curiosity. The conversations were deeper. The vision was clearer. The energy was unstoppable. This was no longer just a gathering — it was a spark.
             </p>
-            <p className="mb-1">
+            <p>
               It wasn't only about TinyML pushing intelligence to the edge. It wasn't only about Agentic AI shaping autonomous futures. It was about daring to explore what others hesitate to touch. It was about students realizing their potential is bigger than any syllabus. It was about transforming doubt into direction and curiosity into creation.
             </p>
-            <p className="mb-1">
+            <p>
               In that room, innovation didn't feel distant — it felt personal. The future didn't seem abstract — it felt buildable.
             </p>
             <p>
               And with Episode 01, ChainLinks didn't just raise the bar — it ignited a culture of excellence, a wave of bold thinkers, and a legacy that will continue shaping innovators long after the chai cups are empty.
             </p>
           </div>
-          <div className="w-full border-[2px] border-[#008F4C] aspect-square overflow-hidden mt-auto">
+          <div className="w-full border-[2px] border-[#008F4C] aspect-[4/3] overflow-hidden mt-auto">
             <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
         
         {/* Right Column (Green Box overlapping top image) */}
-        <div className="w-[55%] -mt-[80px] sm:-mt-[100px] relative z-10">
-          <div className="bg-[#008F4C] p-1.5 shadow-md border-[1.5px] border-white ring-[1.5px] ring-[#008F4C] flex flex-col gap-1.5">
-            <div className="border-[0.5px] border-white p-1.5">
-              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+        <div className="w-[55%] -mt-[60px] sm:-mt-[70px] relative z-10 shrink-0">
+          <div className="bg-[#008F4C] p-1 shadow-md border-[1.5px] border-white ring-[1.5px] ring-[#008F4C] flex flex-col gap-1">
+            <div className="border-[0.5px] border-white p-1">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.3]">
                 The informal setting played a powerful role once again. With tea and refreshments creating a relaxed environment, barriers dissolved. Faculty members became mentors in dialogue rather than distant authorities. Students spoke freely, shared project ideas, sought guidance on research paths, and discovered clarity in domains that once felt overwhelming. The openness of the environment encouraged authenticity — and with it, confidence. Beyond the technical insights, ChainLinks Episode 01 strengthened something even more valuable: connection.
               </p>
             </div>
-            <div className="border-[0.5px] border-white p-1.5">
-              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+            <div className="border-[0.5px] border-white p-1">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.3]">
                 Students from different academic years found common ground through shared interests. Peer discussions sparked collaborations. Curiosity evolved into ambition. The circle-based interaction model fostered organic networking, turning conversations into opportunities. This edition marked a defining achievement for the GFG Club. It demonstrated that when given the right platform, students are capable of engaging with advanced and future-oriented technologies in meaningful ways. ChainLinks Episode 01 proved that when minds connect without barriers.
               </p>
             </div>
-            <div className="border-[0.5px] border-white p-1.5">
-              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
+            <div className="border-[0.5px] border-white p-1">
+              <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.3]">
                 By choosing bold themes and trusting the power of dialogue, the club elevated the ChainLinks initiative to a new standard. ChainLinks Episode 01 was not simply about TinyML or Agentic AI. It was about empowering students to think independently, question deeply, and innovate confidently. It proved that learning thrives where hierarchy fades and curiosity leads. More than an event, it became a moment of transformation — a statement that the future of technology belongs to those willing to explore it together.
               </p>
             </div>
