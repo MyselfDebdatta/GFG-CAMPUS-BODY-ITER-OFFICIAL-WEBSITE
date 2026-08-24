@@ -33,6 +33,7 @@ import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
 import { WhatWeDoGallery } from "@/components/site/WhatWeDoGallery";
+import { HeroGallerySection } from "@/components/site/HeroGallerySection";
 import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
 import {
   STATS,
@@ -357,6 +358,9 @@ function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* HERO PARALLAX GALLERY */}
+      <HeroGallerySection />
 
       {/* WHAT WE DO / PHOTO GALLERY */}
       <WhatWeDoGallery />
