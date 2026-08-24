@@ -1408,7 +1408,7 @@ const PAGES: ReactNode[] = [
           LOOKING AHEAD:
         </h3>
       </div>
-      <div className="bg-[#008F4C] p-2 sm:p-2.5 mb-3">
+      <div className="bg-[#008F4C] p-2 sm:p-2.5 mb-5">
         <p className="text-white text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
           Following the success of our recent technical sessions and coding initiatives, the chapter is planning more hands-on and skill-focused events for students. Upcoming activities will include mock interview sessions, coding challenges, and focused problem-solving workshops to strengthen programming fundamentals and interview preparation.<br/><br/>
           The chapter also aims to conduct deep-dive learning sessions on data structures, algorithms, system design, and real-world case studies, helping students gain practical knowledge aligned with industry expectations. Networking sessions with alumni and professionals will further provide insights into career paths, challenges, and opportunities in the tech industry.
@@ -1421,7 +1421,7 @@ const PAGES: ReactNode[] = [
           A NOTE OF <span className="text-[#008F4C]">APPRECIATION</span>
         </h3>
       </div>
-      <div className="px-2 mb-3">
+      <div className="px-2 mb-5">
         <p className="text-[#222] text-[7px] sm:text-[7.5px] font-medium text-justify leading-[1.5]">
           We extend our heartfelt gratitude to all the students, faculty members, mentors, and volunteers who contributed to making our initiatives meaningful and impactful.<br/>
           Students brought curiosity, enthusiasm, and dedication, turning every workshop and coding session into a vibrant learning environment. Mentors and alumni generously shared their experiences and technical insights, helping bridge the gap between academic learning and real-world industry practices.<br/>
@@ -1431,7 +1431,7 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Section 3: UPCOMING INITIATIVES */}
-      <div className="text-center mb-1 mt-auto">
+      <div className="text-center mb-1">
         <h3 className="inline-block text-[10px] sm:text-[12px] font-bold text-[#111] uppercase tracking-wide border-b-[1.5px] border-[#111] pb-0.5">
           <span className="text-[#008F4C]">UPCOMING</span> INITIATIVES
         </h3>
