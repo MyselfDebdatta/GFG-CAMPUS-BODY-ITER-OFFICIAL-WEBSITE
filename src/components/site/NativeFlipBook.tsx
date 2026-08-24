@@ -1110,36 +1110,36 @@ const PAGES: ReactNode[] = [
       </div>
       
       {/* Top Image */}
-      <div className="w-full h-[140px] sm:h-[160px] border-[3px] border-[#008F4C] overflow-hidden">
+      <div className="w-full h-[120px] sm:h-[140px] shrink-0 border-[3px] border-[#008F4C] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Activity" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
-      <div className="flex gap-3 px-2 mt-2 h-[55%]">
+      <div className="flex gap-3 px-2 mt-1.5 flex-1 min-h-0 pb-1">
         {/* Left Column (Green Box) */}
-        <div className="w-[55%] -mt-[40px] sm:-mt-[60px] relative z-10 pb-2">
-          <div className="bg-[#008F4C] p-1.5 shadow-md h-full flex flex-col">
-            <div className="border-b-[1px] border-white pb-1 mb-2">
+        <div className="w-[55%] -mt-[30px] sm:-mt-[40px] relative z-10">
+          <div className="bg-[#008F4C] p-1 shadow-md h-fit flex flex-col">
+            <div className="border-b-[1px] border-white pb-1 mb-1.5">
               <h3 className="text-white text-[12px] sm:text-[14px] font-bold text-left tracking-wide">Event Highlights</h3>
             </div>
-            <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.4] mb-2">
+            <p className="text-white text-[6.5px] sm:text-[7px] font-medium text-justify leading-[1.3] mb-1.5">
               The personality development session was interactive, reflective, and thought-provoking. Participants were led through a series of carefully curated activities which encouraged them to think critically and work effectively as a team.
             </p>
-            <div className="flex flex-col gap-1.5 flex-1 justify-between">
-              <div className="border-[0.5px] border-white p-1.5">
-                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+            <div className="flex flex-col gap-1 justify-between">
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.3]">
                   <span className="font-bold">• Activity-1</span><br/>
                   The series of activities commenced with a scenario-based activity, "Lost in the Jungle". It challenged the participants with a survival scenario with a given list of limited resources. First they were asked to rank these resources individually and then as a group in terms of what they believed would be most essential for survival. The activity focused on making decisions under pressure, analytical thinking, teamwork and taking other people's opinion into consideration. This enabled participants to realize that people working together normally provide solutions that are superior to one person thinking. This would be achieved by comparing individual priorities with group and expert priorities.
                 </p>
               </div>
-              <div className="border-[0.5px] border-white p-1.5">
-                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.3]">
                   <span className="font-bold">• Activity-2</span><br/>
                   The second activity was a simple instruction following task. The participants were provided with a sheet containing a set of instructions to be followed. As the participants worked on the task, they realized that to complete the task correctly, one had to read the instructions carefully and not rush through them. The task taught the participants the importance of fully understanding a task before completing it on time. The activity highlights the significance of mindfulness, clarity and discipline, which are essential qualities for successful communication and professional development.
                 </p>
               </div>
-              <div className="border-[0.5px] border-white p-1.5">
-                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+              <div className="border-[0.5px] border-white p-1">
+                <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.3]">
                   <span className="font-bold">• Activity-3</span><br/>
                   The third activity was a mini ideathon, which was a creative activity. The participants were divided into groups of four to five people. The task was to brainstorm and present out-of-the-box ideas. The ideas included everything from creative tools that were inspired by fiction to solutions that were improved with creative thinking. The activity promoted innovation, communication skills, teamwork and ability to present ideas without any hesitation.
                 </p>
@@ -1149,7 +1149,7 @@ const PAGES: ReactNode[] = [
         </div>
         
         {/* Right Column */}
-        <div className="w-[45%] flex flex-col justify-between pt-2 pb-2">
+        <div className="w-[45%] flex flex-col justify-between pt-1 pb-1">
           {/* Top Right Image */}
           <div className="w-[90%] border-[2px] border-[#008F4C] overflow-hidden ml-auto">
             <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Students engaging" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
@@ -1157,9 +1157,9 @@ const PAGES: ReactNode[] = [
           
           {/* Bottom Right Green Box on Gray Box */}
           <div className="w-full relative mt-auto">
-            <div className="absolute inset-0 bg-[#D9D9D9] -left-2 -bottom-2 top-2 right-2"></div>
-            <div className="relative bg-[#008F4C] p-2 shadow-sm border-[0.5px] border-white">
-              <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.4]">
+            <div className="absolute inset-0 bg-[#D9D9D9] -left-2 -bottom-1.5 top-1.5 right-2"></div>
+            <div className="relative bg-[#008F4C] p-1.5 shadow-sm border-[0.5px] border-white">
+              <p className="text-white text-[6px] sm:text-[6.5px] font-medium text-justify leading-[1.3]">
                 <span className="font-bold">• Activity-4</span><br/>
                 The final activity focused on basic financial literacy and investment awareness. The participants were made aware of various savings and investment alternatives, which were compared on the basis of risk, returns, and liquidity. The participants were able to understand better the impact of financial choices on long-term results.
               </p>
