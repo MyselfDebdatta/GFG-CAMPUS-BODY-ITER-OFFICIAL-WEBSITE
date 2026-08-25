@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Search, ChevronDown, Download, BookOpen, X } from "lucide-react";
 import { NativeFlipBook } from "./NativeFlipBook";
 
@@ -16,6 +17,11 @@ const REPORTS = [
 export function AnnualReportsSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeReport, setActiveReport] = useState<typeof REPORTS[0] | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close on Escape key and prevent body scroll when open
   useEffect(() => {
@@ -118,25 +124,26 @@ export function AnnualReportsSection() {
         )}
       </div>
 
-      {/* Full-Screen Flipbook Modal */}
-      {activeReport && (
-        <div className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md overflow-y-auto flex flex-col items-center justify-center animate-in fade-in-0 duration-200">
+      {/* Full-Screen Flipbook Modal rendered to document.body (above Navbar) */}
+      {activeReport && mounted && createPortal(
+        <div className="fixed inset-0 z-[99999] bg-black/95 backdrop-blur-md overflow-y-auto flex flex-col items-center animate-in fade-in-0 duration-200">
           {/* Close button */}
           <button
             onClick={() => setActiveReport(null)}
-            className="fixed top-6 right-6 z-[10000] flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 cursor-pointer shadow-lg"
+            className="fixed top-6 right-6 z-[100000] flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 cursor-pointer shadow-2xl"
             aria-label="Close modal"
           >
-            <X className="h-5 w-5" />
+            <X className="h-6 w-6" />
           </button>
 
-          {/* Book Viewer */}
-          <div className="min-h-full w-full flex flex-col items-center justify-center py-8 px-2 sm:px-6">
-            <div className="w-full max-w-6xl mx-auto">
+          {/* Book Viewer Container with flexbox my-auto to avoid top/bottom clipping */}
+          <div className="min-h-screen w-full flex flex-col items-center py-6 sm:py-10 px-2 sm:px-6">
+            <div className="my-auto w-full max-w-6xl mx-auto flex flex-col items-center">
               <NativeFlipBook hideHeader={true} />
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
