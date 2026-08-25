@@ -6,13 +6,13 @@ export const CLUB = {
   description:
     "The official Geeks for Geeks student chapter at ITER, SOA University — where students learn, build, collaborate, and innovate together.",
   address: "ITER, Siksha 'O' Anusandhan (SOA) University, Jagamara, Bhubaneswar, Odisha 751030",
-  email: "gfg.iter@soa.ac.in",
+  email: "gfgiter@gmail.com",
   phone: "+91 90000 00000",
   social: {
-    linkedin: "https://linkedin.com",
-    instagram: "https://instagram.com",
-    whatsapp: "https://chat.whatsapp.com/",
-    discord: "https://discord.gg/",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
+    instagram: "https://www.instagram.com/gfg_iter/",
+    whatsapp: "https://chat.whatsapp.com/Hr0puwutetlK6dc1MTXXJZ?mode=wwt",
+    discord: "https://discord.gg/PQu6RPxZy",
     github: "https://github.com",
     youtube: "https://youtube.com",
   },
