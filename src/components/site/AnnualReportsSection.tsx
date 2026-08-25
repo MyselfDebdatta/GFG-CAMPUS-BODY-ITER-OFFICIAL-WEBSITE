@@ -96,9 +96,11 @@ export function AnnualReportsSection() {
                 </div>
               </div>
             </DialogTrigger>
-            <DialogContent className="max-w-[100vw] w-screen h-screen max-h-[100vh] p-0 m-0 border-none bg-black/95 text-white rounded-none flex items-center justify-center overflow-y-auto z-[100]">
-              <div className="w-full max-w-7xl mx-auto py-10 relative">
-                 <NativeFlipBook hideHeader={true} />
+            <DialogContent className="fixed inset-0 z-[100] max-w-none w-screen h-screen max-h-none p-0 m-0 border-none bg-black/95 text-white rounded-none overflow-y-auto">
+              <div className="min-h-full w-full flex flex-col items-center justify-center py-6 sm:py-10 px-2 sm:px-4">
+                <div className="w-full max-w-6xl mx-auto">
+                  <NativeFlipBook hideHeader={true} />
+                </div>
               </div>
             </DialogContent>
           </Dialog>
