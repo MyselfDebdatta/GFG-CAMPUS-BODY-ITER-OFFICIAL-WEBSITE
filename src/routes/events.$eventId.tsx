@@ -409,7 +409,7 @@ function EventDetails() {
                 <div className="mt-4 pt-4 border-t border-hairline">
                   <p className="text-xs text-muted-foreground">
                     Have questions? Reach us at{" "}
-                    <a href="mailto:gfg.iter@soa.ac.in" className="text-brand hover:underline">gfg.iter@soa.ac.in</a>
+                    <a href="mailto:gfgiter@gmail.com" className="text-brand hover:underline">gfgiter@gmail.com</a>
                   </p>
                 </div>
               </div>
