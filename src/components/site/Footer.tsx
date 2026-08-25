@@ -1,35 +1,37 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Instagram, Mail, MessageCircle, TerminalSquare } from "lucide-react";
+import { Linkedin, Instagram, Mail, MessageCircle, Phone, MapPin } from "lucide-react";
 import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB } from "@/lib/site-data";
 
-function TerminalLog() {
+function CampusLocationMap() {
   return (
     <div className="flex flex-col mt-2 lg:mt-0">
-      <div className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-white/80 mb-4 uppercase">
-        <TerminalSquare className="h-4 w-4 text-[#00ff7f]" /> System.Log
+      <div className="flex items-center justify-between gap-2 text-xs font-bold tracking-[0.2em] text-white/80 mb-3 uppercase">
+        <span className="flex items-center gap-2">
+          <MapPin className="h-4 w-4 text-[#00ff7f]" /> Campus Location
+        </span>
+        <span className="text-[11px] font-normal tracking-normal text-slate-400 font-sans hidden sm:inline">ITER, SOA University</span>
       </div>
-      <div className="relative overflow-hidden rounded-xl border border-[#00ff7f]/20 bg-[#020b06]/80 p-5 font-mono text-xs sm:text-sm shadow-[0_0_20px_rgba(0,255,127,0.05)] backdrop-blur-md group hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] transition-all duration-300">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00ff7f]/50 to-transparent opacity-50" />
-        <div className="space-y-3 text-[#00ff7f]/90">
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 text-[#3b82f6]">
-              <span>root@gfg-sc:~$</span>
-              <span className="text-[#00ff7f]">npm install community</span>
-            </div>
-            <div className="text-slate-400 pl-4">
-              [success] Added 100+ members...
-            </div>
-          </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 text-[#3b82f6]">
-              <span>root@gfg-sc:~$</span>
-              <span className="text-[#00ff7f]">./launch-event.sh</span>
-            </div>
-            <div className="flex items-center text-[#00ff7f] pl-4 mt-1">
-              <span className="h-3 w-1.5 bg-[#00ff7f] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]" />
-            </div>
-          </div>
+      <div className="relative overflow-hidden rounded-xl border border-[#00ff7f]/20 bg-[#020b06]/80 shadow-[0_0_20px_rgba(0,255,127,0.05)] backdrop-blur-md group hover:border-[#00ff7f]/50 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] transition-all duration-300">
+        <div className="h-[120px] w-full relative">
+          <iframe
+            title="GFG ITER Campus Location Map"
+            src="https://www.google.com/maps?q=ITER%2C+Bhubaneswar&output=embed"
+            className="absolute inset-0 h-full w-full grayscale-[25%] contrast-[1.1] opacity-90 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300 border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+        <div className="px-3 py-2 bg-[#020b06]/95 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+          <span className="truncate">Jagamara, Bhubaneswar, Odisha</span>
+          <a
+            href="https://maps.google.com/?q=ITER,Bhubaneswar"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#00ff7f] hover:underline shrink-0 ml-2 font-medium"
+          >
+            View Map
+          </a>
         </div>
       </div>
     </div>
@@ -44,32 +46,54 @@ export function Footer() {
       <div className="container-page py-16 relative">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1.8fr_0.8fr_1.2fr]">
           {/* Brand/About Column */}
-          <div className="max-w-xs">
-            <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight">GFG <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#32CD32] via-[#e2da24] to-[#32CD32]">ITER</span></h3>
-            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-              The premier student computing organization at SOA University. Building the next generation of technology leaders.
-            </p>
-            <a href={`mailto:${CLUB.email}`} className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-[#00ff7f] transition-colors">
-              <Mail className="h-4 w-4" /> {CLUB.email}
-            </a>
+          <div className="max-w-xs flex flex-col justify-between">
+            <div>
+              <h3 className="text-3xl font-extrabold text-white mb-4 tracking-tight">GFG <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#32CD32] via-[#e2da24] to-[#32CD32]">ITER</span></h3>
+              <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+                The premier student computing organization at SOA University. Building the next generation of technology leaders.
+              </p>
+            </div>
+            <div className="space-y-3 pt-1 border-t border-white/5">
+              <a href={`mailto:${CLUB.email}`} className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-[#00ff7f] transition-colors">
+                <div className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-white/5 border border-white/10 text-[#00ff7f]">
+                  <Mail className="h-3.5 w-3.5" />
+                </div>
+                <span className="truncate">{CLUB.email}</span>
+              </a>
+              <div className="flex items-start gap-2.5">
+                <a href={`tel:${CLUB.phone.replace(/\s/g, "")}`} className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-white/5 border border-white/10 text-[#00ff7f] hover:bg-[#00ff7f]/10 hover:border-[#00ff7f]/30 transition-all mt-0.5" title="Call President">
+                  <Phone className="h-3.5 w-3.5" />
+                </a>
+                <div className="flex flex-col">
+                  <a href={`tel:${CLUB.phone.replace(/\s/g, "")}`} className="text-sm font-medium text-slate-300 hover:text-[#00ff7f] transition-colors">
+                    {CLUB.phone}
+                  </a>
+                  <div className="flex items-center gap-1.5 mt-0.5">
+                    <span className="text-xs text-slate-400 font-medium">Vivek Ranjan Sahoo</span>
+                    <span className="inline-block px-1.5 py-0.2 text-[9px] font-bold tracking-wider uppercase rounded bg-[#00ff7f]/10 text-[#00ff7f] border border-[#00ff7f]/20">
+                      President
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Terminal Log Element */}
+          {/* Campus Location Map */}
           <div className="w-full">
-            <TerminalLog />
+            <CampusLocationMap />
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="text-base font-semibold text-white mb-6">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-3">
               {[
                 { to: "/about", label: "About" },
                 { to: "/events", label: "Events" },
                 { to: "/team", label: "Team" },
                 { to: "/hall-of-fame", label: "Hall of Fame" },
                 { to: "/community", label: "Community" },
-                { to: "/contact", label: "Connect" },
               ].map(link => (
                 <Link key={link.label} to={link.to} className="text-sm text-slate-400 hover:text-[#00ff7f] hover:translate-x-1 transition-all">
                   {link.label}
