@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, Bell, Briefcase, Users, ShieldCheck, QrCode, Instagram, Linkedin } from "lucide-react";
+import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
 import { Button } from "@/components/ui/button";
@@ -117,6 +118,26 @@ function Community() {
                     <h3 className="mt-2 text-2xl font-bold tracking-tight">Connect professionally.</h3>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Follow our official page for announcements, placement highlights, and alumni networking opportunities.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+
+            {/* Discord */}
+            <Reveal delay={0.4}>
+              <a href={CLUB.social.discord} target="_blank" rel="noreferrer" className="group block">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#5865F2]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
+                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#5865F2]">
+                      <DiscordIcon className="h-8 w-8 md:h-12 md:w-12" />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5865F2]">Join our Discord server</div>
+                    <h3 className="mt-2 text-2xl font-bold tracking-tight">Voice lounges, peer dev & gaming.</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">
+                      Hang out with fellow coders in real-time voice lounges, collaborate on active projects, and join online community events.
                     </p>
                   </div>
                 </div>

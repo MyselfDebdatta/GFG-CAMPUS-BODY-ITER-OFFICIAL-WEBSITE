@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram, Youtube, MessageCircle } from "lucide-react";
+import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB, FAQS } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
 import { Button } from "@/components/ui/button";
@@ -129,9 +130,10 @@ function Contact() {
                 <div className="mt-3 flex items-center gap-2">
                   {[
                     { icon: Linkedin, href: CLUB.social.linkedin, label: "LinkedIn", hoverClass: "hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:shadow-[0_0_15px_rgba(10,102,194,0.3)]" },
-                    { icon: Github, href: CLUB.social.github, label: "GitHub", hoverClass: "hover:text-white hover:border-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]" },
                     { icon: Instagram, href: CLUB.social.instagram, label: "Instagram", hoverClass: "hover:text-[#C13584] hover:border-[#C13584]/50 hover:shadow-[0_0_15px_rgba(193,53,132,0.3)]" },
                     { icon: MessageCircle, href: CLUB.social.whatsapp, label: "WhatsApp", hoverClass: "hover:text-[#25D366] hover:border-[#25D366]/50 hover:shadow-[0_0_15px_rgba(37,211,102,0.3)]" },
+                    { icon: DiscordIcon, href: CLUB.social.discord, label: "Discord", hoverClass: "hover:text-[#5865F2] hover:border-[#5865F2]/50 hover:shadow-[0_0_15px_rgba(88,101,242,0.3)]" },
+                    { icon: Github, href: CLUB.social.github, label: "GitHub", hoverClass: "hover:text-white hover:border-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]" },
                     { icon: Youtube, href: CLUB.social.youtube, label: "YouTube", hoverClass: "hover:text-[#FF0000] hover:border-[#FF0000]/50 hover:shadow-[0_0_15px_rgba(255,0,0,0.3)]" },
                   ].map(({ icon: Icon, href, label, hoverClass }) => (
                     <a
