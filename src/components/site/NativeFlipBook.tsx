@@ -1818,7 +1818,7 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
 
   /* ──────── Render ──────── */
   return (
-    <section className={`relative z-10 ${hideHeader ? 'py-2' : 'py-20 sm:py-24'} overflow-hidden bg-transparent`}>
+    <section className={`relative z-10 ${hideHeader ? 'py-0' : 'py-20 sm:py-24'} overflow-hidden bg-transparent`}>
       {/* Ambient background glow (keep dark mode style outside the book) */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/[0.04] blur-[120px] rounded-full" />
 
