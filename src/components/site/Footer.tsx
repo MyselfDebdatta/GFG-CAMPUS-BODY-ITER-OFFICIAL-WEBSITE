@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Instagram, Mail, MessageCircle, Youtube, Github, TerminalSquare } from "lucide-react";
+import { Linkedin, Instagram, Mail, MessageCircle, TerminalSquare } from "lucide-react";
+import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB } from "@/lib/site-data";
 
 function TerminalLog() {
@@ -85,8 +86,7 @@ export function Footer() {
                 { icon: Linkedin, href: CLUB.social.linkedin, label: "LinkedIn", hover: "group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30 group-hover:text-[#0A66C2]" },
                 { icon: Instagram, href: CLUB.social.instagram, label: "Instagram", hover: "group-hover:bg-[#E1306C]/10 group-hover:border-[#E1306C]/30 group-hover:text-[#E1306C]" },
                 { icon: MessageCircle, href: CLUB.social.whatsapp, label: "WhatsApp", hover: "group-hover:bg-[#25D366]/10 group-hover:border-[#25D366]/30 group-hover:text-[#25D366]" },
-                { icon: Youtube, href: (CLUB.social as any).youtube || "https://youtube.com", label: "YouTube", hover: "group-hover:bg-[#FF0000]/10 group-hover:border-[#FF0000]/30 group-hover:text-[#FF0000]" },
-                { icon: Github, href: CLUB.social.github, label: "GitHub", hover: "group-hover:bg-white/10 group-hover:border-white/30 group-hover:text-white" },
+                { icon: DiscordIcon, href: CLUB.social.discord, label: "Discord", hover: "group-hover:bg-[#5865F2]/10 group-hover:border-[#5865F2]/30 group-hover:text-[#5865F2]" },
               ].map(({ icon: Icon, href, label, hover }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-white transition-colors group">
                   <div className={`grid h-8 w-8 shrink-0 place-items-center rounded bg-white/5 border border-white/10 transition-all ${hover}`}>
