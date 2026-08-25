@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as CommunityRouteImport } from './routes/community'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HallOfFameRouteImport } from './routes/hall-of-fame'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TeamRouteImport } from './routes/team'
@@ -38,11 +37,6 @@ const AlumniRoute = AlumniRouteImport.update({
 const CommunityRoute = CommunityRouteImport.update({
   id: '/community',
   path: '/community',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HallOfFameRoute = HallOfFameRouteImport.update({
@@ -76,7 +70,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/alumni': typeof AlumniRoute
   '/community': typeof CommunityRoute
-  '/contact': typeof ContactRoute
   '/hall-of-fame': typeof HallOfFameRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
@@ -88,7 +81,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/alumni': typeof AlumniRoute
   '/community': typeof CommunityRoute
-  '/contact': typeof ContactRoute
   '/hall-of-fame': typeof HallOfFameRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
@@ -101,7 +93,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/alumni': typeof AlumniRoute
   '/community': typeof CommunityRoute
-  '/contact': typeof ContactRoute
   '/hall-of-fame': typeof HallOfFameRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
@@ -115,7 +106,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/alumni'
     | '/community'
-    | '/contact'
     | '/hall-of-fame'
     | '/sitemap.xml'
     | '/team'
@@ -127,7 +117,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/alumni'
     | '/community'
-    | '/contact'
     | '/hall-of-fame'
     | '/sitemap.xml'
     | '/team'
@@ -139,7 +128,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/alumni'
     | '/community'
-    | '/contact'
     | '/hall-of-fame'
     | '/sitemap.xml'
     | '/team'
@@ -152,7 +140,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AlumniRoute: typeof AlumniRoute
   CommunityRoute: typeof CommunityRoute
-  ContactRoute: typeof ContactRoute
   HallOfFameRoute: typeof HallOfFameRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
@@ -188,13 +175,6 @@ declare module '@tanstack/react-router' {
       path: '/community'
       fullPath: '/community'
       preLoaderRoute: typeof CommunityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hall-of-fame': {
@@ -240,7 +220,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AlumniRoute: AlumniRoute,
   CommunityRoute: CommunityRoute,
-  ContactRoute: ContactRoute,
   HallOfFameRoute: HallOfFameRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
