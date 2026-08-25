@@ -1547,7 +1547,7 @@ const TOTAL_SPREADS = Math.ceil(TOTAL_PAGES / 2);
    MAIN COMPONENT — Realistic 3D Interactive Book
    ═══════════════════════════════════════════════════════════════════ */
 
-export function NativeFlipBook() {
+export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } = {}) {
   /* ──────── State ──────── */
   const [pageIndex, setPageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -1818,12 +1818,13 @@ export function NativeFlipBook() {
 
   /* ──────── Render ──────── */
   return (
-    <section className="relative z-10 py-20 sm:py-24 overflow-hidden bg-transparent">
+    <section className={`relative z-10 ${hideHeader ? 'py-4' : 'py-20 sm:py-24'} overflow-hidden bg-transparent`}>
       {/* Ambient background glow (keep dark mode style outside the book) */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/[0.04] blur-[120px] rounded-full" />
 
-      <div className="container-page">
+      <div className={hideHeader ? "w-full max-w-7xl mx-auto px-4" : "container-page"}>
         {/* ═══ Section Header ═══ */}
+        {!hideHeader && (
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-10">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-4 py-1.5 text-xs font-bold tracking-[0.15em] text-[#00ff7f] backdrop-blur-md mb-4">
@@ -1850,6 +1851,7 @@ export function NativeFlipBook() {
             <ExternalLink className="h-4 w-4" />
           </a>
         </div>
+        )}
 
         {/* ═══ Book Container ═══ */}
         <div

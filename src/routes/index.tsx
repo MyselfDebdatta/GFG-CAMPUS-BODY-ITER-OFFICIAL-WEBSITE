@@ -32,7 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
-import { WhatWeDoGallery } from "@/components/site/WhatWeDoGallery";
+import { AnnualReportsSection } from "@/components/site/AnnualReportsSection";
 import { HeroGallerySection } from "@/components/site/HeroGallerySection";
 import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
 import {
@@ -362,11 +362,6 @@ function Home() {
       {/* HERO PARALLAX GALLERY */}
       <HeroGallerySection />
 
-      {/* WHAT WE DO / PHOTO GALLERY */}
-      <WhatWeDoGallery />
-
-      {/* Separator */}
-      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
       {/* EVENTS PREVIEW */}
       <section className="relative z-10 py-24">
@@ -479,6 +474,12 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
+      {/* ANNUAL REPORTS */}
+      <AnnualReportsSection />
 
       {/* Separator */}
       <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
