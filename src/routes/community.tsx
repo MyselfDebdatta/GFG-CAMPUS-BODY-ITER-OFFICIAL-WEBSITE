@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, Bell, Briefcase, Users, ShieldCheck, QrCode, Instagram, Linkedin, ArrowRight } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
 import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
@@ -68,9 +69,19 @@ function Community() {
             <Reveal delay={0.1}>
               <a href={CLUB.social.whatsapp} target="_blank" rel="noreferrer" className="group block">
                 <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#25D366]/50 hover:shadow-[0_0_30px_rgba(37,211,102,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
-                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
-                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#25D366]">
-                      <MessageCircle className="h-8 w-8 md:h-12 md:w-12" />
+                  <div className="relative mx-auto flex aspect-square w-36 sm:w-44 md:w-48 items-center justify-center rounded-2xl border border-white/10 bg-white p-3.5 shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                    <QRCodeSVG
+                      value={CLUB.social.whatsapp}
+                      size={145}
+                      bgColor="#ffffff"
+                      fgColor="#000000"
+                      level="Q"
+                      className="h-full w-full"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-white p-1 shadow-lg border border-slate-100 text-[#25D366]">
+                        <MessageCircle className="h-6 w-6 fill-current" />
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-start">
@@ -92,9 +103,19 @@ function Community() {
             <Reveal delay={0.2}>
               <a href={CLUB.social.instagram} target="_blank" rel="noreferrer" className="group block">
                 <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#C13584]/50 hover:shadow-[0_0_30px_rgba(193,53,132,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
-                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
-                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#C13584]">
-                      <Instagram className="h-8 w-8 md:h-12 md:w-12" />
+                  <div className="relative mx-auto flex aspect-square w-36 sm:w-44 md:w-48 items-center justify-center rounded-2xl border border-white/10 bg-white p-3.5 shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                    <QRCodeSVG
+                      value={CLUB.social.instagram}
+                      size={145}
+                      bgColor="#ffffff"
+                      fgColor="#000000"
+                      level="Q"
+                      className="h-full w-full"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-white p-1 shadow-lg border border-slate-100 text-[#C13584]">
+                        <Instagram className="h-5 w-5" />
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-start">
@@ -116,9 +137,19 @@ function Community() {
             <Reveal delay={0.3}>
               <a href={CLUB.social.linkedin} target="_blank" rel="noreferrer" className="group block">
                 <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#0A66C2]/50 hover:shadow-[0_0_30px_rgba(10,102,194,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
-                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
-                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#0A66C2]">
-                      <Linkedin className="h-8 w-8 md:h-12 md:w-12" />
+                  <div className="relative mx-auto flex aspect-square w-36 sm:w-44 md:w-48 items-center justify-center rounded-2xl border border-white/10 bg-white p-3.5 shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                    <QRCodeSVG
+                      value={CLUB.social.linkedin}
+                      size={145}
+                      bgColor="#ffffff"
+                      fgColor="#000000"
+                      level="Q"
+                      className="h-full w-full"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-white p-1 shadow-lg border border-slate-100 text-[#0A66C2]">
+                        <Linkedin className="h-5 w-5 fill-current" />
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-start">
@@ -140,9 +171,19 @@ function Community() {
             <Reveal delay={0.4}>
               <a href={CLUB.social.discord} target="_blank" rel="noreferrer" className="group block">
                 <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#5865F2]/50 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
-                  <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
-                    <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#5865F2]">
-                      <DiscordIcon className="h-8 w-8 md:h-12 md:w-12" />
+                  <div className="relative mx-auto flex aspect-square w-36 sm:w-44 md:w-48 items-center justify-center rounded-2xl border border-white/10 bg-white p-3.5 shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                    <QRCodeSVG
+                      value={CLUB.social.discord}
+                      size={145}
+                      bgColor="#ffffff"
+                      fgColor="#000000"
+                      level="Q"
+                      className="h-full w-full"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-white p-1 shadow-lg border border-slate-100 text-[#5865F2]">
+                        <DiscordIcon className="h-5 w-5" />
+                      </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-start">
