@@ -138,7 +138,7 @@ export function AnnualReportsSection() {
 
           {/* Book Viewer Container with flexbox my-auto to avoid top/bottom clipping */}
           <div className="min-h-screen w-full flex flex-col items-center py-6 sm:py-10 px-2 sm:px-6">
-            <div className="my-auto w-full max-w-6xl mx-auto">
+            <div className="my-auto w-full max-w-7xl mx-auto">
               <NativeFlipBook hideHeader={true} />
             </div>
           </div>
