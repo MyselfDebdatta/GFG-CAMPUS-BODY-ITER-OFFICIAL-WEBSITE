@@ -1599,30 +1599,13 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
 
   /* ──────── Effects ──────── */
 
-  const [scale, setScale] = useState(1);
-
-  // Responsive detection & Scaling
+  // Responsive detection
   useEffect(() => {
-    const check = () => {
-      const isM = window.innerWidth < 768;
-      setIsMobile(isM);
-      
-      const baseW = isM ? 420 : 1060;
-      const baseH = 660 + 120; // Book height + controls padding
-      
-      // Calculate how much space is available
-      const availableW = window.innerWidth - 40; 
-      const availableH = window.innerHeight - (hideHeader ? 80 : 250); 
-      
-      const scaleW = availableW / baseW;
-      const scaleH = availableH / baseH;
-      
-      setScale(Math.min(scaleW, scaleH, 1)); // Scale down if needed, but not up past 1
-    };
+    const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
-  }, [hideHeader]);
+  }, []);
 
   // Sync page index on mode change (ensure even on desktop)
   useEffect(() => {
@@ -1835,11 +1818,11 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
 
   /* ──────── Render ──────── */
   return (
-    <section className={`relative z-10 ${hideHeader ? 'py-4' : 'py-20 sm:py-24'} overflow-hidden bg-transparent`}>
+    <section className={`relative z-10 ${hideHeader ? 'py-2' : 'py-20 sm:py-24'} overflow-hidden bg-transparent`}>
       {/* Ambient background glow (keep dark mode style outside the book) */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/[0.04] blur-[120px] rounded-full" />
 
-      <div className={hideHeader ? "w-full max-w-7xl mx-auto px-4" : "container-page"}>
+      <div className={hideHeader ? "w-full max-w-7xl mx-auto px-1 sm:px-4" : "container-page"}>
         {/* ═══ Section Header ═══ */}
         {!hideHeader && (
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-10">
@@ -1870,22 +1853,14 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
         </div>
         )}
 
-        {/* ═══ Book Container (Scaled) ═══ */}
-        <div 
-          className="flex flex-col items-center justify-center transition-all duration-300 mx-auto"
-          style={{ 
-             height: `${(660 + 120) * scale}px`, 
-             width: `${(isMobile ? 420 : 1060) * scale}px` 
-          }}
+        {/* ═══ Book Container ═══ */}
+        <div
+          ref={bookRef}
+          className="relative mx-auto select-none w-full"
+          style={{ maxWidth: isMobile ? 420 : 1060 }}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
-          <div style={{ transform: `scale(${scale})`, transformOrigin: "center center" }}>
-            <div
-              ref={bookRef}
-              className="relative mx-auto select-none"
-              style={{ maxWidth: isMobile ? 420 : 1060, width: "100%" }}
-              onTouchStart={onTouchStart}
-              onTouchEnd={onTouchEnd}
-            >
               {/* ── Navigation arrows ── */}
               <button
                 onClick={handlePrev}
@@ -2222,8 +2197,6 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
                 </>
               )}
             </div>
-          </div>
-          </div>
           </div>
         </div>
 
