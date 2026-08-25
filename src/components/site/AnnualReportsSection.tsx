@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-import { Search, ChevronDown, Download, BookOpen } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import React, { useState, useEffect } from "react";
+import { Search, ChevronDown, Download, BookOpen, X } from "lucide-react";
 import { NativeFlipBook } from "./NativeFlipBook";
 
 const REPORTS = [
@@ -20,6 +15,24 @@ const REPORTS = [
 
 export function AnnualReportsSection() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeReport, setActiveReport] = useState<typeof REPORTS[0] | null>(null);
+
+  // Close on Escape key and prevent body scroll when open
+  useEffect(() => {
+    if (!activeReport) return;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveReport(null);
+    };
+    
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeReport]);
 
   const filteredReports = REPORTS.filter((report) =>
     report.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -60,50 +73,43 @@ export function AnnualReportsSection() {
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {filteredReports.map((report) => (
-          <Dialog key={report.id}>
-            <DialogTrigger asChild>
-              <div className="group cursor-pointer rounded-2xl border border-white/10 bg-[#020b06] p-3 transition-all hover:border-[#00ff7f]/50 hover:bg-white/5 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] flex flex-col h-full">
-                {/* Book Cover */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-white/5 bg-gradient-to-b from-[#00ff7f]/10 to-transparent">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                     <BookOpen className="h-12 w-12 text-[#00ff7f] mb-4 opacity-80" />
-                     <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                       GFG ITER<br/>Annual Report
-                     </h3>
-                     <p className="text-[#00ff7f] font-mono text-sm font-bold">{report.year}</p>
-                  </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
-                    <div className="rounded-full bg-[#00ff7f] text-[#020b06] px-6 py-2.5 font-bold transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 shadow-[0_0_20px_rgba(0,255,127,0.4)]">
-                      Read Now
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Book Info */}
-                <div className="mt-4 flex flex-col flex-1 px-1">
-                  <h3 className="text-sm font-bold text-white line-clamp-2 mb-1 group-hover:text-[#00ff7f] transition-colors">
-                    {report.title}
-                  </h3>
-                  <div className="mt-auto pt-4 flex items-center justify-between text-xs text-white/60">
-                    <div className="flex items-center gap-2">
-                      <div className="h-5 w-5 rounded-full bg-[#00ff7f]/20 flex items-center justify-center text-[#00ff7f]">
-                        <span className="text-[10px] font-bold">G</span>
-                      </div>
-                      <span className="font-medium">{report.publisher}</span>
-                    </div>
-                    <Download className="h-4 w-4 hover:text-white transition-colors" />
-                  </div>
+          <div 
+            key={report.id}
+            onClick={() => setActiveReport(report)}
+            className="group cursor-pointer rounded-2xl border border-white/10 bg-[#020b06] p-3 transition-all hover:border-[#00ff7f]/50 hover:bg-white/5 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] flex flex-col h-full"
+          >
+            {/* Book Cover */}
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-white/5 bg-gradient-to-b from-[#00ff7f]/10 to-transparent">
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                 <BookOpen className="h-12 w-12 text-[#00ff7f] mb-4 opacity-80" />
+                 <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                   GFG ITER<br/>Annual Report
+                 </h3>
+                 <p className="text-[#00ff7f] font-mono text-sm font-bold">{report.year}</p>
+              </div>
+              <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
+                <div className="rounded-full bg-[#00ff7f] text-[#020b06] px-6 py-2.5 font-bold transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 shadow-[0_0_20px_rgba(0,255,127,0.4)]">
+                  Read Now
                 </div>
               </div>
-            </DialogTrigger>
-            <DialogContent className="fixed inset-0 z-[100] max-w-none w-screen h-screen max-h-none p-0 m-0 border-none bg-black/95 text-white rounded-none overflow-y-auto">
-              <div className="min-h-full w-full flex flex-col items-center justify-center py-6 sm:py-10 px-2 sm:px-4">
-                <div className="w-full max-w-6xl mx-auto">
-                  <NativeFlipBook hideHeader={true} />
+            </div>
+            
+            {/* Book Info */}
+            <div className="mt-4 flex flex-col flex-1 px-1">
+              <h3 className="text-sm font-bold text-white line-clamp-2 mb-1 group-hover:text-[#00ff7f] transition-colors">
+                {report.title}
+              </h3>
+              <div className="mt-auto pt-4 flex items-center justify-between text-xs text-white/60">
+                <div className="flex items-center gap-2">
+                  <div className="h-5 w-5 rounded-full bg-[#00ff7f]/20 flex items-center justify-center text-[#00ff7f]">
+                    <span className="text-[10px] font-bold">G</span>
+                  </div>
+                  <span className="font-medium">{report.publisher}</span>
                 </div>
+                <Download className="h-4 w-4 hover:text-white transition-colors" />
               </div>
-            </DialogContent>
-          </Dialog>
+            </div>
+          </div>
         ))}
         {filteredReports.length === 0 && (
           <div className="col-span-full py-20 text-center text-white/50">
@@ -111,6 +117,27 @@ export function AnnualReportsSection() {
           </div>
         )}
       </div>
+
+      {/* Full-Screen Flipbook Modal */}
+      {activeReport && (
+        <div className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md overflow-y-auto flex flex-col items-center justify-center animate-in fade-in-0 duration-200">
+          {/* Close button */}
+          <button
+            onClick={() => setActiveReport(null)}
+            className="fixed top-6 right-6 z-[10000] flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 cursor-pointer shadow-lg"
+            aria-label="Close modal"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          {/* Book Viewer */}
+          <div className="min-h-full w-full flex flex-col items-center justify-center py-8 px-2 sm:px-6">
+            <div className="w-full max-w-6xl mx-auto">
+              <NativeFlipBook hideHeader={true} />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
