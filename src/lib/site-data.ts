@@ -10,9 +10,10 @@ export const CLUB = {
   phone: "+91 90000 00000",
   social: {
     linkedin: "https://linkedin.com",
-    github: "https://github.com",
     instagram: "https://instagram.com",
     whatsapp: "https://chat.whatsapp.com/",
+    discord: "https://discord.gg/",
+    github: "https://github.com",
     youtube: "https://youtube.com",
   },
 };
