@@ -1599,13 +1599,30 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
 
   /* ──────── Effects ──────── */
 
-  // Responsive detection
+  const [scale, setScale] = useState(1);
+
+  // Responsive detection & Scaling
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
+    const check = () => {
+      const isM = window.innerWidth < 768;
+      setIsMobile(isM);
+      
+      const baseW = isM ? 420 : 1060;
+      const baseH = 660 + 120; // Book height + controls padding
+      
+      // Calculate how much space is available
+      const availableW = window.innerWidth - 40; 
+      const availableH = window.innerHeight - (hideHeader ? 80 : 250); 
+      
+      const scaleW = availableW / baseW;
+      const scaleH = availableH / baseH;
+      
+      setScale(Math.min(scaleW, scaleH, 1)); // Scale down if needed, but not up past 1
+    };
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
-  }, []);
+  }, [hideHeader]);
 
   // Sync page index on mode change (ensure even on desktop)
   useEffect(() => {
@@ -1853,44 +1870,52 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
         </div>
         )}
 
-        {/* ═══ Book Container ═══ */}
-        <div
-          ref={bookRef}
-          className="relative mx-auto select-none"
-          style={{ maxWidth: isMobile ? 420 : 1060 }}
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
+        {/* ═══ Book Container (Scaled) ═══ */}
+        <div 
+          className="flex flex-col items-center justify-center transition-all duration-300 mx-auto"
+          style={{ 
+             height: `${(660 + 120) * scale}px`, 
+             width: `${(isMobile ? 420 : 1060) * scale}px` 
+          }}
         >
-          {/* ── Navigation arrows ── */}
-          <button
-            onClick={handlePrev}
-            disabled={!canGoPrev || isFlipping}
-            className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
-              isMobile ? "-left-1" : "-left-14"
-            } ${
-              !canGoPrev || isFlipping
-                ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
-                : "border-[#00ff7f]/30 bg-[#020b06]/80 text-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 hover:shadow-[0_0_18px_rgba(0,255,127,0.3)] active:scale-95"
-            }`}
-            aria-label="Previous page"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
+          <div style={{ transform: `scale(${scale})`, transformOrigin: "center center" }}>
+            <div
+              ref={bookRef}
+              className="relative mx-auto select-none"
+              style={{ maxWidth: isMobile ? 420 : 1060, width: "100%" }}
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
+            >
+              {/* ── Navigation arrows ── */}
+              <button
+                onClick={handlePrev}
+                disabled={!canGoPrev || isFlipping}
+                className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
+                  isMobile ? "-left-1" : "-left-14"
+                } ${
+                  !canGoPrev || isFlipping
+                    ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
+                    : "border-[#00ff7f]/30 bg-[#020b06]/80 text-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 hover:shadow-[0_0_18px_rgba(0,255,127,0.3)] active:scale-95"
+                }`}
+                aria-label="Previous page"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
 
-          <button
-            onClick={handleNext}
-            disabled={!canGoNext || isFlipping}
-            className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
-              isMobile ? "-right-1" : "-right-14"
-            } ${
-              !canGoNext || isFlipping
-                ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
-                : "border-[#00ff7f]/30 bg-[#020b06]/80 text-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 hover:shadow-[0_0_18px_rgba(0,255,127,0.3)] active:scale-95"
-            }`}
-            aria-label="Next page"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+              <button
+                onClick={handleNext}
+                disabled={!canGoNext || isFlipping}
+                className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
+                  isMobile ? "-right-1" : "-right-14"
+                } ${
+                  !canGoNext || isFlipping
+                    ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
+                    : "border-[#00ff7f]/30 bg-[#020b06]/80 text-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 hover:shadow-[0_0_18px_rgba(0,255,127,0.3)] active:scale-95"
+                }`}
+                aria-label="Next page"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
 
           {/* ── Global Tap Zones ── */}
           <>
@@ -2197,6 +2222,8 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
                 </>
               )}
             </div>
+          </div>
+          </div>
           </div>
         </div>
 
