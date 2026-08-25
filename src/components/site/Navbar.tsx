@@ -13,7 +13,6 @@ const NAV = [
   { to: "/team", label: "Team" },
   { to: "/hall-of-fame", label: "Hall of Fame" },
   { to: "/community", label: "Community" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 function useDarkMode() {
