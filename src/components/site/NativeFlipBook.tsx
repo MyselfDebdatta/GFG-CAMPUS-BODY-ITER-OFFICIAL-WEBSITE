@@ -1818,11 +1818,11 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
 
   /* ──────── Render ──────── */
   return (
-    <section className={`relative z-10 w-full ${hideHeader ? 'py-0' : 'py-20 sm:py-24'} overflow-hidden bg-transparent`}>
+    <section className={`relative z-10 w-full ${hideHeader ? 'py-0 overflow-visible' : 'py-20 sm:py-24 overflow-hidden'} bg-transparent`}>
       {/* Ambient background glow (keep dark mode style outside the book) */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] bg-[#00ff7f]/[0.04] blur-[120px] rounded-full" />
 
-      <div className={hideHeader ? "w-full max-w-7xl mx-auto px-1 sm:px-4" : "container-page"}>
+      <div className={hideHeader ? "w-full max-w-7xl mx-auto px-4 sm:px-16" : "container-page"}>
         {/* ═══ Section Header ═══ */}
         {!hideHeader && (
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-10">
@@ -1866,7 +1866,7 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
                 onClick={handlePrev}
                 disabled={!canGoPrev || isFlipping}
                 className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
-                  isMobile ? "-left-1" : "-left-14"
+                  isMobile ? "-left-2" : "-left-4 sm:-left-8 md:-left-12 lg:-left-14"
                 } ${
                   !canGoPrev || isFlipping
                     ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
@@ -1881,7 +1881,7 @@ export function NativeFlipBook({ hideHeader = false }: { hideHeader?: boolean } 
                 onClick={handleNext}
                 disabled={!canGoNext || isFlipping}
                 className={`absolute top-1/2 -translate-y-1/2 z-40 flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-200 ${
-                  isMobile ? "-right-1" : "-right-14"
+                  isMobile ? "-right-2" : "-right-4 sm:-right-8 md:-right-12 lg:-right-14"
                 } ${
                   !canGoNext || isFlipping
                     ? "border-white/10 bg-black/30 text-white/20 cursor-not-allowed"
