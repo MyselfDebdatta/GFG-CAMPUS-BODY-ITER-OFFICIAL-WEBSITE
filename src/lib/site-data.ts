@@ -7,7 +7,12 @@ export const CLUB = {
     "The official Geeks for Geeks student chapter at ITER, SOA University — where students learn, build, collaborate, and innovate together.",
   address: "ITER, Siksha 'O' Anusandhan (SOA) University, Jagamara, Bhubaneswar, Odisha 751030",
   email: "gfgiter@gmail.com",
-  phone: "+91 90000 00000",
+  phone: "+91 82609 61948",
+  president: {
+    name: "Vivek Ranjan Sahoo",
+    role: "President",
+    phone: "+91 82609 61948",
+  },
   social: {
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     instagram: "https://www.instagram.com/gfg_iter/",
