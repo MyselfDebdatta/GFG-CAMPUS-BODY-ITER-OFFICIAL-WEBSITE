@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, Bell, Briefcase, Users, ShieldCheck, QrCode, Instagram, Linkedin } from "lucide-react";
+import { MessageCircle, Bell, Briefcase, Users, ShieldCheck, QrCode, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
@@ -67,18 +67,22 @@ function Community() {
             {/* WhatsApp */}
             <Reveal delay={0.1}>
               <a href={CLUB.social.whatsapp} target="_blank" rel="noreferrer" className="group block">
-                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#25D366]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#25D366]/50 hover:shadow-[0_0_30px_rgba(37,211,102,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
                   <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
                     <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#25D366]">
                       <MessageCircle className="h-8 w-8 md:h-12 md:w-12" />
                     </div>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#25D366]">Join Community</div>
                     <h3 className="mt-2 text-2xl font-bold tracking-tight">Scan the QR. You're in.</h3>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Only current ITER students. We verify new members weekly to keep the group high-signal.
                     </p>
+                    <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-5 py-2.5 text-sm font-bold text-[#25D366] transition-all duration-300 group-hover:bg-[#25D366] group-hover:text-[#020b06] group-hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]">
+                      <span>Join WhatsApp Group</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </a>
@@ -87,18 +91,22 @@ function Community() {
             {/* Instagram */}
             <Reveal delay={0.2}>
               <a href={CLUB.social.instagram} target="_blank" rel="noreferrer" className="group block">
-                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#C13584]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#C13584]/50 hover:shadow-[0_0_30px_rgba(193,53,132,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
                   <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
                     <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#C13584]">
                       <Instagram className="h-8 w-8 md:h-12 md:w-12" />
                     </div>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#C13584]">Follow our journey</div>
                     <h3 className="mt-2 text-2xl font-bold tracking-tight">Event highlights & behind the scenes.</h3>
                     <p className="mt-3 text-sm text-muted-foreground">
                       See what we're up to. Get real-time updates on our latest workshops, hackathons, and tech talks.
                     </p>
+                    <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#C13584]/30 bg-[#C13584]/10 px-5 py-2.5 text-sm font-bold text-[#C13584] transition-all duration-300 group-hover:bg-[#C13584] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(193,53,132,0.4)]">
+                      <span>Follow on Instagram</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </a>
@@ -107,18 +115,22 @@ function Community() {
             {/* LinkedIn */}
             <Reveal delay={0.3}>
               <a href={CLUB.social.linkedin} target="_blank" rel="noreferrer" className="group block">
-                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#0A66C2]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#0A66C2]/50 hover:shadow-[0_0_30px_rgba(10,102,194,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
                   <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
                     <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#0A66C2]">
                       <Linkedin className="h-8 w-8 md:h-12 md:w-12" />
                     </div>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0A66C2]">Build your network</div>
                     <h3 className="mt-2 text-2xl font-bold tracking-tight">Connect professionally.</h3>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Follow our official page for announcements, placement highlights, and alumni networking opportunities.
                     </p>
+                    <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#0A66C2]/30 bg-[#0A66C2]/10 px-5 py-2.5 text-sm font-bold text-[#0A66C2] transition-all duration-300 group-hover:bg-[#0A66C2] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(10,102,194,0.4)]">
+                      <span>Connect on LinkedIn</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </a>
@@ -127,18 +139,22 @@ function Community() {
             {/* Discord */}
             <Reveal delay={0.4}>
               <a href={CLUB.social.discord} target="_blank" rel="noreferrer" className="group block">
-                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-colors hover:border-[#5865F2]/50 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+                <div className="grid gap-8 rounded-3xl border border-hairline bg-surface-elevated p-8 transition-all duration-300 hover:border-[#5865F2]/50 hover:shadow-[0_0_30px_rgba(88,101,242,0.15)] md:grid-cols-[auto_1fr] md:items-center md:p-10">
                   <div className="mx-auto grid aspect-square w-32 md:w-48 place-items-center rounded-2xl border border-hairline bg-[repeating-linear-gradient(45deg,var(--foreground)_0_2px,transparent_2px_8px)] opacity-90 transition-transform group-hover:scale-105">
                     <div className="grid h-16 w-16 md:h-24 md:w-24 place-items-center rounded-xl bg-background text-[#5865F2]">
                       <DiscordIcon className="h-8 w-8 md:h-12 md:w-12" />
                     </div>
                   </div>
-                  <div>
+                  <div className="flex flex-col items-start">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5865F2]">Join our Discord server</div>
                     <h3 className="mt-2 text-2xl font-bold tracking-tight">Voice lounges, peer dev & gaming.</h3>
                     <p className="mt-3 text-sm text-muted-foreground">
                       Hang out with fellow coders in real-time voice lounges, collaborate on active projects, and join online community events.
                     </p>
+                    <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#5865F2]/30 bg-[#5865F2]/10 px-5 py-2.5 text-sm font-bold text-[#5865F2] transition-all duration-300 group-hover:bg-[#5865F2] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(88,101,242,0.4)]">
+                      <span>Join Discord Server</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
               </a>
