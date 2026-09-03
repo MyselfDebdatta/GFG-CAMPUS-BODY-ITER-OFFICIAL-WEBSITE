@@ -594,7 +594,7 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
       <div className="flex flex-col flex-1 p-6 md:p-8">
         <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
         <h3 className="mt-2 text-2xl font-bold tracking-tight text-white transition-all duration-300 hover-gradient-text">{event.title}</h3>
-        <p className="mt-3 text-base text-white/60 flex-1">{event.description}</p>
+        <p className="mt-3 text-base text-white/60 flex-1 line-clamp-3">{event.description}</p>
         <Link 
           to="/events/$eventId"
           params={{ eventId: event.id }}
