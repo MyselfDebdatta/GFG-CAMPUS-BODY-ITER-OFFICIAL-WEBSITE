@@ -48,148 +48,273 @@ export const MARQUEE = [
 export const EVENTS = [
   {
     id: "gfg-carnival",
-    title: "GFG Annual Club Carnival",
+    title: "GFG Annual Club Carnival & Orientation 2026",
     category: "Orientation",
     date: "Date to be announced",
-    venue: "ITER Main Campus",
+    venue: "ITER Main Campus, Bhubaneswar",
     status: "upcoming",
     speakers: [
-      { name: "Vivek Ranjan Sahoo", role: "President", photo: "https://i.pravatar.cc/150?img=12" }
+      { name: "Vivek Ranjan Sahoo", role: "President", photo: "https://i.pravatar.cc/150?img=12" },
+      { name: "Anubhab Samantaray", role: "Club Coordinator", photo: "https://i.pravatar.cc/150?img=11" }
     ],
     description:
-      "Welcome, freshmen! Join our grand orientation carnival to discover everything about GFG ITER—our vision, our projects, and how you can become part of the ultimate builder community on campus.",
+      "Welcome, freshmen and engineering minds! Join our grand orientation carnival to discover everything about GFG ITER—our vision, active technical domains, upcoming hackathons, and how to become part of the premier builder community on campus.",
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "gfg-skill-exchange",
-    title: "GFG Skill Exchange Workshop",
+    title: "GFG ITER Skills Exchange Workshop: Multi-Track Series",
     category: "Workshop",
-    date: "July 01 – Aug 31, 2026",
-    venue: "ITER Main Campus",
+    date: "10th July – 15th August 2026",
+    venue: "Discord (Online) · #Skill-exchange-program",
     status: "ongoing",
     speakers: [
-      { name: "GFG Lead Board", role: "Core Team", photo: "" }
+      { name: "GFG Senior Core Team", role: "Domain Mentors", photo: "" },
+      { name: "Vivek Ranjan Sahoo", role: "President", photo: "" },
+      { name: "Anubhab Samantaray", role: "Coordinator", photo: "" }
     ],
     description:
-      "A comprehensive two-month mentorship initiative where senior engineers lead hands-on sessions across diverse tech domains, accelerating your mastery of modern tech stacks.",
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=70",
+      "Theme: Learn It. Build It. Share It. A comprehensive peer-led technical learning initiative introducing undergraduate students to 8 high-demand CS domains: Blockchain & Web3, Quantum Computing, Computer Networking, Cybersecurity, Linux & Cloud, DevOps & CI/CD, AI Automation with n8n, and Data Science.",
+    image: "/events/page_61_img_1__X17.jpg",
+  },
+  {
+    id: "skills-exchange-day8",
+    title: "Skills Exchange Workshop – Day 8: Data Science & Visualization",
+    category: "Workshop",
+    date: "03 Aug 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Mukesh Kumar Padhi", role: "Founder, Ex-Operation Lead, GFG ITER", photo: "" }
+    ],
+    description:
+      "Data Science & Visualization: Discovering Insights Through Data. Covered the complete 7-stage Data Science Lifecycle, live code demonstrations of NumPy, Pandas, Matplotlib, EDA toolkits, 4 machine learning paradigms, 10 beginner projects, and an 8-role career roadmap.",
+    image: "/events/page_34_img_3__X22.jpg",
+  },
+  {
+    id: "skills-exchange-day7",
+    title: "Skills Exchange Workshop – Day 7: AI Automation with n8n",
+    category: "Workshop",
+    date: "27 Jul 2026",
+    time: "8:00 PM – 9:20 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Mrunmayee Mohanty", role: "Core Team, GFG ITER", photo: "" }
+    ],
+    description:
+      "Introduction to Workflow Automation: Contrasting Generative AI, Workflows, and Agentic AI, applying the RECIPE prompt framework, and building a live 4-node automated workflow connecting Google Sheets, Edit Fields, Gmail, and Sheet updates inside n8n.",
+    image: "/events/page_39_img_2__X18.jpg",
+  },
+  {
+    id: "skills-exchange-day6",
+    title: "Skills Exchange Workshop – Day 6: DevOps & CI/CD Pipelines",
+    category: "Workshop",
+    date: "22 Jul 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Raj Sahasransu Biswal", role: "Ex-Tech Lead, GFG ITER", photo: "" }
+    ],
+    description:
+      "DevOps & CI/CD Pipelines: Automating Trust, Securing the Future. From 'It Works on My Machine' to 'It Works Everywhere' — explored DevOps culture, Git as a time machine, automated CI/CD pipelines, Docker containerization, Kubernetes orchestration, and AWS fundamentals.",
+    image: "/events/page_44_img_3__X19.jpg",
+  },
+  {
+    id: "skills-exchange-day5",
+    title: "Skills Exchange Workshop – Day 5: Linux, Cloud & OS Internals",
+    category: "Workshop",
+    date: "20 Jul 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Vivek Ranjan Sahoo", role: "President, GFG ITER", photo: "" }
+    ],
+    description:
+      "Understanding the Operating System That Runs the Internet: A deep dive into the Linux kernel, shell, and filesystem architecture, accompanied by a live SSH demonstration on an AWS EC2 instance, core terminal commands, and a 60-second file challenge.",
+    image: "/events/page_50_img_2__X20.jpg",
+  },
+  {
+    id: "skills-exchange-day4",
+    title: "Skills Exchange Workshop – Day 4: Cybersecurity & Ethical Hacking",
+    category: "Workshop",
+    date: "17 Jul 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Subhakanta Das", role: "Operations Lead, GFG ITER", photo: "" }
+    ],
+    description:
+      "Building a Secure, Resilient, and Threat-Aware Digital Future: Understanding the CIA Triad & AAA Framework, social engineering tactics, malware field guides, symmetric & asymmetric cryptography, Man-in-the-Middle defenses, and a 10-item daily defense checklist.",
+    image: "/events/page_56_img_2__X18.jpg",
+  },
+  {
+    id: "skills-exchange-day3",
+    title: "Skills Exchange Workshop – Day 3: Computer Networking & Hardware",
+    category: "Workshop",
+    date: "15 Jul 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Ayush Ranjan Pradhan", role: "Community Mentor, GFG ITER", photo: "" }
+    ],
+    description:
+      "Connecting Devices to Communicate and Share Information Efficiently: Traced network evolution, demystified the OSI 7-layer and TCP/IP models, live DNS resolver sandbox demo, and a hands-on hardware demonstration with router internals and patch-panel switch cabling.",
+    image: "/events/page_61_img_1__X17.jpg",
+  },
+  {
+    id: "skills-exchange-day2",
+    title: "Skills Exchange Workshop – Day 2: Quantum Computing",
+    category: "Workshop",
+    date: "13 Jul 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Debajyoti Bhakta", role: "Tech Team, GFG ITER", photo: "" }
+    ],
+    description:
+      "Where Physics Meets Computing to Transform the Future: An exploration of qubits, superposition, quantum entanglement, Deutsch–Jozsa and Shor's algorithms, dilution refrigerators, Google's Willow chip, India's National Quantum Mission, and a live Menti quiz.",
+    image: "/events/page_27_img_2__X25.jpg",
+  },
+  {
+    id: "skills-exchange-day1",
+    title: "Skills Exchange Workshop – Day 1: Blockchain & Web3 Fundamentals",
+    category: "Workshop",
+    date: "10 Jul 2026",
+    time: "8:00 PM – 9:00 PM IST",
+    venue: "Discord (Online) · #Skill-exchange-program",
+    status: "past",
+    speakers: [
+      { name: "Anubhab Samantaray", role: "Club Coordinator, Batch 2027", photo: "" }
+    ],
+    description:
+      "Building a Secure, Transparent, and Decentralized Future: The evolution from Web1 to Web3, distributed ledgers, transaction lifecycles, cryptographic hashing, Ethereum smart contracts with Solidity, DApps, and emerging blockchain careers.",
+    image: "/events/page_70_img_1__X17.jpg",
   },
   {
     id: "rachitva-event",
-    title: "Rachitva: Design-Pitch Event",
+    title: "Rachitva – Design & Pitch Competition",
     category: "Contest",
-    date: "Apr 05, 2026",
-    venue: "ITER Main Campus",
+    date: "05 Apr 2026",
+    time: "8:00 AM – 11:00 AM",
+    venue: "E Block, Room 514, ITER",
     status: "past",
     speakers: [
-      { name: "GFG Lead Board", role: "Core Team", photo: "" }
+      { name: "GFG Lead Board & Design Mentors", role: "Judges & Organizers", photo: "" }
     ],
     description:
-      "A fast-paced Design-Pitch competition inspiring participants to transform abstract ideas into compelling product concepts through design thinking, branding, and persuasive pitching under tight time constraints.",
+      "Chakravyuh Genesis 2026 Flagship Creative Event: An on-the-spot design and pitch competition where ~120 students tackled a surprise theme, conceptualized impactful posters, and delivered persuasive elevator pitches before an expert judging panel.",
     image:
       "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "zerone-event",
-    title: "Zer0ne: Capture the Flag",
+    title: "Zer0ne – Capture The Flag (CTF) Competition",
     category: "Contest",
-    date: "Apr 03, 2026",
-    venue: "ITER Main Campus",
+    date: "03 Apr 2026",
+    time: "9:00 AM – 11:00 AM",
+    venue: "C Block, Room 004 & 005, ITER",
     status: "past",
     speakers: [
-      { name: "GFG Lead Board", role: "Core Team", photo: "" }
+      { name: "GFG Technical Team", role: "Platform Architects & Judges", photo: "" }
     ],
     description:
-      "A multidisciplinary Capture the Flag event blending technology, strategy, and virtual economy management. Teams showcased technical expertise, real-time decision making, and hackathon-style solution development.",
+      "Chakravyuh Genesis 2026 Flagship Technical Event: A beginner-friendly cybersecurity CTF competition conducted over three progressively challenging rounds (cryptography, web security, networking). Powered by an in-house custom CTF platform built by GFG ITER with live leaderboard tracking.",
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70",
+      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "raw-and-ready",
-    title: "Raw & Ready: Personality Development",
+    title: "Raw & Ready – Personality Development Session",
     category: "Workshop",
-    date: "Feb 04, 2026",
-    venue: "ITER Main Campus",
+    date: "04 Feb 2026",
+    time: "3:00 PM – 5:00 PM",
+    venue: "E-Block, Room 114, ITER",
     status: "past",
     speakers: [
-      { name: "GFG Mentors & Trainers", role: "Facilitators", photo: "" }
+      { name: "GFG Executive Board", role: "Facilitators", photo: "" }
     ],
     description:
-      "An interactive session on personal growth, self-esteem, and time management (Eisenhower 4-box method). Featured team activities including 'Lost in the Jungle', mini-ideathons, and basic financial literacy.",
-    image:
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1400&q=70",
+      "A comprehensive personality development workshop for GFG ITER core members focusing on self-awareness, SWOT Analysis, Eisenhower Matrix time management, the 'Lost in the Jungle' survival teamwork challenge, a mini-ideathon, and financial literacy.",
+    image: "/events/page_12_img_3__X14.jpg",
   },
   {
     id: "founders-unplugged",
-    title: "Founders' Unplugged: From Chaos to Creation",
+    title: "Founders Unplugged – From Chaos to Creation",
     category: "Seminar",
-    date: "Dec 23, 2025",
-    venue: "ITER Main Campus",
+    date: "23 Dec 2025",
+    time: "4:00 PM – 6:00 PM",
+    venue: "Seminar Hall 2, Bansuri Guru Auditorium, ITER",
     status: "past",
     speakers: [
-      { name: "Zahid Akhtar", role: "Founder of OneLife", photo: "" }
+      { name: "Mr. Zahid Akhtar", role: "Founder of OneLife, Life & Career Coach", photo: "" }
     ],
     description:
-      "An honest podcast-style conversation on personality development, career growth, and startup realities featuring Zahid Akhtar (Founder of OneLife). Highlights included a rapid-fire round debating 'Gut Feeling vs Market Research' and 'Perfect Plan vs Fast Execution'.",
-    image:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=70",
+      "An authentic, conversation-driven session with Zahid Akhtar on navigating the realities of startups, leadership, and resilience. Features included an engaging Rapid Fire Round debating 'Gut Feeling vs Market Research' and 'Perfect Plan vs Fast Execution' followed by interactive Q&A.",
+    image: "/events/page_9_img_4__X17.jpg",
   },
   {
     id: "chai-links-ep01",
-    title: "ChaiLinks: Episode 01",
+    title: "ChainLinks Episode 01 – TinyML & Agentic AI",
     category: "Workshop",
-    date: "Dec 03, 2025",
-    venue: "ITER Main Campus",
+    date: "03 Dec 2025",
+    time: "4:30 PM – 6:00 PM",
+    venue: "Seminar Hall, AIC SOA Foundation",
     status: "past",
     speakers: [
-      { name: "Faculty Mentors & GFG Leads", role: "Domain Leads", photo: "" }
+      { name: "Faculty Mentors & Researchers", role: "Discussion Leads", photo: "" }
     ],
     description:
-      "Elevating open, conversation-driven learning with a focus on TinyML and Agentic AI. Episode 01 brought frontier tech into casual discussion circles, enabling students to explore low-power edge machine learning and autonomous AI systems over tea with faculty mentors.",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=70",
+      "Cup That Connects, Conversations That Matter: Centered around Chai Pe Charcha, Episode 01 brought 50 selected students into intimate discussion circles with faculty researchers exploring edge machine learning (TinyML) and autonomous AI agents (Agentic AI) over tea.",
+    image: "/events/page_6_img_1__X15.jpg",
   },
   {
     id: "code-unbound-launch",
-    title: "Code Unbound: The GFG Launch",
+    title: "Code Unbound – The GFG Launch",
     category: "Seminar",
-    date: "Nov 07, 2025",
+    date: "07 Nov 2025",
     venue: "Bansuri Guru Auditorium, ITER",
     status: "past",
     speakers: [
-      { name: "GFG Lead Board", role: "Core Team", photo: "" }
+      { name: "GFG Lead Board & Domain Leads", role: "Founding Team", photo: "" }
     ],
     description:
-      "The official inauguration of the GeeksforGeeks (GFG) Club – ITER Student Chapter in the grand auditorium hall of Bansuri Guru. Featuring vision roadmaps, domain lead introductions, and an interactive Menti Quiz with awards.",
+      "The official inauguration of the GeeksforGeeks (GFG) Student Chapter at ITER, SOA University in Bansuri Guru Auditorium. Featuring chapter vision roadmaps, domain lead introductions, and an interactive Menti Quiz with prizes for top performers.",
     image:
       "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=70",
   },
   {
     id: "chai-links-ep00",
-    title: "ChaiLinks: Episode 00",
+    title: "ChainLinks Episode 0 – Cup That Connects, Conversations That Matter",
     category: "Workshop",
-    date: "Nov 06, 2025",
-    venue: "ITER Main Campus",
+    date: "06 Nov 2025",
+    time: "4:00 PM – 6:00 PM",
+    venue: "AIC SOA Foundation",
     status: "past",
     speakers: [
       { name: "Faculty Mentors & GFG Leads", role: "Discussion Leads", photo: "" }
     ],
     description:
-      "Cup that connects, conversation that matters. Episode 00 introduced a refreshing shift from conventional academic events — an informal 'Chai Pe Charcha' where students engaged directly with faculty members across IoT, AI/ML, Cloud Computing, and Networking in small circle discussions.",
-    image:
-      "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=1400&q=70",
+      "The inaugural edition of ChainLinks designed around the concept of Chai Pe Charcha. Replaced traditional lectures with informal domain discussion circles across AI/ML, IoT, Cloud Computing, and Networking, fostering open faculty-student mentorship over tea.",
+    image: "/events/page_3_img_1__X15.jpg",
   },
 ];
 
 export const EVENT_CATEGORIES = [
   "All",
-  "Hackathon",
-  "Bootcamp",
   "Workshop",
   "Contest",
   "Seminar",
+  "Orientation",
+  "Bootcamp",
+  "Hackathon",
 ];
 
 const createTeamMembers = (groupName: string, prefix: string, count: number = 25) => {
