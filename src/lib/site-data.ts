@@ -342,25 +342,6 @@ const createTeamMembers = (groupName: string, prefix: string, count: number = 25
 };
 
 export const TEAM = [
-  // Faculty Coordinators
-  {
-    name: "Mr. Saurav Kumar",
-    role: "Faculty Coordinator",
-    group: "Faculty Coordinators",
-    bio: "Faculty Coordinator, Dept. of CSE, ITER. Guiding chapter development, academic alignment, and technical research opportunities.",
-    photo: "https://ui-avatars.com/api/?name=Saurav+Kumar&background=00ff7f&color=020b06&size=512",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  },
-  {
-    name: "Mr. Sujit Bebortta",
-    role: "Faculty Coordinator",
-    group: "Faculty Coordinators",
-    bio: "Faculty Coordinator, Dept. of CSE, ITER. Fostering technical excellence, institutional coordination, and faculty mentorship.",
-    photo: "https://ui-avatars.com/api/?name=Sujit+Bebortta&background=00ff7f&color=020b06&size=512",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  },
   // Club Coordinators
   {
     name: "Anubhab Samantaray",
@@ -459,7 +440,6 @@ export const TEAM = [
 ];
 
 export const TEAM_GROUPS = [
-  "Faculty Coordinators",
   "Coordinator",
   "Mentors",
   "Executive Board",
