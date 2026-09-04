@@ -52,31 +52,12 @@ function MemberCard({ m }: { m: any }) {
 }
 
 function LeadershipSection() {
-  const facultyCoordinators = TEAM.filter((m) => m.group === "Faculty Coordinators");
   const coordinators = TEAM.filter((m) => m.group === "Coordinator");
   const mentors = TEAM.filter((m) => m.group === "Mentors");
   const execBoard = TEAM.filter((m) => m.group === "Executive Board");
 
   return (
-    <section className="container-page py-10 space-y-12">
-      {/* Faculty Coordinators Section */}
-      <div>
-        <div className="mb-6 border-b border-hairline pb-4 flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">Faculty Coordinators</h2>
-            <p className="text-xs text-muted-foreground mt-0.5">Department of Computer Science and Engineering, ITER</p>
-          </div>
-          <span className="text-xs uppercase tracking-[0.14em] text-[#00ff7f] font-semibold">
-            Faculty Mentorship
-          </span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
-          {facultyCoordinators.map((fc) => (
-            <MemberCard key={fc.name} m={fc} />
-          ))}
-        </div>
-      </div>
-
+    <section className="container-page py-10">
       {/* Student Leadership & Mentorship */}
       <div>
         <div className="mb-6 border-b border-hairline pb-4 flex items-center justify-between">
