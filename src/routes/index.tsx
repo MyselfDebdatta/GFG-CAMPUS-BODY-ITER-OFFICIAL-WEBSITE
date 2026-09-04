@@ -310,15 +310,15 @@ function Home() {
           <Reveal>
             <SectionHeader
               eyebrow="About the chapter"
-              title={<>Learn. Build. Share. <span className="text-gradient-brand">Empowering student builders.</span></>}
-              description="Operating under the Department of Computer Science and Engineering at ITER, Siksha 'O' Anusandhan, we are a student-driven tech community bridging academic learning with industry demands through hands-on tracks, mentorship, and real-world projects."
+              title={<>A student engineering org, <span className="text-gradient-brand">run like a product team.</span></>}
+              description="Operating under the Department of Computer Science and Engineering at ITER, Siksha 'O' Anusandhan, we're a community of student engineers, designers, and problem-solvers building real things — together."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                { icon: Code2, title: "Learn: Multi-Track Mastery", body: "Hands-on workshops spanning 10+ CS domains: DSA, Web3, AI Automation, Cloud, and Data Science." },
-                { icon: Users, title: "Build: Collaborative Pods", body: "Peer-to-peer learning, practical study groups, and mentorship preparing members for top internships." },
-                { icon: Coffee, title: "Share: ChaiLinks Series", body: "Casual, high-impact conversational forums bridging seniors and juniors over candid tech & career talks." },
-                { icon: Trophy, title: "Conquer: Hackathons & Sprints", body: "Represent ITER at national hackathons, open-source initiatives, and tier-1 tech placements." },
+                { icon: Code2, title: "Build the craft", body: "Hands-on workshops spanning 10+ CS domains: DSA, Web3, AI Automation, Cloud, and Data Science." },
+                { icon: Users, title: "Find your people", body: "Peer-to-peer learning pods, practical study groups, and mentorship preparing members for top internships." },
+                { icon: Coffee, title: "ChaiLinks & Dialogues", body: "Casual, high-impact conversational forums bridging seniors and juniors over candid tech & career talks." },
+                { icon: Trophy, title: "Compete & Conquer", body: "Represent ITER at national hackathons, open-source initiatives, and tier-1 tech placements." },
               ].map((f) => (
                 <div key={f.title} className="group cursor-pointer rounded-xl border border-[#00ff7f]/20 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:bg-white/10 raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
                   <div className="grid h-9 w-9 place-items-center rounded-lg bg-[#00ff7f]/10 text-[#00ff7f] transition-transform duration-300 group-raw-hover:bg-[#00ff7f]/20 group-raw-hover:scale-110">
