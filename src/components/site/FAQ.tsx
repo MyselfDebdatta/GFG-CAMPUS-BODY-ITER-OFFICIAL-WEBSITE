@@ -5,28 +5,32 @@ import { cn } from "@/lib/utils";
 
 const FAQS = [
   {
-    question: "Who can join the GFG ITER Student Chapter?",
-    answer: "Any student at SOA University who has a passion for technology, coding, or design is welcome to join our community. Whether you're a freshman or a senior, there's a place for you here."
+    question: "What is the official affiliation of the GFG ITER Student Chapter?",
+    answer: "The GeeksforGeeks (GFG) Campus Body @ SOA is an officially recognized student chapter hosted under the Department of Computer Science and Engineering (CSE) at the Institute of Technical Education and Research (ITER), Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar."
   },
   {
-    question: "Do I need to be a coding expert to participate?",
-    answer: "Not at all! We believe in learning together. We host beginner-friendly bootcamps alongside advanced system design workshops, so you can start from scratch and grow with us."
+    question: "What is the core motto and mission of the chapter?",
+    answer: "Our official chapter motto is 'LEARN. BUILD. SHARE.' Guided by our annual theme ('Empowering Students Through Technology, Mentorship and Community'), we bridge the gap between classroom academic syllabi and fast-paced industry demands through practical hands-on workshops, peer mentorship, and real-world software engineering."
   },
   {
-    question: "What kind of events do you organize?",
-    answer: "Our calendar is packed with hackathons, algorithmic coding contests, open-source contribution drives, expert tech talks, and casual community networking sessions."
+    question: "What technical domains and skills are covered throughout the year?",
+    answer: "Through our multi-track Skills Exchange Workshop series and specialized tech tracks, we cover 10+ core CS domains including Data Structures & Algorithms (DSA), AI Automation (n8n/LLMs), Blockchain & Web3, Cloud Computing & Linux, DevOps & CI/CD, Computer Networking, Quantum Computing, Full-Stack Web Development, and Data Science."
   },
   {
-    question: "Is there any membership fee?",
-    answer: "No, joining the general community and attending most of our standard events is completely free. We believe education and networking should be accessible to everyone."
+    question: "What kind of activities and events does the chapter organize?",
+    answer: "Our official annual calendar documents 14+ high-impact activities, including flagship launch summits (such as Code Unbound in the Bansuri Guru Auditorium), signature conversational roundtables (ChaiLinks), 8 hands-on skill exchange workshops, competitive Menti Quizzes, hackathon preparation sessions, and career/placement masterclasses."
   },
   {
-    question: "Can I contribute if I'm not from a CSE background?",
-    answer: "Absolutely. Building great tech requires diverse skills. We have active pods for UI/UX design, marketing, content creation, and event management."
+    question: "What is 'ChaiLinks' and how does it work?",
+    answer: "ChaiLinks ('A Cup that Connects, Conversations that Matter') is our signature informal tech dialogue series. It departs from rigid classroom lectures to foster open peer-to-peer conversations where students, senior core leads, and alumni discuss tech journeys, coding hurdles, project ideas, and interview preparation over tea."
   },
   {
-    question: "How can I stay updated on the latest drops?",
-    answer: "The best way is to subscribe to our newsletter at the bottom of this page, and follow us on our social media handles (especially Instagram and LinkedIn) to never miss an update."
+    question: "Who is eligible to join, and is there any registration fee?",
+    answer: "Participation is completely free and open to all undergraduate and postgraduate students across all disciplines and batches at ITER, Siksha 'O' Anusandhan. Whether you are a beginner writing your first lines of code or an experienced builder preparing for placements, you are warmly welcomed."
+  },
+  {
+    question: "How can I get involved, join project squads, or apply for core team roles?",
+    answer: "You can get involved by joining our official Discord community, attending our weekly workshops and ChaiLinks episodes, and participating in hackathon teams. Dedicated contributors and student volunteers are inducted into core team lead and coordinator roles during our annual chapter recruitment drives."
   }
 ];
 
