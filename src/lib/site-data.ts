@@ -329,13 +329,13 @@ export const EVENT_CATEGORIES = [
   "Hackathon",
 ];
 
-const createTeamMembers = (groupName: string, prefix: string, count: number = 25) => {
+const createTeamMembers = (groupName: string, prefix: string, count: number = 25, startIdx: number = 1) => {
   return Array.from({ length: count }).map((_, i) => ({
-    name: `${prefix} Member ${i + 1}`,
+    name: `${prefix} Member ${i + startIdx}`,
     role: `${groupName.replace(" Team", "")} Core Member`,
     group: groupName,
     bio: `Active contributor to ${groupName} initiatives and events.`,
-    photo: `https://ui-avatars.com/api/?name=${encodeURIComponent(prefix)}+${i + 1}&background=00ff7f&color=020b06&size=512`,
+    photo: `https://ui-avatars.com/api/?name=${encodeURIComponent(prefix)}+${i + startIdx}&background=00ff7f&color=020b06&size=512`,
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   }));
@@ -400,7 +400,17 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
-  ...createTeamMembers("Technical Team", "Tech", 25),
+  {
+    name: "Debdatta Panda",
+    role: "Technical Team Member",
+    group: "Technical Team",
+    bio: "Full-stack developer and core technical builder architecting digital platforms, web systems, and engineering initiatives for GFG ITER.",
+    photo: "/team/debdatta-panda.jpg",
+    email: "pandadebdatta9@gmail.com",
+    linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
+    github: "https://github.com/MyselfDebdatta"
+  },
+  ...createTeamMembers("Technical Team", "Tech", 24, 2),
   
   // PR and Media Team: Lead + 25 members
   {
@@ -703,6 +713,16 @@ export const CONTRIBUTORS = [
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "raj.biswal@iter.ac.in"
+  },
+  {
+    id: "lead-12",
+    name: "Debdatta Panda",
+    role: "Technical Team Member",
+    achievement: '"Architecting and building the official web platforms, interactive portals, and digital systems for GFG ITER."',
+    photo: "/team/debdatta-panda.jpg",
+    linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
+    github: "https://github.com/MyselfDebdatta",
+    email: "pandadebdatta9@gmail.com"
   }
 ];
 
