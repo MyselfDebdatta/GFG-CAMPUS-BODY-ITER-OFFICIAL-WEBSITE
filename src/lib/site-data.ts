@@ -357,6 +357,7 @@ export const TEAM = [
     role: "Club Coordinator",
     group: "Coordinator",
     bio: "Club Coordinator (Batch 2027). Coordinating student engagement, peer-learning programs, and chapter logistics.",
+    photo: "/team/akansha-ajay.jpg",
     email: "akankshaajay05@gmail.com",
     linkedin: "https://www.linkedin.com/in/akansha-ajay-685622302",
     github: "https://github.com/AkanshaAjay5"
@@ -386,6 +387,7 @@ export const TEAM = [
     role: "Vice President",
     group: "Executive Board",
     bio: "Vice President, GFG ITER (Batch 2029). Systems, cloud, and infrastructure enthusiast driving student initiatives and competitions.",
+    photo: "/team/snehansu-sekhar-dash.jpg",
     email: "snehansu.sekhar.dash818@gmail.com",
     linkedin: "https://www.linkedin.com/in/snehansu-sekhar-dash-8892a9347",
     github: "https://github.com/snehansusekhardash818-cloud"
@@ -397,6 +399,7 @@ export const TEAM = [
     role: "Tech Lead",
     group: "Technical Team",
     bio: "Tech Lead (Batch 2028). Leading development of in-house competition platforms (Zer0ne CTF), open-source projects, and technical workshops.",
+    photo: "/team/abhijit-dash.jpg",
     email: "atd5370@gmail.com",
     linkedin: "https://www.linkedin.com/in/dashabhijit",
     github: "https://github.com/Abhijit-byte"
@@ -435,6 +438,7 @@ export const TEAM = [
     role: "Technical Core Member",
     group: "Technical Team",
     bio: "Technical Core Member (Batch 2027). Full-stack builder focused on algorithms, systems design, and student engineering initiatives.",
+    photo: "/team/sushobhan-ghosh.png",
     email: "sushobhan.3760@gmail.com",
     linkedin: "https://www.linkedin.com/in/sushobhan16/",
     github: "https://github.com/sushobhan16"
@@ -444,6 +448,7 @@ export const TEAM = [
     role: "Technical Core Member",
     group: "Technical Team",
     bio: "Technical Core Member (Batch 2027). Passionate software developer contributing to coding bootcamps, workshops, and chapter platforms.",
+    photo: "/team/apurva-sahay.jpg",
     email: "apurvasahay19@gmail.com",
     linkedin: "https://www.linkedin.com/in/apurva-sahay-28a793324",
     github: "https://github.com/ApurvaSahayy"
@@ -453,6 +458,7 @@ export const TEAM = [
     role: "Technical Core Member",
     group: "Technical Team",
     bio: "Technical Core Member (Batch 2027). Gen AI and Quantum Computing enthusiast, hackathon winner, and core technical developer.",
+    photo: "/team/debajyoti-bhakta.jpeg",
     email: "debajyotitech04@gmail.com",
     linkedin: "https://www.linkedin.com/in/debajyoti-bhakta/",
     github: "https://github.com/ItsYash40"
@@ -474,6 +480,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2028). Contributing to digital outreach, content creation, and vibrant campus engagement.",
+    photo: "/team/srusti-satarupa-biswal.jpg",
     email: "srustibiswal6@gmail.com",
     linkedin: "https://www.linkedin.com/in/srusti-satarupa-biswal-a9132333b",
     github: "https://github.com/srustibiswal6-sketch"
@@ -483,6 +490,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2029). Video creator and digital storyteller turning creative ideas into impactful chapter promotions.",
+    photo: "/team/ayush-kumar.jpg",
     email: "ayushkumar12728@gmail.com",
     linkedin: "https://www.linkedin.com/in/ayush-kumar-b1298924b",
     github: "https://github.com/ayushkumar12728-oss"
@@ -502,6 +510,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2027). Photographer and videographer documenting chapter hackathons, speaker sessions, and tech community life.",
+    photo: "/team/chandradipta-parida.png",
     email: "laughy12cdp@gmail.com",
     linkedin: "https://www.linkedin.com/in/chandradipta-parida-877a11272",
     github: "https://github.com/chandradipta"
@@ -511,6 +520,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2028). Public speaker and event anchor managing promotions and communication for flagship chapter events.",
+    photo: "/team/devpriyo-ghosh.png",
     email: "devpriyostudent@gmail.com",
     linkedin: "https://www.linkedin.com/in/devpriyo-ghosh-70218234a",
     github: "https://github.com/dev1404-sudo"
@@ -520,6 +530,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2027). Managing social outreach, member support, and interactive digital communications.",
+    photo: "/team/priyadarshani-patra.jpg",
     email: "priyapatrar15@gmail.com",
     linkedin: "https://www.linkedin.com/in/priyadarshanipatra",
     github: "https://github.com/Priyadarshanipatra-p"
@@ -529,6 +540,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2028). Content strategist and tech enthusiast bridging developer discussions with campus-wide reach.",
+    photo: "/team/subhajit-dandapat.png",
     email: "subhajitdandapat0101@gmail.com",
     linkedin: "https://www.linkedin.com/in/subhajit-dandapat-682583310",
     github: "https://github.com/subhajitdandapat"
@@ -538,6 +550,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2029). Creative media strategist handling social media narratives, reels, and chapter visibility.",
+    photo: "/team/rashi-swarnim.jpeg",
     email: "rashiswarnim@gmail.com",
     linkedin: "https://www.linkedin.com/in/rashi-swarnim-486a60251",
     github: "https://github.com/swarnimnim"
@@ -547,6 +560,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2027). Core communicator fostering community warmth, welcoming new members, and anchoring events.",
+    photo: "/team/vidisha-jena.jpg",
     email: "vidishajena24@gmail.com",
     linkedin: "https://www.linkedin.com/in/vidishajena",
     github: "https://github.com/VidishaJena"
@@ -556,6 +570,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2028). Web builder and digital creator managing online engagement, video assets, and community reach.",
+    photo: "/team/depesh-singh.jpg",
     email: "singhdepesh912@gmail.com",
     linkedin: "https://www.linkedin.com/in/depesh-singh-b6261437a",
     github: "https://github.com/Depesh-singh",
@@ -566,6 +581,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2027). Video editor and media creator driving student engagement, creative reels, and event buzz.",
+    photo: "/team/tushar-das.jpg",
     email: "tushardas0522@gmail.com",
     linkedin: "https://www.linkedin.com/in/tushar-das-1663a3302/",
     github: "https://github.com/tushardas22-dev"
@@ -575,6 +591,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2027). Video editor and multimedia specialist designing engaging video content for club events.",
+    photo: "/team/pratikshya-tripathy.jpeg",
     email: "pratikshya.tripathy05@gmail.com",
     linkedin: "https://www.linkedin.com/in/pratikshya-tripathy05/",
     github: "https://github.com/Pratikshyatri"
@@ -584,6 +601,7 @@ export const TEAM = [
     role: "PR and Media Core Member",
     group: "PR and Media Team",
     bio: "PR and Media Core Member (Batch 2028). Public relations enthusiast connecting student communities, promoting tech initiatives, and growing our audience.",
+    photo: "/team/anisha-kumari.jpg",
     email: "anishak121103@gmail.com",
     linkedin: "https://www.linkedin.com/in/anisha-kumari-860a00301/",
     github: "https://github.com/AnishaK07"
@@ -596,6 +614,7 @@ export const TEAM = [
     role: "Design Lead",
     group: "Design Team",
     bio: "Design Lead (Batch 2028). Architect of chapter visual identity, UI/UX design systems, and creative hackathon posters.",
+    photo: "/team/sanyukt-kumar-rai.png",
     email: "sanyuktkumarrai2@gmail.com",
     linkedin: "https://www.linkedin.com/in/sanyuktkumarrai",
     github: "https://github.com/sanyukt63"
@@ -605,6 +624,7 @@ export const TEAM = [
     role: "Design Core Member",
     group: "Design Team",
     bio: "Design Core Member (Batch 2029). Creative designer crafting visually compelling UI components, assets, and branding for chapter events.",
+    photo: "/team/rishabh-chaturvedi.jpeg",
     email: "rishabhchaturvedi324@gmail.com",
     linkedin: "https://www.linkedin.com/in/rishabh-chaturvedi-44b00a391/",
     github: "https://github.com/rishabhchaturvedi324"
@@ -614,6 +634,7 @@ export const TEAM = [
     role: "Design Core Member",
     group: "Design Team",
     bio: "Design Core Member (Batch 2028). UI/UX designer and web creator focused on clean interfaces, modern interactions, and chapter media.",
+    photo: "/team/swayam-ritiraj-dash.jpeg",
     email: "swayamritiraj@gmail.com",
     linkedin: "https://www.linkedin.com/in/swayam-ritiraj-dash/",
     github: "https://github.com/SwayamRitirajDash",
@@ -624,6 +645,7 @@ export const TEAM = [
     role: "Design Core Member",
     group: "Design Team",
     bio: "Design Core Member (Batch 2029). Visual designer turning creative concepts into engaging graphics and UI layouts for technical events.",
+    photo: "/team/kushagra-abhishek.jpeg",
     email: "kushagra.abhishek4349@gmail.com",
     linkedin: "https://www.linkedin.com/in/kushagra-abhishek-2ba52239b",
     github: "https://github.com/kushagraabhishek"
@@ -633,6 +655,7 @@ export const TEAM = [
     role: "Design Core Member",
     group: "Design Team",
     bio: "Design Core Member (Batch 2028). Graphic & UI designer collaborating on chapter branding, visual assets, and event promotions.",
+    photo: "/team/tanmaya-sahoo.png",
     email: "tanmayasahoo021205@gmail.com",
     linkedin: "https://www.linkedin.com/in/tanmaya-sahoo-b664631ba/",
     github: "https://github.com/tanmaya-sahoo"
@@ -642,6 +665,7 @@ export const TEAM = [
     role: "Design Core Member",
     group: "Design Team",
     bio: "Design Core Member (Batch 2028). Creative visual designer dedicated to making technical hackathons and workshops engaging and memorable.",
+    photo: "/team/swastik-mohapatra.jpg",
     email: "swastikmohapatra2005@gmail.com",
     linkedin: "https://www.linkedin.com/in/swastik-mohapatra-975165377",
     github: "https://github.com/swastik018"
@@ -663,6 +687,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Logistics coordinator ensuring seamless execution of campus meetups and workshops.",
+    photo: "/team/piyush-tiwari.jpg",
     email: "piyush89101@gmail.com",
     linkedin: "https://www.linkedin.com/in/piyush-tiwari-3098a4338",
     github: "https://github.com/infinitepush"
@@ -672,6 +697,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2027). Dedicated team coordinator managing event logistics, crowd control, and student experiences.",
+    photo: "/team/ronit-rajib-pattnaik.jpg",
     email: "ronit.r.pattnaik3000@gmail.com",
     linkedin: "https://www.linkedin.com/in/ronit-rajib-pattnaik-222674236/",
     github: "https://github.com/Ronit-R-P"
@@ -681,6 +707,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Operations and community strategist bringing structure and energy to campus events.",
+    photo: "/team/ayush-animesh-barik.png",
     email: "ayushanimeshbarik@gmail.com",
     linkedin: "https://www.linkedin.com/in/ayushanimeshbarik/",
     github: "https://github.com/Ayushanibarik",
@@ -691,6 +718,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2029). Operations lead contributor handling venue logistics, attendee coordination, and on-ground execution.",
+    photo: "/team/debasmit-roy.jpg",
     email: "debasmit.roy07@gmail.com",
     linkedin: "https://www.linkedin.com/in/debasmit-roy-842366373",
     github: "https://github.com/Sacred2609"
@@ -700,6 +728,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2027). Event facilitator coordinating 'Chai Pe Charcha' sessions and faculty-student community meetups.",
+    photo: "/team/ansh-gupta.jpg",
     email: "anshgupta3221@gmail.com",
     linkedin: "https://www.linkedin.com/in/ansh-gupta-857099296",
     github: "https://github.com/anshguptasince2004"
@@ -709,6 +738,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2029). Active on-ground organizer supporting hackathon execution and chapter logistics.",
+    photo: "/team/sahil-kumar-sahoo.jpg",
     email: "sahilsahoo396@gmail.com",
     linkedin: "https://www.linkedin.com/in/sahil-k-sahoo/",
     github: "https://github.com/Sahil-k-Sahoo"
@@ -718,6 +748,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Operations manager passionate about tech event management, team coordination, and student engagement.",
+    photo: "/team/archi-kumari.jpeg",
     email: "archikumarisah@gmail.com",
     linkedin: "https://www.linkedin.com/in/archi-kumari-bbb809318/",
     github: "https://github.com/archikumari02"
@@ -727,6 +758,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Driving operational excellence, event scheduling, and team coordination across all club initiatives.",
+    photo: "/team/abinash-das.jpg",
     email: "dasabinash.omm@gmail.com",
     linkedin: "https://www.linkedin.com/in/abinash-das-ba1908324",
     github: "https://github.com/Abinash-08",
@@ -737,6 +769,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Team coordinator supporting member onboarding, venue management, and inclusive community sessions.",
+    photo: "/team/aahana-das.png",
     email: "aahanaiter@gmail.com",
     linkedin: "https://www.linkedin.com/in/aahana-das-1a9275422"
   },
@@ -745,6 +778,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2029). On-ground operations specialist assisting in workshop setup, attendee check-ins, and logistics.",
+    photo: "/team/p-divyansh.jpg",
     email: "pdivyansh087@gmail.com",
     linkedin: "https://www.linkedin.com/in/p-divyansh-732760374",
     github: "https://github.com/pdivyansh37-debug"
@@ -754,6 +788,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Operations organizer managing event flow, attendee experiences, and community building.",
+    photo: "/team/mrunmayee-mohanty.jpeg",
     email: "mrunmayee717@gmail.com",
     linkedin: "https://www.linkedin.com/in/mrunmayee-mohanty-318279381",
     github: "https://github.com/mrunmayeemohanty2006"
@@ -763,6 +798,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2028). Logistics and coordination specialist supporting hands-on technical sessions and club meetups.",
+    photo: "/team/naincy-priya.jpg",
     email: "nancypriya0203@gmail.com",
     linkedin: "https://www.linkedin.com/in/naincy-priya-257113300",
     github: "https://github.com/Naincy0203"
@@ -772,6 +808,7 @@ export const TEAM = [
     role: "Operations Core Member",
     group: "Operation Team",
     bio: "Operations Core Member (Batch 2029). Community operations organizer driving team spirit, event logistics, and student participation.",
+    photo: "/team/yashvi-lodhi.jpg",
     email: "lodhiyashvi@gmail.com",
     linkedin: "https://www.linkedin.com/in/yashvi-lodhi-085669372/",
     github: "https://github.com/YashviLodhi"
