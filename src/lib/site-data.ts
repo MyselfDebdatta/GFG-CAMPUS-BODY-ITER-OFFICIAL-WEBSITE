@@ -400,7 +400,15 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
-  ...createTeamMembers("Technical Team", "Tech", 1, 1),
+  {
+    name: "Siddhant Jena",
+    role: "Technical Core Member",
+    group: "Technical Team",
+    bio: "Full-stack developer and technical builder contributing to web applications, systems development, and engineering initiatives for GFG ITER.",
+    photo: "/team/siddhant-jena.jpg",
+    linkedin: "https://www.linkedin.com/in/siddhant-jena-457350389",
+    github: "https://github.com/FOX-KNIGHT"
+  },
   {
     name: "Debdatta Panda",
     role: "Technical Core Member",
@@ -765,6 +773,15 @@ export const CONTRIBUTORS = [
     linkedin: "https://www.linkedin.com/in/ritisha-sahoo-67a046364",
     github: "https://github.com/ritisha34",
     email: "ritishasahoo727@gmail.com"
+  },
+  {
+    id: "lead-15",
+    name: "Siddhant Jena",
+    role: "Technical Core Member",
+    achievement: '"Building core web architectures, modern systems, and scalable student platforms for GFG ITER."',
+    photo: "/team/siddhant-jena.jpg",
+    linkedin: "https://www.linkedin.com/in/siddhant-jena-457350389",
+    github: "https://github.com/FOX-KNIGHT"
   }
 ];
 
