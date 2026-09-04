@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { Github, Linkedin, Mail, Globe, ChevronLeft, ChevronRight } from "lucide-react";
 import { TEAM, TEAM_GROUPS } from "@/lib/site-data";
 import { Reveal } from "@/components/site/Primitives";
 
@@ -77,6 +77,17 @@ function MemberCard({ m }: { m: any }) {
               <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </span>
           )}
+          {m.portfolio ? (
+            <a
+              href={m.portfolio}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${m.name} Portfolio`}
+              className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+            >
+              <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            </a>
+          ) : null}
         </div>
       </div>
     </article>
