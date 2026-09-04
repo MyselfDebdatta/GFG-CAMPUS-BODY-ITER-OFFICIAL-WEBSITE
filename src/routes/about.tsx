@@ -32,14 +32,17 @@ function About() {
         <div className="container-page relative py-16 md:py-24">
           <div className="max-w-4xl">
             <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-xs font-bold tracking-[0.14em] text-brand mb-6 uppercase">
+                Official Annual Profile · 2025–2026
+              </div>
               <h1 className="mb-6 text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                About <span className="text-gradient-brand">Us.</span>
+                LEARN. BUILD. <span className="text-gradient-brand">SHARE.</span>
               </h1>
               <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl leading-tight">
-                A student chapter built on craft and community.
+                Empowering Students Through Technology, Mentorship and Community.
               </h2>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                We are the official Geeks for Geeks student chapter at ITER, SOA University — an ambitious community of engineers, designers, and builders pushing the boundaries of what students can achieve.
+                GeeksforGeeks (GFG) Campus Body @ SOA is the official student chapter under the Department of Computer Science and Engineering, Faculty of Engineering and Technology (ITER), Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar.
               </p>
             </Reveal>
           </div>
@@ -52,37 +55,37 @@ function About() {
           {[
             {
               icon: Compass,
-              tag: "Our Vision",
-              title: "Make ITER a launchpad for world-class engineers.",
-              body: "A campus where every curious student can find mentors, teammates, and a stage to ship real work — from their first line of code to their first paycheck.",
+              tag: "Our Rationale",
+              title: "Bridging the gap between classroom and industry.",
+              body: "Established to build a bridge between formal academic curriculum and the wider, fast-evolving technology landscape through interactive, conversation-driven, and hands-on formats.",
               className: "md:col-span-7",
             },
             {
               icon: Target,
               tag: "Our Mission",
               title: "Learn in public. Build in the open. Ship together.",
-              body: "Run high-signal workshops, host thoughtful events, and back student projects that go beyond the classroom. Bridge students to opportunities, alumni, and industry.",
+              body: "Run high-signal workshops, host thoughtful dialogues, and back student technical projects. Bridge students to research domains, alumni, and industry.",
               className: "md:col-span-5",
             },
             {
-              icon: Code2,
-              tag: "Our Approach",
-              title: "Project-driven engineering.",
-              body: "We move beyond theoretical concepts by building real-world applications, actively contributing to open source, and competing in high-stakes hackathons.",
+              icon: Users2,
+              tag: "Student-Faculty Dialogue",
+              title: "Conversation-driven learning.",
+              body: "Through initiatives like Chai-Links ('Chai Pe Charcha'), we replace conventional lectures with informal discussion circles connecting students directly with faculty across emerging domains.",
               className: "md:col-span-4",
             },
             {
               icon: Sparkles,
-              tag: "Our Culture",
-              title: "Radical curiosity.",
-              body: "We prioritize knowledge sharing and peer mentorship. We foster a supportive environment where asking the naïve question is encouraged and failure is iteration.",
+              tag: "Peer Mentorship",
+              title: "Learn It. Build It. Share It.",
+              body: "Our multi-track Skills Exchange series empowers senior core members to mentor juniors in high-demand CS specializations through live coding, terminal walkthroughs, and sandboxes.",
               className: "md:col-span-4",
             },
             {
               icon: Rocket,
-              tag: "Our Impact",
-              title: "Bridging academia & industry.",
-              body: "We accelerate careers. We connect students with top-tier internships, powerful alumni networks, and opportunities that transform potential into proven capability.",
+              tag: "Competitive & Practical",
+              title: "In-House Innovation.",
+              body: "From custom platforms like our in-house Zer0ne CTF platform to high-pressure design and pitch events like Rachitva, we empower students to perform and lead under real constraints.",
               className: "md:col-span-4",
             }
           ].map((c, i) => (
@@ -108,17 +111,17 @@ function About() {
                 University Affiliation
               </h2>
               <h3 className="mb-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                Officially recognized at ITER, SOA University.
+                Department of Computer Science and Engineering, ITER
               </h3>
               <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
-                We operate under the Institute of Technical Education and Research (ITER), Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar. All our events and programs are backed by faculty coordination and university support.
+                We operate as the official student chapter under the Department of Computer Science and Engineering, Faculty of Engineering and Technology (ITER), Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar. All our activities, technical infrastructure, and competitions are organized with active institutional guidance and faculty coordination.
               </p>
               
               <div className="grid gap-4 sm:grid-cols-2">
-                <Fact k="Founded" v="2025" />
-                <Fact k="Chapter type" v="Official GFG Campus Body" />
-                <Fact k="Members" v="100+ students" />
-                <Fact k="Faculty coordinator" v="Dept. of CSE, ITER" />
+                <Fact k="Reporting Period" v="November 2025 – August 2026" />
+                <Fact k="Host Department" v="Dept. of CSE, ITER, SOA" />
+                <Fact k="Faculty Coordinators" v="Mr. Saurav Kumar & Mr. Sujit Bebortta" />
+                <Fact k="Student Coordinators" v="Anubhab Samantaray & Akansha Ajay" />
               </div>
             </div>
           </Reveal>
@@ -136,11 +139,11 @@ function About() {
         <SectionHeader
           eyebrow="Leadership"
           title={<>Our Faculty Coordinators</>}
-          description="Guiding the next generation of engineers at GFG Campus Body ITER."
+          description="Guiding the next generation of engineers at GFG Campus Body @ SOA – Student Chapter (CSE, ITER)."
         />
         
         <div className="mt-16 flex flex-col gap-10 max-w-5xl mx-auto">
-          {/* Card 1 */}
+          {/* Card 1: Mr. Saurav Kumar */}
           <Reveal delay={0.1}>
             <article className="flex flex-col md:flex-row items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 raw-hover:border-brand/40 raw-hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
               {/* Image side */}
@@ -156,18 +159,20 @@ function About() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
                   Faculty Coordinator | GFG Campus Body ITER
                 </div>
-                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 1</h3>
-                <p className="text-sm text-brand font-medium mb-8">Associate Professor, Department of CSE</p>
+                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Mr. Saurav Kumar</h3>
+                <p className="text-sm text-brand font-medium mb-8">Faculty Coordinator, Department of Computer Science and Engineering, ITER</p>
                 
                 <div className="relative border-l-2 border-brand/40 pl-5 py-2">
                   <p className="text-white/70 text-base leading-relaxed">
-                    Empowering students to push the boundaries of technology. At GFG ITER, we believe in building a foundation of strong technical skills, continuous learning, and collaborative innovation that prepares you for the challenges of tomorrow.
+                    "Our objective is to provide students with early and structured exposure to emerging Computer Science domains beyond the standard curriculum. By fostering curiosity, technical discipline, and peer-to-peer collaboration, GFG ITER prepares students to excel in real-world technological challenges."
                   </p>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-hairline">
                   <a
-                    href="#"
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
                     aria-label="LinkedIn Profile"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform raw-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   >
@@ -178,7 +183,7 @@ function About() {
             </article>
           </Reveal>
 
-          {/* Card 2 */}
+          {/* Card 2: Mr. Sujit Bebortta */}
           <Reveal delay={0.2}>
             <article className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 rounded-[2rem] border border-hairline bg-surface-elevated p-6 md:p-8 transition-all duration-500 raw-hover:border-brand/40 raw-hover:shadow-[0_0_40px_rgba(0,255,127,0.1)] group">
               {/* Image side */}
@@ -194,18 +199,20 @@ function About() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-brand mb-5 w-fit shadow-[0_0_15px_rgba(0,255,127,0.1)]">
                   Faculty Coordinator | GFG Campus Body ITER
                 </div>
-                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Random Name 2</h3>
-                <p className="text-sm text-brand font-medium mb-8">Assistant Professor, Department of CSE</p>
+                <h3 className="text-3xl font-bold tracking-tight text-white mb-2">Mr. Sujit Bebortta</h3>
+                <p className="text-sm text-brand font-medium mb-8">Faculty Coordinator, Department of Computer Science and Engineering, ITER</p>
                 
                 <div className="relative border-l-2 border-brand/40 pl-5 py-2">
                   <p className="text-white/70 text-base leading-relaxed">
-                    Innovation starts with a curious mindset and a supportive community. Our goal at GFG ITER is to provide students with the platform and resources they need to experiment, fail, learn, and ultimately build products that matter.
+                    "Through initiatives like Chai-Links and the Skills Exchange Workshop, the chapter creates informal, accessible spaces where faculty and students collaborate naturally. We are dedicated to nurturing holistic growth, research acumen, and impactful technical solutions across our campus community."
                   </p>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-hairline">
                   <a
-                    href="#"
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
                     aria-label="LinkedIn Profile"
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white transition-transform raw-hover:scale-110 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                   >
