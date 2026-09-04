@@ -52,89 +52,111 @@ function MemberCard({ m }: { m: any }) {
 }
 
 function LeadershipSection() {
+  const facultyCoordinators = TEAM.filter((m) => m.group === "Faculty Coordinators");
   const coordinators = TEAM.filter((m) => m.group === "Coordinator");
   const mentors = TEAM.filter((m) => m.group === "Mentors");
   const execBoard = TEAM.filter((m) => m.group === "Executive Board");
 
   return (
-    <section className="container-page py-10">
-      <div className="mb-6 border-b border-hairline pb-4 flex items-center justify-between">
-        <h2 className="text-2xl font-bold tracking-tight">Leadership & Mentorship</h2>
-        <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
-          5 members
-        </span>
-      </div>
-
-      {/* Group Titles Header Row for 5 Columns */}
-      <div className="hidden lg:grid grid-cols-5 gap-5 mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand">
-        <div className="col-span-2 flex items-center gap-2 border-r border-hairline/60 pr-4">
-          <span>Coordinators</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-          <span className="text-muted-foreground text-[10px]">2</span>
+    <section className="container-page py-10 space-y-12">
+      {/* Faculty Coordinators Section */}
+      <div>
+        <div className="mb-6 border-b border-hairline pb-4 flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Faculty Coordinators</h2>
+            <p className="text-xs text-muted-foreground mt-0.5">Department of Computer Science and Engineering, ITER</p>
+          </div>
+          <span className="text-xs uppercase tracking-[0.14em] text-[#00ff7f] font-semibold">
+            Faculty Mentorship
+          </span>
         </div>
-        <div className="col-span-1 flex items-center gap-2 border-r border-hairline/60 pr-4">
-          <span>Mentors</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-          <span className="text-muted-foreground text-[10px]">1</span>
-        </div>
-        <div className="col-span-2 flex items-center gap-2 pl-1">
-          <span>Executive Board</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-          <span className="text-muted-foreground text-[10px]">2</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+          {facultyCoordinators.map((fc) => (
+            <MemberCard key={fc.name} m={fc} />
+          ))}
         </div>
       </div>
 
-      {/* Desktop Equal 5-Column Grid (All 5 Cards 100% Identical Width & Height) */}
-      <div className="hidden lg:grid grid-cols-5 gap-5 items-stretch">
-        <div className="h-full">
-          <MemberCard m={coordinators[0]} />
+      {/* Student Leadership & Mentorship */}
+      <div>
+        <div className="mb-6 border-b border-hairline pb-4 flex items-center justify-between">
+          <h2 className="text-2xl font-bold tracking-tight">Student Leadership & Mentorship</h2>
+          <span className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            5 core leaders
+          </span>
         </div>
-        <div className="h-full relative">
-          <MemberCard m={coordinators[1]} />
-          <div aria-hidden className="absolute -right-2.5 top-6 bottom-6 w-px bg-hairline/60 pointer-events-none" />
-        </div>
-        <div className="h-full relative">
-          <MemberCard m={mentors[0]} />
-          <div aria-hidden className="absolute -right-2.5 top-6 bottom-6 w-px bg-hairline/60 pointer-events-none" />
-        </div>
-        <div className="h-full">
-          <MemberCard m={execBoard[0]} />
-        </div>
-        <div className="h-full">
-          <MemberCard m={execBoard[1]} />
-        </div>
-      </div>
 
-      {/* Mobile & Tablet View */}
-      <div className="lg:hidden flex flex-col gap-6">
-        <div>
-          <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
-            Coordinators (2)
+        {/* Group Titles Header Row for 5 Columns */}
+        <div className="hidden lg:grid grid-cols-5 gap-5 mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand">
+          <div className="col-span-2 flex items-center gap-2 border-r border-hairline/60 pr-4">
+            <span>Club Coordinators</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            <span className="text-muted-foreground text-[10px]">2</span>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {coordinators.map((m) => (
-              <MemberCard key={m.name} m={m} />
-            ))}
+          <div className="col-span-1 flex items-center gap-2 border-r border-hairline/60 pr-4">
+            <span>Mentors</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            <span className="text-muted-foreground text-[10px]">1</span>
+          </div>
+          <div className="col-span-2 flex items-center gap-2 pl-1">
+            <span>Executive Board</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            <span className="text-muted-foreground text-[10px]">2</span>
           </div>
         </div>
 
-        <div>
-          <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
-            Mentors (1)
+        {/* Desktop Equal 5-Column Grid */}
+        <div className="hidden lg:grid grid-cols-5 gap-5 items-stretch">
+          <div className="h-full">
+            <MemberCard m={coordinators[0]} />
           </div>
-          <div className="w-1/2 pr-1.5 sm:w-1/3 sm:pr-0">
+          <div className="h-full relative">
+            <MemberCard m={coordinators[1]} />
+            <div aria-hidden className="absolute -right-2.5 top-6 bottom-6 w-px bg-hairline/60 pointer-events-none" />
+          </div>
+          <div className="h-full relative">
             <MemberCard m={mentors[0]} />
+            <div aria-hidden className="absolute -right-2.5 top-6 bottom-6 w-px bg-hairline/60 pointer-events-none" />
+          </div>
+          <div className="h-full">
+            <MemberCard m={execBoard[0]} />
+          </div>
+          <div className="h-full">
+            <MemberCard m={execBoard[1]} />
           </div>
         </div>
 
-        <div>
-          <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
-            Executive Board (2)
+        {/* Mobile & Tablet View */}
+        <div className="lg:hidden flex flex-col gap-6">
+          <div>
+            <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
+              Club Coordinators (2)
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {coordinators.map((m) => (
+                <MemberCard key={m.name} m={m} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {execBoard.map((m) => (
-              <MemberCard key={m.name} m={m} />
-            ))}
+
+          <div>
+            <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
+              Community Mentor (1)
+            </div>
+            <div className="w-1/2 pr-1.5 sm:w-1/3 sm:pr-0">
+              <MemberCard m={mentors[0]} />
+            </div>
+          </div>
+
+          <div>
+            <div className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-brand border-b border-hairline pb-2">
+              Executive Board (2)
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {execBoard.map((m) => (
+                <MemberCard key={m.name} m={m} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
