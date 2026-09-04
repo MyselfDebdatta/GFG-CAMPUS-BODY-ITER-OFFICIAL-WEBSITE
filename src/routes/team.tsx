@@ -19,11 +19,15 @@ export const Route = createFileRoute("/team")({
 });
 
 function MemberCard({ m }: { m: any }) {
+  const avatarUrl = m.photo && !m.photo.includes("pravatar.cc")
+    ? m.photo
+    : `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`;
+
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_10px_30px_rgba(0,255,127,0.25)]">
       <div className="aspect-[4/5] w-full overflow-hidden rounded-t-2xl bg-[#020b06]">
         <img
-          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=00ff7f&color=020b06&size=512`}
+          src={avatarUrl}
           alt={m.name}
           className="h-full w-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
@@ -34,17 +38,45 @@ function MemberCard({ m }: { m: any }) {
           <div className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-brand truncate">{m.role}</div>
           <div className="mt-0.5 sm:mt-1 text-sm sm:text-base md:text-lg font-semibold tracking-tight truncate">{m.name}</div>
         </div>
-        <div className="mt-3 sm:mt-4 flex items-center gap-1 border-t border-hairline pt-3 sm:pt-4">
-          {[Linkedin, Github, Mail].map((Icon, idx) => (
+        <div className="mt-3 sm:mt-4 flex items-center gap-1.5 border-t border-hairline pt-3 sm:pt-4">
+          {m.linkedin ? (
             <a
-              key={idx}
-              href="#"
-              aria-label={`${m.name} social link`}
+              href={m.linkedin}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${m.name} LinkedIn`}
               className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
             >
-              <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </a>
-          ))}
+          ) : null}
+          {m.github ? (
+            <a
+              href={m.github}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${m.name} GitHub`}
+              className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+            >
+              <Github className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            </a>
+          ) : null}
+          {m.email ? (
+            <a
+              href={`mailto:${m.email}`}
+              aria-label={`Email ${m.name}`}
+              className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg text-muted-foreground hover:bg-brand/10 hover:text-brand transition-colors"
+            >
+              <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            </a>
+          ) : (
+            <span
+              className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-lg text-muted-foreground/30"
+              title="No direct email listed"
+            >
+              <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+            </span>
+          )}
         </div>
       </div>
     </article>
