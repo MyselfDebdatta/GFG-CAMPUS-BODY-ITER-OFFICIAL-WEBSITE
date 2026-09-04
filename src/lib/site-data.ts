@@ -400,9 +400,10 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  ...createTeamMembers("Technical Team", "Tech", 1, 1),
   {
     name: "Debdatta Panda",
-    role: "Technical Team Member",
+    role: "Technical Core Member",
     group: "Technical Team",
     bio: "Full-stack developer and core technical builder architecting digital platforms, web systems, and engineering initiatives for GFG ITER.",
     photo: "/team/debdatta-panda.jpg",
@@ -410,7 +411,7 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
     github: "https://github.com/MyselfDebdatta"
   },
-  ...createTeamMembers("Technical Team", "Tech", 24, 2),
+  ...createTeamMembers("Technical Team", "Tech", 23, 3),
   
   // PR and Media Team: Lead + 25 members
   {
@@ -717,7 +718,7 @@ export const CONTRIBUTORS = [
   {
     id: "lead-12",
     name: "Debdatta Panda",
-    role: "Technical Team Member",
+    role: "Technical Core Member",
     achievement: '"Architecting and building the official web platforms, interactive portals, and digital systems for GFG ITER."',
     photo: "/team/debdatta-panda.jpg",
     linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
