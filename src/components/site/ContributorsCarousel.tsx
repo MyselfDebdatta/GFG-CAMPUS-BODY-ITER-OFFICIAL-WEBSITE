@@ -99,14 +99,18 @@ export function ContributorsCarousel() {
               )}
             >
                 <div className="flex flex-col items-center text-center">
-                  {/* Styled Initials Circle Badge (No Stock Photos) */}
+                  {/* Styled Avatar Circle Badge */}
                   <div className={cn(
-                    "relative mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 transition-all duration-300 bg-gradient-to-br from-[#00ff7f]/20 via-[#00ff7f]/10 to-transparent text-[#00ff7f] font-black text-2xl tracking-wider select-none",
+                    "relative mb-4 flex h-20 w-20 items-center justify-center rounded-full border-2 transition-all duration-300 bg-gradient-to-br from-[#00ff7f]/20 via-[#00ff7f]/10 to-transparent text-[#00ff7f] font-black text-2xl tracking-wider select-none overflow-hidden",
                     isActive 
                       ? "border-[#00ff7f] shadow-[0_0_15px_rgba(0,255,127,0.3)] scale-105" 
                       : "border-white/15 text-white/50"
                   )}>
-                    {getInitials(lead.name)}
+                    {lead.photo ? (
+                      <img src={lead.photo} alt={lead.name} className="h-full w-full object-cover" />
+                    ) : (
+                      getInitials(lead.name)
+                    )}
                   </div>
                   
                   {/* Role Tag Pill */}
