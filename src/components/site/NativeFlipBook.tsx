@@ -129,17 +129,23 @@ const PAGES: ReactNode[] = [
         <div className="flex items-center">
           <img src="/Logo_light1.svg" alt="GFG Campus Body ITER" className="h-5 sm:h-6 w-auto object-contain brightness-0" />
         </div>
-        <div className="text-right text-[9px] font-bold tracking-widest uppercase text-[#333]">
-          ITER, SOA University
+        <div className="text-right text-[8px] sm:text-[9px] font-bold tracking-widest uppercase text-[#333]">
+          CSE DEPT · ITER · SOA
         </div>
       </div>
       
-      <div className="border-t-[3px] border-[#008F4C] pt-3 pb-3 text-center">
-        <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-[#333] leading-none mb-1">
+      <div className="border-t-[3px] border-[#008F4C] pt-2.5 pb-2.5 text-center">
+        <div className="text-[10px] sm:text-[11px] font-extrabold tracking-widest text-[#008F4C] uppercase mb-0.5">
+          Annual Activity Report
+        </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#333] leading-none mb-1">
           Geeks <span className="text-[#008F4C]">For</span> Geeks
         </h1>
-        <div className="text-sm sm:text-base font-extrabold tracking-widest text-[#008F4C]">
+        <div className="text-xs sm:text-sm font-extrabold tracking-widest text-[#008F4C]">
           2025 – 2026
+        </div>
+        <div className="text-[7.5px] sm:text-[8.5px] font-mono text-[#555] tracking-wide mt-0.5">
+          Reporting Period: November 2025 – August 2026
         </div>
       </div>
       <div className="border-t-[1.5px] border-[#008F4C] mb-[3px]"></div>
@@ -154,20 +160,20 @@ const PAGES: ReactNode[] = [
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111511]/90 via-[#111511]/20 to-transparent flex flex-col justify-end p-4">
             <span className="text-[12px] sm:text-[14px] font-bold text-white mb-0.5 leading-tight tracking-wide">
-              ITER Campus Student Chapter
+              GFG Campus Body @ SOA
             </span>
             <span className="text-[9px] sm:text-[10px] font-medium text-[#00ff7f]">
-              Siksha 'O' Anusandhan
+              Dept. of Computer Science & Engineering, ITER
             </span>
           </div>
         </div>
         
         <div className="flex justify-center items-center gap-3 text-[10px] sm:text-[11px] font-mono text-[#008F4C] tracking-widest font-bold">
-          <span>.CODE</span>
+          <span>.LEARN</span>
           <span className="text-[#1A1A1A]/30">·</span>
-          <span>.CONNECT</span>
+          <span>.BUILD</span>
           <span className="text-[#1A1A1A]/30">·</span>
-          <span>.CONQUER</span>
+          <span>.SHARE</span>
         </div>
       </div>
       
@@ -188,7 +194,7 @@ const PAGES: ReactNode[] = [
 
     {/* Footer */}
     <div className="flex items-center justify-between text-[8px] text-[#1A1A1A]/50 font-semibold z-10 border-t-2 border-[#1A1A1A]/10 pt-2 pb-3 px-5 sm:px-6 md:px-7 shrink-0">
-      <span>Published by GFG ITER Media Board</span>
+      <span>Published by GFG Campus Body @ SOA (CSE, ITER)</span>
       <span>Bhubaneswar, Odisha</span>
     </div>
   </div>,
@@ -210,12 +216,12 @@ const PAGES: ReactNode[] = [
 
         <div className="flex-1 overflow-y-auto pr-1">
           {[
-            { n: "1.", t: "About the Club", d: "Introduction to vision , mission and purpose" },
-            { n: "2.", t: "Core Team", d: "Meet the Leads" },
+            { n: "1.", t: "About the Club", d: "Introduction to vision, mission and purpose" },
+            { n: "2.", t: "Core Team", d: "Meet the Leads & Faculty Coordinators" },
             { n: "3.", t: "CodeUnbound (Club Launch/Reignite)", d: "Kickstarting innovation and coding culture" },
-            { n: "4.", t: "Events Conducted", d: "All 7 events details" },
+            { n: "4.", t: "Events Conducted", d: "Activities, workshops and technical sessions" },
             { n: "5.", t: "Members Achievement", d: "Showcasing Excellence" },
-            { n: "6.", t: "Future Vission", d: "Looking Ahead" },
+            { n: "6.", t: "Future Vision", d: "Looking Ahead" },
             { n: "7.", t: "Core Team Photo", d: "Core Members team 2025-26" },
           ].map((item) => (
             <div key={item.n} className="pb-1.5 mb-1.5 border-b border-[#008F4C]">
@@ -327,11 +333,18 @@ const PAGES: ReactNode[] = [
           
           {/* Green Pill */}
           <div className="bg-[#008F4C] text-white text-center text-[7.5px] sm:text-[8.5px] font-bold py-0.5 uppercase tracking-wider mt-0.5">
-            Core Team / Faculty Coordinator
+            Faculty Coordinators
           </div>
           
+          <div className="text-[7.5px] sm:text-[8px] text-[#111] font-bold text-center mt-0.5 leading-tight">
+            Mr. Saurav Kumar & Mr. Sujit Bebortta
+          </div>
+          <div className="text-[6.5px] sm:text-[7px] text-[#555] text-center font-medium">
+            Dept. of Computer Science and Engineering, ITER
+          </div>
+
           {/* Quote */}
-          <p className="text-[7.5px] sm:text-[8.5px] italic text-[#222] leading-snug text-justify font-bold px-1 mt-0.5">
+          <p className="text-[7px] sm:text-[7.5px] italic text-[#222] leading-snug text-justify font-bold px-1 mt-0.5">
             "Together, we are empowering future developers, encouraging innovation, and building a thriving tech community focused on growth and collaboration."
           </p>
         </div>
@@ -372,19 +385,19 @@ const PAGES: ReactNode[] = [
           </div>
         </div>
         
-        {/* Row 2: Tech Leads */}
+        {/* Row 2: Leads */}
         <div className="flex justify-center gap-2 px-1 mt-1">
           <div className="w-[23%] max-w-[105px]">
             <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+            <PersonCard name="SUBHAKANTA DAS" role="OPERATIONS LEAD" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+            <PersonCard name="AASTHA SINGH" role="PR & MEDIA LEAD" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+            <PersonCard name="SANYUKT KUMAR RAI" role="DESIGN LEAD" />
           </div>
         </div>
         

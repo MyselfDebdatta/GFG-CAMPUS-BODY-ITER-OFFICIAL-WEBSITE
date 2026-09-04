@@ -6,10 +6,12 @@ import { NativeFlipBook } from "./NativeFlipBook";
 const REPORTS = [
   {
     id: "2025-2026",
-    title: "Annual Report 2025-26 - Life at GFG ITER",
-    publisher: "GFG ITER",
+    title: "Annual Activity Report 2025–2026: LEARN. BUILD. SHARE.",
+    publisher: "GFG Campus Body @ SOA (CSE, ITER)",
     coverUrl: "/images/annual-report-cover.png", 
-    year: "2025-26",
+    year: "2025–26",
+    reportingPeriod: "November 2025 – August 2026",
+    pdfUrl: "/reports/GFG_ITER_Annual_Activity_Report_2025-2026.pdf",
   },
   // Future reports will be added here
 ];
@@ -112,7 +114,15 @@ export function AnnualReportsSection() {
                   </div>
                   <span className="font-medium">{report.publisher}</span>
                 </div>
-                <Download className="h-4 w-4 hover:text-white transition-colors" />
+                <a
+                  href={report.pdfUrl}
+                  download="GFG_ITER_Annual_Activity_Report_2025-2026.pdf"
+                  onClick={(e) => e.stopPropagation()}
+                  className="p-1 rounded-full text-white/60 hover:text-[#00ff7f] hover:bg-white/10 transition-all"
+                  title="Download Official PDF Report"
+                >
+                  <Download className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
