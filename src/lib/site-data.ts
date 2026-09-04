@@ -1,18 +1,30 @@
 export const CLUB = {
   name: "GFG Campus Body",
   short: "GFG ITER",
-  full: "Geeks for Geeks — ITER, SOA University",
-  tagline: "Empowering the Next Generation of Tech Leaders at ITER.",
+  full: "GeeksforGeeks (GFG) Campus Body @ SOA – Student Chapter (CSE, ITER)",
+  institution: "Siksha 'O' Anusandhan (Deemed to be University)",
+  hostUnit: "Department of Computer Science and Engineering, ITER",
+  motto: "LEARN. BUILD. SHARE.",
+  tagline: "Empowering Students Through Technology, Mentorship and Community",
   description:
-    "The official Geeks for Geeks student chapter at ITER, SOA University — where students learn, build, collaborate, and innovate together.",
-  address: "ITER, Siksha 'O' Anusandhan (SOA) University, Jagamara, Bhubaneswar, Odisha 751030",
+    "The official GeeksforGeeks student chapter at the Department of Computer Science and Engineering, ITER, Siksha 'O' Anusandhan (Deemed to be University) — empowering students through technology, mentorship, and community.",
+  address: "Department of CSE, ITER, Siksha 'O' Anusandhan (SOA) University, Jagamara, Bhubaneswar, Odisha 751030",
   email: "gfgiter@gmail.com",
   phone: "+91 82609 61948",
+  reportingPeriod: "November 2025 – August 2026",
+  facultyCoordinators: [
+    { name: "Mr. Saurav Kumar", role: "Faculty Coordinator", department: "Department of CSE, ITER" },
+    { name: "Mr. Sujit Bebortta", role: "Faculty Coordinator", department: "Department of CSE, ITER" },
+  ],
   president: {
     name: "Vivek Ranjan Sahoo",
     role: "President",
     phone: "+91 82609 61948",
   },
+  clubCoordinators: [
+    { name: "Anubhab Samantaray", role: "Club Coordinator" },
+    { name: "Akansha Ajay", role: "Club Coordinator" },
+  ],
   social: {
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     instagram: "https://www.instagram.com/gfg_iter/",
@@ -24,25 +36,25 @@ export const CLUB = {
 };
 
 export const STATS = [
-  { value: 100, suffix: "+", label: "Active Members" },
-  { value: 10, suffix: "+", label: "Projects Shipped" },
-  { value: 10, suffix: "+", label: "Events Hosted" },
-  { value: 10, suffix: "+", label: "Alumni at Top MNCs" },
+  { value: 14, suffix: "", label: "Activities Documented" },
+  { value: 8, suffix: "", label: "Skills Exchange Tracks" },
+  { value: 10, suffix: "+", label: "Tech Domains Covered" },
+  { value: 100, suffix: "+", label: "Active Student Builders" },
 ];
 
 export const MARQUEE = [
+  "Artificial Intelligence & Machine Learning",
+  "TinyML & Agentic AI",
+  "Blockchain & Web3",
+  "Quantum Computing",
+  "Computer Networking & Hardware Systems",
+  "Cybersecurity & Ethical Hacking",
+  "Linux, Cloud & OS Internals",
+  "DevOps & CI/CD Pipelines",
+  "AI Automation with n8n",
+  "Data Science & Visualization",
   "Software Engineering",
-  "Web Development",
-  "AI & Machine Learning",
-  "UI / UX",
-  "Open Source",
   "Competitive Programming",
-  "Cloud Computing",
-  "DevOps",
-  "Cybersecurity",
-  "Data Science",
-  "Systems Design",
-  "Product Engineering",
 ];
 
 export const EVENTS = [
@@ -330,47 +342,69 @@ const createTeamMembers = (groupName: string, prefix: string, count: number = 25
 };
 
 export const TEAM = [
+  // Faculty Coordinators
   {
-    name: "Anubhab Samantary",
-    role: "Coordinator",
+    name: "Mr. Saurav Kumar",
+    role: "Faculty Coordinator",
+    group: "Faculty Coordinators",
+    bio: "Faculty Coordinator, Dept. of CSE, ITER. Guiding chapter development, academic alignment, and technical research opportunities.",
+    photo: "https://ui-avatars.com/api/?name=Saurav+Kumar&background=00ff7f&color=020b06&size=512",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  },
+  {
+    name: "Mr. Sujit Bebortta",
+    role: "Faculty Coordinator",
+    group: "Faculty Coordinators",
+    bio: "Faculty Coordinator, Dept. of CSE, ITER. Fostering technical excellence, institutional coordination, and faculty mentorship.",
+    photo: "https://ui-avatars.com/api/?name=Sujit+Bebortta&background=00ff7f&color=020b06&size=512",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com"
+  },
+  // Club Coordinators
+  {
+    name: "Anubhab Samantaray",
+    role: "Club Coordinator",
     group: "Coordinator",
-    bio: "Associate Professor, Dept. of CSE. Mentor to the chapter.",
+    bio: "Club Coordinator (Batch 2027). Leading chapter operations, Web3 tracks, and technical workshop initiatives.",
     photo: "https://i.pravatar.cc/400?img=52",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
   {
     name: "Akansha Ajay",
-    role: "Coordinator",
+    role: "Club Coordinator",
     group: "Coordinator",
-    bio: "Assistant Professor. Guiding students in research and open source.",
+    bio: "Club Coordinator. Coordinating student engagement, peer-learning programs, and chapter logistics.",
     photo: "https://i.pravatar.cc/400?img=40",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  // Mentors
   {
     name: "Ayush R. Pradhan",
     role: "Community Mentor",
     group: "Mentors",
-    bio: "Alumni. Helping students transition from campus to industry.",
+    bio: "Community Mentor. Guiding students in computer networking, systems hardware, and transitioning to industry.",
     photo: "https://i.pravatar.cc/400?img=33",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
+  // Executive Board
   {
     name: "Vivek Ranjan Sahoo",
     role: "President",
     group: "Executive Board",
-    bio: "Final-year CSE. Full-stack engineer, ex-intern at a YC startup.",
+    bio: "President, GFG ITER. Full-stack & systems practitioner leading chapter vision, cloud infrastructure, and technical sessions.",
     photo: "https://i.pravatar.cc/400?img=12",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
   {
-    name: "Snehansu Sekhar Das",
+    name: "Snehansu Sekhar Dash",
     role: "Vice President",
     group: "Executive Board",
-    bio: "Systems and cloud enthusiast. Speaker at 3 regional tech summits.",
+    bio: "Vice President, GFG ITER. Systems, cloud, and infrastructure enthusiast driving student initiatives and competitions.",
     photo: "https://i.pravatar.cc/400?img=47",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
@@ -380,7 +414,7 @@ export const TEAM = [
     name: "Abhijit Dash",
     role: "Tech Lead",
     group: "Technical Team",
-    bio: "Open source maintainer. Loves TypeScript, Rust, and systems.",
+    bio: "Tech Lead. Leading development of in-house competition platforms (Zer0ne CTF), open-source projects, and technical workshops.",
     photo: "https://i.pravatar.cc/400?img=15",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
@@ -392,7 +426,7 @@ export const TEAM = [
     name: "Aastha Singh",
     role: "PR & Media Lead",
     group: "PR and Media Team",
-    bio: "Brand storyteller. Grows the club community online and offline.",
+    bio: "PR & Media Lead. Managing digital communication, visual storytelling, and brand presence across campus.",
     photo: "https://i.pravatar.cc/400?img=25",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
@@ -404,7 +438,7 @@ export const TEAM = [
     name: "Sanyukt Kumar Rai",
     role: "Design Lead",
     group: "Design Team",
-    bio: "Product designer. Runs the club's design system and brand.",
+    bio: "Design Lead. Architect of chapter visual identity, UI/UX design systems, and creative hackathon posters.",
     photo: "https://i.pravatar.cc/400?img=45",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
@@ -416,7 +450,7 @@ export const TEAM = [
     name: "Subhakanta Das",
     role: "Operations Lead",
     group: "Operation Team",
-    bio: "Orchestrates hackathons, bootcamps, and campus-wide summits.",
+    bio: "Operations Lead. Managing offline venue logistics, Discord server operations, cybersecurity workshops, and event flow.",
     photo: "https://i.pravatar.cc/400?img=8",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
@@ -425,6 +459,7 @@ export const TEAM = [
 ];
 
 export const TEAM_GROUPS = [
+  "Faculty Coordinators",
   "Coordinator",
   "Mentors",
   "Executive Board",
@@ -436,25 +471,25 @@ export const TEAM_GROUPS = [
 
 export const ALUMNI = [
   {
-    name: "Ankit Rajan",
-    role: "Will be updated shortly",
-    year: "'23",
-    photo: "https://i.pravatar.cc/300?img=11",
-    quote: "GFG ITER is where I first shipped code that other people actually used.",
+    name: "Mukesh Kumar Padhi",
+    role: "Founder & Ex-Operation Lead",
+    year: "'26",
+    photo: "https://i.pravatar.cc/300?img=44",
+    quote: "The community pushed me to think bigger, mentor juniors, and dive deep into data science.",
   },
   {
-    name: "Mukesh Kumar Padhi",
-    role: "Will be updated shortly",
-    year: "'23",
-    photo: "https://i.pravatar.cc/300?img=44",
-    quote: "The community pushed me to interview harder and think bigger.",
+    name: "Raj Sahasransu Biswal",
+    role: "Ex-Tech Lead & DevOps Engineer",
+    year: "'26",
+    photo: "https://i.pravatar.cc/300?img=11",
+    quote: "From 'it works on my machine' to 'it works everywhere' — GFG ITER made engineering real.",
   },
   {
     name: "Rathikant Behera",
-    role: "Will be updated shortly",
-    year: "'23",
+    role: "Systems & Software Researcher",
+    year: "'25",
     photo: "https://i.pravatar.cc/300?img=68",
-    quote: "From my first workshop to a Carnegie Mellon offer — this club was pivotal.",
+    quote: "From my first workshop to top research opportunities — this club was pivotal.",
   },
 ];
 
@@ -560,20 +595,40 @@ export const FAQS = [
 
 export const CONTRIBUTORS = [
   {
-    id: "lead-1",
-    name: "Anubhab Samantary",
-    role: "Coordinator",
-    achievement: '"Bridging vision with execution to lead GFG ITER towards excellence."',
+    id: "lead-fc-1",
+    name: "Mr. Saurav Kumar",
+    role: "Faculty Coordinator",
+    achievement: '"Guiding students to build a solid foundation in emerging technologies, research, and collaborative problem solving."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
-    email: "anubhab.samantary@soa.ac.in"
+    email: "sauravkumar@soa.ac.in"
+  },
+  {
+    id: "lead-fc-2",
+    name: "Mr. Sujit Bebortta",
+    role: "Faculty Coordinator",
+    achievement: '"Fostering technical curiosity, research alignment, and institutional mentorship across the chapter."',
+    photo: "",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "sujitbebortta@soa.ac.in"
+  },
+  {
+    id: "lead-1",
+    name: "Anubhab Samantaray",
+    role: "Club Coordinator",
+    achievement: '"Bridging vision with execution to lead GFG ITER towards technical excellence and Web3 innovation."',
+    photo: "",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "anubhab.samantaray@soa.ac.in"
   },
   {
     id: "lead-2",
     name: "Akansha Ajay",
-    role: "Coordinator",
-    achievement: '"Fostering collaboration and driving impactful student tech initiatives."',
+    role: "Club Coordinator",
+    achievement: '"Fostering collaboration and driving impactful peer-learning student tech initiatives across batches."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -583,7 +638,7 @@ export const CONTRIBUTORS = [
     id: "lead-3",
     name: "Ayush R. Pradhan",
     role: "Community Mentor",
-    achievement: '"Empowering developers to transition from campus learning to industry impact."',
+    achievement: '"Empowering developers to transition from campus learning to real-world infrastructure and networking impact."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -593,7 +648,7 @@ export const CONTRIBUTORS = [
     id: "lead-4",
     name: "Vivek Ranjan Sahoo",
     role: "President",
-    achievement: '"Building a culture of relentless innovation, shipping, and peer learning."',
+    achievement: '"Building an authentic culture of relentless building, cloud exploration, and student leadership."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -601,9 +656,9 @@ export const CONTRIBUTORS = [
   },
   {
     id: "lead-5",
-    name: "Snehansu Sekhar Das",
+    name: "Snehansu Sekhar Dash",
     role: "Vice President",
-    achievement: '"Scaling our community reach and driving campus-wide technical summits."',
+    achievement: '"Scaling our community reach and orchestrating campus-wide technical competitions and summits."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -613,7 +668,7 @@ export const CONTRIBUTORS = [
     id: "lead-6",
     name: "Abhijit Dash",
     role: "Tech Lead",
-    achievement: '"Crafting robust architecture and leading hands-on technical sprints."',
+    achievement: '"Crafting in-house platforms like Zer0ne CTF and leading hands-on technical development sprints."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -623,7 +678,7 @@ export const CONTRIBUTORS = [
     id: "lead-7",
     name: "Aastha Singh",
     role: "PR & Media Lead",
-    achievement: '"Amplifying our builders\' stories and scaling our brand presence."',
+    achievement: '"Amplifying our builders\' journeys and scaling the chapter brand presence across ITER."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -633,7 +688,7 @@ export const CONTRIBUTORS = [
     id: "lead-8",
     name: "Sanyukt Kumar Rai",
     role: "Design Lead",
-    achievement: '"Designing intuitive user experiences and crafting our visual identity."',
+    achievement: '"Designing intuitive user interfaces and crafting distinct brand systems for all initiatives."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -643,13 +698,34 @@ export const CONTRIBUTORS = [
     id: "lead-9",
     name: "Subhakanta Das",
     role: "Operations Lead",
-    achievement: '"Orchestrating seamless hackathons, bootcamps, and campus logistics."',
+    achievement: '"Orchestrating seamless offline events, cybersecurity workshops, and Discord infrastructure."',
     photo: "",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
     email: "subhakanta.das@iter.ac.in"
+  },
+  {
+    id: "lead-10",
+    name: "Mukesh Kumar Padhi",
+    role: "Founder & Ex-Operation Lead",
+    achievement: '"Pioneered early chapter operations and delivered foundational Data Science masterclasses."',
+    photo: "",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "mukesh.padhi@iter.ac.in"
+  },
+  {
+    id: "lead-11",
+    name: "Raj Sahasransu Biswal",
+    role: "Ex-Tech Lead",
+    achievement: '"Championed DevOps culture, CI/CD automation, and cloud containerization across the student body."',
+    photo: "",
+    linkedin: "https://linkedin.com",
+    github: "https://github.com",
+    email: "raj.biswal@iter.ac.in"
   }
 ];
+
 export const ACHIEVEMENTS = [
   { 
     id: '1', 
