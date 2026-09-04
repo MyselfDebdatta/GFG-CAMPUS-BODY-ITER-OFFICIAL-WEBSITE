@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Github, Linkedin, Mail } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, Linkedin, Mail, Globe } from "lucide-react";
 import { CONTRIBUTORS } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -166,6 +166,17 @@ export function ContributorsCarousel() {
                       aria-label={`Email ${lead.name}`}
                     >
                       <Mail className="h-4 w-4" />
+                    </a>
+                  )}
+                  {(lead as any).portfolio && (
+                    <a
+                      href={(lead as any).portfolio}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80 transition-all hover:border-[#00ff7f] hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 shadow-md"
+                      aria-label={`${lead.name}'s Portfolio`}
+                    >
+                      <Globe className="h-4 w-4" />
                     </a>
                   )}
                 </div>

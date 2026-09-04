@@ -421,7 +421,8 @@ export const TEAM = [
     photo: "/team/debdatta-panda.jpg",
     email: "pandadebdatta9@gmail.com",
     linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
-    github: "https://github.com/MyselfDebdatta"
+    github: "https://github.com/MyselfDebdatta",
+    portfolio: "https://debdatta-panda.vercel.app/"
   },
   {
     name: "Arman Khan",
@@ -1114,7 +1115,8 @@ export const CONTRIBUTORS = [
     photo: "/team/debdatta-panda.jpg",
     linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
     github: "https://github.com/MyselfDebdatta",
-    email: "pandadebdatta9@gmail.com"
+    email: "pandadebdatta9@gmail.com",
+    portfolio: "https://debdatta-panda.vercel.app/"
   },
   {
     id: "lead-13",
