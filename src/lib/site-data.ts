@@ -433,7 +433,18 @@ export const TEAM = [
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
-  ...createTeamMembers("PR and Media Team", "Media", 25),
+  ...createTeamMembers("PR and Media Team", "Media", 2, 1),
+  {
+    name: "Ritisha Sahoo",
+    role: "PR and Media Core Member",
+    group: "PR and Media Team",
+    bio: "PR & Media core contributor driving digital outreach, visual storytelling, and community engagement for GFG ITER.",
+    photo: "/team/ritisha-sahoo.png",
+    email: "ritishasahoo727@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ritisha-sahoo-67a046364",
+    github: "https://github.com/ritisha34"
+  },
+  ...createTeamMembers("PR and Media Team", "Media", 22, 4),
   
   // Design Team: Lead + 25 members
   {
@@ -744,6 +755,16 @@ export const CONTRIBUTORS = [
     linkedin: "https://www.linkedin.com/in/arman-khan-3a6059180",
     github: "https://github.com/arman001992khan-pixel",
     email: "arman001992khan@gmail.com"
+  },
+  {
+    id: "lead-14",
+    name: "Ritisha Sahoo",
+    role: "PR and Media Core Member",
+    achievement: '"Leading creative media campaigns, digital storytelling, and brand outreach across the student body."',
+    photo: "/team/ritisha-sahoo.png",
+    linkedin: "https://www.linkedin.com/in/ritisha-sahoo-67a046364",
+    github: "https://github.com/ritisha34",
+    email: "ritishasahoo727@gmail.com"
   }
 ];
 
