@@ -411,7 +411,17 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
     github: "https://github.com/MyselfDebdatta"
   },
-  ...createTeamMembers("Technical Team", "Tech", 23, 3),
+  {
+    name: "Arman Khan",
+    role: "Technical Core Member",
+    group: "Technical Team",
+    bio: "Full-stack developer and technical builder contributing to core chapter development, web applications, and collaborative coding initiatives.",
+    photo: "/team/arman-khan.jpg",
+    email: "arman001992khan@gmail.com",
+    linkedin: "https://www.linkedin.com/in/arman-khan-3a6059180",
+    github: "https://github.com/arman001992khan-pixel"
+  },
+  ...createTeamMembers("Technical Team", "Tech", 22, 4),
   
   // PR and Media Team: Lead + 25 members
   {
@@ -724,6 +734,16 @@ export const CONTRIBUTORS = [
     linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
     github: "https://github.com/MyselfDebdatta",
     email: "pandadebdatta9@gmail.com"
+  },
+  {
+    id: "lead-13",
+    name: "Arman Khan",
+    role: "Technical Core Member",
+    achievement: '"Developing robust software solutions and driving collaborative coding excellence for GFG ITER."',
+    photo: "/team/arman-khan.jpg",
+    linkedin: "https://www.linkedin.com/in/arman-khan-3a6059180",
+    github: "https://github.com/arman001992khan-pixel",
+    email: "arman001992khan@gmail.com"
   }
 ];
 
