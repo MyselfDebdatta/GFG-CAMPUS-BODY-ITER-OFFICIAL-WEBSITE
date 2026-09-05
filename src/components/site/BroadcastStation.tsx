@@ -56,19 +56,21 @@ export function HeroBroadcastPill() {
       onClick={handleScrollToBroadcast}
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="group relative inline-flex items-center gap-2.5 rounded-full border border-[#00ff7f]/40 bg-[#020b06]/90 px-4 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-xl transition-all duration-300 hover:border-[#00ff7f] hover:bg-[#00ff7f]/10 hover:shadow-[0_0_20px_rgba(0,255,127,0.35)] active:scale-95 cursor-pointer"
+      transition={{ duration: 0.5, delay: 0.1 }}
+      className="group relative inline-flex items-center gap-2.5 sm:gap-3 rounded-full border border-[#00ff7f]/40 bg-[#060D09]/90 px-4 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium text-white/90 backdrop-blur-xl transition-all duration-300 hover:border-[#00ff7f] hover:bg-[#00ff7f]/10 hover:shadow-[0_0_25px_rgba(0,255,127,0.3)] active:scale-98 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
     >
-      <span className="relative flex h-2 w-2">
+      <span className="relative flex h-2 w-2 shrink-0">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
         <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
       </span>
-      <span className="font-bold tracking-wide text-[#00ff7f] uppercase text-[11px]">Live Transmission</span>
-      <span className="hidden sm:inline-block text-white/30">•</span>
-      <span className="truncate max-w-[240px] sm:max-w-md font-medium text-white/90 group-hover:text-white">
-        {liveRecruitment.headline}
+      <span className="font-bold tracking-wider text-[#00ff7f] uppercase text-[10px] sm:text-[11px] font-mono shrink-0">
+        Live Broadcast
       </span>
-      <span className="inline-flex items-center gap-1 rounded-full bg-[#00ff7f]/20 px-2 py-0.5 text-[10px] font-bold text-[#00ff7f] transition-transform group-hover:translate-x-0.5">
+      <span className="text-white/30">•</span>
+      <span className="text-white/90 group-hover:text-white font-medium">
+        Registration for GFG Members Recruitment (2026–2027 Session) is Live Now!
+      </span>
+      <span className="inline-flex items-center gap-1 rounded-full bg-[#00ff7f] px-2.5 py-0.5 text-[10px] sm:text-[11px] font-bold text-[#020b06] transition-all group-hover:bg-white shrink-0 ml-1">
         Apply Now <ChevronRight className="h-3 w-3" />
       </span>
     </motion.a>
