@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import {
   Sparkles,
   Calendar,
@@ -93,14 +92,13 @@ function DomainIcon({ name }: { name: string }) {
 // Full Interactive Broadcast Station
 // -------------------------------------------------------------
 export function BroadcastStation() {
-  const [selectedId, setSelectedId] = useState<string>("recruitment-2026-2027");
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [modalTab, setModalTab] = useState<"overview" | "domains" | "process" | "faqs">("overview");
   const [copied, setCopied] = useState(false);
 
-  // Active broadcast item
+  // Focus purely on the 2026–2027 Recruitment Drive
   const activeBroadcast: BroadcastItem =
-    BROADCASTS.find((b) => b.id === selectedId) || BROADCASTS[0];
+    BROADCASTS.find((b) => b.id === "recruitment-2026-2027") || BROADCASTS[0];
 
   const handleCopyLink = () => {
     const url = `${window.location.origin}/#broadcast-station`;
@@ -116,7 +114,7 @@ export function BroadcastStation() {
 
       <div className="container-page relative z-10">
         {/* Transmission Station Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#00ff7f]/20">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-8 border-b border-[#00ff7f]/20">
           <div>
             <div className="flex flex-wrap items-center gap-3 mb-3">
               {/* Live Signal Beacon */}
@@ -125,7 +123,7 @@ export function BroadcastStation() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
                 </span>
-                LIVE TRANSMISSION
+                OFFICIAL TRANSMISSION
               </div>
 
               {/* Audio Frequency Bars Animation */}
@@ -141,7 +139,7 @@ export function BroadcastStation() {
 
               {/* Status Badge */}
               <div className="text-xs text-white/50 font-mono hidden lg:inline-block">
-                STREAM STABILITY: <span className="text-[#00ff7f]">99.8% STABLE</span>
+                STATUS: <span className="text-[#00ff7f]">ACTIVE INTAKE</span>
               </div>
             </div>
 
@@ -149,56 +147,20 @@ export function BroadcastStation() {
               Chapter Broadcast Hub
             </h2>
             <p className="mt-2 text-base md:text-lg text-white/60 max-w-2xl">
-              Official announcements, live recruitment drives, and upcoming registrations from GFG ITER.
+              Official announcement regarding chapter recruitment and core intake for the upcoming academic session.
             </p>
           </div>
 
-          {/* Direct Channels / Tabs */}
-          <div className="flex flex-wrap items-center gap-2 bg-[#060D09] p-1.5 rounded-2xl border border-white/10 self-start md:self-auto">
-            {BROADCASTS.map((item) => {
-              const isSelected = item.id === selectedId;
-              const shortTitle =
-                item.id === "recruitment-2026-2027"
-                  ? "Recruitment 2026–27"
-                  : item.id === "zerone-ctf-2026"
-                  ? "Zer0ne CTF"
-                  : item.id === "chai-links-ep02"
-                  ? "Chai & Links"
-                  : item.id === "annual-report-release"
-                  ? "Annual Report"
-                  : "Skill Exchange";
-
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setSelectedId(item.id)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                    isSelected
-                      ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_12px_rgba(0,255,127,0.4)]"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {item.isLive && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
-                  )}
-                  {shortTitle}
-                </button>
-              );
-            })}
+          {/* Clean Session Status Indicator on the right */}
+          <div className="hidden sm:flex items-center gap-2 rounded-2xl border border-[#00ff7f]/30 bg-[#060D09] px-4 py-2.5 text-xs font-mono text-[#00ff7f] shrink-0">
+            <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" />
+            <span>SESSION 2026–2027 // RECRUITMENT LIVE</span>
           </div>
         </div>
 
         {/* Focused Main Broadcast Card (Full Width, Centered, Clean) */}
         <div className="mt-8 max-w-5xl mx-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeBroadcast.id}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35 }}
-              className="relative rounded-3xl border-2 border-[#00ff7f]/40 bg-[#060D09]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-12 shadow-[0_0_35px_rgba(0,255,127,0.15)] overflow-hidden"
-            >
+          <div className="relative rounded-3xl border-2 border-[#00ff7f]/40 bg-[#060D09]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-12 shadow-[0_0_35px_rgba(0,255,127,0.15)] overflow-hidden">
               {/* Tech Scanlines & Grid Texture */}
               <div
                 aria-hidden
@@ -387,8 +349,7 @@ export function BroadcastStation() {
                   <span className="text-xs font-mono text-[#00ff7f] animate-fade-in">Link Copied!</span>
                 )}
               </div>
-            </motion.div>
-          </AnimatePresence>
+            </div>
         </div>
       </div>
 
