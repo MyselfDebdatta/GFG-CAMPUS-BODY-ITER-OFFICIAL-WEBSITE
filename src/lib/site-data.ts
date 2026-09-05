@@ -978,176 +978,104 @@ export const FAQS = [
 ];
 
 export const CONTRIBUTORS = [
-  {
-    id: "lead-fc-1",
-    name: "Mr. Saurav Kumar",
-    role: "Faculty Coordinator",
-    achievement: '"Guiding students to build a solid foundation in emerging technologies, research, and collaborative problem solving."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "sauravkumar@soa.ac.in"
-  },
-  {
-    id: "lead-fc-2",
-    name: "Mr. Sujit Bebortta",
-    role: "Faculty Coordinator",
-    achievement: '"Fostering technical curiosity, research alignment, and institutional mentorship across the chapter."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "sujitbebortta@soa.ac.in"
-  },
+  // 1. Club Coordinator
   {
     id: "lead-1",
     name: "Anubhab Samantaray",
     role: "Club Coordinator",
     achievement: '"Bridging vision with execution to lead GFG ITER towards technical excellence and Web3 innovation."',
     photo: "",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "anubhab.samantaray@soa.ac.in"
   },
+  // 2. Club Coordinator
   {
     id: "lead-2",
     name: "Akansha Ajay",
     role: "Club Coordinator",
     achievement: '"Fostering collaboration and driving impactful peer-learning student tech initiatives across batches."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "akansha.ajay@soa.ac.in"
+    photo: "/team/akansha-ajay.jpg",
+    linkedin: "https://www.linkedin.com/in/akansha-ajay-685622302",
+    github: "https://github.com/AkanshaAjay5",
+    email: "akankshaajay05@gmail.com"
   },
+  // 3. President
   {
     id: "lead-3",
-    name: "Ayush R. Pradhan",
-    role: "Community Mentor",
-    achievement: '"Empowering developers to transition from campus learning to real-world infrastructure and networking impact."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "ayush.pradhan@soa.ac.in"
-  },
-  {
-    id: "lead-4",
     name: "Vivek Ranjan Sahoo",
     role: "President",
     achievement: '"Building an authentic culture of relentless building, cloud exploration, and student leadership."',
     photo: "",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "vivek.sahoo@iter.ac.in"
   },
+  // 4. Vice President
   {
-    id: "lead-5",
+    id: "lead-4",
     name: "Snehansu Sekhar Dash",
     role: "Vice President",
     achievement: '"Scaling our community reach and orchestrating campus-wide technical competitions and summits."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "snehansu.das@iter.ac.in"
+    photo: "/team/snehansu-sekhar-dash.jpg",
+    linkedin: "https://www.linkedin.com/in/snehansu-sekhar-dash-8892a9347",
+    github: "https://github.com/snehansusekhardash818-cloud",
+    email: "snehansu.sekhar.dash818@gmail.com"
   },
+  // 5. Community Mentor
+  {
+    id: "lead-5",
+    name: "Ayush R. Pradhan",
+    role: "Community Mentor",
+    achievement: '"Empowering developers to transition from campus learning to real-world infrastructure and networking impact."',
+    photo: "",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
+    github: "https://github.com",
+    email: "ayush.pradhan@soa.ac.in"
+  },
+  // 6. Tech Lead
   {
     id: "lead-6",
     name: "Abhijit Dash",
     role: "Tech Lead",
     achievement: '"Crafting in-house platforms like Zer0ne CTF and leading hands-on technical development sprints."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "abhijit.dash@iter.ac.in"
+    photo: "/team/abhijit-dash.jpg",
+    linkedin: "https://www.linkedin.com/in/dashabhijit",
+    github: "https://github.com/Abhijit-byte",
+    email: "atd5370@gmail.com"
   },
+  // 7. Operations Lead
   {
     id: "lead-7",
-    name: "Aastha Singh",
-    role: "PR & Media Lead",
-    achievement: '"Amplifying our builders\' journeys and scaling the chapter brand presence across ITER."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "aastha.singh@iter.ac.in"
-  },
-  {
-    id: "lead-8",
-    name: "Sanyukt Kumar Rai",
-    role: "Design Lead",
-    achievement: '"Designing intuitive user interfaces and crafting distinct brand systems for all initiatives."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "sanyukt.rai@iter.ac.in"
-  },
-  {
-    id: "lead-9",
     name: "Subhakanta Das",
     role: "Operations Lead",
     achievement: '"Orchestrating seamless offline events, cybersecurity workshops, and Discord infrastructure."',
     photo: "",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "subhakanta.das@iter.ac.in"
   },
+  // 8. PR & Media Lead
   {
-    id: "lead-10",
-    name: "Mukesh Kumar Padhi",
-    role: "Founder & Ex-Operation Lead",
-    achievement: '"Pioneered early chapter operations and delivered foundational Data Science masterclasses."',
+    id: "lead-8",
+    name: "Aastha Singh",
+    role: "PR & Media Lead",
+    achievement: '"Amplifying our builders\' journeys and scaling the chapter brand presence across ITER."',
     photo: "",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
-    email: "mukesh.padhi@iter.ac.in"
+    email: "aastha.singh@iter.ac.in"
   },
+  // 9. Design Lead
   {
-    id: "lead-11",
-    name: "Raj Sahasransu Biswal",
-    role: "Ex-Tech Lead",
-    achievement: '"Championed DevOps culture, CI/CD automation, and cloud containerization across the student body."',
-    photo: "",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "raj.biswal@iter.ac.in"
-  },
-  {
-    id: "lead-12",
-    name: "Debdatta Panda",
-    role: "Technical Core Member",
-    achievement: '"Architecting and building the official web platforms, interactive portals, and digital systems for GFG ITER."',
-    photo: "/team/debdatta-panda.jpg",
-    linkedin: "https://www.linkedin.com/in/debdatta-panda-dp11",
-    github: "https://github.com/MyselfDebdatta",
-    email: "pandadebdatta9@gmail.com",
-    portfolio: "https://debdatta-panda.vercel.app/"
-  },
-  {
-    id: "lead-13",
-    name: "Arman Khan",
-    role: "Technical Core Member",
-    achievement: '"Developing robust software solutions and driving collaborative coding excellence for GFG ITER."',
-    photo: "/team/arman-khan.jpg",
-    linkedin: "https://www.linkedin.com/in/arman-khan-3a6059180",
-    github: "https://github.com/arman001992khan-pixel",
-    email: "arman001992khan@gmail.com"
-  },
-  {
-    id: "lead-14",
-    name: "Ritisha Sahoo",
-    role: "PR and Media Core Member",
-    achievement: '"Leading creative media campaigns, digital storytelling, and brand outreach across the student body."',
-    photo: "/team/ritisha-sahoo.png",
-    linkedin: "https://www.linkedin.com/in/ritisha-sahoo-67a046364",
-    github: "https://github.com/ritisha34",
-    email: "ritishasahoo727@gmail.com"
-  },
-  {
-    id: "lead-15",
-    name: "Siddhant Jena",
-    role: "Technical Core Member",
-    achievement: '"Building core web architectures, modern systems, and scalable student platforms for GFG ITER."',
-    photo: "/team/siddhant-jena.jpg",
-    email: "Worksiddhant18@gmail.com",
-    linkedin: "https://www.linkedin.com/in/siddhant-jena-457350389",
-    github: "https://github.com/FOX-KNIGHT"
+    id: "lead-9",
+    name: "Sanyukt Kumar Rai",
+    role: "Design Lead",
+    achievement: '"Designing intuitive user interfaces and crafting distinct brand systems for all initiatives."',
+    photo: "/team/sanyukt-kumar-rai.png",
+    linkedin: "https://www.linkedin.com/in/sanyuktkumarrai",
+    github: "https://github.com/sanyukt63",
+    email: "sanyuktkumarrai2@gmail.com"
   }
 ];
 
