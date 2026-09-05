@@ -7,7 +7,7 @@ export function HeroGallerySection() {
 }
 
 export const products = [
-  // Row 1 (Items 0 - 5)
+  // Row 1 (Items 0 - 4)
   {
     title: "Zer0ne CTF · Chakravyuh Genesis",
     link: "/events",
@@ -33,13 +33,8 @@ export const products = [
     link: "/events",
     thumbnail: "/showcase/chapter-launch.png",
   },
-  {
-    title: "Agentic AI & GenAI Workshop",
-    link: "/events",
-    thumbnail: "/showcase/agentic-ai-workshop.jpg",
-  },
 
-  // Row 2 (Items 6 - 11)
+  // Row 2 (Items 5 - 9)
   {
     title: "Raw & Ready Personality Session",
     link: "/events",
@@ -51,34 +46,29 @@ export const products = [
     thumbnail: "/showcase/community-cohort.png",
   },
   {
-    title: "DevOps & CI/CD Cloud Workshop",
+    title: "DevOps & Cloud Architecture Pitch",
     link: "/events",
     thumbnail: "/showcase/devops-pipelines.png",
-  },
-  {
-    title: "AI Automation with n8n",
-    link: "/events",
-    thumbnail: "/showcase/ai-automation-n8n.jpg",
-  },
-  {
-    title: "Data Science & Machine Learning",
-    link: "/events",
-    thumbnail: "/showcase/data-science-lifecycle.png",
   },
   {
     title: "Ideation & Mentorship Circle",
     link: "/events",
     thumbnail: "/showcase/mentorship-circle.png",
   },
-
-  // Row 3 (Items 12 - 17)
   {
-    title: "Linux, Cloud & OS Internals",
+    title: "Professional Leadership Workshop",
+    link: "/events",
+    thumbnail: "/showcase/interactive-classroom.png",
+  },
+
+  // Row 3 (Items 10 - 14)
+  {
+    title: "Linux, Cloud & OS Systems Lab",
     link: "/events",
     thumbnail: "/showcase/linux-cloud-systems.png",
   },
   {
-    title: "Cybersecurity & Ethical Hacking",
+    title: "Cybersecurity & Technical Core",
     link: "/events",
     thumbnail: "/showcase/cybersecurity-hacking.png",
   },
@@ -96,10 +86,5 @@ export const products = [
     title: "Tech Innovation & Student Ventures",
     link: "/events",
     thumbnail: "/showcase/tech-innovation.png",
-  },
-  {
-    title: "Professional Skills Workshop",
-    link: "/events",
-    thumbnail: "/showcase/interactive-classroom.png",
   },
 ];
