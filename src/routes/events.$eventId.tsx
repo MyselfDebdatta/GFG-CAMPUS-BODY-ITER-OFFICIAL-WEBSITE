@@ -600,29 +600,48 @@ function EventDetails() {
             </div>
             <h2 className="text-xl font-bold tracking-tight">Event Gallery</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-[350px] md:h-[420px]">
-            <div className="col-span-2 row-span-2 rounded-xl overflow-hidden border border-hairline relative group">
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80" alt="Event highlight" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-3 left-3 text-xs font-mono text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                event_highlight.jpg
-              </div>
-            </div>
-            {[
-              "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=600&q=80",
-              "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-              "https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&w=600&q=80",
-              "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80",
-            ].map((src, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border border-hairline relative group">
-                <img src={src} alt={`Gallery ${i + 2}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  img_{String(i + 2).padStart(2, "0")}.jpg
+          {(() => {
+            const galleryImages = (event as any).gallery && (event as any).gallery.length >= 5
+              ? (event as any).gallery
+              : [
+                  event.image,
+                  "/events/annual_p12_X42.jpg",
+                  "/events/annual_p16_X60.png",
+                  "/events/annual_p14_X54.png",
+                  "/events/annual_p10_X34.png",
+                ];
+            const mainImg = galleryImages[0];
+            const secondaryImgs = galleryImages.slice(1, 5);
+
+            return (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-[350px] md:h-[420px]">
+                <div className="col-span-2 row-span-2 rounded-xl overflow-hidden border border-hairline relative group">
+                  <img
+                    src={mainImg}
+                    alt={`${event.title} highlight`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-3 left-3 text-xs font-mono text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {event.id}_highlight.jpg
+                  </div>
                 </div>
+                {secondaryImgs.map((src: string, i: number) => (
+                  <div key={i} className="rounded-xl overflow-hidden border border-hairline relative group">
+                    <img
+                      src={src}
+                      alt={`${event.title} moment ${i + 2}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {event.id}_moment_{String(i + 2).padStart(2, "0")}.jpg
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            );
+          })()}
         </div>
       </div>
     </div>

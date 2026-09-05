@@ -72,7 +72,14 @@ export const EVENTS = [
     description:
       "Welcome, freshmen and engineering minds! Join our grand orientation carnival to discover everything about GFG ITER—our vision, active technical domains, upcoming hackathons, and how to become part of the premier builder community on campus.",
     image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=70",
+      "/about-chapter-cohort.jpg",
+    gallery: [
+      "/about-chapter-cohort.jpg",
+      "/events/annual_p8_X28.png",
+      "/events/annual_p12_X42.jpg",
+      "/events/annual_p29_X108.png",
+      "/events/annual_p8_X29.png"
+    ],
   },
   {
     id: "gfg-skill-exchange",
@@ -89,6 +96,13 @@ export const EVENTS = [
     description:
       "Theme: Learn It. Build It. Share It. A comprehensive peer-led technical learning initiative introducing undergraduate students to 8 high-demand CS domains: Blockchain & Web3, Quantum Computing, Computer Networking, Cybersecurity, Linux & Cloud, DevOps & CI/CD, AI Automation with n8n, and Data Science.",
     image: "/events/page_61_img_1__X17.jpg",
+    gallery: [
+      "/events/page_61_img_1__X17.jpg",
+      "/events/page_70_img_1__X17.jpg",
+      "/events/page_34_img_3__X22.jpg",
+      "/events/page_39_img_2__X18.jpg",
+      "/events/page_44_img_3__X19.jpg"
+    ],
   },
   {
     id: "skills-exchange-day8",
@@ -104,6 +118,13 @@ export const EVENTS = [
     description:
       "Data Science & Visualization: Discovering Insights Through Data. Covered the complete 7-stage Data Science Lifecycle, live code demonstrations of NumPy, Pandas, Matplotlib, EDA toolkits, 4 machine learning paradigms, 10 beginner projects, and an 8-role career roadmap.",
     image: "/events/page_34_img_3__X22.jpg",
+    gallery: [
+      "/events/page_34_img_3__X22.jpg",
+      "/events/page_34_img_2__X21.jpg",
+      "/events/page_34_img_4__X23.jpg",
+      "/events/page_34_img_1__X19.jpg",
+      "/events/annual_p27_X101.jpg"
+    ],
   },
   {
     id: "skills-exchange-day7",
@@ -119,6 +140,13 @@ export const EVENTS = [
     description:
       "Introduction to Workflow Automation: Contrasting Generative AI, Workflows, and Agentic AI, applying the RECIPE prompt framework, and building a live 4-node automated workflow connecting Google Sheets, Edit Fields, Gmail, and Sheet updates inside n8n.",
     image: "/events/page_39_img_2__X18.jpg",
+    gallery: [
+      "/events/page_39_img_2__X18.jpg",
+      "/events/page_39_img_4__X20.jpg",
+      "/events/page_39_img_1__X16.jpg",
+      "/events/page_39_img_3__X19.jpg",
+      "/events/annual_p26_X97.jpg"
+    ],
   },
   {
     id: "skills-exchange-day6",
@@ -134,6 +162,13 @@ export const EVENTS = [
     description:
       "DevOps & CI/CD Pipelines: Automating Trust, Securing the Future. From 'It Works on My Machine' to 'It Works Everywhere' — explored DevOps culture, Git as a time machine, automated CI/CD pipelines, Docker containerization, Kubernetes orchestration, and AWS fundamentals.",
     image: "/events/page_44_img_3__X19.jpg",
+    gallery: [
+      "/events/page_44_img_3__X19.jpg",
+      "/events/page_44_img_4__X20.jpg",
+      "/events/page_44_img_2__X18.jpg",
+      "/events/page_44_img_1__X16.jpg",
+      "/events/annual_p25_X94.jpg"
+    ],
   },
   {
     id: "skills-exchange-day5",
@@ -149,6 +184,13 @@ export const EVENTS = [
     description:
       "Understanding the Operating System That Runs the Internet: A deep dive into the Linux kernel, shell, and filesystem architecture, accompanied by a live SSH demonstration on an AWS EC2 instance, core terminal commands, and a 60-second file challenge.",
     image: "/events/page_50_img_2__X20.jpg",
+    gallery: [
+      "/events/page_50_img_2__X20.jpg",
+      "/events/page_50_img_3__X21.jpg",
+      "/events/page_50_img_1__X18.jpg",
+      "/events/annual_p24_X89.jpg",
+      "/events/annual_p16_X60.png"
+    ],
   },
   {
     id: "skills-exchange-day4",
@@ -164,6 +206,13 @@ export const EVENTS = [
     description:
       "Building a Secure, Resilient, and Threat-Aware Digital Future: Understanding the CIA Triad & AAA Framework, social engineering tactics, malware field guides, symmetric & asymmetric cryptography, Man-in-the-Middle defenses, and a 10-item daily defense checklist.",
     image: "/events/page_56_img_2__X18.jpg",
+    gallery: [
+      "/events/page_56_img_2__X18.jpg",
+      "/events/page_56_img_1__X16.jpg",
+      "/events/annual_p23_X86.jpg",
+      "/events/annual_p16_X59.png",
+      "/events/annual_p16_X61.png"
+    ],
   },
   {
     id: "skills-exchange-day3",
@@ -179,6 +228,13 @@ export const EVENTS = [
     description:
       "Connecting Devices to Communicate and Share Information Efficiently: Traced network evolution, demystified the OSI 7-layer and TCP/IP models, live DNS resolver sandbox demo, and a hands-on hardware demonstration with router internals and patch-panel switch cabling.",
     image: "/events/page_61_img_1__X17.jpg",
+    gallery: [
+      "/events/page_61_img_1__X17.jpg",
+      "/events/page_65_img_1__X34.jpg",
+      "/events/page_64_img_2__X31.jpg",
+      "/events/page_64_img_1__X30.jpg",
+      "/events/page_63_img_2__X27.jpg"
+    ],
   },
   {
     id: "skills-exchange-day2",
@@ -194,6 +250,13 @@ export const EVENTS = [
     description:
       "Where Physics Meets Computing to Transform the Future: An exploration of qubits, superposition, quantum entanglement, Deutsch–Jozsa and Shor's algorithms, dilution refrigerators, Google's Willow chip, India's National Quantum Mission, and a live Menti quiz.",
     image: "/events/page_27_img_2__X25.jpg",
+    gallery: [
+      "/events/page_27_img_2__X25.jpg",
+      "/events/page_27_img_1__X24.jpg",
+      "/events/page_26_img_3__X21.jpg",
+      "/events/page_26_img_1__X18.jpg",
+      "/events/annual_p21_X78.jpg"
+    ],
   },
   {
     id: "skills-exchange-day1",
@@ -209,6 +272,13 @@ export const EVENTS = [
     description:
       "Building a Secure, Transparent, and Decentralized Future: The evolution from Web1 to Web3, distributed ledgers, transaction lifecycles, cryptographic hashing, Ethereum smart contracts with Solidity, DApps, and emerging blockchain careers.",
     image: "/events/page_70_img_1__X17.jpg",
+    gallery: [
+      "/events/page_70_img_1__X17.jpg",
+      "/events/page_70_img_2__X19.jpg",
+      "/events/annual_p20_X74.jpg",
+      "/events/annual_p20_X73.jpg",
+      "/events/page_56_img_2__X18.jpg"
+    ],
   },
   {
     id: "rachitva-event",
@@ -224,7 +294,14 @@ export const EVENTS = [
     description:
       "Chakravyuh Genesis 2026 Flagship Creative Event: An on-the-spot design and pitch competition where ~120 students tackled a surprise theme, conceptualized impactful posters, and delivered persuasive elevator pitches before an expert judging panel.",
     image:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=70",
+      "/events/annual_p18_X67.png",
+    gallery: [
+      "/events/annual_p18_X67.png",
+      "/events/annual_p18_X66.png",
+      "/events/annual_p18_X68.png",
+      "/events/annual_p16_X60.png",
+      "/events/annual_p16_X59.png"
+    ],
   },
   {
     id: "zerone-event",
@@ -240,7 +317,14 @@ export const EVENTS = [
     description:
       "Chakravyuh Genesis 2026 Flagship Technical Event: A beginner-friendly cybersecurity CTF competition conducted over three progressively challenging rounds (cryptography, web security, networking). Powered by an in-house custom CTF platform built by GFG ITER with live leaderboard tracking.",
     image:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=70",
+      "/events/annual_p16_X61.png",
+    gallery: [
+      "/events/annual_p16_X61.png",
+      "/events/annual_p16_X60.png",
+      "/events/annual_p16_X59.png",
+      "/events/annual_p18_X68.png",
+      "/events/annual_p18_X66.png"
+    ],
   },
   {
     id: "raw-and-ready",
@@ -256,6 +340,13 @@ export const EVENTS = [
     description:
       "A comprehensive personality development workshop for GFG ITER core members focusing on self-awareness, SWOT Analysis, Eisenhower Matrix time management, the 'Lost in the Jungle' survival teamwork challenge, a mini-ideathon, and financial literacy.",
     image: "/events/page_12_img_3__X14.jpg",
+    gallery: [
+      "/events/annual_p14_X54.png",
+      "/events/annual_p14_X53.png",
+      "/events/annual_p14_X52.png",
+      "/events/page_12_img_2__X13.jpg",
+      "/events/page_12_img_1__X11.jpg"
+    ],
   },
   {
     id: "founders-unplugged",
@@ -271,6 +362,13 @@ export const EVENTS = [
     description:
       "An authentic, conversation-driven session with Zahid Akhtar on navigating the realities of startups, leadership, and resilience. Features included an engaging Rapid Fire Round debating 'Gut Feeling vs Market Research' and 'Perfect Plan vs Fast Execution' followed by interactive Q&A.",
     image: "/events/page_9_img_4__X17.jpg",
+    gallery: [
+      "/events/annual_p12_X45.png",
+      "/events/annual_p12_X42.jpg",
+      "/events/annual_p12_X43.png",
+      "/events/annual_p12_X41.jpg",
+      "/events/annual_p12_X44.png"
+    ],
   },
   {
     id: "chai-links-ep01",
@@ -286,6 +384,13 @@ export const EVENTS = [
     description:
       "Cup That Connects, Conversations That Matter: Centered around Chai Pe Charcha, Episode 01 brought 50 selected students into intimate discussion circles with faculty researchers exploring edge machine learning (TinyML) and autonomous AI agents (Agentic AI) over tea.",
     image: "/events/page_6_img_1__X15.jpg",
+    gallery: [
+      "/events/annual_p10_X34.png",
+      "/events/annual_p10_X35.png",
+      "/events/annual_p10_X36.png",
+      "/events/page_6_img_2__X17.jpg",
+      "/events/page_6_img_3__X18.jpg"
+    ],
   },
   {
     id: "code-unbound-launch",
@@ -300,7 +405,14 @@ export const EVENTS = [
     description:
       "The official inauguration of the GeeksforGeeks (GFG) Student Chapter at ITER, SOA University in Bansuri Guru Auditorium. Featuring chapter vision roadmaps, domain lead introductions, and an interactive Menti Quiz with prizes for top performers.",
     image:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=70",
+      "/events/annual_p8_X28.png",
+    gallery: [
+      "/events/annual_p8_X28.png",
+      "/events/annual_p8_X29.png",
+      "/about-chapter-cohort.jpg",
+      "/events/annual_p12_X42.jpg",
+      "/events/annual_p10_X34.png"
+    ],
   },
   {
     id: "chai-links-ep00",
@@ -316,6 +428,13 @@ export const EVENTS = [
     description:
       "The inaugural edition of ChainLinks designed around the concept of Chai Pe Charcha. Replaced traditional lectures with informal domain discussion circles across AI/ML, IoT, Cloud Computing, and Networking, fostering open faculty-student mentorship over tea.",
     image: "/events/page_3_img_1__X15.jpg",
+    gallery: [
+      "/events/annual_p8_X29.png",
+      "/events/page_3_img_1__X15.jpg",
+      "/events/page_3_img_2__X17.jpg",
+      "/events/annual_p10_X36.png",
+      "/events/annual_p10_X35.png"
+    ],
   },
 ];
 
