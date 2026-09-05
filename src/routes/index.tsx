@@ -338,9 +338,9 @@ function Home() {
           <Reveal delay={0.15}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#00ff7f]/30 bg-gradient-to-br from-[#00ff7f]/10 via-transparent to-transparent group transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70"
-                alt="GFG ITER community at a workshop"
-                className="h-full w-full object-cover transition-transform duration-500 group-raw-hover:scale-105"
+                src="/about-chapter-cohort.jpg"
+                alt="GFG Campus Body ITER Community Cohort at SOA University"
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-raw-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-[#00ff7f]/20 bg-black/40 backdrop-blur-xl p-4 shadow-[0_0_20px_rgba(0,255,127,0.1)]">
