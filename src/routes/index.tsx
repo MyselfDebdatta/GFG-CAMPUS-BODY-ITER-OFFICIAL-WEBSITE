@@ -35,6 +35,7 @@ import { CanvasBackground } from "@/components/site/CanvasBackground";
 import { AnnualReportsSection } from "@/components/site/AnnualReportsSection";
 import { HeroGallerySection } from "@/components/site/HeroGallerySection";
 import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
+import { BroadcastStation, HeroBroadcastPill } from "@/components/site/BroadcastStation";
 import {
   STATS,
   MARQUEE,
@@ -194,9 +195,12 @@ function Home() {
               <img src="/Concised_Light.svg" alt="GFG Logo" className="h-14 md:h-16 w-auto object-contain" />
             </motion.div>
 
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-5 py-2 text-sm font-semibold tracking-[0.1em] text-[#00ff7f] backdrop-blur-md">
-              <Sparkles className="h-4 w-4" /> Official SOA University Student Chapter
-            </span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-2">
+              <HeroBroadcastPill />
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-[0.1em] text-[#00ff7f] backdrop-blur-md">
+                <Sparkles className="h-3.5 w-3.5" /> Official SOA University Student Chapter
+              </span>
+            </div>
 
             <div className="mt-6 mb-0">
               <h2 
@@ -303,6 +307,15 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
+      {/* LIVE BROADCAST STATION */}
+      <BroadcastStation />
+
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
       {/* ABOUT PREVIEW */}
       <section className="relative z-10 container-page py-24">
