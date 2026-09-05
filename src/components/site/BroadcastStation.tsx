@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Radio,
   Sparkles,
   Calendar,
   Clock,
   ArrowRight,
-  ArrowUpRight,
   CheckCircle2,
   Users,
   Code2,
@@ -24,12 +22,10 @@ import {
   MapPin,
   Flame,
   HelpCircle,
-  X
 } from "lucide-react";
 import {
   BROADCASTS,
   BroadcastItem,
-  BroadcastCategory,
 } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
 import {
@@ -96,7 +92,6 @@ function DomainIcon({ name }: { name: string }) {
 // -------------------------------------------------------------
 export function BroadcastStation() {
   const [selectedId, setSelectedId] = useState<string>("recruitment-2026-2027");
-  const [filter, setFilter] = useState<BroadcastCategory | "all">("all");
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [modalTab, setModalTab] = useState<"overview" | "domains" | "process" | "faqs">("overview");
   const [copied, setCopied] = useState(false);
@@ -104,12 +99,6 @@ export function BroadcastStation() {
   // Active broadcast item
   const activeBroadcast: BroadcastItem =
     BROADCASTS.find((b) => b.id === selectedId) || BROADCASTS[0];
-
-  // Filtered broadcast items for the side stream
-  const filteredBroadcasts = BROADCASTS.filter((b) => {
-    if (filter === "all") return true;
-    return b.category === filter;
-  });
 
   const handleCopyLink = () => {
     const url = `${window.location.origin}/#broadcast-station`;
@@ -124,8 +113,8 @@ export function BroadcastStation() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#00ff7f]/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="container-page relative z-10">
-        {/* Transmission Station Banner Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#00ff7f]/20">
+        {/* Transmission Station Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#00ff7f]/20">
           <div>
             <div className="flex flex-wrap items-center gap-3 mb-3">
               {/* Live Signal Beacon */}
@@ -134,7 +123,7 @@ export function BroadcastStation() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
                 </span>
-                LIVE DISPATCH
+                LIVE TRANSMISSION
               </div>
 
               {/* Audio Frequency Bars Animation */}
@@ -158,340 +147,246 @@ export function BroadcastStation() {
               Chapter Broadcast Hub
             </h2>
             <p className="mt-2 text-base md:text-lg text-white/60 max-w-2xl">
-              Real-time dispatches, recruitments, event registrations, and official chapter communications.
+              Official announcements, live recruitment drives, and upcoming registrations from GFG ITER.
             </p>
           </div>
 
-          {/* Filter Pills */}
+          {/* Direct Channels / Tabs */}
           <div className="flex flex-wrap items-center gap-2 bg-[#060D09] p-1.5 rounded-2xl border border-white/10 self-start md:self-auto">
-            <button
-              onClick={() => setFilter("all")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                filter === "all"
-                  ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_12px_rgba(0,255,127,0.4)]"
-                  : "text-white/70 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              All Dispatches
-            </button>
-            <button
-              onClick={() => {
-                setFilter("recruitment");
-                setSelectedId("recruitment-2026-2027");
-              }}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                filter === "recruitment"
-                  ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_12px_rgba(0,255,127,0.4)]"
-                  : "text-white/70 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
-              Recruitment
-            </button>
-            <button
-              onClick={() => setFilter("event")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                filter === "event"
-                  ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_12px_rgba(0,255,127,0.4)]"
-                  : "text-white/70 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              Events
-            </button>
-            <button
-              onClick={() => setFilter("news")}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                filter === "news"
-                  ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_12px_rgba(0,255,127,0.4)]"
-                  : "text-white/70 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              News
-            </button>
+            {BROADCASTS.map((item) => {
+              const isSelected = item.id === selectedId;
+              const shortTitle =
+                item.id === "recruitment-2026-2027"
+                  ? "Recruitment 2026–27"
+                  : item.id === "zerone-ctf-2026"
+                  ? "Zer0ne CTF"
+                  : item.id === "chai-links-ep02"
+                  ? "Chai & Links"
+                  : item.id === "annual-report-release"
+                  ? "Annual Report"
+                  : "Skill Exchange";
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedId(item.id)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                    isSelected
+                      ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_12px_rgba(0,255,127,0.4)]"
+                      : "text-white/70 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {item.isLive && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+                  )}
+                  {shortTitle}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Station Main Stage Grid */}
-        <div className="mt-8 grid gap-8 lg:grid-cols-12 items-start">
-          {/* LEFT 7 COLS: Active Transmission Display */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeBroadcast.id}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.35 }}
-                className="relative rounded-3xl border-2 border-[#00ff7f]/40 bg-[#060D09]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-10 shadow-[0_0_30px_rgba(0,255,127,0.15)] overflow-hidden"
-              >
-                {/* Tech Scanlines & Grid Texture */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:3rem_3rem]"
-                />
+        {/* Focused Main Broadcast Card (Full Width, Centered, Clean) */}
+        <div className="mt-8 max-w-5xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeBroadcast.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35 }}
+              className="relative rounded-3xl border-2 border-[#00ff7f]/40 bg-[#060D09]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-12 shadow-[0_0_35px_rgba(0,255,127,0.15)] overflow-hidden"
+            >
+              {/* Tech Scanlines & Grid Texture */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:3rem_3rem]"
+              />
 
-                {/* Top Corner Cyber Brackets */}
-                <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-[#00ff7f]" />
-                <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-[#00ff7f]" />
-                <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-[#00ff7f]" />
-                <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-[#00ff7f]" />
+              {/* Top Corner Cyber Brackets */}
+              <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-[#00ff7f]" />
+              <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-[#00ff7f]" />
+              <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-[#00ff7f]" />
+              <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-[#00ff7f]" />
 
-                {/* Transmission Meta Bar */}
-                <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5">
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-md border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-2.5 py-1 text-xs font-mono font-bold tracking-wider text-[#00ff7f]">
-                      ID: #{activeBroadcast.id.toUpperCase().slice(0, 14)}
-                    </span>
-                    <span className="text-xs font-mono text-white/50">
-                      {activeBroadcast.categoryLabel}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs font-mono text-white/60">
-                    <Clock className="h-3.5 w-3.5 text-[#00ff7f]" />
-                    <span>{activeBroadcast.timestamp}</span>
-                  </div>
+              {/* Transmission Meta Bar */}
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-5">
+                <div className="flex items-center gap-3">
+                  <span className="rounded-md border border-[#00ff7f]/30 bg-[#00ff7f]/10 px-3 py-1 text-xs font-mono font-bold tracking-wider text-[#00ff7f]">
+                    ID: #{activeBroadcast.id.toUpperCase().slice(0, 16)}
+                  </span>
+                  <span className="text-xs font-mono text-white/50">
+                    {activeBroadcast.categoryLabel}
+                  </span>
                 </div>
 
-                {/* Headline & Title */}
-                <div className="relative z-10 mt-6">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3.5 py-1 text-xs font-bold text-[#00ff7f] mb-3">
-                    <Flame className="h-3.5 w-3.5" />
-                    {activeBroadcast.badge}
-                  </div>
+                <div className="flex items-center gap-2 text-xs font-mono text-white/60">
+                  <Clock className="h-3.5 w-3.5 text-[#00ff7f]" />
+                  <span>{activeBroadcast.timestamp}</span>
+                </div>
+              </div>
 
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                    {activeBroadcast.headline}
-                  </h3>
-
-                  <p className="mt-4 text-base sm:text-lg text-white/80 leading-relaxed font-normal">
-                    {activeBroadcast.summary}
-                  </p>
+              {/* Headline & Title */}
+              <div className="relative z-10 mt-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/40 bg-[#00ff7f]/10 px-3.5 py-1 text-xs font-bold text-[#00ff7f] mb-4">
+                  <Flame className="h-3.5 w-3.5" />
+                  {activeBroadcast.badge}
                 </div>
 
-                {/* Specifics Grid (Eligibility, Deadline, Mode, Venue) */}
-                {activeBroadcast.eligibility && (
-                  <div className="relative z-10 mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-xs">
-                    <div>
-                      <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
-                        <GraduationCap className="h-3.5 w-3.5 text-[#00ff7f]" /> Eligibility
-                      </div>
-                      <div className="mt-1 font-bold text-white truncate" title={activeBroadcast.eligibility}>
-                        {activeBroadcast.eligibility}
-                      </div>
-                    </div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                  {activeBroadcast.headline}
+                </h3>
 
-                    <div>
-                      <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-[#00ff7f]" /> Timeline
-                      </div>
-                      <div className="mt-1 font-bold text-[#00ff7f] truncate" title={activeBroadcast.deadline}>
-                        {activeBroadcast.deadline || "Rolling"}
-                      </div>
-                    </div>
+                <p className="mt-4 text-base sm:text-lg text-white/80 leading-relaxed font-normal">
+                  {activeBroadcast.summary}
+                </p>
+              </div>
 
-                    <div>
-                      <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
-                        <MapPin className="h-3.5 w-3.5 text-[#00ff7f]" /> Format
-                      </div>
-                      <div className="mt-1 font-bold text-white truncate" title={activeBroadcast.mode}>
-                        {activeBroadcast.mode || "Campus Offline"}
-                      </div>
+              {/* Specifics Grid (Eligibility, Timeline, Format, Status) */}
+              {activeBroadcast.eligibility && (
+                <div className="relative z-10 mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 text-xs">
+                  <div>
+                    <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
+                      <GraduationCap className="h-3.5 w-3.5 text-[#00ff7f]" /> Eligibility
                     </div>
-
-                    <div>
-                      <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
-                        <ShieldCheck className="h-3.5 w-3.5 text-[#00ff7f]" /> Status
-                      </div>
-                      <div className="mt-1 font-bold text-red-400 flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                        Active Now
-                      </div>
+                    <div className="mt-1 font-bold text-white text-xs sm:text-sm truncate" title={activeBroadcast.eligibility}>
+                      {activeBroadcast.eligibility}
                     </div>
                   </div>
-                )}
 
-                {/* Domains Preview Pills (if recruitment) */}
-                {activeBroadcast.domains && (
-                  <div className="relative z-10 mt-6">
-                    <div className="text-xs uppercase font-mono font-bold tracking-wider text-[#00ff7f]/80 mb-3 flex items-center gap-2">
-                      <Users className="h-3.5 w-3.5" />
-                      5 Open Domains For 2026–2027 Session:
+                  <div>
+                    <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5 text-[#00ff7f]" /> Timeline
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {activeBroadcast.domains.map((dom) => (
-                        <div
-                          key={dom.name}
-                          className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2.5 transition-colors hover:border-[#00ff7f]/40 hover:bg-white/10"
-                        >
-                          <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#00ff7f]/10">
-                            <DomainIcon name={dom.name} />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <div className="text-sm font-semibold text-white truncate">{dom.name}</div>
-                            <div className="text-[11px] text-white/50 truncate">
-                              {dom.skills.join(" · ")}
-                            </div>
+                    <div className="mt-1 font-bold text-[#00ff7f] text-xs sm:text-sm truncate" title={activeBroadcast.deadline}>
+                      {activeBroadcast.deadline || "Rolling"}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
+                      <MapPin className="h-3.5 w-3.5 text-[#00ff7f]" /> Format
+                    </div>
+                    <div className="mt-1 font-bold text-white text-xs sm:text-sm truncate" title={activeBroadcast.mode}>
+                      {activeBroadcast.mode || "Campus Offline"}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="text-white/40 uppercase font-mono tracking-wider flex items-center gap-1">
+                      <ShieldCheck className="h-3.5 w-3.5 text-[#00ff7f]" /> Status
+                    </div>
+                    <div className="mt-1 font-bold text-red-400 text-xs sm:text-sm flex items-center gap-1.5">
+                      <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+                      Active Now
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Domains Preview Pills (if recruitment) */}
+              {activeBroadcast.domains && (
+                <div className="relative z-10 mt-7">
+                  <div className="text-xs uppercase font-mono font-bold tracking-wider text-[#00ff7f]/90 mb-3.5 flex items-center gap-2">
+                    <Users className="h-3.5 w-3.5" />
+                    Open Domains for 2026–2027 Cohort:
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    {activeBroadcast.domains.map((dom) => (
+                      <div
+                        key={dom.name}
+                        className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3.5 transition-colors hover:border-[#00ff7f]/40 hover:bg-white/10"
+                      >
+                        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#00ff7f]/10 mt-0.5">
+                          <DomainIcon name={dom.name} />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-sm font-semibold text-white">{dom.name}</div>
+                          <div className="text-[11px] text-white/50 mt-1 line-clamp-1">
+                            {dom.skills.join(" · ")}
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
+                </div>
+              )}
+
+              {/* Highlights Checkmarks */}
+              <div className="relative z-10 mt-7 space-y-2.5 border-t border-white/10 pt-6">
+                {activeBroadcast.highlights.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/80">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-[#00ff7f] mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="relative z-10 mt-8 flex flex-wrap items-center gap-4">
+                {/* Primary CTA */}
+                {activeBroadcast.id === "recruitment-2026-2027" ? (
+                  <Button
+                    onClick={() => setIsApplyModalOpen(true)}
+                    size="lg"
+                    className="rounded-xl bg-[#00ff7f] px-8 py-6 text-sm sm:text-base font-bold text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all hover:bg-[#00ff7f]/90 hover:scale-[1.02] active:scale-98 cursor-pointer"
+                  >
+                    <Sparkles className="mr-2 h-5 w-5" />
+                    {activeBroadcast.actionLabel || "Apply for Recruitment 2026–2027"}
+                  </Button>
+                ) : activeBroadcast.registrationUrl?.startsWith("/") ? (
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-xl bg-[#00ff7f] px-8 py-6 text-sm sm:text-base font-bold text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all hover:bg-[#00ff7f]/90 hover:scale-[1.02] active:scale-98 cursor-pointer"
+                  >
+                    <Link to={activeBroadcast.registrationUrl}>
+                      {activeBroadcast.actionLabel || "View Details"}
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                ) : (
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-xl bg-[#00ff7f] px-8 py-6 text-sm sm:text-base font-bold text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all hover:bg-[#00ff7f]/90 hover:scale-[1.02] active:scale-98 cursor-pointer"
+                  >
+                    <a href={activeBroadcast.registrationUrl} target="_blank" rel="noopener noreferrer">
+                      {activeBroadcast.actionLabel || "Open Link"}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
                 )}
 
-                {/* Highlights Checkmarks */}
-                <div className="relative z-10 mt-6 space-y-2.5 border-t border-white/10 pt-5">
-                  {activeBroadcast.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/80">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#00ff7f] mt-0.5" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="relative z-10 mt-8 flex flex-wrap items-center gap-4">
-                  {/* Primary CTA */}
-                  {activeBroadcast.id === "recruitment-2026-2027" ? (
-                    <Button
-                      onClick={() => setIsApplyModalOpen(true)}
-                      size="lg"
-                      className="rounded-xl bg-[#00ff7f] px-7 py-6 text-sm sm:text-base font-bold text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all hover:bg-[#00ff7f]/90 hover:scale-[1.02] active:scale-98 cursor-pointer"
-                    >
-                      <Sparkles className="mr-2 h-5 w-5" />
-                      {activeBroadcast.actionLabel || "Apply for Recruitment 2026–2027"}
-                    </Button>
-                  ) : activeBroadcast.registrationUrl?.startsWith("/") ? (
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-xl bg-[#00ff7f] px-7 py-6 text-sm sm:text-base font-bold text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all hover:bg-[#00ff7f]/90 hover:scale-[1.02] active:scale-98 cursor-pointer"
-                    >
-                      <Link to={activeBroadcast.registrationUrl}>
-                        {activeBroadcast.actionLabel || "View Details"}
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
-                    </Button>
-                  ) : (
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-xl bg-[#00ff7f] px-7 py-6 text-sm sm:text-base font-bold text-[#020b06] shadow-[0_0_20px_rgba(0,255,127,0.4)] transition-all hover:bg-[#00ff7f]/90 hover:scale-[1.02] active:scale-98 cursor-pointer"
-                    >
-                      <a href={activeBroadcast.registrationUrl} target="_blank" rel="noopener noreferrer">
-                        {activeBroadcast.actionLabel || "Open Link"}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-
-                  {/* Secondary Modal Trigger for Recruitment */}
-                  {activeBroadcast.id === "recruitment-2026-2027" && (
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      onClick={() => {
-                        setModalTab("domains");
-                        setIsApplyModalOpen(true);
-                      }}
-                      className="rounded-xl border-white/20 bg-white/5 px-6 py-6 text-sm sm:text-base font-semibold text-white backdrop-blur-md transition-all hover:border-[#00ff7f]/50 hover:bg-white/10 cursor-pointer"
-                    >
-                      View Domains & Selection Steps
-                    </Button>
-                  )}
-
-                  {/* Copy Broadcast Share Link */}
-                  <button
-                    onClick={handleCopyLink}
-                    title="Copy direct link to this broadcast"
-                    className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:border-[#00ff7f]/50 hover:text-[#00ff7f] hover:bg-white/10 active:scale-95 cursor-pointer"
+                {/* Secondary Modal Trigger for Recruitment */}
+                {activeBroadcast.id === "recruitment-2026-2027" && (
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() => {
+                      setModalTab("domains");
+                      setIsApplyModalOpen(true);
+                    }}
+                    className="rounded-xl border-white/20 bg-white/5 px-6 py-6 text-sm sm:text-base font-semibold text-white backdrop-blur-md transition-all hover:border-[#00ff7f]/50 hover:bg-white/10 cursor-pointer"
                   >
-                    {copied ? <Check className="h-5 w-5 text-[#00ff7f]" /> : <Copy className="h-5 w-5" />}
-                  </button>
-                  {copied && (
-                    <span className="text-xs font-mono text-[#00ff7f] animate-fade-in">Link Copied!</span>
-                  )}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                    View Domains & Selection Steps
+                  </Button>
+                )}
 
-          {/* RIGHT 5 COLS: Interactive Dispatch Stream Feed */}
-          <div className="lg:col-span-5 xl:col-span-4 flex flex-col">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
-              <div className="text-xs font-mono font-bold uppercase tracking-wider text-white/50 flex items-center gap-2">
-                <Radio className="h-3.5 w-3.5 text-[#00ff7f]" />
-                DISPATCH STREAM ({filteredBroadcasts.length})
+                {/* Copy Broadcast Share Link */}
+                <button
+                  onClick={handleCopyLink}
+                  title="Copy direct link to this broadcast"
+                  className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:border-[#00ff7f]/50 hover:text-[#00ff7f] hover:bg-white/10 active:scale-95 cursor-pointer"
+                >
+                  {copied ? <Check className="h-5 w-5 text-[#00ff7f]" /> : <Copy className="h-5 w-5" />}
+                </button>
+                {copied && (
+                  <span className="text-xs font-mono text-[#00ff7f] animate-fade-in">Link Copied!</span>
+                )}
               </div>
-              <span className="text-[11px] font-mono text-[#00ff7f]">AUTO-SYNCED</span>
-            </div>
-
-            <div className="space-y-3">
-              {filteredBroadcasts.map((item) => {
-                const isSelected = item.id === selectedId;
-                return (
-                  <motion.div
-                    key={item.id}
-                    onClick={() => setSelectedId(item.id)}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    className={`group cursor-pointer relative rounded-2xl p-4 sm:p-5 transition-all duration-300 border ${
-                      isSelected
-                        ? "border-[#00ff7f] bg-[#00ff7f]/10 shadow-[0_0_15px_rgba(0,255,127,0.2)]"
-                        : "border-white/10 bg-[#060D09] hover:border-[#00ff7f]/40 hover:bg-white/5"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <div className="flex items-center gap-2">
-                        {item.isLive ? (
-                          <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-                        ) : (
-                          <span className="h-2 w-2 rounded-full bg-white/30" />
-                        )}
-                        <span className="text-[11px] font-mono uppercase tracking-wide text-white/50">
-                          {item.date}
-                        </span>
-                      </div>
-                      <span
-                        className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${
-                          item.category === "recruitment"
-                            ? "border-red-500/30 bg-red-500/10 text-red-400"
-                            : item.category === "event"
-                            ? "border-[#3b82f6]/30 bg-[#3b82f6]/10 text-[#3b82f6]"
-                            : "border-[#00ff7f]/30 bg-[#00ff7f]/10 text-[#00ff7f]"
-                        }`}
-                      >
-                        {item.categoryLabel}
-                      </span>
-                    </div>
-
-                    <h4
-                      className={`text-sm sm:text-base font-bold transition-colors line-clamp-2 ${
-                        isSelected ? "text-white" : "text-white/80 group-hover:text-white"
-                      }`}
-                    >
-                      {item.title}
-                    </h4>
-
-                    <p className="mt-1 text-xs text-white/60 line-clamp-2 leading-relaxed">
-                      {item.summary}
-                    </p>
-
-                    <div className="mt-3 flex items-center justify-between pt-2 border-t border-white/5 text-[11px] font-semibold">
-                      <span className={isSelected ? "text-[#00ff7f]" : "text-white/40 group-hover:text-white/70"}>
-                        {isSelected ? "Currently Viewing" : "Click to Inspect"}
-                      </span>
-                      <ArrowRight
-                        className={`h-3.5 w-3.5 transition-transform ${
-                          isSelected ? "translate-x-1 text-[#00ff7f]" : "text-white/40 group-hover:translate-x-1"
-                        }`}
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
