@@ -410,6 +410,7 @@ export const TEAM = [
     group: "Technical Team",
     bio: "Full-stack developer and technical builder contributing to web applications, systems development, and engineering initiatives for GFG ITER.",
     photo: "/team/siddhant-jena.jpg",
+    email: "Worksiddhant18@gmail.com",
     linkedin: "https://www.linkedin.com/in/siddhant-jena-457350389",
     github: "https://github.com/FOX-KNIGHT"
   },
@@ -1144,6 +1145,7 @@ export const CONTRIBUTORS = [
     role: "Technical Core Member",
     achievement: '"Building core web architectures, modern systems, and scalable student platforms for GFG ITER."',
     photo: "/team/siddhant-jena.jpg",
+    email: "Worksiddhant18@gmail.com",
     linkedin: "https://www.linkedin.com/in/siddhant-jena-457350389",
     github: "https://github.com/FOX-KNIGHT"
   }
