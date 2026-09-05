@@ -1236,3 +1236,223 @@ export const ACHIEVEMENTS = [
     y: 15 
   }
 ];
+
+export type BroadcastCategory = "recruitment" | "event" | "news" | "announcement";
+export type BroadcastStatus = "live" | "upcoming" | "archived";
+
+export interface BroadcastDomain {
+  name: string;
+  badge: string;
+  description: string;
+  skills: string[];
+}
+
+export interface BroadcastItem {
+  id: string;
+  title: string;
+  headline: string;
+  category: BroadcastCategory;
+  categoryLabel: string;
+  badge: string;
+  status: BroadcastStatus;
+  isLive: boolean;
+  isPinned?: boolean;
+  date: string;
+  timestamp: string;
+  summary: string;
+  highlights: string[];
+  eligibility?: string;
+  deadline?: string;
+  mode?: string;
+  venue?: string;
+  domains?: BroadcastDomain[];
+  selectionProcess?: Array<{
+    step: string;
+    title: string;
+    description: string;
+  }>;
+  perks?: string[];
+  registrationUrl?: string;
+  actionLabel?: string;
+  contactEmail?: string;
+}
+
+export const BROADCASTS: BroadcastItem[] = [
+  {
+    id: "recruitment-2026-2027",
+    title: "GFG ITER Member Recruitment (Session 2026–2027)",
+    headline: "Registration for GFG Members Recruitment for 2026–2027 Session is Live Now!",
+    category: "recruitment",
+    categoryLabel: "Recruitment Drive",
+    badge: "🔴 LIVE RECRUITMENT",
+    status: "live",
+    isLive: true,
+    isPinned: true,
+    date: "September 2026",
+    timestamp: "Live Transmission · Applications Reviewing on Rolling Basis",
+    summary: "Step up to lead, engineer, and build with ITER's official GeeksforGeeks student community. We are actively recruiting passionate coders, designers, organizers, communicators, and editors for the 2026–2027 academic session.",
+    highlights: [
+      "Open to 1st, 2nd, and 3rd Year B.Tech students across all engineering branches at SOA.",
+      "Hands-on opportunities to organize hackathons, summits, and multi-track technical workshops.",
+      "Direct technical mentorship from senior core team members and placed alumni at top tech firms.",
+      "Official Chapter Leadership Credentials and certificates from GeeksforGeeks & Dept. of CSE, ITER."
+    ],
+    eligibility: "1st, 2nd & 3rd Year B.Tech Students (All Branches)",
+    deadline: "Rolling Shortlists — Apply Early for Priority Interview Slots",
+    mode: "Hybrid (ITER Campus 1 & Online Workspace)",
+    venue: "ITER, Siksha 'O' Anusandhan University, Bhubaneswar",
+    domains: [
+      {
+        name: "Technical & Development",
+        badge: "Tech Core",
+        description: "Develop chapter web applications, build automated tooling, manage CTF infrastructure, and mentor students in Web, AI, DevOps, and CP.",
+        skills: ["React / TypeScript", "Python / ML", "DSA & Algorithms", "Docker / Cloud"]
+      },
+      {
+        name: "Operations & Logistics",
+        badge: "Ops Core",
+        description: "Coordinate large-scale offline events, hackathon arenas, venue staging, audio-visual setups, participant registrations, and university relations.",
+        skills: ["Event Execution", "Crisis Management", "Budgeting", "Team Coordination"]
+      },
+      {
+        name: "Creative & UI/UX Design",
+        badge: "Design Core",
+        description: "Craft high-fidelity UI prototypes, chapter branding assets, event posters, badges, motion graphics, and 3D visual concepts.",
+        skills: ["Figma", "Adobe Suite", "Motion Graphics", "Brand Identity"]
+      },
+      {
+        name: "PR & Media Outreach",
+        badge: "PR Core",
+        description: "Drive public relations, anchor flagship sessions, curate social media narratives, establish corporate partnerships, and lead community outreach.",
+        skills: ["Public Speaking", "Campus Outreach", "Social Campaigns", "Community Growth"]
+      },
+      {
+        name: "Content & Editorial",
+        badge: "Editorial Core",
+        description: "Author technical documentation, workshop curricula, project case studies, event reports, and press releases for university publications.",
+        skills: ["Technical Writing", "Curriculum Design", "Documentation", "Storytelling"]
+      }
+    ],
+    selectionProcess: [
+      {
+        step: "01",
+        title: "Online Application Submission",
+        description: "Fill out the official recruitment form with your details, domain preferences, and relevant work/GitHub/portfolio links."
+      },
+      {
+        step: "02",
+        title: "Domain-Specific Practical Task",
+        description: "Showcase your practical problem-solving skills through a tailored domain task (coding challenge, design brief, or operations scenario)."
+      },
+      {
+        step: "03",
+        title: "Personal Technical & Fit Interview",
+        description: "Engage in an offline interactive conversation with the Chapter Coordinators and Domain Leads on campus."
+      },
+      {
+        step: "04",
+        title: "Official Induction & Team Briefing",
+        description: "Selected candidates receive their induction letters, domain assignments, and onboarding kit for the 2026–2027 cohort."
+      }
+    ],
+    perks: [
+      "Official GeeksforGeeks Chapter Leadership Certificate & Credential",
+      "Exclusive GFG Branded Swag Kits, T-Shirts, and Tech Goodies",
+      "Priority seats & team sponsorship for national hackathons and collegiate summits",
+      "Direct guidance, mock interviews, and referral opportunities for top product companies",
+      "Access to internal study pods, paid courses, and exclusive dev compute resources"
+    ],
+    registrationUrl: "https://forms.gle/gfg-iter-recruitment-2026-2027",
+    actionLabel: "Apply for Recruitment 2026–2027",
+    contactEmail: "gfgiter@soa.ac.in"
+  },
+  {
+    id: "zerone-ctf-2026",
+    title: "Zer0ne CTF 2026: National Collegiate Edition",
+    headline: "Pre-Registrations Opening Soon for SOA's Flagship Hacking Arena",
+    category: "event",
+    categoryLabel: "Event Registration",
+    badge: "🎟️ REGISTRATION SOON",
+    status: "upcoming",
+    isLive: false,
+    date: "October 2026",
+    timestamp: "Announced · Official Platform Deploying",
+    summary: "SOA's premier 24-hour capture-the-flag tournament returns with harder challenges across Web Exploitation, Reverse Engineering, Cryptography, Forensics, and Binary Exploitation.",
+    highlights: [
+      "National open participation category for teams of up to 3 collegiate hackers.",
+      "Live dynamic scoreboard, custom challenge badges, and industry-sponsored problem sets.",
+      "Exciting cash rewards, official trophies, and security internship opportunities."
+    ],
+    eligibility: "Engineering & Science Undergraduates Nationwide",
+    deadline: "Opening Mid-October 2026",
+    mode: "Hybrid (Online Qualifiers + On-Campus Finals)",
+    venue: "Central Computing Facility, ITER SOA University",
+    actionLabel: "View CTF Archive & Guidelines",
+    registrationUrl: "/events/zerone-event"
+  },
+  {
+    id: "chai-links-ep02",
+    title: "Chai & Links: Episode 02 — 'Unfiltered Tech Roadmaps'",
+    headline: "RSVP Open for Candid Round-Table Tech Conversations",
+    category: "event",
+    categoryLabel: "Event Registration",
+    badge: "☕ RSVP OPEN",
+    status: "live",
+    isLive: true,
+    date: "September 2026",
+    timestamp: "Limited to 40 Seats · First-Come Basis",
+    summary: "Join senior engineers, domain leads, and recent alumni over warm cups of chai for an unscripted, deep-dive discussion on off-campus internships, GSoC, and systems engineering.",
+    highlights: [
+      "No slides, no boring lectures — 100% candid peer-to-peer dialogues.",
+      "Live resume teardowns, cold email frameworks, and GitHub profile audits.",
+      "Strict capacity limit of 40 students to ensure intimate, high-impact interactions."
+    ],
+    eligibility: "All ITER SOA Students (1st to 4th Year)",
+    deadline: "Closes once 40 RSVPs are filled",
+    mode: "Offline (Campus Lounge)",
+    venue: "AIC SOA Seminar Lounge, ITER Campus 1",
+    actionLabel: "Reserve Your Seat",
+    registrationUrl: "/events/chai-links-ep01"
+  },
+  {
+    id: "annual-report-release",
+    title: "Official GFG ITER Annual Activity Report 2025–2026 Released",
+    headline: "Comprehensive 2025–2026 Chapter Activity Dossier Published",
+    category: "news",
+    categoryLabel: "Chapter News",
+    badge: "📢 OFFICIAL RELEASE",
+    status: "live",
+    isLive: false,
+    date: "August 2026",
+    timestamp: "Published · Available in Interactive Flipbook & PDF",
+    summary: "The Department of Computer Science & Engineering officially released the Annual Activity Report 2025–2026, chronicling 28+ technical events, 1,800+ student participants, and national podium finishes.",
+    highlights: [
+      "Commendation notes from SOA University Leadership & Faculty Coordinators.",
+      "Complete photographic archives and attendee statistics across all domains.",
+      "Interactive 3D page-turn flipbook available directly on the chapter portal."
+    ],
+    actionLabel: "Read Annual Report",
+    registrationUrl: "/reports/GFG_ITER_Annual_Activity_Report_2025-2026.pdf"
+  },
+  {
+    id: "skill-exchange-cohort-2",
+    title: "GFG Skill Exchange 2.0: 10-Day Deep Dive Cohort",
+    headline: "Curriculum Announced for Intensive Multi-Track Masterclasses",
+    category: "announcement",
+    categoryLabel: "Masterclass Series",
+    badge: "⚡ ANNOUNCED",
+    status: "upcoming",
+    isLive: false,
+    date: "November 2026",
+    timestamp: "Curriculum Approved · Instructor Briefings Underway",
+    summary: "Following the historic participation in Season 1, Skill Exchange 2.0 returns with upgraded hands-on modules in Generative AI Agents, Rust Systems Programming, Docker & Kubernetes, and Web3 Smart Contracts.",
+    highlights: [
+      "Deploy production-grade capstone projects in every single domain.",
+      "Live terminal setups, cloud compute credits, and hardware networking labs.",
+      "Demo Day evaluation by invited tech leads and corporate alumni."
+    ],
+    actionLabel: "Explore Previous Tracks",
+    registrationUrl: "/events/gfg-skill-exchange"
+  }
+];
+
