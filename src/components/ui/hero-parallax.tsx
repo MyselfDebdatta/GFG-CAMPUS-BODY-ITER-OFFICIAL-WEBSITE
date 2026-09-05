@@ -17,16 +17,12 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  // Distribute products into 3 rich rows, ensuring at least 6 items per row so no empty side spaces appear
+  // Distribute products evenly into 3 rows
   const total = products.length;
-  const perRow = Math.max(5, Math.ceil(total / 3));
-  const row1Items = [...products.slice(0, perRow)];
-  const row2Items = [...products.slice(perRow, perRow * 2)];
-  const row3Items = [...products.slice(perRow * 2)];
-
-  const firstRow = row1Items.length < 6 ? [...row1Items, ...products.slice(0, 6 - row1Items.length)] : row1Items;
-  const secondRow = row2Items.length < 6 ? [...row2Items, ...products.slice(2, 2 + (6 - row2Items.length))] : row2Items;
-  const thirdRow = row3Items.length < 6 ? [...row3Items, ...products.slice(4, 4 + (6 - row3Items.length))] : row3Items;
+  const perRow = Math.ceil(total / 3);
+  const firstRow = products.slice(0, perRow);
+  const secondRow = products.slice(perRow, perRow * 2);
+  const thirdRow = products.slice(perRow * 2);
 
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({

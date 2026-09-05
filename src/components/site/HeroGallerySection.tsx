@@ -7,6 +7,7 @@ export function HeroGallerySection() {
 }
 
 export const products = [
+  // Row 1 (Items 0 - 5)
   {
     title: "Zer0ne CTF · Chakravyuh Genesis",
     link: "/events",
@@ -37,6 +38,8 @@ export const products = [
     link: "/events",
     thumbnail: "/showcase/agentic-ai-workshop.jpg",
   },
+
+  // Row 2 (Items 6 - 11)
   {
     title: "Raw & Ready Personality Session",
     link: "/events",
@@ -57,6 +60,18 @@ export const products = [
     link: "/events",
     thumbnail: "/showcase/ai-automation-n8n.jpg",
   },
+  {
+    title: "Data Science & Machine Learning",
+    link: "/events",
+    thumbnail: "/showcase/data-science-lifecycle.png",
+  },
+  {
+    title: "Ideation & Mentorship Circle",
+    link: "/events",
+    thumbnail: "/showcase/mentorship-circle.png",
+  },
+
+  // Row 3 (Items 12 - 17)
   {
     title: "Linux, Cloud & OS Internals",
     link: "/events",
@@ -81,5 +96,10 @@ export const products = [
     title: "Tech Innovation & Student Ventures",
     link: "/events",
     thumbnail: "/showcase/tech-innovation.png",
+  },
+  {
+    title: "Professional Skills Workshop",
+    link: "/events",
+    thumbnail: "/showcase/interactive-classroom.png",
   },
 ];
