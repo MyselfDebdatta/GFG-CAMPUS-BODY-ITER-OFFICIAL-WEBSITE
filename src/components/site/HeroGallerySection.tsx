@@ -8,93 +8,78 @@ export function HeroGallerySection() {
 
 export const products = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/moonbeam.png",
+    title: "Zer0ne CTF · Chakravyuh Genesis",
+    link: "/events",
+    thumbnail: "/showcase/zerone-ctf.png",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/cursor.png",
+    title: "Founders Unplugged with Zahid Akhtar",
+    link: "/events",
+    thumbnail: "/showcase/founders-unplugged.png",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/rogue.png",
+    title: "Chai-Links Episode 01 · AIC SOA",
+    link: "/events",
+    thumbnail: "/showcase/chai-links-ep1.png",
   },
   {
-    title: "Editorially",
-    link: "https://editorially.org",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/editorially.png",
+    title: "Rachitva Design & Pitch Competition",
+    link: "/events",
+    thumbnail: "/showcase/rachitva-design.png",
   },
   {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/editrix.png",
+    title: "Chapter Launch & Orientation",
+    link: "/events",
+    thumbnail: "/showcase/chapter-launch.png",
   },
   {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+    title: "Agentic AI & GenAI Workshop",
+    link: "/events",
+    thumbnail: "/showcase/agentic-ai-workshop.jpg",
   },
   {
-    title: "Algochurn",
-    link: "https://algochurn.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/algochurn.png",
+    title: "Raw & Ready Personality Session",
+    link: "/events",
+    thumbnail: "/showcase/raw-and-ready.png",
   },
   {
-    title: "Aceternity UI",
-    link: "https://ui.aceternity.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/aceternityui.png",
+    title: "GFG ITER Community Cohort",
+    link: "/team",
+    thumbnail: "/showcase/community-cohort.png",
   },
   {
-    title: "Tailwind Master Kit",
-    link: "https://tailwindmasterkit.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+    title: "DevOps & CI/CD Cloud Workshop",
+    link: "/events",
+    thumbnail: "/showcase/devops-pipelines.png",
   },
   {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/smartbridge.png",
+    title: "AI Automation with n8n",
+    link: "/events",
+    thumbnail: "/showcase/ai-automation-n8n.jpg",
   },
   {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/renderwork.png",
+    title: "Linux, Cloud & OS Internals",
+    link: "/events",
+    thumbnail: "/showcase/linux-cloud-systems.png",
   },
   {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/cremedigital.png",
+    title: "Cybersecurity & Ethical Hacking",
+    link: "/events",
+    thumbnail: "/showcase/cybersecurity-hacking.png",
   },
   {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+    title: "Chai-Links Episode 0 · Networking",
+    link: "/events",
+    thumbnail: "/showcase/chai-links-ep0.png",
   },
   {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/invoker.png",
+    title: "Chakravyuh Genesis Ideathon",
+    link: "/events",
+    thumbnail: "/showcase/chakravyuh-genesis.png",
   },
   {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
-    thumbnail:
-      "https://www.aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+    title: "Tech Innovation & Student Ventures",
+    link: "/events",
+    thumbnail: "/showcase/tech-innovation.png",
   },
 ];
