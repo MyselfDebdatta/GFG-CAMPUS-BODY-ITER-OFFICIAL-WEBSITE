@@ -464,7 +464,7 @@ export const TEAM = [
     role: "Club Coordinator",
     group: "Coordinator",
     bio: "Club Coordinator (Batch 2027). Coordinating student engagement, peer-learning programs, and chapter logistics.",
-    photo: "/team/akansha-ajay.jpg",
+    photo: "/team/akansha-ajay.png",
     email: "akankshaajay05@gmail.com",
     linkedin: "https://www.linkedin.com/in/akansha-ajay-685622302",
     github: "https://github.com/AkanshaAjay5"
@@ -1098,7 +1098,7 @@ export const CONTRIBUTORS = [
     name: "Akansha Ajay",
     role: "Club Coordinator",
     achievement: '"Fostering collaboration and driving impactful peer-learning student tech initiatives across batches."',
-    photo: "/team/akansha-ajay.jpg",
+    photo: "/team/akansha-ajay.png",
     linkedin: "https://www.linkedin.com/in/akansha-ajay-685622302",
     github: "https://github.com/AkanshaAjay5",
     email: "akankshaajay05@gmail.com"
