@@ -101,7 +101,7 @@ export function BroadcastStation() {
     BROADCASTS.find((b) => b.id === "recruitment-2026-2027") || BROADCASTS[0];
 
   const handleCopyLink = () => {
-    const url = `${window.location.origin}/#broadcast-station`;
+    const url = `${window.location.origin}/community#broadcast-station`;
     navigator.clipboard.writeText(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

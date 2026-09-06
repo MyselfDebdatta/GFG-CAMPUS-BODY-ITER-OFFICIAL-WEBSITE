@@ -35,7 +35,6 @@ import { CanvasBackground } from "@/components/site/CanvasBackground";
 import { AnnualReportsSection } from "@/components/site/AnnualReportsSection";
 import { HeroGallerySection } from "@/components/site/HeroGallerySection";
 import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
-import { BroadcastStation, HeroBroadcastPill } from "@/components/site/BroadcastStation";
 import {
   STATS,
   MARQUEE,
@@ -184,11 +183,6 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-5xl text-center flex flex-col items-center"
           >
-            {/* Top Live Broadcast Banner */}
-            <div className="mb-8 flex justify-center w-full">
-              <HeroBroadcastPill />
-            </div>
-
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -309,15 +303,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* Separator */}
-      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
-
-      {/* LIVE BROADCAST STATION */}
-      <BroadcastStation />
-
-      {/* Separator */}
-      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
       {/* ABOUT PREVIEW */}
       <section className="relative z-10 container-page py-24">

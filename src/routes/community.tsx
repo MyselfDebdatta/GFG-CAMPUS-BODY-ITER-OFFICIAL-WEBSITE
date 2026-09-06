@@ -5,6 +5,7 @@ import { DiscordIcon } from "@/components/icons/DiscordIcon";
 import { CLUB } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
 import { Button } from "@/components/ui/button";
+import { BroadcastStation } from "@/components/site/BroadcastStation";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -203,6 +204,15 @@ function Community() {
           </div>
         </div>
       </section>
+
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
+      {/* CHAPTER BROADCAST HUB */}
+      <BroadcastStation />
+
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
 
       {/* Benefits */}
       <section className="container-page py-20">
