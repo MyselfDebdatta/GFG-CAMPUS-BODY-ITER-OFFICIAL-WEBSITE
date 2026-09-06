@@ -35,6 +35,7 @@ import { CanvasBackground } from "@/components/site/CanvasBackground";
 import { AnnualReportsSection } from "@/components/site/AnnualReportsSection";
 import { HeroGallerySection } from "@/components/site/HeroGallerySection";
 import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
+import { HeroBroadcastPill } from "@/components/site/BroadcastStation";
 import {
   STATS,
   MARQUEE,
@@ -183,6 +184,11 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-5xl text-center flex flex-col items-center"
           >
+            {/* Top Live Broadcast Announcement Pill */}
+            <div className="mb-8 flex justify-center w-full">
+              <HeroBroadcastPill />
+            </div>
+
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

@@ -39,18 +39,27 @@ const GUIDELINES = [
 function Community() {
   return (
     <>
+      {/* 1. CHAPTER BROADCAST HUB (First Section) */}
       <section className="relative -mt-24 pt-24">
         <div aria-hidden className="pointer-events-none absolute left-0 right-0 top-0 h-[800px] bg-radial-brand opacity-70" />
+        <BroadcastStation />
+      </section>
+
+      {/* Separator */}
+      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
+
+      {/* 2. OFFICIAL SOCIAL MEDIA CHANNELS */}
+      <section className="relative">
         <div className="container-page relative py-16 md:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand">
-              <MessageCircle className="h-3 w-3" /> Community · Private group
+              <MessageCircle className="h-3 w-3" /> Community · Official Channels
             </span>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Join the <span className="text-gradient-brand">GFG ITER</span> WhatsApp community.
-            </h1>
+            <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              Join the <span className="text-gradient-brand">GFG ITER</span> community.
+            </h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-              One group. Zero noise. Everything you need to stay plugged into the club — events, opportunities, and honest engineering conversations.
+              One ecosystem. Zero noise. Everything you need to stay plugged into the club — events, opportunities, and honest engineering conversations.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90 font-semibold">
@@ -204,12 +213,6 @@ function Community() {
           </div>
         </div>
       </section>
-
-      {/* Separator */}
-      <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
-
-      {/* CHAPTER BROADCAST HUB */}
-      <BroadcastStation />
 
       {/* Separator */}
       <div className="relative z-10 h-px w-full bg-gradient-to-r from-transparent via-[#00ff7f]/20 to-transparent" />
