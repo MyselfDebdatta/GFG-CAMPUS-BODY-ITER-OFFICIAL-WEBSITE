@@ -66,8 +66,8 @@ export const EVENTS = [
     venue: "ITER Main Campus, Bhubaneswar",
     status: "upcoming",
     speakers: [
-      { name: "Vivek Ranjan Sahoo", role: "President", photo: "https://i.pravatar.cc/150?img=12" },
-      { name: "Anubhab Samantaray", role: "Club Coordinator", photo: "https://i.pravatar.cc/150?img=11" }
+      { name: "Vivek Ranjan Sahoo", role: "President", photo: "/team/vivek-ranjan-sahoo.png" },
+      { name: "Anubhab Samantaray", role: "Club Coordinator", photo: "/team/anubhab-samantaray.png" }
     ],
     description:
       "Welcome, freshmen and engineering minds! Join our grand orientation carnival to discover everything about GFG ITER—our vision, active technical domains, upcoming hackathons, and how to become part of the premier builder community on campus.",
@@ -90,8 +90,8 @@ export const EVENTS = [
     status: "ongoing",
     speakers: [
       { name: "GFG Senior Core Team", role: "Domain Mentors", photo: "" },
-      { name: "Vivek Ranjan Sahoo", role: "President", photo: "" },
-      { name: "Anubhab Samantaray", role: "Coordinator", photo: "" }
+      { name: "Vivek Ranjan Sahoo", role: "President", photo: "/team/vivek-ranjan-sahoo.png" },
+      { name: "Anubhab Samantaray", role: "Coordinator", photo: "/team/anubhab-samantaray.png" }
     ],
     description:
       "Theme: Learn It. Build It. Share It. A comprehensive peer-led technical learning initiative introducing undergraduate students to 8 high-demand CS domains: Blockchain & Web3, Quantum Computing, Computer Networking, Cybersecurity, Linux & Cloud, DevOps & CI/CD, AI Automation with n8n, and Data Science.",
@@ -179,7 +179,7 @@ export const EVENTS = [
     venue: "Discord (Online) · #Skill-exchange-program",
     status: "past",
     speakers: [
-      { name: "Vivek Ranjan Sahoo", role: "President, GFG ITER", photo: "" }
+      { name: "Vivek Ranjan Sahoo", role: "President, GFG ITER", photo: "/team/vivek-ranjan-sahoo.png" }
     ],
     description:
       "Understanding the Operating System That Runs the Internet: A deep dive into the Linux kernel, shell, and filesystem architecture, accompanied by a live SSH demonstration on an AWS EC2 instance, core terminal commands, and a 60-second file challenge.",
@@ -201,7 +201,7 @@ export const EVENTS = [
     venue: "Discord (Online) · #Skill-exchange-program",
     status: "past",
     speakers: [
-      { name: "Subhakanta Das", role: "Operations Lead, GFG ITER", photo: "" }
+      { name: "Subhakanta Das", role: "Operations Lead, GFG ITER", photo: "/team/subhakanta-das.png" }
     ],
     description:
       "Building a Secure, Resilient, and Threat-Aware Digital Future: Understanding the CIA Triad & AAA Framework, social engineering tactics, malware field guides, symmetric & asymmetric cryptography, Man-in-the-Middle defenses, and a 10-item daily defense checklist.",
@@ -223,7 +223,7 @@ export const EVENTS = [
     venue: "Discord (Online) · #Skill-exchange-program",
     status: "past",
     speakers: [
-      { name: "Ayush Ranjan Pradhan", role: "Community Mentor, GFG ITER", photo: "" }
+      { name: "Ayush Ranjan Pradhan", role: "Community Mentor, GFG ITER", photo: "/team/ayush-r-pradhan.png" }
     ],
     description:
       "Connecting Devices to Communicate and Share Information Efficiently: Traced network evolution, demystified the OSI 7-layer and TCP/IP models, live DNS resolver sandbox demo, and a hands-on hardware demonstration with router internals and patch-panel switch cabling.",
@@ -245,7 +245,7 @@ export const EVENTS = [
     venue: "Discord (Online) · #Skill-exchange-program",
     status: "past",
     speakers: [
-      { name: "Debajyoti Bhakta", role: "Tech Team, GFG ITER", photo: "" }
+      { name: "Debajyoti Bhakta", role: "Tech Team, GFG ITER", photo: "/team/debajyoti-bhakta.jpeg" }
     ],
     description:
       "Where Physics Meets Computing to Transform the Future: An exploration of qubits, superposition, quantum entanglement, Deutsch–Jozsa and Shor's algorithms, dilution refrigerators, Google's Willow chip, India's National Quantum Mission, and a live Menti quiz.",
@@ -267,7 +267,7 @@ export const EVENTS = [
     venue: "Discord (Online) · #Skill-exchange-program",
     status: "past",
     speakers: [
-      { name: "Anubhab Samantaray", role: "Club Coordinator, Batch 2027", photo: "" }
+      { name: "Anubhab Samantaray", role: "Club Coordinator, Batch 2027", photo: "/team/anubhab-samantaray.png" }
     ],
     description:
       "Building a Secure, Transparent, and Decentralized Future: The evolution from Web1 to Web3, distributed ledgers, transaction lifecycles, cryptographic hashing, Ethereum smart contracts with Solidity, DApps, and emerging blockchain careers.",
@@ -448,18 +448,6 @@ export const EVENT_CATEGORIES = [
   "Hackathon",
 ];
 
-const createTeamMembers = (groupName: string, prefix: string, count: number = 25, startIdx: number = 1) => {
-  return Array.from({ length: count }).map((_, i) => ({
-    name: `${prefix} Member ${i + startIdx}`,
-    role: `${groupName.replace(" Team", "")} Core Member`,
-    group: groupName,
-    bio: `Active contributor to ${groupName} initiatives and events.`,
-    photo: `https://ui-avatars.com/api/?name=${encodeURIComponent(prefix)}+${i + startIdx}&background=00ff7f&color=020b06&size=512`,
-    linkedin: "https://linkedin.com",
-    github: "https://github.com"
-  }));
-};
-
 export const TEAM = [
   // Club Coordinators
   {
@@ -467,7 +455,7 @@ export const TEAM = [
     role: "Club Coordinator",
     group: "Coordinator",
     bio: "Club Coordinator (Batch 2027). Leading chapter operations, Web3 tracks, and technical workshop initiatives.",
-    photo: "https://i.pravatar.cc/400?img=52",
+    photo: "/team/anubhab-samantaray.png",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
@@ -487,7 +475,7 @@ export const TEAM = [
     role: "Community Mentor",
     group: "Mentors",
     bio: "Community Mentor. Guiding students in computer networking, systems hardware, and transitioning to industry.",
-    photo: "https://i.pravatar.cc/400?img=33",
+    photo: "/team/ayush-r-pradhan.png",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
@@ -497,7 +485,7 @@ export const TEAM = [
     role: "President",
     group: "Executive Board",
     bio: "President, GFG ITER. Full-stack & systems practitioner leading chapter vision, cloud infrastructure, and technical sessions.",
-    photo: "https://i.pravatar.cc/400?img=12",
+    photo: "/team/vivek-ranjan-sahoo.png",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
@@ -584,7 +572,6 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/debajyoti-bhakta/",
     github: "https://github.com/ItsYash40"
   },
-  ...createTeamMembers("Technical Team", "Tech", 19, 7),
   
   // PR and Media Team: Lead + 25 members
   {
@@ -592,7 +579,7 @@ export const TEAM = [
     role: "PR & Media Lead",
     group: "PR and Media Team",
     bio: "PR & Media Lead. Managing digital communication, visual storytelling, and brand presence across campus.",
-    photo: "https://i.pravatar.cc/400?img=25",
+    photo: "/team/aastha-singh.png",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
@@ -727,7 +714,6 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/anisha-kumari-860a00301/",
     github: "https://github.com/AnishaK07"
   },
-  ...createTeamMembers("PR and Media Team", "Media", 12, 14),
   
   // Design Team: Lead + 25 members
   {
@@ -791,7 +777,6 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/swastik-mohapatra-975165377",
     github: "https://github.com/swastik018"
   },
-  ...createTeamMembers("Design Team", "Design", 20, 6),
 
   // Operation Team: Lead + 25 members
   {
@@ -799,7 +784,7 @@ export const TEAM = [
     role: "Operations Lead",
     group: "Operation Team",
     bio: "Operations Lead. Managing offline venue logistics, Discord server operations, cybersecurity workshops, and event flow.",
-    photo: "https://i.pravatar.cc/400?img=8",
+    photo: "/team/subhakanta-das.png",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
   },
@@ -933,8 +918,7 @@ export const TEAM = [
     email: "lodhiyashvi@gmail.com",
     linkedin: "https://www.linkedin.com/in/yashvi-lodhi-085669372/",
     github: "https://github.com/YashviLodhi"
-  },
-  ...createTeamMembers("Operation Team", "Operations", 12, 14),
+  }
 ];
 
 export const TEAM_GROUPS = [
@@ -1103,7 +1087,7 @@ export const CONTRIBUTORS = [
     name: "Anubhab Samantaray",
     role: "Club Coordinator",
     achievement: '"Bridging vision with execution to lead GFG ITER towards technical excellence and Web3 innovation."',
-    photo: "",
+    photo: "/team/anubhab-samantaray.png",
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "anubhab.samantaray@soa.ac.in"
@@ -1125,7 +1109,7 @@ export const CONTRIBUTORS = [
     name: "Vivek Ranjan Sahoo",
     role: "President",
     achievement: '"Building an authentic culture of relentless building, cloud exploration, and student leadership."',
-    photo: "",
+    photo: "/team/vivek-ranjan-sahoo.png",
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "vivek.sahoo@iter.ac.in"
@@ -1147,7 +1131,7 @@ export const CONTRIBUTORS = [
     name: "Ayush R. Pradhan",
     role: "Community Mentor",
     achievement: '"Empowering developers to transition from campus learning to real-world infrastructure and networking impact."',
-    photo: "",
+    photo: "/team/ayush-r-pradhan.png",
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "ayush.pradhan@soa.ac.in"
@@ -1169,7 +1153,7 @@ export const CONTRIBUTORS = [
     name: "Subhakanta Das",
     role: "Operations Lead",
     achievement: '"Orchestrating seamless offline events, cybersecurity workshops, and Discord infrastructure."',
-    photo: "",
+    photo: "/team/subhakanta-das.png",
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "subhakanta.das@iter.ac.in"
@@ -1180,7 +1164,7 @@ export const CONTRIBUTORS = [
     name: "Aastha Singh",
     role: "PR & Media Lead",
     achievement: '"Amplifying our builders\' journeys and scaling the chapter brand presence across ITER."',
-    photo: "",
+    photo: "/team/aastha-singh.png",
     linkedin: "https://www.linkedin.com/company/gfgiter/",
     github: "https://github.com",
     email: "aastha.singh@iter.ac.in"
