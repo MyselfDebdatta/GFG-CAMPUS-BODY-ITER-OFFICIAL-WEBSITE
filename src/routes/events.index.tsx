@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { Calendar, MapPin, Users } from "lucide-react";
+import { Calendar, MapPin, Users, ZoomIn } from "lucide-react";
 import { EVENTS, EVENT_CATEGORIES } from "@/lib/site-data";
 import { Reveal, SectionHeader } from "@/components/site/Primitives";
+import { ImageLightbox } from "@/components/site/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -29,6 +31,7 @@ export const Route = createFileRoute("/events/")({
 function Events() {
   const { tab, category } = Route.useSearch();
   const navigate = useNavigate({ from: Route.id });
+  const [selectedImage, setSelectedImage] = useState<{ images: string[]; index: number; title: string } | null>(null);
 
   const setTab = (newTab: "upcoming" | "ongoing" | "past") => {
     navigate({ search: (prev) => ({ ...prev, tab: newTab }), resetScroll: false });
@@ -129,6 +132,22 @@ function Events() {
                     <span className="absolute left-2 top-2 sm:left-3 sm:top-3 rounded-full bg-background/90 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[10px] font-semibold uppercase tracking-wider backdrop-blur">
                       {e.category}
                     </span>
+                    <button
+                      type="button"
+                      onClick={(ev) => {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        setSelectedImage({
+                          images: (e as any).gallery && (e as any).gallery.length > 0 ? (e as any).gallery : [e.image],
+                          index: 0,
+                          title: e.title,
+                        });
+                      }}
+                      aria-label="Enlarge image"
+                      className="absolute right-2 top-2 sm:right-3 sm:top-3 z-30 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-all duration-200 hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] active:scale-95 shadow-md cursor-pointer"
+                    >
+                      <ZoomIn className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                    </button>
                   </div>
                   <div className="flex flex-1 flex-col p-3 sm:p-5">
                     <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] sm:text-xs text-muted-foreground">
@@ -163,6 +182,18 @@ function Events() {
           </motion.div>
         </AnimatePresence>
       </section>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <ImageLightbox
+          isOpen={!!selectedImage}
+          onClose={() => setSelectedImage(null)}
+          images={selectedImage.images}
+          currentIndex={selectedImage.index}
+          onIndexChange={(idx) => setSelectedImage((prev) => prev ? { ...prev, index: idx } : null)}
+          title={selectedImage.title}
+        />
+      )}
     </>
   );
 }

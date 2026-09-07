@@ -25,7 +25,8 @@ import {
   Lightbulb,
   Github,
   Quote,
-  User
+  User,
+  ZoomIn
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,6 +37,7 @@ import { AnnualReportsSection } from "@/components/site/AnnualReportsSection";
 import { HeroGallerySection } from "@/components/site/HeroGallerySection";
 import { ContributorsCarousel } from "@/components/site/ContributorsCarousel";
 import { HeroBroadcastPill } from "@/components/site/BroadcastStation";
+import { ImageLightbox } from "@/components/site/ImageLightbox";
 import {
   STATS,
   MARQUEE,
@@ -168,6 +170,8 @@ function Typewriter() {
 }
 
 function Home() {
+  const [lightboxData, setLightboxData] = useState<{ images: string[]; index: number; title: string } | null>(null);
+
   return (
     <div className="relative min-h-screen bg-[#020b06] selection:bg-[#00ff7f]/30">
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -397,7 +401,18 @@ function Home() {
                     <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
                       <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
                     </div>
-                    <EventCardContent event={e} />
+                    <EventCardContent
+                      event={e}
+                      onEnlarge={(ev) => {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        setLightboxData({
+                          images: (e as any).gallery && (e as any).gallery.length > 0 ? (e as any).gallery : [e.image],
+                          index: 0,
+                          title: e.title,
+                        });
+                      }}
+                    />
                   </div>
                 </Reveal>
               ))}
@@ -411,7 +426,18 @@ function Home() {
                       <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                         <CirclePlay className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                       </div>
-                      <EventCardContent event={e} />
+                      <EventCardContent
+                        event={e}
+                        onEnlarge={(ev) => {
+                          ev.preventDefault();
+                          ev.stopPropagation();
+                          setLightboxData({
+                            images: (e as any).gallery && (e as any).gallery.length > 0 ? (e as any).gallery : [e.image],
+                            index: 0,
+                            title: e.title,
+                          });
+                        }}
+                      />
                     </div>
                   </Reveal>
                 ))
@@ -425,7 +451,18 @@ function Home() {
                       <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/20 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-white/80 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                         <Sparkles className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-[#00ff7f]" /> LATEST HIGHLIGHT
                       </div>
-                      <EventCardContent event={e} />
+                      <EventCardContent
+                        event={e}
+                        onEnlarge={(ev) => {
+                          ev.preventDefault();
+                          ev.stopPropagation();
+                          setLightboxData({
+                            images: (e as any).gallery && (e as any).gallery.length > 0 ? (e as any).gallery : [e.image],
+                            index: 0,
+                            title: e.title,
+                          });
+                        }}
+                      />
                     </div>
                   </Reveal>
                 ))
@@ -591,11 +628,29 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {lightboxData && (
+        <ImageLightbox
+          isOpen={!!lightboxData}
+          onClose={() => setLightboxData(null)}
+          images={lightboxData.images}
+          currentIndex={lightboxData.index}
+          onIndexChange={(idx) => setLightboxData((prev) => prev ? { ...prev, index: idx } : null)}
+          title={lightboxData.title}
+        />
+      )}
     </div>
   );
 }
 
-function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
+function EventCardContent({
+  event,
+  onEnlarge,
+}: {
+  event: (typeof EVENTS)[number];
+  onEnlarge?: (e: React.MouseEvent) => void;
+}) {
   return (
     <div
       onClick={undefined}
@@ -612,6 +667,16 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
         <span className="absolute right-2.5 top-2.5 sm:right-4 sm:top-4 rounded-full bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 z-10">
           {event.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
         </span>
+        {onEnlarge && (
+          <button
+            type="button"
+            onClick={onEnlarge}
+            aria-label="Enlarge image"
+            className="absolute right-2.5 bottom-2.5 sm:right-3.5 sm:bottom-3.5 z-30 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white backdrop-blur-md transition-all duration-200 hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] active:scale-95 shadow-md cursor-pointer"
+          >
+            <ZoomIn className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+          </button>
+        )}
       </div>
       <div className="flex flex-col flex-1 p-3.5 sm:p-5 md:p-8">
         <div className="text-xs sm:text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>

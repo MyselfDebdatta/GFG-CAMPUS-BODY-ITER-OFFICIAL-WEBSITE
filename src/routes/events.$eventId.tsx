@@ -2,10 +2,11 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   ArrowLeft, Calendar, MapPin, Users, CheckCircle2,
   Clock, User, ChevronRight, GitBranch, Terminal,
-  Zap, Target, Code2, Rocket,
+  Zap, Target, Code2, Rocket, ZoomIn,
 } from "lucide-react";
 import { useState } from "react";
 import { EVENTS } from "@/lib/site-data";
+import { ImageLightbox } from "@/components/site/ImageLightbox";
 import { Button } from "@/components/ui/button";
 import {
   Dialog, DialogContent, DialogDescription, DialogHeader,
@@ -325,7 +326,19 @@ function EventDetails() {
   const event = Route.useLoaderData();
   const [registered, setRegistered] = useState(false);
   const [open, setOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const copy = EVENT_COPY[event.id] || FALLBACK_COPY;
+
+  const galleryImages: string[] = (event as any).gallery && (event as any).gallery.length >= 5
+    ? (event as any).gallery
+    : [
+        event.image,
+        "/events/annual_p12_X42.jpg",
+        "/events/annual_p16_X60.png",
+        "/events/annual_p14_X54.png",
+        "/events/annual_p10_X34.png",
+      ];
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -362,8 +375,19 @@ function EventDetails() {
         </div>
 
         {/* ── 2. HERO BANNER ─────────────────────────────────────────── */}
-        <div className="relative w-full overflow-hidden rounded-2xl border border-hairline" style={{ height: "clamp(280px, 45vh, 480px)" }}>
-          <img src={event.image} alt={event.title} className="absolute inset-0 h-full w-full object-cover" />
+        <div
+          onClick={() => {
+            setLightboxIndex(0);
+            setLightboxOpen(true);
+          }}
+          className="relative w-full overflow-hidden rounded-2xl border border-hairline group cursor-zoom-in"
+          style={{ height: "clamp(280px, 45vh, 480px)" }}
+        >
+          <img
+            src={event.image}
+            alt={event.title}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
           {/* Diagonal gradient overlay */}
           <div className="absolute inset-0" style={{
             background: "linear-gradient(135deg, rgba(4,7,5,0.95) 0%, rgba(4,7,5,0.7) 40%, rgba(4,7,5,0.3) 70%, transparent 100%)",
@@ -371,7 +395,22 @@ function EventDetails() {
           {/* Bottom gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#040705] via-transparent to-transparent" />
 
-          <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
+          {/* Quick Enlarge Button */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(0);
+              setLightboxOpen(true);
+            }}
+            aria-label="Enlarge image"
+            className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/60 px-3 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-md transition-all duration-200 hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] active:scale-95 shadow-lg"
+          >
+            <ZoomIn className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Enlarge Poster</span>
+          </button>
+
+          <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12 pointer-events-none">
             {/* Status badge */}
             <div className="flex items-center gap-3 mb-5">
               <span className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1 text-[10px] font-bold tracking-[0.2em] font-mono ${statusColor}`}>
@@ -594,47 +633,66 @@ function EventDetails() {
 
         {/* ── 6. GALLERY — Bento Grid ────────────────────────────────── */}
         <div className="mt-6 rounded-2xl border border-hairline bg-surface-elevated p-8 md:p-10">
-          <div className="flex items-center gap-2.5 mb-6">
-            <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center">
-              <Code2 className="h-4 w-4 text-brand" />
+          <div className="flex flex-wrap items-center justify-between gap-2.5 mb-6">
+            <div className="flex items-center gap-2.5">
+              <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center">
+                <Code2 className="h-4 w-4 text-brand" />
+              </div>
+              <h2 className="text-xl font-bold tracking-tight">Event Gallery</h2>
             </div>
-            <h2 className="text-xl font-bold tracking-tight">Event Gallery</h2>
+            <span className="text-xs text-muted-foreground font-mono flex items-center gap-1.5">
+              <ZoomIn className="h-3.5 w-3.5 text-brand" /> Click any photo to enlarge
+            </span>
           </div>
           {(() => {
-            const galleryImages = (event as any).gallery && (event as any).gallery.length >= 5
-              ? (event as any).gallery
-              : [
-                  event.image,
-                  "/events/annual_p12_X42.jpg",
-                  "/events/annual_p16_X60.png",
-                  "/events/annual_p14_X54.png",
-                  "/events/annual_p10_X34.png",
-                ];
             const mainImg = galleryImages[0];
             const secondaryImgs = galleryImages.slice(1, 5);
 
             return (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-[350px] md:h-[420px]">
-                <div className="col-span-2 row-span-2 rounded-xl overflow-hidden border border-hairline relative group">
+                <div
+                  onClick={() => {
+                    setLightboxIndex(0);
+                    setLightboxOpen(true);
+                  }}
+                  className="col-span-2 row-span-2 rounded-xl overflow-hidden border border-hairline relative group cursor-zoom-in"
+                >
                   <img
                     src={mainImg}
                     alt={`${event.title} highlight`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 left-3 text-xs font-mono text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <span className="flex items-center gap-1.5 rounded-full border border-[#00ff7f]/40 bg-black/70 px-3 py-1.5 text-xs font-bold text-[#00ff7f] backdrop-blur-md shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                      <ZoomIn className="h-3.5 w-3.5" /> Enlarge
+                    </span>
+                  </div>
+                  <div className="absolute bottom-3 left-3 text-xs font-mono text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                     {event.id}_highlight.jpg
                   </div>
                 </div>
                 {secondaryImgs.map((src: string, i: number) => (
-                  <div key={i} className="rounded-xl overflow-hidden border border-hairline relative group">
+                  <div
+                    key={i}
+                    onClick={() => {
+                      setLightboxIndex(i + 1);
+                      setLightboxOpen(true);
+                    }}
+                    className="rounded-xl overflow-hidden border border-hairline relative group cursor-zoom-in"
+                  >
                     <img
                       src={src}
                       alt={`${event.title} moment ${i + 2}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <span className="flex items-center justify-center h-8 w-8 rounded-full border border-[#00ff7f]/40 bg-black/70 text-[#00ff7f] backdrop-blur-md shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                        <ZoomIn className="h-4 w-4" />
+                      </span>
+                    </div>
+                    <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       {event.id}_moment_{String(i + 2).padStart(2, "0")}.jpg
                     </div>
                   </div>
@@ -643,6 +701,16 @@ function EventDetails() {
             );
           })()}
         </div>
+
+        {/* Lightbox Modal */}
+        <ImageLightbox
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          images={galleryImages}
+          currentIndex={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          title={event.title}
+        />
       </div>
     </div>
   );
