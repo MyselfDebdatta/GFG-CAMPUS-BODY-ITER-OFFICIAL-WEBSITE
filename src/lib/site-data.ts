@@ -724,6 +724,26 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/anisha-kumari-860a00301/",
     github: "https://github.com/AnishaK07"
   },
+  {
+    name: "Anshuman Meher",
+    role: "PR and Media Core Member",
+    group: "PR and Media Team",
+    bio: "PR and Media Core Member (Batch 2028). Digital outreach and media contributor assisting in chapter publicity, announcements, and student engagement.",
+    photo: "/team/anshuman-meher.jpg",
+    email: "meheranshuman62@gmail.com",
+    linkedin: "https://www.linkedin.com/in/anshuman-meher22",
+    github: "https://github.com/meheranshuman22"
+  },
+  {
+    name: "Mahrukh Nasis",
+    role: "PR and Media Core Member",
+    group: "PR and Media Team",
+    bio: "PR and Media Core Member (Batch 2029). Public relations enthusiast connecting student communities and driving creative outreach across campus.",
+    photo: "/team/mahrukh-nasis.jpg",
+    email: "mahrukhnasis@gmail.com",
+    linkedin: "https://www.linkedin.com/in/mahrukh-nasis-887564374",
+    github: "https://github.com/maxxcode17"
+  },
   
   // Design Team: Lead + 25 members
   {
@@ -786,6 +806,36 @@ export const TEAM = [
     email: "swastikmohapatra2005@gmail.com",
     linkedin: "https://www.linkedin.com/in/swastik-mohapatra-975165377",
     github: "https://github.com/swastik018"
+  },
+  {
+    name: "Pratikhya Dash",
+    role: "Design Core Member",
+    group: "Design Team",
+    bio: "Design Core Member (Batch 2028). Visual designer and creative contributor crafting graphics, banners, and aesthetic assets for chapter events and branding.",
+    photo: "/team/pratikhya-dash.jpg",
+    email: "pratikhyadash1412@gmail.com",
+    linkedin: "https://www.linkedin.com/in/pratikhya-dash-06bab9330",
+    github: "https://github.com/pratikhyadash1412-crypto"
+  },
+  {
+    name: "Suhani Anand",
+    role: "Design Core Member",
+    group: "Design Team",
+    bio: "Design Core Member (Batch 2028). UI/UX and visual designer creating intuitive layouts, event graphics, and creative assets for chapter initiatives.",
+    photo: "/team/suhani-anand.jpg",
+    email: "suhanianand2005@gmail.com",
+    linkedin: "https://www.linkedin.com/in/suhani-anand-81874432b",
+    github: "https://github.com/Suhani22Anand"
+  },
+  {
+    name: "Roshni Kumari",
+    role: "Design Core Member",
+    group: "Design Team",
+    bio: "Design Core Member (Batch 2029). Creative designer passionate about visual storytelling, poster design, and brand aesthetics for chapter activities.",
+    photo: "/team/roshni-kumari.jpg",
+    email: "roshnikumarimymail02@gmail.com",
+    linkedin: "https://www.linkedin.com/in/roshni-4b342230b",
+    github: "https://github.com/roshcode002"
   },
 
   // Operation Team: Lead + 25 members
@@ -918,6 +968,16 @@ export const TEAM = [
     email: "lodhiyashvi@gmail.com",
     linkedin: "https://www.linkedin.com/in/yashvi-lodhi-085669372/",
     github: "https://github.com/YashviLodhi"
+  },
+  {
+    name: "Smruti Sikha Nag",
+    role: "Operations Core Member",
+    group: "Operation Team",
+    bio: "Operations Core Member (Batch 2029). Event coordinator supporting logistics, venue management, and seamless execution of campus workshops.",
+    photo: "/team/smruti-sikha-nag.jpg",
+    email: "smrutisikha4679@gmail.com",
+    linkedin: "https://www.linkedin.com/in/smruti-sikha-nag-6a347b392",
+    github: "https://github.com/smmoothie"
   }
 ];
 
