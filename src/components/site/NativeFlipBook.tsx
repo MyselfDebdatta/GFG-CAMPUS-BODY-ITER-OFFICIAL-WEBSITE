@@ -327,8 +327,8 @@ const PAGES: ReactNode[] = [
           </div>
           
           {/* Square Image Placeholder */}
-          <div className="w-full aspect-[4/3] bg-[#ccc] overflow-hidden">
-            <img src="/reports/extracted/page_3_img_3_X15.jpg" alt="Event" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
+          <div className="w-full aspect-[4/3] bg-[#020b06] overflow-hidden rounded-[2px] shadow-sm">
+            <img src="/reports/extracted/page_3_img_3_X15.jpg" alt="Faculty Coordinators" className="w-full h-full object-cover contrast-105" />
           </div>
           
           {/* Green Pill */}
