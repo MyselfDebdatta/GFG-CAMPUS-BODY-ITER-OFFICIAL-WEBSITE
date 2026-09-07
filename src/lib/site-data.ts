@@ -572,6 +572,16 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/debajyoti-bhakta/",
     github: "https://github.com/ItsYash40"
   },
+  {
+    name: "Piyush Tiwari",
+    role: "Technical Core Member",
+    group: "Technical Team",
+    bio: "Technical Core Member (Batch 2028). Full-stack builder and developer contributing to chapter web platforms, systems, and collaborative coding initiatives.",
+    photo: "/team/piyush-tiwari.jpg",
+    email: "piyush89101@gmail.com",
+    linkedin: "https://www.linkedin.com/in/piyush-tiwari-3098a4338",
+    github: "https://github.com/infinitepush"
+  },
   
   // PR and Media Team: Lead + 25 members
   {
@@ -787,16 +797,6 @@ export const TEAM = [
     photo: "/team/subhakanta-das.png",
     linkedin: "https://linkedin.com",
     github: "https://github.com"
-  },
-  {
-    name: "Piyush Tiwari",
-    role: "Operations Core Member",
-    group: "Operation Team",
-    bio: "Operations Core Member (Batch 2028). Logistics coordinator ensuring seamless execution of campus meetups and workshops.",
-    photo: "/team/piyush-tiwari.jpg",
-    email: "piyush89101@gmail.com",
-    linkedin: "https://www.linkedin.com/in/piyush-tiwari-3098a4338",
-    github: "https://github.com/infinitepush"
   },
   {
     name: "Ronit Rajib Pattnaik",
