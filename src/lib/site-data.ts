@@ -294,13 +294,13 @@ export const EVENTS = [
     description:
       "Chakravyuh Genesis 2026 Flagship Creative Event: An on-the-spot design and pitch competition where ~120 students tackled a surprise theme, conceptualized impactful posters, and delivered persuasive elevator pitches before an expert judging panel.",
     image:
-      "/events/annual_p18_X67.png",
+      "/events/rachitva-awards.jpg",
     gallery: [
-      "/events/annual_p18_X67.png",
-      "/events/annual_p18_X66.png",
-      "/events/annual_p18_X68.png",
-      "/events/annual_p16_X60.png",
-      "/events/annual_p16_X59.png"
+      "/events/rachitva-awards.jpg",
+      "/events/rachitva-pitch.jpg",
+      "/events/rachitva-designing.jpg",
+      "/events/rachitva-audience.jpg",
+      "/events/rachitva-mentors.jpg"
     ],
   },
   {

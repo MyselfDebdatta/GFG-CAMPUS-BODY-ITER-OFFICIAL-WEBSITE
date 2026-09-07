@@ -1310,20 +1310,20 @@ const PAGES: ReactNode[] = [
           </div>
           {/* Bottom Left Image */}
           <div className="w-full mt-auto mb-1 border-[1.5px] border-white shadow-sm overflow-hidden bg-white">
-            <img src="/reports/extracted/page_18_img_1_X14.png" alt="Pitch" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_18_img_1_X14.png" alt="Pitch" className="w-full aspect-[4/3] object-cover" />
           </div>
         </div>
         
         {/* Right Column (3 Images) */}
         <div className="w-[50%] flex flex-col justify-between pb-2">
           <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white">
-            <img src="/reports/extracted/page_17_img_2_X21.png" alt="Rachitva 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_17_img_2_X21.png" alt="Rachitva 1" className="w-full aspect-[16/9] object-cover" />
           </div>
           <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white my-2">
-            <img src="/reports/extracted/page_17_img_3_X22.png" alt="Rachitva 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_17_img_3_X22.png" alt="Rachitva 2" className="w-full aspect-[16/9] object-cover" />
           </div>
           <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white mt-auto mb-1">
-            <img src="/reports/extracted/page_17_img_4_X23.png" alt="Rachitva Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_17_img_4_X23.png" alt="Rachitva Audience" className="w-full aspect-[4/3] object-cover" />
           </div>
         </div>
       </div>
