@@ -1416,7 +1416,7 @@ export const BROADCASTS: BroadcastItem[] = [
       "Interactive 3D page-turn flipbook available directly on the chapter portal."
     ],
     actionLabel: "Read Annual Report",
-    registrationUrl: "/reports/GFG_ITER_Annual_Activity_Report_2025-2026.pdf"
+    registrationUrl: "/reports/GFG_NEWSLETTER_new.pdf"
   },
   {
     id: "skill-exchange-cohort-2",

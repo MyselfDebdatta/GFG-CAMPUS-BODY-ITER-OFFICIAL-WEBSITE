@@ -11,7 +11,7 @@ const REPORTS = [
     coverUrl: "/images/annual-report-cover.png", 
     year: "2025–26",
     reportingPeriod: "November 2025 – August 2026",
-    pdfUrl: "/reports/GFG_ITER_Annual_Activity_Report_2025-2026.pdf",
+    pdfUrl: "/reports/GFG_NEWSLETTER_new.pdf",
   },
   // Future reports will be added here
 ];
@@ -116,7 +116,9 @@ export function AnnualReportsSection() {
                 </div>
                 <a
                   href={report.pdfUrl}
-                  download="GFG_ITER_Annual_Activity_Report_2025-2026.pdf"
+                  download="GFG_NEWSLETTER_new.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   className="p-1 rounded-full text-white/60 hover:text-[#00ff7f] hover:bg-white/10 transition-all"
                   title="Download Official PDF Report"
@@ -137,14 +139,28 @@ export function AnnualReportsSection() {
       {/* Full-Screen Flipbook Modal rendered to document.body (above Navbar) */}
       {activeReport && mounted && createPortal(
         <div className="fixed inset-0 z-[99999] bg-black/95 backdrop-blur-md overflow-y-auto flex flex-col items-center animate-in fade-in-0 duration-200">
-          {/* Close button */}
-          <button
-            onClick={() => setActiveReport(null)}
-            className="fixed top-6 right-6 z-[100000] flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 cursor-pointer shadow-2xl"
-            aria-label="Close modal"
-          >
-            <X className="h-6 w-6" />
-          </button>
+          {/* Top header action buttons */}
+          <div className="fixed top-6 right-6 z-[100000] flex items-center gap-3">
+            <a
+              href={activeReport.pdfUrl}
+              download="GFG_NEWSLETTER_new.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 items-center gap-2 px-4 rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-105 active:scale-95 cursor-pointer shadow-2xl font-bold text-xs"
+              aria-label="Download PDF"
+              title="Download PDF"
+            >
+              <Download className="h-4 w-4" />
+              <span className="hidden sm:inline">Download PDF</span>
+            </a>
+            <button
+              onClick={() => setActiveReport(null)}
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 transition-all hover:bg-[#00ff7f] hover:text-[#020b06] hover:scale-110 active:scale-95 cursor-pointer shadow-2xl"
+              aria-label="Close modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
 
           {/* Book Viewer Container with flexbox my-auto to avoid top/bottom clipping */}
           <div className="min-h-screen w-full flex flex-col items-center py-6 sm:py-10 px-2 sm:px-6">
