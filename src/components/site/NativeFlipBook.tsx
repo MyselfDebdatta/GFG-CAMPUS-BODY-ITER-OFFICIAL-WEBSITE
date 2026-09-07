@@ -494,7 +494,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 6 — left page ─── */
-  pg(true, 6, (
+  pg(false, 6, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-0.5">
@@ -561,7 +561,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 7 — right page ─── */
-  pg(false, 7, (
+  pg(true, 7, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-2">
@@ -639,7 +639,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 8 — left page ─── */
-  pg(true, 8, (
+  pg(false, 8, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-1">
@@ -691,7 +691,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 9 — right page ─── */
-  pg(false, 9, (
+  pg(true, 9, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-1">
@@ -781,7 +781,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 10 — left page ─── */
-  pg(true, 10, (
+  pg(false, 10, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="text-right text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333] mb-1">
@@ -844,7 +844,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 11 — right page ─── */
-  pg(false, 11, (
+  pg(true, 11, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-2">
@@ -932,7 +932,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 12 — left page ─── */
-  pg(true, 12, (
+  pg(false, 12, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-1">
@@ -1010,7 +1010,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 13 — right page ─── */
-  pg(false, 13, (
+  pg(true, 13, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-2">
@@ -1106,7 +1106,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 14 — left page ─── */
-  pg(true, 14, (
+  pg(false, 14, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-1">
@@ -1184,7 +1184,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 15 — right page ─── */
-  pg(false, 15, (
+  pg(true, 15, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-2">
@@ -1261,7 +1261,7 @@ const PAGES: ReactNode[] = [
   )),
 
   /* ─── PAGE 16 — left page ─── */
-  pg(true, 16, (
+  pg(false, 16, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-2">
@@ -1330,8 +1330,186 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 17 — right page ─── */
-  pg(false, 17, (
+  
+  /* ─── PAGE 17 — left page: GFG WORKSHOP (SKILLS EXCHANGE) ─── */
+  pg(true, 17, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-between items-end mb-1">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          EVENT 7.
+        </div>
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="relative text-center mb-0.5">
+        <h2 className="text-2xl sm:text-3xl font-black uppercase text-[#333]" style={{ transform: "scaleY(1.2)", display: "inline-block", letterSpacing: "-0.02em" }}>
+          GFG WORKSHOP
+        </h2>
+      </div>
+      
+      <div className="w-full">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px] mb-1.5"></div>
+      </div>
+      
+      {/* Sub Banner */}
+      <div className="relative border-[1.5px] border-[#008F4C] text-center pt-1.5 pb-2 mb-2 mx-4">
+        <div className="text-[9px] sm:text-[11px] font-bold text-[#111] leading-none uppercase tracking-widest">
+          SKILLS EXCHANGE WORKSHOP
+        </div>
+        <div className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 bg-[#F5F3EA] px-2 text-[9px] font-bold text-[#111] whitespace-nowrap">
+          10 July - 15 Aug 2026
+        </div>
+      </div>
+      
+      {/* Content Area - Two Halves */}
+      <div className="flex-1 flex flex-col justify-between px-1 gap-2 pb-1 min-h-0">
+        {/* Top Row: Poster + Overview */}
+        <div className="flex gap-2.5 items-stretch h-[48%]">
+          {/* Poster Left */}
+          <div className="w-[38%] rounded-[8px] overflow-hidden border-[1.5px] border-black/10 shadow-sm bg-white shrink-0">
+            <img src="/reports/extracted/page_19_img_1_X12.png" alt="Skills Exchange Poster" className="w-full h-full object-cover" />
+          </div>
+          
+          {/* Overview Green Box on Gray Background */}
+          <div className="w-[62%] relative">
+            <div className="absolute inset-0 bg-[#D9D9D9] -left-1 top-1 -bottom-1 right-1"></div>
+            <div className="relative bg-[#008F4C] p-2 shadow-md h-full text-white flex flex-col justify-center">
+              <h3 className="text-white text-[11px] sm:text-[12px] font-bold uppercase tracking-wide mb-1">OVERVIEW</h3>
+              <p className="text-white text-[6.5px] sm:text-[7px] font-medium leading-[1.3] text-justify">
+                The GFG Skills Exchange Workshop created a collaborative learning space where students shared practical knowledge, exchanged technical skills, and learned from one another. The workshop encouraged peer-to-peer learning, curiosity, and continuous self-improvement, strengthening the culture of collaboration within the GFG ITER community.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Row: Highlights + Session Screenshot */}
+        <div className="flex gap-2.5 items-center h-[48%]">
+          {/* Highlights Text */}
+          <div className="w-[42%] flex flex-col justify-center pr-0.5">
+            <h3 className="text-[10px] sm:text-[11px] font-black text-[#111] leading-tight uppercase tracking-tight mb-1">
+              WORKSHOP<br/>HIGHLIGHTS
+            </h3>
+            <p className="text-[6.5px] sm:text-[7px] text-[#222] font-medium text-justify leading-[1.25]">
+              The workshop featured interactive sessions led by students on diverse technical topics, providing hands-on exposure and practical insights. Participants actively engaged in discussions, asked questions, and explored new technologies in an open and supportive learning environment.
+            </p>
+          </div>
+          
+          {/* Session AI Screenshot */}
+          <div className="w-[58%] flex flex-col items-center">
+            <div className="w-full rounded-[4px] overflow-hidden border-[1.5px] border-[#008F4C] shadow-sm bg-[#111]">
+              <img src="/reports/extracted/page_19_img_2_X15.jpg" alt="Session on AI Agents and Automation" className="w-full aspect-[16/10] object-cover" />
+            </div>
+            <span className="text-[5.5px] sm:text-[6px] font-bold text-[#111] uppercase tracking-wider mt-0.5 text-center">
+              SESSION ON AI AGENTS AND AUTOMATION
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 18 — right page: SKILLS EXCHANGE (TRACKS & LEARNING) ─── */
+  pg(false, 18, (
+    <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
+      {/* Header */}
+      <div className="flex justify-end items-end mb-1">
+        <div className="text-[7px] sm:text-[8px] font-bold tracking-widest uppercase text-[#333]">
+          ITER
+        </div>
+      </div>
+      
+      <div className="w-full mb-1.5">
+        <div className="border-t-[2px] border-[#008F4C]"></div>
+        <div className="border-t-[1px] border-[#008F4C] mt-[2px]"></div>
+      </div>
+      
+      {/* Two Columns Layout */}
+      <div className="flex gap-2.5 px-1 flex-1 min-h-0 pb-1">
+        {/* Left Column: Peer-to-Peer, Key Takeaways, Conclusion */}
+        <div className="w-[45%] flex flex-col justify-between py-0.5 pr-0.5">
+          <div>
+            <h3 className="text-[9px] sm:text-[10px] font-black uppercase text-[#111] tracking-tight mb-0.5 leading-tight">
+              PEER-TO-PEER LEARNING
+            </h3>
+            <p className="text-[5.5px] sm:text-[6px] text-[#222] font-medium text-justify leading-[1.25] mb-1.5">
+              One of the workshop's key strengths was its emphasis on learning from peers. By sharing experiences, solving problems together, and exchanging ideas, participants built confidence while strengthening both their technical knowledge and communication skills.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-[9px] sm:text-[10px] font-black uppercase text-[#111] tracking-tight mb-0.5 leading-tight">
+              KEY TAKEAWAYS
+            </h3>
+            <ul className="text-[5px] sm:text-[5.5px] text-[#222] font-medium leading-[1.2] space-y-0.5 list-disc pl-2.5 mb-1.5">
+              <li>Encouraged collaborative and peer-driven learning.</li>
+              <li>Promoted knowledge sharing across diverse technical domains.</li>
+              <li>Strengthened communication, teamwork, and presentation skills.</li>
+              <li>Inspired students to become both learners and mentors within the community.</li>
+            </ul>
+          </div>
+
+          <div className="mt-auto">
+            <h3 className="text-[9px] sm:text-[10px] font-black uppercase text-[#111] tracking-tight mb-0.5 leading-tight">
+              CONCLUSION
+            </h3>
+            <p className="text-[5.5px] sm:text-[6px] text-[#222] font-medium text-justify leading-[1.25]">
+              The GFG Skills Exchange Workshop reinforced the club's vision of creating an inclusive learning ecosystem where knowledge is shared, curiosity is encouraged, and every student has an opportunity to grow by learning from one another.
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column: 4 Domain Tracks */}
+        <div className="w-[55%] flex flex-col justify-between py-0.5 gap-1">
+          {/* Track 1: Web3 & Blockchain */}
+          <div className="flex flex-col items-center">
+            <div className="w-full rounded-[3px] overflow-hidden border-[1px] border-[#008F4C] shadow-xs bg-[#111]">
+              <img src="/reports/extracted/page_20_img_2_X7.jpg" alt="Web3 and Blockchain" className="w-full aspect-[16/9] object-cover" />
+            </div>
+            <span className="text-[5px] sm:text-[5.5px] font-bold text-[#111] uppercase tracking-wider mt-0.5 text-center">
+              SESSION ON WEB3 AND BLOCKCHAIN
+            </span>
+          </div>
+
+          {/* Track 2: Data Science & Visualization */}
+          <div className="flex flex-col items-center">
+            <div className="w-full rounded-[3px] overflow-hidden border-[1px] border-[#008F4C] shadow-xs bg-[#111]">
+              <img src="/reports/extracted/page_20_img_3_X8.jpg" alt="Data Science & Visualization" className="w-full aspect-[16/9] object-cover" />
+            </div>
+            <span className="text-[5px] sm:text-[5.5px] font-bold text-[#111] uppercase tracking-wider mt-0.5 text-center">
+              SESSION ON DATA SCIENCE & VISUALIZATION
+            </span>
+          </div>
+
+          {/* Track 3: Linux & Cloud Computing */}
+          <div className="flex flex-col items-center">
+            <div className="w-full rounded-[3px] overflow-hidden border-[1px] border-[#008F4C] shadow-xs bg-[#111]">
+              <img src="/reports/extracted/page_20_img_4_X9.jpg" alt="Linux and Cloud Computing" className="w-full aspect-[16/9] object-cover" />
+            </div>
+            <span className="text-[5px] sm:text-[5.5px] font-bold text-[#111] uppercase tracking-wider mt-0.5 text-center">
+              SESSION ON LINUX AND CLOUD COMPUTING
+            </span>
+          </div>
+
+          {/* Track 4: Computer Networking */}
+          <div className="flex flex-col items-center">
+            <div className="w-full rounded-[3px] overflow-hidden border-[1px] border-[#008F4C] shadow-xs bg-[#111]">
+              <img src="/reports/extracted/page_20_img_1_X5.jpg" alt="Computer Networking" className="w-full aspect-[16/9] object-cover" />
+            </div>
+            <span className="text-[5px] sm:text-[5.5px] font-bold text-[#111] uppercase tracking-wider mt-0.5 text-center">
+              SESSION ON COMPUTER NETWORKING
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )),
+
+  /* ─── PAGE 19 — left page: MEMBERS ACHIEVEMENTS ─── */
+  pg(true, 19, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-end items-end mb-2">
@@ -1398,8 +1576,8 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 18 — left page ─── */
-  pg(true, 18, (
+  /* ─── PAGE 20 — right page: LOOKING AHEAD ─── */
+  pg(false, 20, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-between items-end mb-2">
@@ -1461,8 +1639,8 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 19 — right page ─── */
-  pg(false, 19, (
+  /* ─── PAGE 21 — left page: CORE TEAM ─── */
+  pg(true, 21, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col pt-1">
       {/* Header */}
       <div className="flex justify-end items-end mb-2">
@@ -1507,8 +1685,8 @@ const PAGES: ReactNode[] = [
     </div>
   )),
 
-  /* ─── PAGE 20 — left page (Poster) ─── */
-  pg(true, 20, (
+  /* ─── PAGE 22 — right page (Poster) ─── */
+  pg(false, 22, (
     <div className="flex-1 min-h-0 overflow-hidden flex flex-col justify-between pt-8 pb-10 px-6">
       {/* Top Section */}
       <div className="flex justify-between items-start">
