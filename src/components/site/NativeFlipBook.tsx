@@ -81,15 +81,15 @@ const pg = (isLeft: boolean, pageNum: number, children: ReactNode): ReactNode =>
    COMPONENTS
    ═══════════════════════════════════════════════════════════════════ */
 const PersonCard = ({ name, role, src }: { name: string, role: string, src?: string }) => (
-  <div className="relative rounded-[6px] sm:rounded-[8px] overflow-hidden aspect-[3/4] shadow-sm bg-[#789A5F] border-[0.5px] border-[#008F4C]/20">
+  <div className="relative rounded-[6px] sm:rounded-[8px] overflow-hidden aspect-[3/4] shadow-md bg-[#020b06] border-[0.5px] border-[#008F4C]/30">
     {src ? (
-      <img src={src} alt={name} className="w-full h-full object-cover opacity-90 mix-blend-luminosity" />
+      <img src={src} alt={name} className="w-full h-full object-cover" />
     ) : (
-      <div className="w-full h-full bg-gradient-to-br from-[#87A86E] to-[#688B4F] opacity-90 mix-blend-multiply" />
+      <div className="w-full h-full bg-gradient-to-br from-[#87A86E] to-[#688B4F] opacity-90" />
     )}
-    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-1.5 flex flex-col justify-end text-center h-[55%]">
-      <div className="text-white font-black text-[7.5px] sm:text-[8.5px] leading-none tracking-wide uppercase drop-shadow-md">{name}</div>
-      <div className="text-white/90 font-bold text-[5.5px] sm:text-[6.5px] uppercase tracking-widest mt-1 drop-shadow-md">{role}</div>
+    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-1 sm:p-1.5 flex flex-col justify-end text-center h-[55%]">
+      <div className="text-white font-black text-[7px] sm:text-[8px] leading-tight tracking-wide uppercase drop-shadow-md line-clamp-2">{name}</div>
+      <div className="text-[#00ff7f] font-bold text-[5px] sm:text-[6px] uppercase tracking-widest mt-0.5 drop-shadow-md truncate">{role}</div>
     </div>
   </div>
 );
@@ -378,26 +378,26 @@ const PAGES: ReactNode[] = [
         {/* Row 1: President & Vice President */}
         <div className="flex justify-center gap-2 px-1">
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="VIVEK RANJAN SAHOO" role="PRESIDENT" />
+            <PersonCard name="VIVEK RANJAN SAHOO" role="PRESIDENT" src="/team/vivek-ranjan-sahoo.png" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="SNEHANSU SEKHAR DASH" role="VICE-PRESIDENT" />
+            <PersonCard name="SNEHANSU SEKHAR DASH" role="VICE-PRESIDENT" src="/team/snehansu-sekhar-dash.jpg" />
           </div>
         </div>
         
         {/* Row 2: Leads */}
         <div className="flex justify-center gap-2 px-1 mt-1">
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" />
+            <PersonCard name="ABHIJIT DASH" role="TECH LEAD" src="/team/abhijit-dash.jpg" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="SUBHAKANTA DAS" role="OPERATIONS LEAD" />
+            <PersonCard name="SUBHAKANTA DAS" role="OPERATIONS LEAD" src="/team/subhakanta-das.png" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="AASTHA SINGH" role="PR & MEDIA LEAD" />
+            <PersonCard name="AASTHA SINGH" role="PR & MEDIA LEAD" src="/team/aastha-singh.png" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="SANYUKT KUMAR RAI" role="DESIGN LEAD" />
+            <PersonCard name="SANYUKT KUMAR RAI" role="DESIGN LEAD" src="/team/sanyukt-kumar-rai.png" />
           </div>
         </div>
         
@@ -414,13 +414,13 @@ const PAGES: ReactNode[] = [
         {/* Row 3: Co-ordinators */}
         <div className="flex justify-center gap-2 px-1">
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="ANUBHAB SAMANTARAY" role="CLUB COORDINATOR" />
+            <PersonCard name="ANUBHAB SAMANTARAY" role="CLUB COORDINATOR" src="/team/anubhab-samantaray.png" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="AKANSHA AJAY" role="CLUB COORDINATOR" />
+            <PersonCard name="AKANSHA AJAY" role="CLUB COORDINATOR" src="/team/akansha-ajay.png" />
           </div>
           <div className="w-[23%] max-w-[105px]">
-            <PersonCard name="AYUSH R. PRADHAN" role="COMMUNITY MENTOR" />
+            <PersonCard name="AYUSH R. PRADHAN" role="COMMUNITY MENTOR" src="/team/ayush-r-pradhan.png" />
           </div>
         </div>
       </div>
