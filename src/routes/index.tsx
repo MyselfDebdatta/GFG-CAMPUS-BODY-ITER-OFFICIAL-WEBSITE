@@ -398,7 +398,7 @@ function Home() {
                     <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
                       <span className="sr-only">View {e.title}</span>
                     </Link>
-                    <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
+                    <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/85 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
                       <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
                     </div>
                     <EventCardContent
@@ -423,7 +423,7 @@ function Home() {
                       <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
                         <span className="sr-only">View {e.title}</span>
                       </Link>
-                      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/85 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                         <CirclePlay className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                       </div>
                       <EventCardContent
@@ -448,8 +448,8 @@ function Home() {
                       <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
                         <span className="sr-only">View {e.title}</span>
                       </Link>
-                      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/20 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-white/80 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                        <Sparkles className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-[#00ff7f]" /> LATEST HIGHLIGHT
+                      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/20 bg-[#020b06]/85 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-white/90 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <Sparkles className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-[#00ff7f]" /> HIGHLIGHT
                       </div>
                       <EventCardContent
                         event={e}
@@ -656,7 +656,7 @@ function EventCardContent({
       onClick={undefined}
       className="group flex flex-col h-full cursor-pointer"
     >
-      <div className="relative aspect-[16/9] overflow-hidden">
+      <div className="relative aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden">
         <img
           src={event.image}
           alt={event.title}
@@ -664,32 +664,43 @@ function EventCardContent({
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-raw-hover:opacity-100" />
-        <span className="absolute right-2.5 top-2.5 sm:right-4 sm:top-4 rounded-full bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 z-10">
+        
+        {/* Mode Badge at bottom-left */}
+        <span className="absolute left-2.5 bottom-2.5 sm:left-4 sm:bottom-4 rounded-full bg-[#020b06]/85 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white/90 backdrop-blur-md shadow-md border border-white/15 z-10">
           {event.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
         </span>
+
+        {/* Quick Enlarge Zoom Button at top-right */}
         {onEnlarge && (
           <button
             type="button"
             onClick={onEnlarge}
             aria-label="Enlarge image"
-            className="absolute right-2.5 bottom-2.5 sm:right-3.5 sm:bottom-3.5 z-30 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white backdrop-blur-md transition-all duration-200 hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] active:scale-95 shadow-md cursor-pointer"
+            className="absolute right-2 top-2 sm:right-3.5 sm:top-3.5 z-20 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white backdrop-blur-md transition-all duration-200 hover:border-[#00ff7f] hover:bg-[#00ff7f]/20 hover:text-[#00ff7f] active:scale-95 shadow-md cursor-pointer"
           >
-            <ZoomIn className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+            <ZoomIn className="h-3.5 w-3.5" />
           </button>
         )}
       </div>
-      <div className="flex flex-col flex-1 p-3.5 sm:p-5 md:p-8">
-        <div className="text-xs sm:text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
-        <h3 className="mt-1 sm:mt-2 text-sm sm:text-lg md:text-2xl font-bold tracking-tight text-white transition-all duration-300 hover-gradient-text line-clamp-2">{event.title}</h3>
-        <p className="mt-1.5 sm:mt-3 text-xs sm:text-sm md:text-base text-white/60 flex-1 line-clamp-2 sm:line-clamp-3">{event.description}</p>
-        <Link 
-          to="/events/$eventId"
-          params={{ eventId: event.id }}
-          className="mt-3 sm:mt-6 inline-flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-semibold text-white/80 transition-colors raw-hover:text-white" 
-          style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}
+      <div className="flex flex-col flex-1 p-3.5 sm:p-5 md:p-8 justify-between">
+        <div>
+          <div className="text-[11px] sm:text-xs md:text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>
+            {event.date}
+          </div>
+          <h3 className="mt-1 sm:mt-2 text-xs sm:text-base md:text-2xl font-bold tracking-tight text-white leading-snug line-clamp-2 min-h-[2.1rem] sm:min-h-[2.75rem] md:min-h-0 transition-all duration-300 hover-gradient-text">
+            {event.title}
+          </h3>
+          <p className="mt-1.5 sm:mt-3 text-[11px] sm:text-sm md:text-base text-white/60 line-clamp-2 sm:line-clamp-3 leading-relaxed">
+            {event.description}
+          </p>
+        </div>
+        <div 
+          className="mt-3 sm:mt-6 inline-flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-bold text-white/90 group-hover:text-white transition-colors" 
+          style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}
         >
-          Learn more <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-raw-hover:translate-x-1 group-raw-hover:-translate-y-1" />
-        </Link>
+          <span>Learn more</span>
+          <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
       </div>
     </div>
   );
