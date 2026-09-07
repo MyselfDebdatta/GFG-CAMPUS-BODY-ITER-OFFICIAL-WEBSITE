@@ -87,7 +87,7 @@ export const EVENTS = [
     category: "Workshop",
     date: "10th July – 15th August 2026",
     venue: "Discord (Online) · #Skill-exchange-program",
-    status: "ongoing",
+    status: "past",
     speakers: [
       { name: "GFG Senior Core Team", role: "Domain Mentors", photo: "" },
       { name: "Vivek Ranjan Sahoo", role: "President", photo: "/team/vivek-ranjan-sahoo.png" },

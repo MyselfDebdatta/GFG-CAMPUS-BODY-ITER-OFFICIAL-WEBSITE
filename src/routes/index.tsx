@@ -386,9 +386,9 @@ function Home() {
           </div>
           
           <div className="mt-12 space-y-16">
-            {/* Spotlight: Upcoming & Ongoing */}
+            {/* Spotlight: Upcoming & Ongoing/Highlight */}
             <div className="grid gap-6 md:grid-cols-2">
-              {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e, i) => (
+              {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e) => (
                 <Reveal key={e.id} delay={0.1}>
                   <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
                     <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
@@ -401,19 +401,35 @@ function Home() {
                   </div>
                 </Reveal>
               ))}
-              {EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e, i) => (
-                <Reveal key={e.id} delay={0.2}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#3b82f6] raw-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
-                    <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
-                      <span className="sr-only">View {e.title}</span>
-                    </Link>
-                    <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                      <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
+              {EVENTS.filter((e) => e.status === "ongoing").length > 0 ? (
+                EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e) => (
+                  <Reveal key={e.id} delay={0.2}>
+                    <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#3b82f6] raw-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
+                      <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
+                        <span className="sr-only">View {e.title}</span>
+                      </Link>
+                      <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
+                      </div>
+                      <EventCardContent event={e} />
                     </div>
-                    <EventCardContent event={e} />
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))
+              ) : (
+                EVENTS.filter((e) => e.status === "past").slice(0, 1).map((e) => (
+                  <Reveal key={e.id} delay={0.2}>
+                    <div className="flex flex-col h-full rounded-3xl border border-white/15 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
+                      <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
+                        <span className="sr-only">View {e.title}</span>
+                      </Link>
+                      <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-white/20 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <Sparkles className="h-3.5 w-3.5 text-[#00ff7f]" /> LATEST HIGHLIGHT
+                      </div>
+                      <EventCardContent event={e} />
+                    </div>
+                  </Reveal>
+                ))
+              )}
             </div>
 
             {/* View All Past Events Action Button */}
