@@ -87,14 +87,22 @@ export function AnnualReportsSection() {
             className="group cursor-pointer rounded-2xl border border-white/10 bg-[#020b06] p-3 transition-all hover:border-[#00ff7f]/50 hover:bg-white/5 hover:shadow-[0_0_30px_rgba(0,255,127,0.15)] flex flex-col h-full"
           >
             {/* Book Cover */}
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-white/5 bg-gradient-to-b from-[#00ff7f]/10 to-transparent">
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                 <BookOpen className="h-12 w-12 text-[#00ff7f] mb-4 opacity-80" />
-                 <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                   GFG ITER<br/>Annual Report
-                 </h3>
-                 <p className="text-[#00ff7f] font-mono text-sm font-bold">{report.year}</p>
-              </div>
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-white/5 bg-[#020b06]">
+              {report.coverUrl ? (
+                <img
+                  src={report.coverUrl}
+                  alt={report.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                   <BookOpen className="h-12 w-12 text-[#00ff7f] mb-4 opacity-80" />
+                   <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                     GFG ITER<br/>Annual Report
+                   </h3>
+                   <p className="text-[#00ff7f] font-mono text-sm font-bold">{report.year}</p>
+                </div>
+              )}
               <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
                 <div className="rounded-full bg-[#00ff7f] text-[#020b06] px-6 py-2.5 font-bold transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 shadow-[0_0_20px_rgba(0,255,127,0.4)]">
                   Read Now

@@ -154,7 +154,7 @@ const PAGES: ReactNode[] = [
       <div className="flex-1 flex flex-col justify-center items-center pb-6">
         <div className="w-full max-w-[280px] sm:max-w-[340px] aspect-[16/10] overflow-hidden border-[4px] border-[#008F4C] relative mb-6 shadow-lg bg-white">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+            src="/reports/extracted/page_23_img_1_X6.jpg"
             alt="GFG ITER Builders"
             className="w-full h-full object-cover transition-transform hover:scale-105 duration-700"
           />
@@ -262,7 +262,7 @@ const PAGES: ReactNode[] = [
       {/* Banner Image */}
       <div className="relative w-full h-[60px] sm:h-[70px] mb-3">
         <div className="w-full h-full bg-[#ccc] overflow-hidden">
-           <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="ITER Campus" className="w-full h-full object-cover" />
+           <img src="/reports/extracted/page_3_img_1_X6.png" alt="ITER Campus" className="w-full h-full object-cover" />
         </div>
         <div className="absolute -bottom-2.5 left-4 right-4 bg-[#666666] py-1 px-2 text-center text-white z-10 shadow-sm">
           <h3 className="font-bold text-[9px] sm:text-[10px] tracking-wide mb-0.5">GEEKSFORGEEKS CAMPUS BODY ITER:</h3>
@@ -328,7 +328,7 @@ const PAGES: ReactNode[] = [
           
           {/* Square Image Placeholder */}
           <div className="w-full aspect-[4/3] bg-[#ccc] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Event" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
+            <img src="/reports/extracted/page_3_img_3_X15.jpg" alt="Event" className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" />
           </div>
           
           {/* Green Pill */}
@@ -458,7 +458,7 @@ const PAGES: ReactNode[] = [
       <div className="relative flex-1">
         {/* Top Image */}
         <div className="w-full h-[150px] sm:h-[180px] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="CodeUnbound Launch Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          <img src="/reports/extracted/page_5_img_1_X5.jpg" alt="CodeUnbound Launch Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
         </div>
         
         {/* Two Columns */}
@@ -467,7 +467,7 @@ const PAGES: ReactNode[] = [
           <div className="w-[45%] -mt-[70px] sm:-mt-[90px] relative z-10">
             <div className="bg-[#008F4C] p-1.5 shadow-md">
               <div className="border-[1.5px] border-[#F5F3EA] bg-[#222] aspect-[4/3] overflow-hidden">
-                 <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=800&q=80" alt="Guess the logo" className="w-full h-full object-cover opacity-80 mix-blend-screen" />
+                 <img src="/reports/extracted/page_5_img_2_X23.jpg" alt="Guess the logo" className="w-full h-full object-cover opacity-80 mix-blend-screen" />
               </div>
               <ul className="text-white text-[7px] sm:text-[7.5px] list-disc pl-3.5 mt-2 pr-1 pb-1 space-y-0.5 font-medium leading-[1.4]">
                  <li>During the orientation, the club's vision was clearly articulated:</li>
@@ -547,7 +547,7 @@ const PAGES: ReactNode[] = [
       {/* Bottom Image */}
       <div className="w-full px-5 mb-3 flex justify-center">
         <div className="w-[90%] border-[3px] border-[#008F4C] aspect-[2/1] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Code Unbound Team" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          <img src="/reports/extracted/page_6_img_1_X9.jpg" alt="Code Unbound Team" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
         </div>
       </div>
       
@@ -600,7 +600,7 @@ const PAGES: ReactNode[] = [
       {/* Overlapping Image Section */}
       <div className="relative flex justify-center mb-1.5 pr-[70px] sm:pr-[90px] pl-2 mt-1">
         <div className="border-[3px] border-[#008F4C] w-full aspect-[2/1] bg-[#222]">
-           <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+           <img src="/reports/extracted/page_7_img_1_X10.jpg" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-2 w-[110px] sm:w-[130px] bg-[#008F4C] p-2 shadow-md">
            <p className="text-white text-[7px] sm:text-[7.5px] text-center font-medium leading-[1.4]">
@@ -651,7 +651,7 @@ const PAGES: ReactNode[] = [
       
       {/* Top Image */}
       <div className="w-full h-[160px] sm:h-[190px] border-[3px] border-[#008F4C] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        <img src="/reports/extracted/page_8_img_1_X5.jpg" alt="ChaiLinks Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
@@ -662,7 +662,7 @@ const PAGES: ReactNode[] = [
             The experience was defined by its informal and welcoming environment. Tea and refreshments, served during the discussions, subtly enhanced the relaxed atmosphere, making participants feel at ease. ChainLinks Episode 0 was open to all students through a registration-based system, with attendance intentionally limited to ensure meaningful interaction. Despite this, the event attracted strong interest, bringing together students from different academic years who shared a genuine enthusiasm for discussion-driven learning.
           </p>
           <div className="w-full border-[2px] border-[#008F4C] aspect-square overflow-hidden mt-auto">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_8_img_2_X12.jpg" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
         
@@ -758,7 +758,7 @@ const PAGES: ReactNode[] = [
         {/* Right Column */}
         <div className="w-[55%] flex flex-col pt-0">
           <div className="w-full border-[3px] border-[#008F4C] aspect-[16/9] overflow-hidden mb-1.5">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="ChaiLinks Episode 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_9_img_1_X9.jpg" alt="ChaiLinks Episode 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="text-[#222] font-medium text-justify leading-[1.4] flex flex-col gap-1.5">
             <p className="font-bold text-[8px] sm:text-[8.5px] text-[#111] leading-[1.3]">
@@ -793,7 +793,7 @@ const PAGES: ReactNode[] = [
       
       {/* Top Image */}
       <div className="w-full h-[130px] sm:h-[150px] shrink-0 border-[3px] border-[#008F4C] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="ChainLinks Group" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        <img src="/reports/extracted/page_10_img_1_X5.jpg" alt="ChainLinks Group" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
@@ -815,7 +815,7 @@ const PAGES: ReactNode[] = [
             </p>
           </div>
           <div className="w-full border-[2px] border-[#008F4C] aspect-[4/3] overflow-hidden mt-auto">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_10_img_2_X15.jpg" alt="Students engaging" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
         
@@ -918,13 +918,13 @@ const PAGES: ReactNode[] = [
         {/* Right Column (Stacked Images) */}
         <div className="w-[40%] flex flex-col justify-between">
           <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80" alt="Podcast 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_11_img_1_X20.jpg" alt="Podcast 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Podcast 2" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_11_img_2_X24.jpg" alt="Podcast 2" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80" alt="Podcast 3" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_11_img_3_X26.jpg" alt="Podcast 3" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
       </div>
@@ -950,7 +950,7 @@ const PAGES: ReactNode[] = [
       
       {/* Top Image */}
       <div className="w-full h-[150px] sm:h-[180px] border-[3px] border-[#008F4C] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Event Highlights" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        <img src="/reports/extracted/page_12_img_1_X5.jpg" alt="Event Highlights" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
@@ -980,7 +980,7 @@ const PAGES: ReactNode[] = [
             </div>
             {/* Image inside green box */}
             <div className="w-full border-[1.5px] border-white mt-2 p-0.5 bg-white">
-              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80" alt="Zahid Akhtar" className="w-full h-[70px] sm:h-[80px] object-cover grayscale-[20%] contrast-125" />
+              <img src="/reports/extracted/page_12_img_4_X26.jpg" alt="Zahid Akhtar" className="w-full h-[70px] sm:h-[80px] object-cover grayscale-[20%] contrast-125" />
             </div>
           </div>
         </div>
@@ -991,7 +991,7 @@ const PAGES: ReactNode[] = [
           <div className="w-[90%] relative mb-4 mt-2">
             <div className="absolute inset-0 bg-[#D9D9D9] -left-1.5 -bottom-1.5 top-1.5 right-1.5"></div>
             <div className="relative border-[1px] border-[#008F4C] overflow-hidden bg-white p-0.5">
-              <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+              <img src="/reports/extracted/page_12_img_3_X23.jpg" alt="Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
             </div>
           </div>
           
@@ -1092,13 +1092,13 @@ const PAGES: ReactNode[] = [
         {/* Right Column (Stacked Images) */}
         <div className="w-[40%] flex flex-col justify-between">
           <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=500&q=80" alt="Session 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_13_img_1_X21.jpg" alt="Session 1" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden mt-2">
-            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Session 2" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_13_img_2_X25.jpg" alt="Session 2" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full aspect-[4/3] border-[2px] border-[#008F4C] overflow-hidden mt-2">
-            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80" alt="Session 3" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_13_img_3_X27.jpg" alt="Session 3" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
       </div>
@@ -1124,7 +1124,7 @@ const PAGES: ReactNode[] = [
       
       {/* Top Image */}
       <div className="w-full h-[120px] sm:h-[140px] shrink-0 border-[3px] border-[#008F4C] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Activity" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        <img src="/reports/extracted/page_14_img_2_X9.jpg" alt="Activity" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
@@ -1165,7 +1165,7 @@ const PAGES: ReactNode[] = [
         <div className="w-[45%] flex flex-col justify-between pt-1 pb-1">
           {/* Top Right Image */}
           <div className="w-[90%] border-[2px] border-[#008F4C] overflow-hidden ml-auto">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Students engaging" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_14_img_1_X5.jpg" alt="Students engaging" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
           </div>
           
           {/* Bottom Right Green Box on Gray Box */}
@@ -1220,7 +1220,7 @@ const PAGES: ReactNode[] = [
       {/* Top Image */}
       <div className="w-full h-[130px] border-[2px] border-white overflow-hidden mb-2 relative">
         <div className="absolute inset-0 bg-[#D9D9D9] -left-1 -bottom-1 top-1 right-1 -z-10"></div>
-        <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="Zerone Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+        <img src="/reports/extracted/page_16_img_1_X4.png" alt="Zerone Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
       </div>
       
       {/* Two Columns */}
@@ -1228,13 +1228,13 @@ const PAGES: ReactNode[] = [
         {/* Left Column (3 images) */}
         <div className="w-[45%] flex flex-col gap-2">
           <div className="w-full border-[1.5px] border-white overflow-hidden bg-white shadow-sm">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=500&q=80" alt="Zerone 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_15_img_2_X20.png" alt="Zerone 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full border-[1.5px] border-white overflow-hidden bg-white shadow-sm">
-            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80" alt="Zerone 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_15_img_3_X23.png" alt="Zerone 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full border-[1.5px] border-white overflow-hidden bg-white shadow-sm">
-            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" alt="Zerone 3" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_16_img_2_X19.png" alt="Zerone 3" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
         
@@ -1310,20 +1310,20 @@ const PAGES: ReactNode[] = [
           </div>
           {/* Bottom Left Image */}
           <div className="w-full mt-auto mb-1 border-[1.5px] border-white shadow-sm overflow-hidden bg-white">
-            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=500&q=80" alt="Pitch" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_18_img_1_X14.png" alt="Pitch" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
         
         {/* Right Column (3 Images) */}
         <div className="w-[50%] flex flex-col justify-between pb-2">
           <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80" alt="Rachitva 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_17_img_2_X21.png" alt="Rachitva 1" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white my-2">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="Rachitva 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_17_img_3_X22.png" alt="Rachitva 2" className="w-full aspect-[16/9] object-cover grayscale-[20%] contrast-125" />
           </div>
           <div className="w-full border-[1.5px] border-white shadow-sm overflow-hidden bg-white mt-auto mb-1">
-            <img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=500&q=80" alt="Rachitva Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
+            <img src="/reports/extracted/page_17_img_4_X23.png" alt="Rachitva Audience" className="w-full aspect-[4/3] object-cover grayscale-[20%] contrast-125" />
           </div>
         </div>
       </div>
@@ -1363,7 +1363,7 @@ const PAGES: ReactNode[] = [
             </p>
           </div>
           <div className="w-[45%]">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" alt="Achievement 1" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
+            <img src="/reports/extracted/page_21_img_1_X6.jpg" alt="Achievement 1" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
           </div>
         </div>
         
@@ -1377,7 +1377,7 @@ const PAGES: ReactNode[] = [
             </p>
           </div>
           <div className="w-[45%]">
-            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=500&q=80" alt="Achievement 2" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
+            <img src="/reports/extracted/page_21_img_2_X10.png" alt="Achievement 2" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
           </div>
         </div>
         
@@ -1391,7 +1391,7 @@ const PAGES: ReactNode[] = [
             </p>
           </div>
           <div className="w-[45%]">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Achievement 3" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
+            <img src="/reports/extracted/page_21_img_3_X12.png" alt="Achievement 3" className="w-full aspect-[4/3] object-cover rounded-xl border-[2px] border-[#222] shadow-sm grayscale-[10%] contrast-125" />
           </div>
         </div>
       </div>
@@ -1486,12 +1486,12 @@ const PAGES: ReactNode[] = [
       <div className="flex-1 relative flex flex-col pb-2 px-2">
         {/* Top Image */}
         <div className="flex-1 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1523580494112-071dcb92a71d?auto=format&fit=crop&w=800&q=80" alt="Core Team Top" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          <img src="/reports/extracted/page_23_img_1_X6.jpg" alt="Core Team Top" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
         </div>
         
         {/* Bottom Image */}
         <div className="flex-1 overflow-hidden mt-1">
-          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Core Team Bottom" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          <img src="/reports/extracted/page_23_img_2_X9.jpg" alt="Core Team Bottom" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
         </div>
         
         {/* Overlapping Banner */}
@@ -1524,7 +1524,7 @@ const PAGES: ReactNode[] = [
         {/* Right Image */}
         <div className="w-[45%] ml-4 relative mt-1">
           <div className="w-full aspect-[4/5] overflow-hidden rounded-[2px] shadow-sm border border-black/5">
-            <img src="https://images.unsplash.com/photo-1560972550-aba3456b5564?auto=format&fit=crop&w=500&q=80" alt="Creative" className="w-full h-full object-cover contrast-110 grayscale-[20%]" />
+            <img src="/reports/extracted/page_24_img_1_X4.png" alt="Creative" className="w-full h-full object-cover contrast-110 grayscale-[20%]" />
           </div>
         </div>
       </div>
