@@ -106,7 +106,7 @@ function Events() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3"
           >
             {filtered.length === 0 && (
               <div className="col-span-full rounded-2xl border border-dashed border-hairline p-12 text-center text-sm text-muted-foreground">
@@ -115,7 +115,7 @@ function Events() {
             )}
             {filtered.map((e, i) => (
               <Reveal key={e.id} delay={i * 0.04}>
-                <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)] cursor-pointer">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-hairline bg-surface-elevated transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_-30px_rgba(15,23,42,0.3)] cursor-pointer">
                   <Link to="/events/$eventId" params={{ eventId: e.id }} search={{ tab: e.status }} className="absolute inset-0 z-20">
                     <span className="sr-only">View {e.title}</span>
                   </Link>
@@ -126,33 +126,33 @@ function Events() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur">
+                    <span className="absolute left-2 top-2 sm:left-3 sm:top-3 rounded-full bg-background/90 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[10px] font-semibold uppercase tracking-wider backdrop-blur">
                       {e.category}
                     </span>
                   </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span className="inline-flex items-center gap-1"><Calendar className="h-3 w-3" /> {e.date}</span>
-                      <span className="inline-flex items-center gap-1"><MapPin className="h-3 w-3" /> {e.venue}</span>
+                  <div className="flex flex-1 flex-col p-3 sm:p-5">
+                    <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] sm:text-xs text-muted-foreground">
+                      <span className="inline-flex items-center gap-1"><Calendar className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" /> {e.date}</span>
+                      <span className="inline-flex items-center gap-1 truncate max-w-full"><MapPin className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" /> {e.venue}</span>
                     </div>
-                    <h3 className="mt-3 text-lg font-semibold tracking-tight transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32]">{e.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{e.description}</p>
+                    <h3 className="mt-1.5 sm:mt-3 text-xs sm:text-base md:text-lg font-semibold tracking-tight transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#32CD32] group-hover:via-[#e2da24] group-hover:to-[#32CD32] line-clamp-2">{e.title}</h3>
+                    <p className="mt-1 sm:mt-2 text-[11px] sm:text-sm text-muted-foreground flex-1 line-clamp-2 sm:line-clamp-3">{e.description}</p>
 
-                    <div className="mt-5 flex gap-2 pt-4 border-t border-hairline">
+                    <div className="mt-auto pt-2.5 sm:pt-4 border-t border-hairline flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2">
                       {e.status === "upcoming" ? (
-                        <Button size="sm" className="bg-brand text-brand-foreground hover:bg-brand/90 font-semibold">
+                        <Button size="sm" className="h-7 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm bg-brand text-brand-foreground hover:bg-brand/90 font-semibold">
                           Register
                         </Button>
                       ) : e.status === "ongoing" ? (
-                        <Button size="sm" className="bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 font-bold">
+                        <Button size="sm" className="h-7 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 font-bold">
                           Join Live
                         </Button>
                       ) : (
-                        <span className="inline-flex h-9 items-center justify-center rounded-md border border-hairline bg-transparent px-3 text-sm font-semibold text-foreground">
+                        <span className="inline-flex h-7 sm:h-9 items-center justify-center rounded-md border border-hairline bg-transparent px-2 sm:px-3 text-xs sm:text-sm font-semibold text-foreground">
                           Recap
                         </span>
                       )}
-                      <Button asChild size="sm" variant="ghost" className="text-muted-foreground hover:text-foreground">
+                      <Button asChild size="sm" variant="ghost" className="h-7 sm:h-9 px-2 sm:px-3 text-xs sm:text-sm text-muted-foreground hover:text-foreground">
                         <Link to="/events/$eventId" params={{ eventId: e.id }} search={{ tab: e.status }}>Read more</Link>
                       </Button>
                     </div>
