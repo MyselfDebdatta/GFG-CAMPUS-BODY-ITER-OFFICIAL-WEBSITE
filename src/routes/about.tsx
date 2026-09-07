@@ -149,8 +149,13 @@ function About() {
               {/* Image side */}
               <div className="w-full md:w-1/3 shrink-0">
                 <div className="relative aspect-[4/5] max-w-[300px] mx-auto md:max-w-none rounded-[1.5rem] overflow-hidden bg-black/40 border border-hairline flex items-center justify-center transition-transform duration-500 group-raw-hover:scale-[1.02]">
-                  <User className="w-32 h-32 text-brand/20 transition-transform duration-500 group-raw-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                  <img
+                    src="/team/saurav-kumar.jpg"
+                    alt="Mr. Saurav Kumar"
+                    className="h-full w-full object-cover object-[center_15%] transition-transform duration-500 group-raw-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
               

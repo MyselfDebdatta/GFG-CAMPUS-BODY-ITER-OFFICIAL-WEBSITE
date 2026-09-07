@@ -13,7 +13,7 @@ export const CLUB = {
   phone: "+91 82609 61948",
   reportingPeriod: "November 2025 – August 2026",
   facultyCoordinators: [
-    { name: "Mr. Saurav Kumar", role: "Faculty Coordinator", department: "Department of CSE, ITER" },
+    { name: "Mr. Saurav Kumar", role: "Faculty Coordinator", department: "Department of CSE, ITER", photo: "/team/saurav-kumar.jpg" },
     { name: "Mr. Sujit Bebortta", role: "Faculty Coordinator", department: "Department of CSE, ITER" },
   ],
   president: {
