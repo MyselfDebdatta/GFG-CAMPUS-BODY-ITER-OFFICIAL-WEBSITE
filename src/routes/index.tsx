@@ -98,7 +98,7 @@ function FloatingTechElements() {
   ];
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+    <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none z-10">
       {elementsData.map((item, i) => (
         <motion.div
           key={i}
