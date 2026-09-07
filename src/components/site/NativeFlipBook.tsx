@@ -458,7 +458,7 @@ const PAGES: ReactNode[] = [
       <div className="relative flex-1">
         {/* Top Image */}
         <div className="w-full h-[150px] sm:h-[180px] overflow-hidden">
-          <img src="/reports/extracted/page_5_img_1_X5.jpg" alt="CodeUnbound Launch Event" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          <img src="/reports/extracted/page_5_img_1_X5.jpg" alt="CodeUnbound Launch Event" className="w-full h-full object-cover" />
         </div>
         
         {/* Two Columns */}
@@ -547,7 +547,7 @@ const PAGES: ReactNode[] = [
       {/* Bottom Image */}
       <div className="w-full px-5 mb-3 flex justify-center">
         <div className="w-[90%] border-[3px] border-[#008F4C] aspect-[2/1] overflow-hidden">
-          <img src="/reports/extracted/page_6_img_1_X9.jpg" alt="Code Unbound Team" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+          <img src="/reports/extracted/page_6_img_1_X9.jpg" alt="Code Unbound Team" className="w-full h-full object-cover" />
         </div>
       </div>
       

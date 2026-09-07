@@ -400,18 +400,18 @@ export const EVENTS = [
     venue: "Bansuri Guru Auditorium, ITER",
     status: "past",
     speakers: [
-      { name: "GFG Lead Board & Domain Leads", role: "Founding Team", photo: "" }
+      { name: "GFG Lead Board & Domain Leads", role: "Founding Team", photo: "/team/ayush-r-pradhan.png" }
     ],
     description:
       "The official inauguration of the GeeksforGeeks (GFG) Student Chapter at ITER, SOA University in Bansuri Guru Auditorium. Featuring chapter vision roadmaps, domain lead introductions, and an interactive Menti Quiz with prizes for top performers.",
     image:
-      "/events/annual_p8_X28.png",
+      "/events/code-unbound-audience.jpg",
     gallery: [
+      "/events/code-unbound-audience.jpg",
+      "/events/code-unbound-stage.jpg",
+      "/events/code-unbound-podium.jpg",
       "/events/annual_p8_X28.png",
-      "/events/annual_p8_X29.png",
-      "/about-chapter-cohort.jpg",
-      "/events/annual_p12_X42.jpg",
-      "/events/annual_p10_X34.png"
+      "/events/annual_p8_X29.png"
     ],
   },
   {
