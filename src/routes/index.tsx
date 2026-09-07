@@ -387,15 +387,15 @@ function Home() {
           
           <div className="mt-12 space-y-16">
             {/* Spotlight: Upcoming & Ongoing/Highlight */}
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
               {EVENTS.filter((e) => e.status === "upcoming").slice(0, 1).map((e) => (
                 <Reveal key={e.id} delay={0.1}>
-                  <div className="flex flex-col h-full rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
+                  <div className="flex flex-col h-full rounded-2xl sm:rounded-3xl border border-[#00ff7f]/30 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
                     <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
                       <span className="sr-only">View {e.title}</span>
                     </Link>
-                    <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
-                      <span className="h-2 w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
+                    <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#00ff7f]/50 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#00ff7f] backdrop-blur-md shadow-[0_0_15px_rgba(0,255,127,0.3)]">
+                      <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#00ff7f] animate-pulse" /> UP NEXT
                     </div>
                     <EventCardContent event={e} />
                   </div>
@@ -404,12 +404,12 @@ function Home() {
               {EVENTS.filter((e) => e.status === "ongoing").length > 0 ? (
                 EVENTS.filter((e) => e.status === "ongoing").slice(0, 1).map((e) => (
                   <Reveal key={e.id} delay={0.2}>
-                    <div className="flex flex-col h-full rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#3b82f6] raw-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
+                    <div className="flex flex-col h-full rounded-2xl sm:rounded-3xl border border-[#3b82f6]/40 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#3b82f6] raw-hover:shadow-[0_0_12px_rgba(59,130,246,0.4)] relative group cursor-pointer">
                       <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
                         <span className="sr-only">View {e.title}</span>
                       </Link>
-                      <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                        <CirclePlay className="h-3.5 w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
+                      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#3b82f6]/50 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#3b82f6] backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <CirclePlay className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 animate-pulse text-[#3b82f6]" /> ONGOING
                       </div>
                       <EventCardContent event={e} />
                     </div>
@@ -418,12 +418,12 @@ function Home() {
               ) : (
                 EVENTS.filter((e) => e.status === "past").slice(0, 1).map((e) => (
                   <Reveal key={e.id} delay={0.2}>
-                    <div className="flex flex-col h-full rounded-3xl border border-white/15 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
+                    <div className="flex flex-col h-full rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 overflow-hidden backdrop-blur-md transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)] relative group cursor-pointer">
                       <Link to="/events/$eventId" params={{ eventId: e.id }} className="absolute inset-0 z-20">
                         <span className="sr-only">View {e.title}</span>
                       </Link>
-                      <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-full border border-white/20 bg-[#020b06]/80 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white/80 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                        <Sparkles className="h-3.5 w-3.5 text-[#00ff7f]" /> LATEST HIGHLIGHT
+                      <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/20 bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-white/80 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                        <Sparkles className="h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 text-[#00ff7f]" /> LATEST HIGHLIGHT
                       </div>
                       <EventCardContent event={e} />
                     </div>
@@ -609,21 +609,21 @@ function EventCardContent({ event }: { event: (typeof EVENTS)[number] }) {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-raw-hover:opacity-100" />
-        <span className="absolute right-4 top-4 rounded-full bg-[#020b06]/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 z-10">
+        <span className="absolute right-2.5 top-2.5 sm:right-4 sm:top-4 rounded-full bg-[#020b06]/80 px-2 py-1 sm:px-3 sm:py-1.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/10 z-10">
           {event.venue.toLowerCase().includes('online') ? 'Online' : 'Offline'}
         </span>
       </div>
-      <div className="flex flex-col flex-1 p-6 md:p-8">
-        <div className="text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
-        <h3 className="mt-2 text-2xl font-bold tracking-tight text-white transition-all duration-300 hover-gradient-text">{event.title}</h3>
-        <p className="mt-3 text-base text-white/60 flex-1 line-clamp-3">{event.description}</p>
+      <div className="flex flex-col flex-1 p-3.5 sm:p-5 md:p-8">
+        <div className="text-xs sm:text-sm font-semibold tracking-wide" style={{ color: event.status === 'ongoing' ? '#3b82f6' : '#00ff7f' }}>{event.date}</div>
+        <h3 className="mt-1 sm:mt-2 text-sm sm:text-lg md:text-2xl font-bold tracking-tight text-white transition-all duration-300 hover-gradient-text line-clamp-2">{event.title}</h3>
+        <p className="mt-1.5 sm:mt-3 text-xs sm:text-sm md:text-base text-white/60 flex-1 line-clamp-2 sm:line-clamp-3">{event.description}</p>
         <Link 
           to="/events/$eventId"
           params={{ eventId: event.id }}
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors raw-hover:text-white" 
+          className="mt-3 sm:mt-6 inline-flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-semibold text-white/80 transition-colors raw-hover:text-white" 
           style={{ color: event.status === 'ongoing' ? 'rgba(59,130,246,0.8)' : 'rgba(0,255,127,0.8)' }}
         >
-          Learn more <ArrowUpRight className="h-4 w-4 transition-transform group-raw-hover:translate-x-1 group-raw-hover:-translate-y-1" />
+          Learn more <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-raw-hover:translate-x-1 group-raw-hover:-translate-y-1" />
         </Link>
       </div>
     </div>
