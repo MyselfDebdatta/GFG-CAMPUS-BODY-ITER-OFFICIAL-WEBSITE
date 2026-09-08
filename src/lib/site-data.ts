@@ -604,14 +604,15 @@ export const TEAM = [
     github: "https://github.com/srustibiswal6-sketch"
   },
   {
-    name: "Ayush Kumar",
+    name: "Depesh Singh",
     role: "PR and Media Core Member",
     group: "PR and Media Team",
-    bio: "PR and Media Core Member (Batch 2029). Video creator and digital storyteller turning creative ideas into impactful chapter promotions.",
-    photo: "/team/ayush-kumar.jpg",
-    email: "ayushkumar12728@gmail.com",
-    linkedin: "https://www.linkedin.com/in/ayush-kumar-b1298924b",
-    github: "https://github.com/ayushkumar12728-oss"
+    bio: "PR and Media Core Member (Batch 2028). Web builder and digital creator managing online engagement, video assets, and community reach.",
+    photo: "/team/depesh-singh.jpg",
+    email: "singhdepesh912@gmail.com",
+    linkedin: "https://www.linkedin.com/in/depesh-singh-b6261437a",
+    github: "https://github.com/Depesh-singh",
+    portfolio: "https://depeshsingh.space"
   },
   {
     name: "Ritisha Sahoo",
@@ -684,15 +685,14 @@ export const TEAM = [
     github: "https://github.com/VidishaJena"
   },
   {
-    name: "Depesh Singh",
+    name: "Ayush Kumar",
     role: "PR and Media Core Member",
     group: "PR and Media Team",
-    bio: "PR and Media Core Member (Batch 2028). Web builder and digital creator managing online engagement, video assets, and community reach.",
-    photo: "/team/depesh-singh.jpg",
-    email: "singhdepesh912@gmail.com",
-    linkedin: "https://www.linkedin.com/in/depesh-singh-b6261437a",
-    github: "https://github.com/Depesh-singh",
-    portfolio: "https://depeshsingh.space"
+    bio: "PR and Media Core Member (Batch 2029). Video creator and digital storyteller turning creative ideas into impactful chapter promotions.",
+    photo: "/team/ayush-kumar.jpg",
+    email: "ayushkumar12728@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ayush-kumar-b1298924b",
+    github: "https://github.com/ayushkumar12728-oss"
   },
   {
     name: "Tushar Das",
