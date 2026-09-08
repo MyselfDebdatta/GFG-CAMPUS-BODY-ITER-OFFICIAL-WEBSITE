@@ -95,8 +95,9 @@ export const EVENTS = [
     ],
     description:
       "Theme: Learn It. Build It. Share It. A comprehensive peer-led technical learning initiative introducing undergraduate students to 8 high-demand CS domains: Blockchain & Web3, Quantum Computing, Computer Networking, Cybersecurity, Linux & Cloud, DevOps & CI/CD, AI Automation with n8n, and Data Science.",
-    image: "/events/page_61_img_1__X17.jpg",
+    image: "/events/skills-exchange-banner.jpg",
     gallery: [
+      "/events/skills-exchange-banner.jpg",
       "/events/page_61_img_1__X17.jpg",
       "/events/page_70_img_1__X17.jpg",
       "/events/page_34_img_3__X22.jpg",
