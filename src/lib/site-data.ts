@@ -533,16 +533,6 @@ export const TEAM = [
     portfolio: "https://debdatta-panda.vercel.app/"
   },
   {
-    name: "Arman Khan",
-    role: "Technical Core Member",
-    group: "Technical Team",
-    bio: "Full-stack developer and technical builder contributing to core chapter development, web applications, and collaborative coding initiatives.",
-    photo: "/team/arman-khan.jpg",
-    email: "arman001992khan@gmail.com",
-    linkedin: "https://www.linkedin.com/in/arman-khan-3a6059180",
-    github: "https://github.com/arman001992khan-pixel"
-  },
-  {
     name: "Debajyoti Bhakta",
     role: "Technical Core Member",
     group: "Technical Team",
@@ -551,6 +541,16 @@ export const TEAM = [
     email: "debajyotitech04@gmail.com",
     linkedin: "https://www.linkedin.com/in/debajyoti-bhakta/",
     github: "https://github.com/ItsYash40"
+  },
+  {
+    name: "Arman Khan",
+    role: "Technical Core Member",
+    group: "Technical Team",
+    bio: "Full-stack developer and technical builder contributing to core chapter development, web applications, and collaborative coding initiatives.",
+    photo: "/team/arman-khan.jpg",
+    email: "arman001992khan@gmail.com",
+    linkedin: "https://www.linkedin.com/in/arman-khan-3a6059180",
+    github: "https://github.com/arman001992khan-pixel"
   },
   {
     name: "Apurva Sahay",
