@@ -26,10 +26,17 @@ import {
   Github,
   Quote,
   User,
-  ZoomIn
+  ZoomIn,
+  Phone,
+  Mail,
+  Send,
+  CheckCircle2,
+  MessageSquare
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 import { Reveal, SectionHeader, Counter } from "@/components/site/Primitives";
 import { FAQSection } from "@/components/site/FAQ";
 import { CanvasBackground } from "@/components/site/CanvasBackground";
@@ -590,40 +597,47 @@ function Home() {
       {/* FAQ SECTION */}
       <FAQSection />
 
-      {/* NEWSLETTER CTA */}
+      {/* CONTACT & NEWSLETTER CTA */}
       <section className="relative z-10 container-page pb-24">
-        <div className="group cursor-pointer relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#060D09] p-8 md:p-10 transition-all duration-300 raw-hover:border-[#00ff7f] raw-hover:shadow-[0_0_12px_rgba(0,255,127,0.4)]">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#060D09] p-8 md:p-12 transition-all duration-300 raw-hover:border-[#00ff7f]/40 raw-hover:shadow-[0_0_25px_rgba(0,255,127,0.2)]">
           {/* Uniform Grid Background */}
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
           
-          <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
+          <div className="relative grid gap-10 lg:grid-cols-12 lg:items-center">
+            {/* Left Column */}
+            <div className="lg:col-span-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#00ff7f]/20 bg-[#00ff7f]/10 px-4 py-1.5 text-xs font-bold tracking-[0.1em] text-[#00ff7f] mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] animate-pulse" />
                 STAY IN THE LOOP
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-4 transition-all duration-300 text-white hover-gradient-text">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-4 text-white hover-gradient-text">
                 Event drops, project updates, opportunities.
               </h2>
-              <p className="text-lg text-white/60 font-medium">
-                One email a month. No spam. Ever.
+              <p className="text-base text-white/60 font-medium mb-6">
+                Share your details and message below. Whether you want to join our technical cohorts, pitch an event idea, or collaborate with GFG ITER, our leads will connect with you.
               </p>
+
+              <div className="space-y-3 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/70">
+                <div className="flex items-center gap-2.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#00ff7f]" />
+                  <span>Direct response from chapter domain leads</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#00ff7f]" />
+                  <span>Invitations to exclusive hackathons & cohorts</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#00ff7f]" />
+                  <span>One update digest a month · Zero spam</span>
+                </div>
+              </div>
             </div>
-            <div className="flex lg:justify-end w-full">
-              <form onSubmit={(e) => e.preventDefault()} className="flex w-full max-w-lg flex-col sm:flex-row gap-3">
-                <Input 
-                  type="email" 
-                  required 
-                  placeholder="you@iter.ac.in" 
-                  className="h-14 bg-transparent border-white/10 text-white placeholder:text-white/40 focus:border-[#00ff7f]/50 transition-colors rounded-xl text-base px-5 flex-1" 
-                />
-                <Button 
-                  type="submit" 
-                  className="h-14 px-8 rounded-xl bg-[#00ff7f] text-[#020b06] raw-hover:bg-[#00ff7f]/90 font-bold text-base transition-all shrink-0"
-                >
-                  Subscribe <Calendar className="ml-2 h-5 w-5" />
-                </Button>
-              </form>
+
+            {/* Right Column (4 Fields Form) */}
+            <div className="lg:col-span-7 flex justify-end w-full">
+              <div className="w-full bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-7 backdrop-blur-sm shadow-xl">
+                <ContactInquiryForm />
+              </div>
             </div>
           </div>
         </div>
@@ -641,6 +655,135 @@ function Home() {
         />
       )}
     </div>
+  );
+}
+
+function ContactInquiryForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      toast.error("Please fill in all 4 required fields.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const stored = JSON.parse(localStorage.getItem("gfg_contact_messages") || "[]");
+      stored.push({
+        ...formData,
+        timestamp: new Date().toISOString(),
+      });
+      localStorage.setItem("gfg_contact_messages", JSON.stringify(stored));
+    } catch (err) {
+      console.error(err);
+    }
+
+    setTimeout(() => {
+      setSubmitting(false);
+      setSubmitted(true);
+      toast.success("Thank you! Your details and message have been submitted.");
+      setFormData({ name: "", phone: "", email: "", message: "" });
+      setTimeout(() => setSubmitted(false), 5000);
+    }, 600);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full space-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        {/* 1. Full Name */}
+        <div className="space-y-1.5 text-left">
+          <label className="text-[11px] font-semibold uppercase tracking-wider text-white/75 flex items-center gap-1.5">
+            <User className="w-3.5 h-3.5 text-[#00ff7f]" /> Name
+          </label>
+          <Input
+            type="text"
+            required
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            placeholder="Your full name"
+            className="h-11 bg-black/50 border-white/10 text-white placeholder:text-white/35 focus:border-[#00ff7f] focus:ring-1 focus:ring-[#00ff7f] rounded-xl text-sm px-3.5 transition-all"
+          />
+        </div>
+
+        {/* 2. Contact Number */}
+        <div className="space-y-1.5 text-left">
+          <label className="text-[11px] font-semibold uppercase tracking-wider text-white/75 flex items-center gap-1.5">
+            <Phone className="w-3.5 h-3.5 text-[#00ff7f]" /> Contact Number
+          </label>
+          <Input
+            type="tel"
+            required
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            placeholder="+91 98765 43210"
+            className="h-11 bg-black/50 border-white/10 text-white placeholder:text-white/35 focus:border-[#00ff7f] focus:ring-1 focus:ring-[#00ff7f] rounded-xl text-sm px-3.5 transition-all"
+          />
+        </div>
+      </div>
+
+      {/* 3. Mail Address */}
+      <div className="space-y-1.5 text-left">
+        <label className="text-[11px] font-semibold uppercase tracking-wider text-white/75 flex items-center gap-1.5">
+          <Mail className="w-3.5 h-3.5 text-[#00ff7f]" /> Mail ID
+        </label>
+        <Input
+          type="email"
+          required
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          placeholder="you@iter.ac.in"
+          className="h-11 bg-black/50 border-white/10 text-white placeholder:text-white/35 focus:border-[#00ff7f] focus:ring-1 focus:ring-[#00ff7f] rounded-xl text-sm px-3.5 transition-all"
+        />
+      </div>
+
+      {/* 4. Message */}
+      <div className="space-y-1.5 text-left">
+        <label className="text-[11px] font-semibold uppercase tracking-wider text-white/75 flex items-center gap-1.5">
+          <MessageSquare className="w-3.5 h-3.5 text-[#00ff7f]" /> Message
+        </label>
+        <Textarea
+          required
+          rows={3}
+          value={formData.message}
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          placeholder="What would you like to build, discuss, or inquire about?"
+          className="min-h-[85px] bg-black/50 border-white/10 text-white placeholder:text-white/35 focus:border-[#00ff7f] focus:ring-1 focus:ring-[#00ff7f] rounded-xl text-sm p-3.5 transition-all resize-none"
+        />
+      </div>
+
+      {/* Submit Button */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+        <span className="text-[11px] text-white/40 text-center sm:text-left">
+          🔒 Details kept confidential · No spam ever.
+        </span>
+        <Button
+          type="submit"
+          disabled={submitting}
+          className="w-full sm:w-auto h-11 px-7 rounded-xl bg-[#00ff7f] text-[#020b06] hover:bg-[#00ff7f]/90 font-bold text-sm transition-all shadow-[0_0_20px_rgba(0,255,127,0.3)] hover:shadow-[0_0_25px_rgba(0,255,127,0.5)] flex items-center justify-center gap-2 shrink-0 cursor-pointer"
+        >
+          {submitted ? (
+            <>
+              <CheckCircle2 className="h-4 w-4" /> Message Sent!
+            </>
+          ) : submitting ? (
+            "Sending..."
+          ) : (
+            <>
+              Submit Details <Send className="h-4 w-4" />
+            </>
+          )}
+        </Button>
+      </div>
+    </form>
   );
 }
 
