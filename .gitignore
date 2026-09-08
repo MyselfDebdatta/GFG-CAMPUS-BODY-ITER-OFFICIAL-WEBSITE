@@ -34,3 +34,7 @@ dist-ssr
 # Vercel
 .vercel
 .vercel/
+
+# Temporary and scratch directories
+scratch/
+*.tmp
