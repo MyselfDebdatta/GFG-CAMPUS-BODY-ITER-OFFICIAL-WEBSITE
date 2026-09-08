@@ -543,14 +543,14 @@ export const TEAM = [
     github: "https://github.com/arman001992khan-pixel"
   },
   {
-    name: "Sushobhan Ghosh",
+    name: "Debajyoti Bhakta",
     role: "Technical Core Member",
     group: "Technical Team",
-    bio: "Technical Core Member (Batch 2027). Full-stack builder focused on algorithms, systems design, and student engineering initiatives.",
-    photo: "/team/sushobhan-ghosh.png",
-    email: "sushobhan.3760@gmail.com",
-    linkedin: "https://www.linkedin.com/in/sushobhan16/",
-    github: "https://github.com/sushobhan16"
+    bio: "Technical Core Member (Batch 2027). Gen AI and Quantum Computing enthusiast, hackathon winner, and core technical developer.",
+    photo: "/team/debajyoti-bhakta.jpeg",
+    email: "debajyotitech04@gmail.com",
+    linkedin: "https://www.linkedin.com/in/debajyoti-bhakta/",
+    github: "https://github.com/ItsYash40"
   },
   {
     name: "Apurva Sahay",
@@ -563,14 +563,14 @@ export const TEAM = [
     github: "https://github.com/ApurvaSahayy"
   },
   {
-    name: "Debajyoti Bhakta",
+    name: "Sushobhan Ghosh",
     role: "Technical Core Member",
     group: "Technical Team",
-    bio: "Technical Core Member (Batch 2027). Gen AI and Quantum Computing enthusiast, hackathon winner, and core technical developer.",
-    photo: "/team/debajyoti-bhakta.jpeg",
-    email: "debajyotitech04@gmail.com",
-    linkedin: "https://www.linkedin.com/in/debajyoti-bhakta/",
-    github: "https://github.com/ItsYash40"
+    bio: "Technical Core Member (Batch 2027). Full-stack builder focused on algorithms, systems design, and student engineering initiatives.",
+    photo: "/team/sushobhan-ghosh.png",
+    email: "sushobhan.3760@gmail.com",
+    linkedin: "https://www.linkedin.com/in/sushobhan16/",
+    github: "https://github.com/sushobhan16"
   },
   {
     name: "Piyush Tiwari",
