@@ -358,47 +358,52 @@ export function BroadcastStation() {
       {/* Recruitment Application & Information Modal Dialog            */}
       {/* ------------------------------------------------------------- */}
       <Dialog open={isApplyModalOpen} onOpenChange={setIsApplyModalOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto border-2 border-[#00ff7f]/50 bg-[#060D09] text-white p-6 sm:p-8 rounded-3xl shadow-[0_0_50px_rgba(0,255,127,0.3)]">
-          <DialogHeader className="text-left border-b border-white/10 pb-5">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-xs font-mono font-bold tracking-wider text-red-400 uppercase">
-                Official Chapter Intake · Session 2026–2027
-              </span>
-            </div>
-            <DialogTitle className="text-2xl sm:text-3xl font-extrabold text-white">
-              GFG ITER Member Recruitment
-            </DialogTitle>
-            <DialogDescription className="text-sm sm:text-base text-white/70 mt-1">
-              Join the official GeeksforGeeks student collective at SOA University. Step up to engineer solutions, manage mega-hackathons, and grow alongside ITER's top builders.
-            </DialogDescription>
-          </DialogHeader>
+        <DialogContent className="max-w-3xl max-h-[85vh] w-[95vw] flex flex-col p-0 overflow-hidden border-2 border-[#00ff7f]/50 bg-[#060D09] text-white rounded-3xl shadow-[0_0_50px_rgba(0,255,127,0.3)]">
+          {/* Modal Header & Tabs (Fixed at Top) */}
+          <div className="p-6 sm:p-8 pb-4 border-b border-white/10 shrink-0 relative pr-16 sm:pr-20">
+            <DialogHeader className="text-left">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-xs font-mono font-bold tracking-wider text-red-400 uppercase">
+                  Official Chapter Intake · Session 2026–2027
+                </span>
+              </div>
+              <DialogTitle className="text-2xl sm:text-3xl font-extrabold text-white">
+                GFG ITER Member Recruitment
+              </DialogTitle>
+              <DialogDescription className="text-sm sm:text-base text-white/70 mt-1">
+                Join the official GeeksforGeeks student collective at SOA University. Step up to engineer solutions, manage mega-hackathons, and grow alongside ITER's top builders.
+              </DialogDescription>
+            </DialogHeader>
 
-          {/* Modal Navigation Tabs */}
-          <div className="flex flex-wrap items-center gap-2 mt-4 border-b border-white/10 pb-3">
-            {[
-              { id: "overview", label: "Overview & Perks" },
-              { id: "domains", label: "5 Open Domains" },
-              { id: "process", label: "Selection Process" },
-              { id: "faqs", label: "Candidate FAQs" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setModalTab(tab.id as any)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                  modalTab === tab.id
-                    ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_10px_rgba(0,255,127,0.3)]"
-                    : "text-white/60 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+            {/* Modal Navigation Tabs */}
+            <div className="flex flex-wrap items-center gap-2 mt-4 pt-1">
+              {[
+                { id: "overview", label: "Overview & Perks" },
+                { id: "domains", label: "5 Open Domains" },
+                { id: "process", label: "Selection Process" },
+                { id: "faqs", label: "Candidate FAQs" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setModalTab(tab.id as any)}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    modalTab === tab.id
+                      ? "bg-[#00ff7f] text-[#020b06] shadow-[0_0_10px_rgba(0,255,127,0.3)]"
+                      : "text-white/60 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Tab 1: Overview */}
-          {modalTab === "overview" && (
-            <div className="mt-5 space-y-6">
+          {/* Scrollable Content Body */}
+          <div className="flex-1 overflow-y-auto p-6 sm:p-8 py-5">
+            {/* Tab 1: Overview */}
+            {modalTab === "overview" && (
+              <div className="space-y-6">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                 <div className="rounded-xl border border-white/10 bg-white/5 p-3">
                   <div className="text-white/50">Eligibility</div>
@@ -538,9 +543,10 @@ export function BroadcastStation() {
               ))}
             </div>
           )}
+          </div>
 
-          {/* Modal Footer CTA */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-5">
+          {/* Modal Footer CTA (Fixed at Bottom) */}
+          <div className="p-5 sm:px-8 border-t border-white/10 shrink-0 bg-[#060D09] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-white/50">
               Questions? Reach out to <a href="mailto:gfgiter@gmail.com" className="text-[#00ff7f] hover:underline font-mono">gfgiter@gmail.com</a>
             </div>
