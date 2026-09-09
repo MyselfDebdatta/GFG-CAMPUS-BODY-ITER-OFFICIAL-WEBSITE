@@ -542,7 +542,7 @@ export function BroadcastStation() {
           {/* Modal Footer CTA */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-5">
             <div className="text-xs text-white/50">
-              Questions? Reach out to <a href="mailto:gfgiter@soa.ac.in" className="text-[#00ff7f] hover:underline font-mono">gfgiter@soa.ac.in</a>
+              Questions? Reach out to <a href="mailto:gfgiter@gmail.com" className="text-[#00ff7f] hover:underline font-mono">gfgiter@gmail.com</a>
             </div>
 
             <div className="flex items-center gap-3 w-full sm:w-auto">

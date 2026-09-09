@@ -1409,7 +1409,7 @@ export const BROADCASTS: BroadcastItem[] = [
     ],
     registrationUrl: "https://forms.gle/gfg-iter-recruitment-2026-2027",
     actionLabel: "Apply for Recruitment 2026–2027",
-    contactEmail: "gfgiter@soa.ac.in"
+    contactEmail: "gfgiter@gmail.com"
   },
   {
     id: "zerone-ctf-2026",

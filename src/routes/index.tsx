@@ -232,10 +232,10 @@ function Home() {
             <p className="mx-auto mt-8 max-w-3xl text-base text-muted-foreground sm:text-xl leading-relaxed">
               Fostering technical excellence, research curiosity, interdisciplinary innovation, and career development through strong academic-industry collaboration.
             </p>
-            <div className="mt-14 flex justify-center">
+            <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-6">
               <Link to="/community" className="relative group block transition-transform duration-300 raw-hover:scale-105">
                 {/* Main Button */}
-                <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-raw-hover:bg-[#00ff7f]/5 group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)]">
+                <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-8 sm:px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-raw-hover:bg-[#00ff7f]/5 group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)] text-center">
                   Join the Community
                 </div>
                 {/* Overlapping Pill */}
@@ -243,6 +243,24 @@ function Home() {
                   <div className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] mt-2 animate-dot-bounce" />
                 </div>
               </Link>
+
+              <a
+                href="#stay-in-the-loop"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("stay-in-the-loop")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="relative group block transition-transform duration-300 raw-hover:scale-105"
+              >
+                {/* Main Button */}
+                <div className="relative border-2 border-[#00ff7f] rounded-xl bg-transparent px-8 sm:px-10 py-4 text-[#00ff7f] font-bold text-lg sm:text-xl transition-all duration-300 group-raw-hover:bg-[#00ff7f]/5 group-raw-hover:shadow-[0_0_15px_rgba(0,255,127,0.2)] text-center">
+                  Stay in the Loop
+                </div>
+                {/* Overlapping Pill */}
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-7 h-10 rounded-full border-2 border-[#00ff7f] bg-[#010a05] flex items-center justify-center transition-all duration-300 group-raw-hover:shadow-[0_0_10px_rgba(0,255,127,0.2)]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00ff7f] mt-2 animate-dot-bounce" />
+                </div>
+              </a>
             </div>
           </motion.div>
 
@@ -598,7 +616,7 @@ function Home() {
       <FAQSection />
 
       {/* CONTACT & NEWSLETTER CTA */}
-      <section className="relative z-10 container-page pb-24">
+      <section id="stay-in-the-loop" className="relative z-10 container-page pb-24 scroll-mt-24">
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#060D09] p-8 md:p-12 transition-all duration-300 raw-hover:border-[#00ff7f]/40 raw-hover:shadow-[0_0_25px_rgba(0,255,127,0.2)]">
           {/* Uniform Grid Background */}
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]" />
