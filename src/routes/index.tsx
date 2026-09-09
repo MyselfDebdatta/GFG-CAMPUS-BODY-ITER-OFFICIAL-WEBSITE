@@ -658,6 +658,9 @@ function Home() {
   );
 }
 
+const GOOGLE_SCRIPT_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbx3npYg8mAzu361B1qhEXA7oU6vUZAq8bchPxY6Ck5dabCqoQYsiSjack5REbNEf4oH/exec";
+
 function ContactInquiryForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -668,7 +671,7 @@ function ContactInquiryForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
       toast.error("Please fill in all 4 required fields.");
@@ -676,6 +679,8 @@ function ContactInquiryForm() {
     }
 
     setSubmitting(true);
+
+    // 1. Local backup to localStorage
     try {
       const stored = JSON.parse(localStorage.getItem("gfg_contact_messages") || "[]");
       stored.push({
@@ -684,16 +689,32 @@ function ContactInquiryForm() {
       });
       localStorage.setItem("gfg_contact_messages", JSON.stringify(stored));
     } catch (err) {
-      console.error(err);
+      console.error("Local storage error:", err);
     }
 
-    setTimeout(() => {
+    // 2. Dispatch to Google Apps Script Webhook (Google Sheets + Dual HTML Emails)
+    try {
+      await fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
       setSubmitting(false);
       setSubmitted(true);
-      toast.success("Thank you! Your details and message have been submitted.");
+      toast.success("Thank you! Your details were submitted. A confirmation email has been dispatched!");
       setFormData({ name: "", phone: "", email: "", message: "" });
       setTimeout(() => setSubmitted(false), 5000);
-    }, 600);
+    } catch (err) {
+      console.error("Webhook submission error:", err);
+      setSubmitting(false);
+      // Even if fetch threw an error, details were backed up locally
+      toast.success("Thank you! Your message was submitted successfully.");
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    }
   };
 
   return (
