@@ -745,6 +745,15 @@ export const TEAM = [
     linkedin: "https://www.linkedin.com/in/mahrukh-nasis-887564374",
     github: "https://github.com/maxxcode17"
   },
+  {
+    name: "Nausabha Nasir",
+    role: "PR and Media Core Member",
+    group: "PR and Media Team",
+    bio: "PR and Media Core Member. Contributing to digital outreach, public relations, visual storytelling, and vibrant campus engagement.",
+    photo: "/team/nausabha-nasir.jpg",
+    linkedin: "https://www.linkedin.com/company/gfgiter/",
+    github: "https://github.com"
+  },
   
   // Design Team: Lead + 25 members
   {
