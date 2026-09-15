@@ -1416,7 +1416,7 @@ export const BROADCASTS: BroadcastItem[] = [
       "Direct guidance, mock interviews, and referral opportunities for top product companies",
       "Access to internal study pods, paid courses, and exclusive dev compute resources"
     ],
-    registrationUrl: "https://forms.gle/gfg-iter-recruitment-2026-2027",
+    registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdjaZTzi_Hu8xumi1NLff1pfWTD9OuEjLUoi7YRzTeBTWQLQw/viewform",
     actionLabel: "Apply for Recruitment 2026–2027",
     contactEmail: "gfgiter@gmail.com"
   },
